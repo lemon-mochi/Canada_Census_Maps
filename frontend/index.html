@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>StatCan Custom Boundaries</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    #map { height: 100vh; width: 100%; }
+    body { margin: 0; padding: 0; }
+  </style>
+</head>
+<body>
+
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    // 1. Center map over Canada
+    const map = L.map('map').setView([56.1304, -106.3468], 4);
+
+    // 2. Add OpenStreetMap tile layer
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    // 3. Fetch your custom GeoJSON file
+    fetch('./bc_census_da.geojson')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        // 4. Render GeoJSON on the map
+        const geojsonLayer = L.geoJSON(data, {
+          style: {
+            fillColor: '#ff7800',
+            color: '#000000',
+            weight: 1,
+            fillOpacity: 0.5
+          },
+          // Add popups showing feature attributes (e.g., CSDNAME, PRNAME)
+          onEachFeature: function (feature, layer) {
+            if (feature.properties) {
+              const name = feature.properties.CSDNAME || feature.properties.CDNAME || "Boundary Area";
+              layer.bindPopup(`<strong>${name}</strong>`);
+            }
+          }
+        }).addTo(map);
+
+        // 5. Automatically zoom and fit the map view to the bounds of your GeoJSON shape
+        map.fitBounds(geojsonLayer.getBounds());
+      })
+      .catch(error => console.error('Error loading GeoJSON:', error));
+  </script>
+</body>
+</html>
