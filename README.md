@@ -59,7 +59,7 @@ pip install -r requirements.txt
 ```
 
 ### Converting .shp files to .geojson ###
-To create the `.geojson` files needed to run the application, run the `create_geojson_files.py` program. This will run through all the directories in the `boundaries/` directory and create `.geojson` files in the root directory.
+To create the `.geojson` files needed to run the application, run the `create_geojson_files.py` program. This will run through all the directories in the `boundaries/` directory and create `.geojson` files in the root directory. This will take a few minutes to run.
 ```
 python3 create_geojson_files.py
 ```

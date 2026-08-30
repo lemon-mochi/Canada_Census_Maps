@@ -28,7 +28,7 @@ for file in "${geojson_files[@]}"; do
     output_file="$OUTPUT_DIR/${filename}.pmtiles"
 
     echo "Processing: $file"
-    echo "Output:     $output_file"
+    echo "Output:     backend/$output_file"
 
     # Execute tippecanoe
     # -o: output PMTiles file
@@ -38,7 +38,7 @@ for file in "${geojson_files[@]}"; do
     # --extend-zooms-if-still-dropping: ensures details aren't lost if maxzoom was guessed too low
     # --force: overwrites the output file if it already exists
     tippecanoe \
-        -o "$output_file" \
+        -o "backend/$output_file" \
         -zg \
         -Z4 \
         --drop-densest-as-needed \
@@ -46,7 +46,7 @@ for file in "${geojson_files[@]}"; do
         --force \
         "$file"
 
-    echo "Finished $filename.pmtiles"
+    echo "Finished backend/$filename.pmtiles"
     echo "----------------------------------------------------"
 done
 
