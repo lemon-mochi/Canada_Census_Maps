@@ -67,10 +67,10 @@ python3 create_geojson_files.py
 ### Implement Vector Tiles ###
 The boundaries for the census subdivions, census tracts, and dissemination areas are very small. The program cannot handle all of them. To deal with this, you will have to use vector tiles. This uses `tippecanoe`, which will need to be installed.
 ```
-git clone https://github.com/mapbox/tippecanoe.git
+git clone https://github.com/felt/tippecanoe.git
 cd tippecanoe
 make -j
-make install # you may have to use `sudo make install`
+sudo make install
 ```
 Make sure the `convert_boundaries.sh` file is executable.
 ```
