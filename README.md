@@ -1,4 +1,5 @@
 # Census Maps #
+This is a web application that displays Canadian census data on a map. The design is meant to be simple, so that even non-technical users may easily use.
 
 ## Running locally ##
 
@@ -6,6 +7,7 @@
 In order to run the program, you will have to download the boundary files from the official Statistics Canada website.
 Census files from [here](https://www12.statcan.gc.ca/census-recensement/2021/geo/sip-pis/boundary-limites/index-eng.cfm).
 There is no easy way to download all the needed files at once. You will have to manually download the needed files. I have gathered the needed download links.
+
 [2021 Provinces](https://www12.statcan.gc.ca/census-recensement/alternative_alternatif.cfm?l=eng&dispext=zip&teng=lpr_000b21a_e.zip&k=%20%20%20130596&loc=//www12.statcan.gc.ca/census-recensement/2021/geo/sip-pis/boundary-limites/files-fichiers/lpr_000b21a_e.zip)
 
 [2021 Census divisions](https://www12.statcan.gc.ca/census-recensement/alternative_alternatif.cfm?l=eng&dispext=zip&teng=lcd_000b21a_e.zip&k=%20%20%20136594&loc=//www12.statcan.gc.ca/census-recensement/2021/geo/sip-pis/boundary-limites/files-fichiers/lcd_000b21a_e.zip)
@@ -52,7 +54,7 @@ python3 -m venv venv
 # 2. Activate the virtual environment
 source venv/bin/activate
 
-# 3. Install packages from your requirements.txt file
+# 3. Install packages from the requirements.txt file
 pip install -r requirements.txt
 ```
 
