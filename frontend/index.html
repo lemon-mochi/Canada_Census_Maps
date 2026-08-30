@@ -1,59 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>StatCan Custom Boundaries</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <meta charset="UTF-8">
+  <title>StatCan Provincial Population Map</title>
+  <link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet" />
+  <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
+  <script src="https://unpkg.com/pmtiles@4/dist/pmtiles.js"></script>
   <style>
-    #map { height: 100vh; width: 100%; }
-    body { margin: 0; padding: 0; }
+    body { margin: 0; padding: 0; font-family: sans-serif; }
+    #map { height: 100vh; width: 100vw; }
+    .legend {
+      position: absolute; bottom: 30px; right: 20px;
+      background: rgba(255, 255, 255, 0.95); padding: 15px; border-radius: 6px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    .legend-item { display: flex; align-items: center; margin-bottom: 6px; font-size: 13px; }
+    .color-box { width: 20px; height: 18px; margin-right: 8px; border-radius: 2px; }
   </style>
 </head>
 <body>
 
   <div id="map"></div>
 
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <div class="legend">
+    <h4 style="margin: 0 0 10px 0;">2021 Population</h4>
+    <div class="legend-item"><span class="color-box" style="background: #f7fbff;"></span> &lt; 100,000</div>
+    <div class="legend-item"><span class="color-box" style="background: #c6dbef;"></span> 100,000 – 1,000,000</div>
+    <div class="legend-item"><span class="color-box" style="background: #6baed6;"></span> 1,000,000 – 4,000,000</div>
+    <div class="legend-item"><span class="color-box" style="background: #2171b5;"></span> 4,000,000 – 8,000,000</div>
+    <div class="legend-item"><span class="color-box" style="background: #08306b;"></span> 8,000,000+</div>
+  </div>
+
   <script>
-    // 1. Center map over Canada
-    const map = L.map('map').setView([56.1304, -106.3468], 4);
 
-    // 2. Add OpenStreetMap tile layer
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-      attribution: '© OpenStreetMap contributors'
-    }).addTo(map);
+    // Path to PMTiles file hosted by FastAPI
+    const protocol = new pmtiles.Protocol();
+    maplibregl.addProtocol("pmtiles", protocol.tile);
 
-    // 3. Fetch your custom GeoJSON file
-    fetch('./bc_census_da.geojson')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then(data => {
-        // 4. Render GeoJSON on the map
-        const geojsonLayer = L.geoJSON(data, {
-          style: {
-            fillColor: '#ff7800',
-            color: '#000000',
-            weight: 1,
-            fillOpacity: 0.5
+    const PMTILES_URL =
+        "http://localhost:8000/tiles_output/lpr_000b21a_e.pmtiles";
+
+    const testPMTiles = new pmtiles.PMTiles(PMTILES_URL); 
+
+    const SOURCE_LAYER = "lpr_000b21a_e";
+
+    const p = new pmtiles.PMTiles(PMTILES_URL);
+    protocol.add(p);
+
+    const map = new maplibregl.Map({
+      container: 'map',
+      style: {
+        version: 8,
+        sources: {
+          'osm-basemap': {
+            type: 'raster',
+            tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
+            tileSize: 256
           },
-          // Add popups showing feature attributes (e.g., CSDNAME, PRNAME)
-          onEachFeature: function (feature, layer) {
-            if (feature.properties) {
-              const name = feature.properties.CSDNAME || feature.properties.CDNAME || "Boundary Area";
-              layer.bindPopup(`<strong>${name}</strong>`);
+          'provincial-vector-source': {
+            type: 'vector',
+            url: `pmtiles://${PMTILES_URL}`,
+            promoteId: 'PRUID'
+          }
+        },
+        layers: [
+          {
+            id: 'basemap',
+            type: 'raster',
+            source: 'osm-basemap'
+          },
+          {
+            id: 'province-fill',
+            type: 'fill',
+            source: 'provincial-vector-source',
+            'source-layer': SOURCE_LAYER,
+            paint: {
+              'fill-color': [
+                'interpolate',
+                ['linear'],
+                ['feature-state', 'pop_2021'],
+                0,        '#f7fbff',
+                100000,   '#c6dbef',
+                1000000,  '#6baed6',
+                4000000,  '#2171b5',
+                8000000,  '#08306b'
+              ],
+              'fill-opacity': 0.75
+            }
+          },
+          {
+            id: 'province-borders',
+            type: 'line',
+            source: 'provincial-vector-source',
+            'source-layer': SOURCE_LAYER,
+            paint: {
+              'line-color': '#ffffff',
+              'line-width': 1.2
             }
           }
-        }).addTo(map);
+        ]
+      },
+      center: [-98.5795, 56.1304],
+      zoom: 3.5
+    });
 
-        // 5. Automatically zoom and fit the map view to the bounds of your GeoJSON shape
-        map.fitBounds(geojsonLayer.getBounds());
-      })
-      .catch(error => console.error('Error loading GeoJSON:', error));
+    let populationData = {};
+
+    // 2. Fetch population lookup dict from FastAPI
+    async function loadPopulationData() {
+      try {
+        const res = await fetch('http://localhost:8000/api/province-population');
+        const json = await res.json();
+        populationData = json.data;
+        updateMapFeatureStates();
+      } catch (err) {
+        console.error("Failed to load census population:", err);
+      }
+    }
+
+    // 3. Map population values onto vector features using PRUID
+    function updateMapFeatureStates() {
+      if (!Object.keys(populationData).length) return;
+
+      const features = map.querySourceFeatures(
+        'provincial-vector-source',
+        {
+          sourceLayer: SOURCE_LAYER
+        }
+      );
+
+      features.forEach(feature => {
+        const pruid = String(feature.properties.PRUID);
+        const pop = populationData[pruid];
+
+        if (pop !== undefined && feature.id !== undefined) {
+          map.setFeatureState(
+            {
+              source: 'provincial-vector-source',
+              sourceLayer: SOURCE_LAYER,
+              id: feature.id
+            },
+            { pop_2021: pop }
+          );
+        }
+      });
+    }
+
+    map.on('load', loadPopulationData);
+    map.on('sourcedata', (e) => {
+      if (e.isSourceLoaded && e.sourceId === 'provincial-vector-source') {
+        updateMapFeatureStates();
+      }
+    });
+
+    // 4. On-click Popup
+    map.on('click', 'province-fill', (e) => {
+      const feature = e.features[0];
+
+      console.log("PROPERTIES:", feature.properties);
+      console.log("FEATURE ID:", feature.id);      
+      console.log("FEATURE:", e.features[0]);
+      console.log("PROPERTIES:", e.features[0].properties);
+      console.log("ID:", e.features[0].id);
+      console.log(e.features[0].properties);
+      const props = e.features[0].properties;
+      const pruid = props.PRUID;
+      const provName = props.PRENAME || props.PRNAME || "Province";
+      const pop = populationData[pruid] ? populationData[pruid].toLocaleString() : "N/A";
+
+      new maplibregl.Popup()
+        .setLngLat(e.lngLat)
+        .setHTML(`<strong>${provName}</strong><br/>2021 Population: ${pop}`)
+        .addTo(map);
+    });
+
+    map.on('mouseenter', 'province-fill', () => map.getCanvas().style.cursor = 'pointer');
+    map.on('mouseleave', 'province-fill', () => map.getCanvas().style.cursor = '');
   </script>
 </body>
 </html>
