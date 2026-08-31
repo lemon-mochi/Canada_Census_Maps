@@ -5,7 +5,7 @@ from pathlib import Path
 # 1. Load the downloaded StatCan Shapefile
 # Example: Census Subdivisions files 
 shapefile_path_dir = Path("./boundaries")
-output_path_dir = Path("../")
+output_path_dir = Path("./")
 
 for shapefile in shapefile_path_dir.rglob("*.shp"):
     print(f"Processing: {shapefile}")

@@ -59,7 +59,7 @@ pip install -r requirements.txt
 ```
 
 ### Converting .shp files to .geojson ###
-To create the `.geojson` files needed to run the application, run the `create_geojson_files.py` program. This will run through all the directories in the `boundaries/` directory and create `.geojson` files in the root directory. This will take a few minutes to run.
+To create the `.geojson` files needed to run the application, run the `create_geojson_files.py` program. This will run through all the directories in the `boundaries/` directory and create `.geojson` files in the `backend/` directory. This will take a few minutes to run.
 ```
 python3 create_geojson_files.py
 ```
@@ -77,7 +77,7 @@ Make sure the `convert_boundaries.sh` file is executable.
 chmod +x convert_boundaries.sh
 ```
 
-Then, run the `convert_boundaries.sh` file to convert all the `.geojson` files into the vector tiles. This will take a few minutes.
+Then, run the `convert_boundaries.sh` file in the `backend/` directory to convert all the `.geojson` files into the vector tiles. This will take a few minutes.
 ```
 ./convert_boundaries.sh
 ```
