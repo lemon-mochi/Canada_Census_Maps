@@ -90,10 +90,25 @@ def parse_statcan_sdmx_to_pruid_map(json_data):
 
 CACHED_POPULATION_DATA = None
 
-@app.get("/api/province-population")
-def get_province_population():
+@app.get("/api/population")
+def get_population(geo_level: str):
+    print(geo_level)
     agencyID = "STC_CP"
-    dataflow = "DF_PR"
+    # information about dataflow available at:
+    # https://www12.statcan.gc.ca/wds-sdw/2021profile-profil2021-eng.cfm
+    match geo_level:
+        case "lpr":
+            dataflow = "DF_PR"
+        case "lcd":
+            dataflow = "DF_CD"
+        case "lcsb":
+            dataflow = "DF_CSB"
+        case "lfed":
+            dataflow = "DF_FED,1.3"
+        case "lct":
+            dataflow = "DF_CT"
+        case "lda":
+            dataflow = "DF_DA"
     key = "A5..1.1.1"
     parameters = "format=jsondata"
 
@@ -109,11 +124,6 @@ def get_province_population():
 
     data = response.json()
 
-
-    # print("STATUS:", response.status_code)
-    # print("URL:", response.url)
-    # print("RESPONSE:", response.text[:1000])
-
     response.raise_for_status()
 
     parsed_json = parse_statcan_sdmx_to_pruid_map(json_data=data)
@@ -121,35 +131,3 @@ def get_province_population():
     print("parsed_json:", parsed_json)
 
     return parsed_json
-
-    # # 2. Extract CSV into RAM
-    # zip_res = requests.get(data.get("object"))
-    # zip_file = zipfile.ZipFile(io.BytesIO(zip_res.content))
-    # csv_filename = [f for f in zip_file.namelist() if f.endswith(".csv") and not f.endswith("_MetaData.csv")][0]
-
-    # with zip_file.open(csv_filename) as f:
-    #     population_column = (
-    #         "Population and dwelling counts (11): Population, 2021 [1]"
-    #     )        
-    #     # Load necessary fields
-    #     df = pd.read_csv(
-    #         f,
-    #         usecols=["GEO", "DGUID", population_column],
-    #         low_memory=False
-    #     )
-
-    #     # Extract PRUID from the last two digits of DGUID
-    #     df["PRUID"] = df["DGUID"].str[-2:]
-
-    #     # Keep only the province id and 2021 population
-    #     df = df[["PRUID", population_column]]
-
-    #     # Remove rows where population isn't available
-    #     df = df.dropna(subset=[population_column])
-
-    #     return {
-    #         "data": {
-    #             row["PRUID"]: row[population_column]
-    #             for _, row in df.iterrows()
-    #         }
-    #     }
