@@ -1,3 +1,5 @@
 *.geojson
 tippecanoe/
 tiles_output/
+temp.json
+script2.js
