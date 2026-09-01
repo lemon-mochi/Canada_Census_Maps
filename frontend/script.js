@@ -2,15 +2,18 @@
 const protocol = new pmtiles.Protocol();
 maplibregl.addProtocol("pmtiles", protocol.tile);
 
-const PMTILES_URL =
+var PMTILES_URL =
     "http://localhost:8000/tiles_output/lpr_000b21a_e.pmtiles";
 
 const testPMTiles = new pmtiles.PMTiles(PMTILES_URL); 
 
-const SOURCE_LAYER = "lpr_000b21a_e";
+var SOURCE_LAYER = "lpr_000b21a_e";
 
-const p = new pmtiles.PMTiles(PMTILES_URL);
+var p = new pmtiles.PMTiles(PMTILES_URL);
 protocol.add(p);
+
+var censusYear = "2021"
+
 
 const map = new maplibregl.Map({
     container: 'map',
@@ -20,12 +23,13 @@ const map = new maplibregl.Map({
             'osm-basemap': {
                 type: 'raster',
                 tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
-                tileSize: 256
+                tileSize: 256,
+                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
             },
-            'provincial-vector-source': {
+            'geo-vector-source': {
                 type: 'vector',
                 url: `pmtiles://${PMTILES_URL}`,
-                promoteId: 'PRUID' // Assigns PRUID property directly to feature.id
+                promoteId: 'PRUID', // Assigns PRUID property directly to feature.id
             }
         },
         layers: [
@@ -35,15 +39,15 @@ const map = new maplibregl.Map({
                 source: 'osm-basemap'
             },
             {
-                id: 'province-fill',
+                id: 'area-fill',
                 type: 'fill',
-                source: 'provincial-vector-source',
+                source: 'geo-vector-source',
                 'source-layer': SOURCE_LAYER,
                 paint: {
                     'fill-color': [
                         'interpolate',
                         ['linear'],
-                        ['feature-state', 'pop_2021'],
+                        ['feature-state', 'pop'],
                         0,       '#f7fbff',
                         100000,  '#c6dbef',
                         1000000, '#6baed6',
@@ -54,9 +58,9 @@ const map = new maplibregl.Map({
                 }
             },
             {
-                id: 'province-borders',
+                id: 'area-borders',
                 type: 'line',
-                source: 'provincial-vector-source',
+                source: 'geo-vector-source',
                 'source-layer': SOURCE_LAYER,
                 paint: {
                     'line-color': '#ffffff',
@@ -69,12 +73,99 @@ const map = new maplibregl.Map({
     zoom: 3.5
 });
 
+function getPromoteId(geoLevel) {
+    const idFields = {
+        lpr: 'PRUID',
+        lcd: 'CDUID',
+        lcsd: 'CSDUID',
+        lfed: 'FEDUID',
+        lct: 'CTUID',
+        lda: 'DAUID'
+    };
+
+    return idFields[geoLevel];
+}
+
+function updateMapSource(geoLevel, censusYear) {
+    const lastTwo = String(censusYear).slice(-2);
+
+    console.log(lastTwo);
+
+    if (String(geoLevel).length == 3) {
+        SOURCE_LAYER = `${geoLevel}_000b${lastTwo}a_e`;
+    } else {
+        SOURCE_LAYER = `${geoLevel}000b${lastTwo}a_e`;
+    }
+        
+    PMTILES_URL =
+        `http://localhost:8000/tiles_output/${SOURCE_LAYER}.pmtiles`;
+
+    // Remove the old layers and source
+    if (map.getLayer('area-fill')) {
+        map.removeLayer('area-fill');
+    }
+
+    if (map.getLayer('area-borders')) {
+        map.removeLayer('area-borders');
+    }
+
+    if (map.getSource('geo-vector-source')) {
+        map.removeSource('geo-vector-source');
+    }
+
+    // Add the new PMTiles source
+    p = new pmtiles.PMTiles(PMTILES_URL);
+    protocol.add(p);
+
+    map.addSource('geo-vector-source', {
+        type: 'vector',
+        url: `pmtiles://${PMTILES_URL}`,
+        promoteId: getPromoteId(geoLevel)
+    });
+
+    // Add the layers back using the new source-layer
+    map.addLayer({
+        id: 'area-fill',
+        type: 'fill',
+        source: 'geo-vector-source',
+        'source-layer': SOURCE_LAYER,
+        paint: {
+            'fill-color': [
+                'interpolate',
+                ['linear'],
+                ['feature-state', 'pop'],
+                0,       '#f7fbff',
+                100000,  '#c6dbef',
+                1000000, '#6baed6',
+                4000000, '#2171b5',
+                8000000, '#08306b'
+            ],
+            'fill-opacity': 0.75
+        }
+    });
+
+    map.addLayer({
+        id: 'area-borders',
+        type: 'line',
+        source: 'geo-vector-source',
+        'source-layer': SOURCE_LAYER,
+        paint: {
+            'line-color': '#ffffff',
+            'line-width': 1.2
+        }
+    });
+}
+
+
 let populationData = {};
 
-// 2. Fetch population lookup dict
-async function loadPopulationData() {
+// Fetch population lookup dict
+async function loadPopulationData(census_year="2021", geoLevel="lpr") {
+    console.log("in loadPopulationData. census_year is: ", census_year);
     try {
-        const res = await fetch('http://localhost:8000/api/province-population');
+        const res = await fetch(
+            `http://localhost:8000/api/population?geo_level=${geoLevel}`
+        );
         const json = await res.json();
 
         console.log(json);
@@ -85,18 +176,20 @@ async function loadPopulationData() {
             populationData[String(key)] = val;
         }
 
+        updateMapSource(geoLevel, census_year);
+
         updateMapFeatureStates();
     } catch (err) {
         console.error("Failed to load census population:", err);
     }
 }
 
-// 3. Map population values onto vector features
+// Map population values onto vector features
 function updateMapFeatureStates() {
     if (!Object.keys(populationData).length) return;
 
     // Retrieve loaded features in current view
-    const features = map.querySourceFeatures('provincial-vector-source', {
+    const features = map.querySourceFeatures('geo-vector-source', {
         sourceLayer: SOURCE_LAYER
     });
 
@@ -109,11 +202,11 @@ function updateMapFeatureStates() {
             if (pop !== undefined) {
                 map.setFeatureState(
                     {
-                        source: 'provincial-vector-source',
+                        source: 'geo-vector-source',
                         sourceLayer: SOURCE_LAYER,
                         id: feature.id
                     },
-                    { pop_2021: pop }
+                    { pop: pop }
                 );
             }
         }
@@ -121,29 +214,29 @@ function updateMapFeatureStates() {
 }
 
 // Trigger state updates when map loads or new tiles render
-map.on('load', loadPopulationData);
+map.on('load', loadPopulationData(censusYear="2021", geoLevel="lpr"));
 
 map.on('sourcedata', (e) => {
-    if (e.isSourceLoaded && e.sourceId === 'provincial-vector-source') {
+    if (e.isSourceLoaded && e.sourceId === 'geo-vector-source') {
         updateMapFeatureStates();
     }
 });
 
 // 4. On-click Popup
-map.on('click', 'province-fill', (e) => {
+map.on('click', 'area-fill', (e) => {
     if (!e.features.length) return;
 
     const feature = e.features[0];
     const props = feature.properties;
     const pruid = String(feature.id || props.PRUID);
-    const provName = props.PRENAME || props.PRNAME || "Province";
+    const provName = props.PRENAME || props.PRNAME || "Area";
     const pop = populationData[pruid] ? populationData[pruid].toLocaleString() : "N/A";
 
     new maplibregl.Popup()
         .setLngLat(e.lngLat)
-        .setHTML(`<strong>${provName}</strong><br/>2021 Population: ${pop}`)
+        .setHTML(`<strong>${provName}</strong><br/>${censusYear} Population: ${pop}`)
         .addTo(map);
 });
 
-map.on('mouseenter', 'province-fill', () => map.getCanvas().style.cursor = 'pointer');
-map.on('mouseleave', 'province-fill', () => map.getCanvas().style.cursor = '');
+map.on('mouseenter', 'area-fill', () => map.getCanvas().style.cursor = 'pointer');
+map.on('mouseleave', 'area-fill', () => map.getCanvas().style.cursor = '');
