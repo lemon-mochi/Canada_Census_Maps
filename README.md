@@ -25,7 +25,7 @@ There is no easy way to download all the needed files at once. You will have to 
 [2021 Dissemination areas](https://www12.statcan.gc.ca/census-recensement/alternative_alternatif.cfm?l=eng&dispext=zip&teng=lda_000b21a_e.zip&k=%20%20%20192424&loc=//www12.statcan.gc.ca/census-recensement/2021/geo/sip-pis/boundary-limites/files-fichiers/lda_000b21a_e.zip)
 
 
-After downloading the boundary files, you will have to extract them. Create a directory called `boundaries` within the `backend` directory. Put the extracted directories in there.
+After downloading the boundary files, you will have to extract them. Put the extracted directories in `backend/boundaries` directory.
 File structure should look like
 ```
 census_maps/ # root directory
@@ -54,6 +54,8 @@ You will also need to download the files containing census data. These files are
 [2021 Federal electoral districts (2023 Representation Order)](https://www12.statcan.gc.ca/census-recensement/2021/dp-pd/prof/details/download-telecharger/comp/GetFile.cfm?Lang=E&FILETYPE=CSV&GEONO=029)
 
 [2021 Aggregate dissemination areas](https://www12.statcan.gc.ca/census-recensement/2021/dp-pd/prof/details/download-telecharger/comp/GetFile.cfm?Lang=E&FILETYPE=CSV&GEONO=012)
+
+You do not have to extract these `.zip` files. Simply put them in `backend/census_data`.
 
 ### Setting up virtual Python environment ###
 Make sure you are in the `backend` directory first

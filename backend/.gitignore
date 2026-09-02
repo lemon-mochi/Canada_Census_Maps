@@ -220,4 +220,7 @@ __marimo__/
 .streamlit/secrets.toml
 
 # directory where the boundary files are stored
-boundaries/
+boundaries/*
+
+# have the __init__.py file be tracked
+!boundaries/__init__.py
