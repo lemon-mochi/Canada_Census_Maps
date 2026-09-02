@@ -1,5 +1,4 @@
 import geopandas as gpd
-import os
 from pathlib import Path
 
 # 1. Load the downloaded StatCan Shapefile
