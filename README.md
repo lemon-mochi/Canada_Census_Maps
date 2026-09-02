@@ -97,3 +97,10 @@ Then, run the `convert_boundaries.sh` file in the `backend/` directory to conver
 ```
 ./convert_boundaries.sh
 ```
+
+### Create the parquet files that contain Census data ###
+Parquet files are a compressed data format better for high-performance analytics. For this project, it is necessary to convert the `.csv` files into Parquet files for faster retrieval.
+Run the `create_parquet_files.py` program to create the needed Parquet files. Running this program will create the `parquet_data/` directory within `backend/`. This wil take a few minutes.
+```
+python3 create_parquet_files.py
+```
