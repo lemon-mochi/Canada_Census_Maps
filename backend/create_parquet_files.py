@@ -37,7 +37,7 @@ dtypes = {
     'C12_RATE_WOMEN+': np.double,    
 }
 
-output_path = 'parquet_data/2021_census_data.parquet'
+output_path = 'parquet_data/2021_raw_census_data.parquet'
 
 with zipfile.ZipFile('./census_data/98-401-X2021006_eng_CSV.zip') as z:
     writer = None

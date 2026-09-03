@@ -104,3 +104,14 @@ Run the `create_parquet_files.py` program to create the needed Parquet files. Ru
 ```
 python3 create_parquet_files.py
 ```
+
+Next you will want to simplify the `.parquet` file. To do this, run the following:
+```
+python3 cleanup_parquet.py
+```
+
+## Running the backend ##
+To run the backend server,
+```
+uvicorn main:app --reload
+```

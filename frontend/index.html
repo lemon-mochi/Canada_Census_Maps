@@ -1,111 +1,18 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>StatCan Provincial Population Map</title>
-  <link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet" />
-  <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
-  <script src="https://unpkg.com/pmtiles@4/dist/pmtiles.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>frontend</title>
+  </head>
   <style>
-    .container {
-      display: flex;
-      width: 100vw;
-      height: 100vh;
-    }
-
-    body { margin: 0; padding: 0; font-family: sans-serif; }
-    #map { height: 100vh; width: 70vw; }
-    .map_box {
-      position: relative;
-      height: 100vh;
-      width: 70vw;
-      overflow: hidden;
-    }
-    .legend {
-      position: absolute; bottom: 30px; right: 20px;
-      background: rgba(255, 255, 255, 0.95); padding: 15px; border-radius: 6px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      overflow: hidden;
-    }
-    .legend-item { display: flex; align-items: center; margin-bottom: 6px; font-size: 13px; }
-    .color-box { width: 20px; height: 18px; margin-right: 8px; border-radius: 2px; }
-    .options_box {
-      height: 100vh;
-      width: 30vw;
-      box-sizing: border-box;
-      padding: 20px;
+    body {
+      margin: 0;
     }
   </style>
-</head>
-<body>
-
-  <div class="container">
-    <div class="map_box">
-      <div id="map"></div>
-
-      <div class="legend">
-        <h4 style="margin: 0 0 10px 0;">2021 Population</h4>
-        <div class="legend-item"><span class="color-box" style="background: #f7fbff;"></span> &lt; 100,000</div>
-        <div class="legend-item"><span class="color-box" style="background: #c6dbef;"></span> 100,000 – 1,000,000</div>
-        <div class="legend-item"><span class="color-box" style="background: #6baed6;"></span> 1,000,000 – 4,000,000</div>
-        <div class="legend-item"><span class="color-box" style="background: #2171b5;"></span> 4,000,000 – 8,000,000</div>
-        <div class="legend-item"><span class="color-box" style="background: #08306b;"></span> 8,000,000+</div>
-      </div>
-
-    </div>
-
-    <div class="options_box">
-      <!-- This will be where the options for the user will be -->
-      <label for="census_year">Choose census year:</label>
-      <select name="census_year" id="census_year">
-        <!-- <option value="1871">1871</option>
-        <option value="1881">1881</option>
-        <option value="1891">1891</option>
-        <option value="1901">1901</option>
-        <option value="1911">1911</option>
-        <option value="1921">1921</option>
-        <option value="1931">1931</option>
-        <option value="1941">1941</option>
-        <option value="1951">1951</option>
-        <option value="1961">1961</option>
-        <option value="1971">1971</option>
-        <option value="1981">1981</option>
-        <option value="1991">1991</option>
-        <option value="1996">1996</option>
-        <option value="2001">2001</option>
-        <option value="2006">2006</option>
-        <option value="2011">2011</option>
-        <option value="2016">2016</option> -->
-        <option value="2021">2021</option>
-      </select>
-
-      <br>
-
-      <label for="geo_level">Choose geographic level:</label>
-      <select name="geo_level" id="geo_level">
-        <option value="auto">Automatically decide based on zoom level</option>
-        <option value="lpr">Provinces/Territories</option>
-        <option value="lcd">Census divisions</option>
-        <option value="lcsd">Census subdivisions</option>
-        <option value="lfed">Federal electoral districts (2013 Representation Order)</option>
-        <option value="lct">Aggregate dissemination areas</option>
-        <option value="lda">Dissemination areas</option>
-      </select>
-
-      <button
-        onclick="loadPopulationData(
-          document.getElementById('census_year').value,
-          document.getElementById('geo_level').value
-        )" 
-      >
-        Submit
-      </button>
-
-    </div>
-
-  </div>
-
-
-  <script src="script.js"></script>
-</body>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
