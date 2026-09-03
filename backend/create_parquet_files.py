@@ -37,8 +37,10 @@ dtypes = {
     'C12_RATE_WOMEN+': np.double,    
 }
 
-with zipfile.ZipFile('./census_data/98-401-X2021006_eng_CSV.zip') as z:
+output_path = 'parquet_data/2021_census_data.parquet'
 
+with zipfile.ZipFile('./census_data/98-401-X2021006_eng_CSV.zip') as z:
+    writer = None
     for file in z.namelist():
 
         if not file.endswith('.csv'):
@@ -46,11 +48,7 @@ with zipfile.ZipFile('./census_data/98-401-X2021006_eng_CSV.zip') as z:
 
         print(f"Processing {file}")
 
-        output_path = f'parquet_data/{file[:-4]}.parquet'
-
         with z.open(file) as f:
-
-            writer = None
 
             for chunk in pd.read_csv(
                 f,
@@ -79,7 +77,6 @@ with zipfile.ZipFile('./census_data/98-401-X2021006_eng_CSV.zip') as z:
 
                 print(f"  processed {len(chunk):,} rows")
 
-            if writer is not None:
-                writer.close()
 
         print(f"Finished: {output_path}")
+    writer.close()

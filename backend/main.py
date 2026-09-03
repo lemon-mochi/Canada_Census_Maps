@@ -7,9 +7,12 @@ import pandas as pd
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
+import duckdb
 
 
 app = FastAPI()
+con = duckdb.connect()
+duckdb.read_parquet("parquet_data/2021_census_data.parquet")
 
 app.add_middleware(
     CORSMiddleware,
@@ -92,42 +95,9 @@ CACHED_POPULATION_DATA = None
 
 @app.get("/api/population")
 def get_population(geo_level: str):
-    print(geo_level)
-    agencyID = "STC_CP"
-    # information about dataflow available at:
-    # https://www12.statcan.gc.ca/wds-sdw/2021profile-profil2021-eng.cfm
-    match geo_level:
-        case "lpr":
-            dataflow = "DF_PR"
-        case "lcd":
-            dataflow = "DF_CD"
-        case "lcsb":
-            dataflow = "DF_CSB"
-        case "lfed":
-            dataflow = "DF_FED,1.3"
-        case "lct":
-            dataflow = "DF_CT"
-        case "lda":
-            dataflow = "DF_DA"
-    key = "A5..1.1.1"
-    parameters = "format=jsondata"
-
-    url = f"https://api.statcan.gc.ca/census-recensement/profile/sdmx/rest/data/{agencyID},{dataflow}/{key}?{parameters}"
-
-
-    global CACHED_POPULATION_DATA
-    if CACHED_POPULATION_DATA is not None:
-        return {"status": "success", "data": CACHED_POPULATION_DATA}
-
-    # 1. Fetch dynamic download URL from StatCan
-    response = requests.get(url, params={})
-
-    data = response.json()
-
-    response.raise_for_status()
-
-    parsed_json = parse_statcan_sdmx_to_pruid_map(json_data=data)
-
-    print("parsed_json:", parsed_json)
-
-    return parsed_json
+    con.sql(
+        "" \
+        "SELECT GEO_NAME, C1_COUNT_TOTAL" \
+        "FROM "
+        
+    )
