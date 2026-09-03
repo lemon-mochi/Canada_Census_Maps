@@ -109,3 +109,9 @@ Next you will want to simplify the `.parquet` file. To do this, run the followin
 ```
 python3 cleanup_parquet.py
 ```
+
+## Running the backend ##
+To run the backend server,
+```
+uvicorn main:app --reload
+```

@@ -15,6 +15,7 @@ con = duckdb.connect()
 
 main_table = 'parquet_data/2021_census_data.parquet'
 geo_table = 'parquet_data/2021_geographies.parquet'
+char_table = 'parquet_data/2021_characteristics.parquet'
 
 app.add_middleware(
     CORSMiddleware,
@@ -36,11 +37,19 @@ app.mount(
     name="tiles_output",
 )
 
+
+@app.get("/api/characteristics")
+def get_characteristics():
+    result = con.execute(f"""
+        SELECT CHARACTERISTIC_ID, CHARACTERISTIC_NAME
+        FROM '{char_table}'
+    """).fetchdf()
+
+    return result.to_dict(orient='records')
+
+
 @app.get("/api/population")
 def get_population(geo_level: str, char_id: int):
-
-    print(geo_level)
-    print(char_id)
 
     if (geo_level == 'Province'):
         result = con.execute(f"""
