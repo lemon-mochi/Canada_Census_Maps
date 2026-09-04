@@ -43,7 +43,7 @@ const CensusForm = () => {
     async function getCharacteristics() {
       try {
         const res = await fetch(
-          `http://localhost:8000/api/characteristics`
+          `http://localhost:8000/api/characteristics?year=${censusYear}`
         );
 
         const json = await res.json();
@@ -168,7 +168,8 @@ const CensusForm = () => {
         </select>
       </div>
 
-
+      
+      <br></br>
       <a
         href={source}
         target="_blank"
@@ -177,22 +178,9 @@ const CensusForm = () => {
         Source
       </a>
 
-
+      <br></br>
       {/* Characteristics */}
       <div className={styles.characteristics}>
-
-        <div className={styles.characteristicsHeader}>
-          <div className={styles.characteristicName}>
-            Characteristic
-          </div>
-
-          <div>Count Total</div>
-          <div>Count Men+</div>
-          <div>Count Women+</div>
-          <div>Rate Total</div>
-          <div>Rate Men+</div>
-          <div>Rate Women+</div>
-        </div>
 
 
         {tree.map((node) => (
@@ -251,12 +239,21 @@ const CharacteristicNode = ({ node }) => {
 
 
         {/* Buttons */}
-        <button>Count</button>
-        <button>Men+</button>
-        <button>Women+</button>
-        <button>Rate</button>
-        <button>Men+</button>
-        <button>Women+</button>
+        {node.columns.map((column) => (
+          <button
+            key={column.column_id}
+            onClick={() => {
+              // fetch/display this characteristic + column
+              console.log(
+                node.CHARACTERISTIC_ID,
+                column.column_id,
+                column.column_name
+              );
+            }}
+          >
+            {column.column_name}
+          </button>
+        ))}
 
       </div>
 

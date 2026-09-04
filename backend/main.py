@@ -41,13 +41,52 @@ app.mount(
 
 
 @app.get("/api/characteristics")
-def get_characteristics():
+def get_characteristics(year: int):
+
     result = con.execute(f"""
-        SELECT CHARACTERISTIC_ID, CHARACTERISTIC_NAME
-        FROM '{char_table}'
+        SELECT
+            c.CHARACTERISTIC_ID,
+            c.CHARACTERISTIC_NAME,
+            cc.column_id,
+            col.column_name
+        FROM '{char_table}' AS c
+
+        LEFT JOIN '{char_col_table}' AS cc
+            ON c.CENSUS_YEAR = cc.CENSUS_YEAR
+            AND c.CHARACTERISTIC_ID = cc.CHARACTERISTIC_ID
+
+        LEFT JOIN '{col_table}' AS col
+            ON cc.column_id = col.column_id
+
+        WHERE c.CENSUS_YEAR = {year}
+
+        ORDER BY c.CHARACTERISTIC_ID, cc.column_id
     """).fetchdf()
 
-    return result.to_dict(orient='records')
+    characteristics = []
+
+    for char_id, group in result.groupby(
+        "CHARACTERISTIC_ID",
+        sort=False
+    ):
+        first = group.iloc[0]
+
+        columns = []
+
+        for _, row in group.iterrows():
+            if row["column_id"] is not None:
+                columns.append({
+                    "column_id": int(row["column_id"]),
+                    "column_name": row["column_name"]
+                })
+
+        characteristics.append({
+            "CHARACTERISTIC_ID": int(char_id),
+            "CHARACTERISTIC_NAME": first["CHARACTERISTIC_NAME"],
+            "columns": columns
+        })
+
+    return characteristics
 
 
 @app.get("/api/population")
