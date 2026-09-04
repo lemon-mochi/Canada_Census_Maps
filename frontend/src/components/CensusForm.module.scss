@@ -1,0 +1,98 @@
+.censusForm {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.formGroup {
+  margin-bottom: 10px;
+}
+
+.characteristics {
+  margin-top: 20px;
+
+  max-height: 600px;
+  overflow-y: auto;
+
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.characteristicsHeader,
+.characteristic-row {
+  display: grid;
+
+  grid-template-columns:
+    minmax(300px, 1fr)
+    repeat(6, 100px);
+
+  align-items: center;
+}
+
+.characteristicsHeader {
+  position: sticky;
+  top: 0;
+
+  background: white;
+
+  font-weight: bold;
+
+  border-bottom: 1px solid #ccc;
+
+  padding: 10px;
+}
+
+.characteristicRow {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-right: 10px;
+
+  border-bottom: 1px solid #eee;
+}
+
+.characteristicRow:hover {
+  background: #f5f5f5;
+}
+
+.characteristicName {
+  display: flex;
+  align-items: center;
+
+  min-width: 0;
+
+  padding-right: 10px;
+}
+
+.expandButton {
+  width: 25px;
+  height: 25px;
+
+  border: none;
+  background: none;
+
+  cursor: pointer;
+
+  flex-shrink: 0;
+}
+
+.expandPlaceholder {
+  width: 25px;
+  flex-shrink: 0;
+}
+
+.characteristicRow button:not(.expand-button) {
+  margin: 2px;
+
+  padding: 6px 8px;
+
+  border: 1px solid #ccc;
+  border-radius: 4px;
+
+  background: white;
+
+  cursor: pointer;
+}
+
+.characteristicRow button:not(.expand-button):hover {
+  background: #eee;
+}
