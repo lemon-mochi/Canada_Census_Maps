@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import styles from '@/components/CharList.module.scss';
+import styles from '@/components/CensusForm.module.scss';
 
 const CensusForm = () => {
   const [censusYear, setCensusYear] = useState('2021');
