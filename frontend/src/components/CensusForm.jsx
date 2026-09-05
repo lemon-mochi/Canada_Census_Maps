@@ -2,11 +2,22 @@ import React, { useState, useEffect } from 'react';
 import styles from '@/components/CensusForm.module.scss';
 
 const CensusForm = () => {
+  const sources = {
+    2021: 'https://www12.statcan.gc.ca/census-recensement/2021/dp-pd/prof/index.cfm?Lang=E',
+    2016: 'https://www12.statcan.gc.ca/census-recensement/2016/dp-pd/prof/index.cfm?Lang=E',
+    2011: 'https://www12.statcan.gc.ca/census-recensement/2011/dp-pd/index-eng.cfm',
+    2006: 'https://www12.statcan.gc.ca/census-recensement/2006/index-eng.cfm',
+    2001: 'https://www12.statcan.gc.ca/english/census01/home/Index.cfm',
+    1996: 'https://www12.statcan.gc.ca/english/census01/info/census96.cfm',
+    1991: 'https://www12.statcan.gc.ca/datasets/Index-eng.cfm?Temporal=1991',
+    1986: 'https://www12.statcan.gc.ca/datasets/Index-eng.cfm?Temporal=1986',
+    1981: 'https://www12.statcan.gc.ca/datasets/Index-eng.cfm?Temporal=1981',
+  }
   const [censusYear, setCensusYear] = useState('2021');
   const [geoLevel, setGeoLevel] = useState('auto');
   const [chars, setChars] = useState([]);
   const [source, setSource] = useState(
-    'https://www12.statcan.gc.ca/census-recensement/2021/dp-pd/prof/index.cfm?Lang=E'
+    sources['2021']
   );
 
   const censusYears = [
@@ -135,7 +146,11 @@ const CensusForm = () => {
         <select
           id="census_year"
           value={censusYear}
-          onChange={(e) => setCensusYear(e.target.value)}
+          onChange={(e) => {
+            setCensusYear(e.target.value),
+            setSource(sources[e.target.value])
+          }
+        }
         >
           {censusYears.map((year) => (
             <option key={year} value={year}>
