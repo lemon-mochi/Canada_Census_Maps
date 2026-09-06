@@ -1,4 +1,5 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import React, { useState, useEffect } from 'react';
 import 'leaflet/dist/leaflet.css';
 import styles from '@/components/Map.module.scss';
 
@@ -8,6 +9,7 @@ import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 
 export default function Map() {
+  const [pmtiles, setPmTiles] = useState()
   // Coordinates for the center of the map [Latitude, Longitude]
   const position = [56.1304, -98.5795]; //centre of Canada
 

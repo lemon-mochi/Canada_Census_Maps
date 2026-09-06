@@ -130,7 +130,7 @@ Then, run the `convert_boundaries.sh` file in the `backend/` directory to conver
 
 ### Create the parquet files that contain Census data ###
 Parquet files are a compressed data format better for high-performance analytics. For this project, it is necessary to convert the `.csv` files into Parquet files for faster retrieval.
-Run the `create_parquet_files.py` program to create the needed Parquet files. Running this program will create the `parquet_data/` directory within `backend/`. This wil take a few minutes.
+Run the `create_parquet_files.py` program to create the needed Parquet files. Running this program will create the `temp_parquet_data/` directory within `backend/`. This wil take a few minutes.
 ```
 python3 create_parquet_files.py
 ```
@@ -139,6 +139,7 @@ Next you will want to simplify the `.parquet` file. To do this, run the followin
 ```
 python3 cleanup_parquet.py
 ```
+This will create the `parquet_data/` directory. This is the directory the server will use to retrieve data.
 
 ## Running the backend ##
 To run the backend server,

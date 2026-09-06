@@ -39,7 +39,7 @@ CENSUS_CONFIGS = {
     2016: {
         'names': [
             'CENSUS_YEAR', 
-            'GEO_CODE (POR)',
+            'GEO_CODE',
             'GEO_LEVEL',
             'GEO_NAME',
             'GNR',
@@ -55,7 +55,7 @@ CENSUS_CONFIGS = {
         ],
         'cols': [
             'CENSUS_YEAR', 
-            'GEO_CODE (POR)',
+            'GEO_CODE',
             'GEO_LEVEL',
             'GEO_NAME',
             'CHARACTERISTIC_NAME',
@@ -67,7 +67,7 @@ CENSUS_CONFIGS = {
         ],
         'dtypes': {
             'CENSUS_YEAR': np.int64,
-            'GEO_CODE (POR)': str,
+            'GEO_CODE': np.int64,
             'GEO_LEVEL': str,
             'GEO_NAME': str,
             'GNR': np.double,
@@ -156,7 +156,6 @@ def process_2016_data(year_config, output_path):
                     continue
 
                 if file == 'Geo_starting_row_CSV.csv':
-                    print('here')
                     continue                
 
                 print(f"Processing {file}")
@@ -192,7 +191,7 @@ def process_2016_data(year_config, output_path):
 
 # Run pipeline per year
 for year, config in CENSUS_CONFIGS.items():
-    output_dir = f"temp_parquet_data/census_{year}"
+    output_dir = "temp_parquet_data"
     os.makedirs(output_dir, exist_ok=True)
 
     out_file = os.path.join(

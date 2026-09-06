@@ -12,6 +12,9 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",
     "leaflet": "^1.9.4",
+    "maplibre-gl": "^6.7.0",
+    "pmtiles": "^4.5.0",
+    "protomaps-leaflet": "^5.1.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-leaflet": "^5.0.0",
