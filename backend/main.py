@@ -2,6 +2,7 @@ from pathlib import Path
 # import requests
 # import io
 # import zipfile
+import colour_data
 
 import pandas as pd
 from fastapi import FastAPI
@@ -112,7 +113,14 @@ def get_population(geo_level: str, char_id: int):
                 AND m.CHARACTERISTIC_ID = {char_id}
         """).fetchdf()
 
-    return result.to_dict(orient='records')
+    result_w_colours = colour_data.assign_colours(
+        df=result,
+        num_colours=3,
+        equal_width=True,
+        col='C1_COUNT_TOTAL'
+    )
+
+    return result_w_colours.to_dict(orient='records')
 
 @app.get("/api/columns")
 def get_columns(year: int, char_id: int):
