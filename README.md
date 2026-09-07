@@ -1,4 +1,4 @@
- Census Maps 🇨🇦
+# Census Maps 🇨🇦 #
 This is a web application that displays Canadian census data on a map. The design is meant to be simple, so that even non-technical users may easily use. Canada is the greatest country on Earth and it deserves a web application that shows its greatness through our census data. \
 The thistle🪻, shamrock☘️, rose🌹 entwine,\
 🍁🍁🍁THE MAPLE LEAF FOREVER!!!🍁🍁🍁
