@@ -7,3 +7,4 @@ script2.js
 *.txt
 *.zip
 *.parquet
+*/MANIFEST.txt
