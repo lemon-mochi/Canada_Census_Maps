@@ -104,6 +104,14 @@ The official Statistics Canada website has boundary files for the 2001 census bu
 
 [2001 All geographies](https://drive.google.com/file/d/1LtJQ5LADBmt3HlxsxC6UBjUkVJEskxbM/view?usp=sharing)
 
+[1996 All geographies]()
+
+[1991 All geographies]()
+
+[1986 All geographies]()
+
+[1981 All geographies]()
+
 After extracting the `.zip` file, you will see a `MANIFEST.txt` file, and a directory called `Data`. Place both of them into the `backend/geojson/{census_year}` directory, where `{census_year}` matches the census year of the downloaded file.
 
 ### Converting .shp files to .geojson ###
@@ -149,6 +157,36 @@ You will also need to download the files containing census data. These files are
 [2016 Federal electoral districts (2013 Representation Order)](https://www12.statcan.gc.ca/census-recensement/2016/dp-pd/prof/details/download-telecharger/comp/GetFile.cfm?Lang=E&FILETYPE=CSV&GEONO=045)
 
 [2016 Aggregate dissemination areas](https://www12.statcan.gc.ca/census-recensement/2016/dp-pd/prof/details/download-telecharger/comp/GetFile.cfm?Lang=E&FILETYPE=CSV&GEONO=050)
+
+[2011 Canada, provinces and territories Census Profile](https://www12.statcan.gc.ca/census-recensement/2011/dp-pd/prof/details/download-telecharger/comprehensive/comp_download.cfm?CTLG=98-316-XWE2011001&FMT=CSV101&Lang=E&Tab=1&Geo1=PR&Code1=01&Geo2=PR&Code2=01&Data=Count&SearchText=&SearchType=Begins&SearchPR=01&B1=All&Custom=&TABID=1)
+
+[2011 Census divisions Census Profile](https://www12.statcan.gc.ca/census-recensement/2011/dp-pd/prof/details/download-telecharger/comprehensive/comp_download.cfm?CTLG=98-316-XWE2011001&FMT=CSV701&Lang=E&Tab=1&Geo1=PR&Code1=01&Geo2=PR&Code2=01&Data=Count&SearchText=&SearchType=Begins&SearchPR=01&B1=All&Custom=&TABID=1)
+
+[2011 Census subdivisions Census Profile](https://www12.statcan.gc.ca/census-recensement/2011/dp-pd/prof/details/download-telecharger/comprehensive/comp_download.cfm?CTLG=98-316-XWE2011001&FMT=CSV301&Lang=E&Tab=1&Geo1=PR&Code1=01&Geo2=PR&Code2=01&Data=Count&SearchText=&SearchType=Begins&SearchPR=01&B1=All&Custom=&TABID=1)
+
+[2011 Census tracts Census Profile](https://www12.statcan.gc.ca/census-recensement/2011/dp-pd/prof/details/download-telecharger/comprehensive/comp_download.cfm?CTLG=98-316-XWE2011001&FMT=CSV401&Lang=E&Tab=1&Geo1=PR&Code1=01&Geo2=PR&Code2=01&Data=Count&SearchText=&SearchType=Begins&SearchPR=01&B1=All&Custom=&TABID=1)
+
+[2011 Federal electoral districts (2003 representation order) Census Profile](https://www12.statcan.gc.ca/census-recensement/2011/dp-pd/prof/details/download-telecharger/comprehensive/comp_download.cfm?CTLG=98-316-XWE2011001&FMT=CSV501&Lang=E&Tab=1&Geo1=PR&Code1=01&Geo2=PR&Code2=01&Data=Count&SearchText=&SearchType=Begins&SearchPR=01&B1=All&Custom=&TABID=1)
+
+[2011 Census dissemination areas Census Profile](https://www12.statcan.gc.ca/census-recensement/2011/dp-pd/prof/details/download-telecharger/comprehensive/comp_download.cfm?CTLG=98-316-XWE2011001&FMT=CSV1501&Lang=E&Tab=1&Geo1=PR&Code1=01&Geo2=PR&Code2=01&Data=Count&SearchText=&SearchType=Begins&SearchPR=01&B1=All&Custom=&TABID=1)
+
+[2011 Canada, provinces and territories NHS](https://www12.statcan.gc.ca/nhs-enm/2011/dp-pd/prof/details/download-telecharger/comprehensive/comp_download.cfm?CTLG=99-004-XWE2011001&FMT=CSV101&Lang=E&Geo1=PR&Code1=01&Data=Count&SearchText=&SearchType=Begins&SearchPR=01&A1=All&B1=All&Custom=&TABID=1)
+
+[2011 Census divisions Census Profile NHS](https://www12.statcan.gc.ca/nhs-enm/2011/dp-pd/prof/details/download-telecharger/comprehensive/comp_download.cfm?CTLG=99-004-XWE2011001&FMT=CSV701&Lang=E&Geo1=PR&Code1=01&Data=Count&SearchText=&SearchType=Begins&SearchPR=01&A1=All&B1=All&Custom=&TABID=1)
+
+[2011 Census subdivisions NHS](https://www12.statcan.gc.ca/nhs-enm/2011/dp-pd/prof/details/download-telecharger/comprehensive/comp_download.cfm?CTLG=99-004-XWE2011001&FMT=CSV301&Lang=E&Geo1=PR&Code1=01&Data=Count&SearchText=&SearchType=Begins&SearchPR=01&A1=All&B1=All&Custom=&TABID=1)
+
+[2011 Census tracts NHS](https://www12.statcan.gc.ca/nhs-enm/2011/dp-pd/prof/details/download-telecharger/comprehensive/comp_download.cfm?CTLG=99-004-XWE2011001&FMT=CSV401&Lang=E&Geo1=PR&Code1=01&Data=Count&SearchText=&SearchType=Begins&SearchPR=01&A1=All&B1=All&Custom=&TABID=1)
+
+[2011 Federal electoral districts (2003 Representation Order) NHS](https://www12.statcan.gc.ca/nhs-enm/2011/dp-pd/prof/details/download-telecharger/comprehensive/comp_download.cfm?CTLG=99-004-XWE2011001&FMT=CSV501&Lang=E&Geo1=PR&Code1=01&Data=Count&SearchText=&SearchType=Begins&SearchPR=01&A1=All&B1=All&Custom=&TABID=1)
+
+The 2011 NHS did not release data for dissemination areas.
+
+[2006 Canada, provinces and territories](https://www12.statcan.gc.ca/census-recensement/2011/dp-pd/prof/details/download-telecharger/comprehensive/comp_download.cfm?CTLG=92-591-XE&FMT=CSV101&Lang=E&Tab=1&Geo1=PR&Code1=01&Geo2=PR&Code2=01&Data=Count&SearchText=&SearchType=Begins&SearchPR=01&B1=All&Custom=&TABID=1)
+
+[2006 Census divisions](https://www12.statcan.gc.ca/census-recensement/2011/dp-pd/prof/details/download-telecharger/comprehensive/comp_download.cfm?CTLG=92-591-XE&FMT=CSV701&Lang=E&Tab=1&Geo1=PR&Code1=01&Geo2=PR&Code2=01&Data=Count&SearchText=&SearchType=Begins&SearchPR=01&B1=All&Custom=&TABID=1)
+
+[2006 Census subdivisions](https://www12.statcan.gc.ca/census-recensement/2011/dp-pd/prof/details/download-telecharger/comprehensive/comp_download.cfm?CTLG=92-591-XE&FMT=CSV701&Lang=E&Tab=1&Geo1=PR&Code1=01&Geo2=PR&Code2=01&Data=Count&SearchText=&SearchType=Begins&SearchPR=01&B1=All&Custom=&TABID=1)
 
 You do not have to extract these `.zip` files. Simply put them in `backend/census_data`.
 
