@@ -28,7 +28,6 @@ pip install -r requirements.txt
 ### Download necessary files ###
 In order to run the program, you will have to download the boundary files from the official Statistics Canada website.
 Census files from [here](https://www12.statcan.gc.ca/census-recensement/2021/geo/sip-pis/boundary-limites/index-eng.cfm).
-There is no easy way to download all the needed files at once. You will have to manually download the needed files. I have gathered the needed download links.
 
 [2021 Provinces](https://www12.statcan.gc.ca/census-recensement/2021/geo/sip-pis/boundary-limites/files-fichiers/lpr_000b21a_e.zip)
 
@@ -100,17 +99,17 @@ census_maps/ # root directory
 ├── README.md # this file
 ```
 
-The official Statistics Canada website has boundary files for the 2001 census but they are not available in the `.shp` format. I was able to find an alternative source that has `.geojson` files that represent the boundaries. [Abacus Data Network, Statistics Canada Open License](https://abacus.library.ubc.ca/dataverse/statcan-public). The next step shows how to convert the `.shp` files into `.geojson`. Since the files from the Abacus Data Network are already in the `.geojson` format, you may put them in the `backend/geojson/` directory, after extracting the `.zip`. The way you download files using the website is too complicated. To simplify the process, I have put the `.zip` files into my Google Drive, where you may download it.
+The official Statistics Canada website has boundary files for the 2001 census but they are not available in the `.shp` format. I was able to find an alternative source that has `.geojson` files that represent the boundaries. [Abacus Data Network, Statistics Canada Open License](https://abacus.library.ubc.ca/dataverse/statcan-public). The next step shows how to convert the `.shp` files into `.geojson`. Since the files from the Abacus Data Network are already in the `.geojson` format, you may put them in the `backend/geojson/{census_year}` directory, after extracting the `.zip`. The way you download files using the website is too complicated. To simplify the process, I have put the `.zip` files into my Google Drive, where you may download it. The license allows me to do this.
 
-[2001 All geographies]()
+[2001 All geographies](https://drive.google.com/file/d/1ykD9uJug7wOHgH9A7-T87gYNIIcGTK9Y/view?usp=sharing)
 
-[1996 All geographies]()
+[1996 All geographies](https://drive.google.com/file/d/19NGWzwHYPQDOIQNT0HQrCsFoyPR-qnty/view?usp=sharing)
 
-[1991 All geographies]()
+[1991 All geographies](https://drive.google.com/file/d/1phRbwAtwk9sCv8NBoVSLML_3EdmfgOLI/view?usp=sharing)
 
-[1986 All geographies]()
+[1986 All geographies](https://drive.google.com/file/d/17WtlTpVldtydKmBdYhFskBCFzTU5O7lc/view?usp=sharing)
 
-[1981 All geographies]()
+[1981 All geographies](https://drive.google.com/file/d/13132K4Qw3WDbxA7NPCqJJPeuXwtmhzZg/view?usp=sharing)
 
 After extracting the `.zip` file, you will see a `MANIFEST.txt` file, and a directory called `Data`. Place both of them into the `backend/geojson/{census_year}` directory, where `{census_year}` matches the census year of the downloaded file.
 
@@ -142,7 +141,7 @@ Then, run the `convert_boundaries.sh` file in the `backend/` directory to conver
 ## Setup census data ##
 
 #### Download necessary files ###
-You will also need to download the files containing census data. These files are very large and will take a while to download. I have gathered the needed download links.
+You will also need to download the files containing census data. These files are very large and will take a while to download. I have gathered the needed download links. You do not have to extract these `.zip` files. Simply put them in `backend/census_data`.
 
 [2021 Canada, provinces, territories, census divisions (CDs), census subdivisions (CSDs) and dissemination areas (DAs)](https://www12.statcan.gc.ca/census-recensement/2021/dp-pd/prof/details/download-telecharger/comp/GetFile.cfm?Lang=E&FILETYPE=CSV&GEONO=006)
 
@@ -180,20 +179,32 @@ You will also need to download the files containing census data. These files are
 
 [2011 Federal electoral districts (2003 Representation Order) NHS](https://www12.statcan.gc.ca/nhs-enm/2011/dp-pd/prof/details/download-telecharger/comprehensive/comp_download.cfm?CTLG=99-004-XWE2011001&FMT=CSV501&Lang=E&Geo1=PR&Code1=01&Data=Count&SearchText=&SearchType=Begins&SearchPR=01&A1=All&B1=All&Custom=&TABID=1)
 
-I was not able to find 2011 NHS data for dissemination areas on Satistics Canada's official website. Luckily, I was able to find it on another [website](https://borealisdata.ca/file.xhtml?fileId=7750&version=6.3). The data also contains NHS data for Provinces, census divisions, and census subdivisions. Since it contains all this data, it is simpler to download this file, rather than the individual data for provinces, and other geographic levels. Unfortunately, the data was in an `.IVT` format. I have never heard or seen this file format before. Apparently, this file format is commonly used by Statistics Canada and files can be viewed using something called beyond 20/20 browser (only available on Windows). However, that application seemed to be too old, and did not run on my device. There is a package in R, `canivt` [source](https://doodles.mountainmath.ca/posts/2026-07-28-introducing-canivt/) that can convert `.IVT` to `.csv` so that I can preform data preprocessing on them in Python. However, that only worked for 2021 data, which made it basically useless for this project. After spending more time online to find how to install the beyond 20/20 browser program. I found an archive of a download link that works [here](https://web.archive.org/web/20160804181508/http://www2.beyond2020.com/SC/ProBrowser.exe). Unfortunately, I was not able to convert the `.IVT` file to `.csv`. So, I decided that for 2011 NHS data would not be available for dissemination areas. I am sorry if you wanted to view this information.
+I was not able to find 2011 NHS data for dissemination areas on Satistics Canada's official website. Luckily, I was able to find it on another [website](https://borealisdata.ca/file.xhtml?fileId=7750&version=6.3). The data also contains NHS data for Provinces, census divisions, and census subdivisions. Since it contains all this data, it is simpler to download this file, rather than the individual data for provinces, and other geographic levels. Unfortunately, the data was in an `.IVT` format. I have never heard or seen this file format before. Apparently, this file format is commonly used by Statistics Canada and files can be viewed using something called beyond 20/20 browser (only available on Windows). However, that application seemed to be too old, and did not run on my device. There is a package in R, `canivt` [source](https://doodles.mountainmath.ca/posts/2026-07-28-introducing-canivt/) that can convert `.IVT` to `.csv` so that I can preform data preprocessing on them in Python. However, that only worked for 2021 data, which made it basically useless for this project. After spending more time online to find how to install the beyond 20/20 browser program. I found an archive of a download link that works [here](https://web.archive.org/web/20160804181508/http://www2.beyond2020.com/SC/ProBrowser.exe). Unfortunately, I was not able to convert the `.IVT` file to `.csv`. So, I decided that for 2011 NHS data would not be available for dissemination areas. I am sorry if you wanted to view this information. However, I was able to find an API that has the data, and it can be put into a `.csv` format. That is what `backend/get_2011_nhs_data.py` does. You can try running it will take multiple days to complete as there are daily limits on the API.
 
-The 2006 Data is in the `.XML` format.
+The 1996 - 2006. Data is in the `.XML` format.
 
-[2006 Presence of Income (9), Age Groups (5A) and Sex (3) for the Population 15 Years and Over of Canada, Provinces, Territories, Census Divisions, Census Subdivisions and Dissemination Areas, 2005 - 20% Sample Data](https://www12.statcan.gc.ca/open-gc-ouvert/2006/97-563-XCB2006072.ZIP)
+[2006 Canada, Provinces, Territories, Census Divisions, Census Subdivisions and Dissemination Areas](https://www12.statcan.gc.ca/census-recensement/2006/dp-pd/prof/rel/OpenDataDownload.cfm?PID=94534)
 
+[2006 Census Tracts](https://www12.statcan.gc.ca/census-recensement/2006/dp-pd/prof/rel/OpenDataDownload.cfm?PID=94537)
 
-[2006 Canada, provinces and territories](https://www12.statcan.gc.ca/census-recensement/2011/dp-pd/prof/details/download-telecharger/comprehensive/comp_download.cfm?CTLG=92-591-XE&FMT=CSV101&Lang=E&Tab=1&Geo1=PR&Code1=01&Geo2=PR&Code2=01&Data=Count&SearchText=&SearchType=Begins&SearchPR=01&B1=All&Custom=&TABID=1)
+[2006 Federal electoral districts (2003 Representation Order)](https://www12.statcan.gc.ca/census-recensement/2006/dp-pd/prof/rel/OpenDataDownload.cfm?PID=94539)
 
-[2006 Census divisions](https://www12.statcan.gc.ca/census-recensement/2011/dp-pd/prof/details/download-telecharger/comprehensive/comp_download.cfm?CTLG=92-591-XE&FMT=CSV701&Lang=E&Tab=1&Geo1=PR&Code1=01&Geo2=PR&Code2=01&Data=Count&SearchText=&SearchType=Begins&SearchPR=01&B1=All&Custom=&TABID=1)
+[2001 Canada, Provinces, Territories, Census Divisions, Census Subdivisions and Dissemination Areas](https://www12.statcan.gc.ca/English/census01/products/standard/profiles/OpenDataDownload.cfm?PID=72849)
 
-[2006 Census subdivisions](https://www12.statcan.gc.ca/census-recensement/2011/dp-pd/prof/details/download-telecharger/comprehensive/comp_download.cfm?CTLG=92-591-XE&FMT=CSV701&Lang=E&Tab=1&Geo1=PR&Code1=01&Geo2=PR&Code2=01&Data=Count&SearchText=&SearchType=Begins&SearchPR=01&B1=All&Custom=&TABID=1)
+[2001 Census Tracts](https://www12.statcan.gc.ca/English/census01/products/standard/profiles/OpenDataDownload.cfm?PID=72852)
 
-You do not have to extract these `.zip` files. Simply put them in `backend/census_data`.
+[2001 Federal electoral districts (1996 Representation Order)](https://www12.statcan.gc.ca/English/census01/products/standard/profiles/OpenDataDownload.cfm?PID=71418)
+
+[1996 Canada, Provinces, Territories, Census divisions and Census subdivisions](https://www12.statcan.gc.ca/English/census96/data/profiles/OpenDataDownload.cfm?PID=35782)
+
+[1996 Census tracts](https://www12.statcan.gc.ca/English/census96/data/profiles/OpenDataDownload.cfm?PID=35716)
+
+[1996 Federal electoral districts (1996 Representation Order)](https://www12.statcan.gc.ca/English/census96/data/profiles/OpenDataDownload.cfm?PID=35257)
+
+[1996 Enumeration Areas](https://www12.statcan.gc.ca/English/census96/data/profiles/OpenDataDownload.cfm?PID=35804)
+
+<!-- [1991 Canada, Provinces, Territories, Census divisions and Census subdivisions]() -->
+
 
 
 ## Create the parquet files that contain Census data ##
