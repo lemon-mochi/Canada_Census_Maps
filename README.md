@@ -3,6 +3,8 @@ This is a web application that displays Canadian census data on a map. The desig
 The thistle🪻, shamrock☘️, rose🌹 entwine,\
 🍁🍁🍁THE MAPLE LEAF FOREVER!!!🍁🍁🍁
 
+There is no thistle emoji so I used the closest looking thing. If you are not satisfied, here is a unicorn: 🦄.
+
 # Running locally #
 This project requires a somewhat complicated setup in order to run locally. I have listed what must be done.
 
@@ -209,10 +211,7 @@ The 1996 - 2006. Data is in the `.XML` format.
 
 ## Create the parquet files that contain Census data ##
 Parquet files are a compressed data format better for high-performance analytics. For this project, it is necessary to convert the `.csv` files into Parquet files for faster retrieval.
-Run the `create_parquet_files.py` program to create the needed Parquet files. Running this program will create the `temp_parquet_data/` directory within `backend/`. This wil take a few minutes.
-```
-python3 create_parquet_files.py
-```
+Run the `create_parquet_files.ipynb` notebook to create the needed Parquet files. Running this program will create the `temp_parquet_data/` directory within `backend/`. This wil take a few minutes.
 
 Next you will want to simplify the `.parquet` file. To do this, run the following:
 ```
