@@ -181,7 +181,7 @@ You will also need to download the files containing census data. These files are
 
 [2011 Federal electoral districts (2003 Representation Order) NHS](https://www12.statcan.gc.ca/nhs-enm/2011/dp-pd/prof/details/download-telecharger/comprehensive/comp_download.cfm?CTLG=99-004-XWE2011001&FMT=CSV501&Lang=E&Geo1=PR&Code1=01&Data=Count&SearchText=&SearchType=Begins&SearchPR=01&A1=All&B1=All&Custom=&TABID=1)
 
-I was not able to find 2011 NHS data for dissemination areas on Satistics Canada's official website. Luckily, I was able to find it on another [website](https://borealisdata.ca/file.xhtml?fileId=7750&version=6.3). The data also contains NHS data for Provinces, census divisions, and census subdivisions. Since it contains all this data, it is simpler to download this file, rather than the individual data for provinces, and other geographic levels. Unfortunately, the data was in an `.IVT` format. I have never heard or seen this file format before. Apparently, this file format is commonly used by Statistics Canada and files can be viewed using something called beyond 20/20 browser (only available on Windows). However, that application seemed to be too old, and did not run on my device. There is a package in R, `canivt` [source](https://doodles.mountainmath.ca/posts/2026-07-28-introducing-canivt/) that can convert `.IVT` to `.csv` so that I can preform data preprocessing on them in Python. However, that only worked for 2021 data, which made it basically useless for this project. After spending more time online to find how to install the beyond 20/20 browser program. I found an archive of a download link that works [here](https://web.archive.org/web/20160804181508/http://www2.beyond2020.com/SC/ProBrowser.exe). Unfortunately, I was not able to convert the `.IVT` file to `.csv`. So, I decided that for 2011 NHS data would not be available for dissemination areas. I am sorry if you wanted to view this information. However, I was able to find an API that has the data, and it can be put into a `.csv` format. That is what `backend/get_2011_nhs_data.py` does. You can try running it will take multiple days to complete as there are daily limits on the API.
+I was not able to find 2011 NHS data for dissemination areas on Satistics Canada's official website. Luckily, I was able to find it on another [website](https://borealisdata.ca/file.xhtml?fileId=7750&version=6.3). The data also contains NHS data for Provinces, census divisions, and census subdivisions. Since it contains all this data, it is simpler to download this file, rather than the individual data for provinces, and other geographic levels. Unfortunately, the data was in an `.IVT` format. I have never heard or seen this file format before. Apparently, this file format is commonly used by Statistics Canada and files can be viewed using something called beyond 20/20 browser (only available on Windows). However, that application seemed to be too old, and did not run on my device. There is a package in R, `canivt` [source](https://doodles.mountainmath.ca/posts/2026-07-28-introducing-canivt/) that can convert `.IVT` to `.csv` so that I can preform data preprocessing on them in Python. However, that only worked for 2021 data, which made it basically useless for this project. After spending more time online to find how to install the beyond 20/20 browser program. I found an archive of a download link that works [here](https://web.archive.org/web/20160804181508/http://www2.beyond2020.com/SC/ProBrowser.exe). Unfortunately, I was not able to convert the `.IVT` file to `.csv`. So, I decided that for 2011 NHS data would not be available for dissemination areas. I am sorry if you wanted to view this information. However, I was able to find an API that has the data, and it can be put into a `.csv` format. That is what `backend/get_2011_nhs_data.py` does. You can try running it will take multiple days to complete as there are daily limits on the API. Unfortunately, this also did not work.
 
 The 1996 - 2006. Data is in the `.XML` format.
 
@@ -205,7 +205,23 @@ The 1996 - 2006. Data is in the `.XML` format.
 
 [1996 Enumeration Areas](https://www12.statcan.gc.ca/English/census96/data/profiles/OpenDataDownload.cfm?PID=35804)
 
-<!-- [1991 Canada, Provinces, Territories, Census divisions and Census subdivisions]() -->
+For census data from 1981 - 1991, data is only available in the `.IVT` format. You will have to download the [beyond 20/20 browser](https://web.archive.org/web/20160804181508/http://www2.beyond2020.com/SC/ProBrowser.exe) to convert it to the `.csv` format. However, I have already done that so you can simply download the entire thing as a big zip file from my Google Drive.
+
+[1991 All data from Google Drive](https://drive.google.com/file/d/1yuTFWOEnVmNfNjTb2FIP6No-3IIs2y6z/view?usp=sharing)
+
+Alternatively, you can download the original `.IVT` files.
+
+[1991 Canada, Provinces, Territories, Census divisions and Census subdivisions Part A](https://www12.statcan.gc.ca/English/census91/data/profiles/Download.cfm?PID=29)
+
+[1991 Canada, Provinces, Territories, Census divisions and Census subdivisions Part B](https://www12.statcan.gc.ca/English/census91/data/profiles/Download.cfm?PID=30)
+
+[1991 Census Tracts Part A](https://www12.statcan.gc.ca/English/census91/data/profiles/Download.cfm?PID=233)
+
+[1991 Census Tracts Part B](https://www12.statcan.gc.ca/English/census91/data/profiles/Download.cfm?PID=234)
+
+[1991 Census Federal Electoral Districts (1987 Representation Order) Part A](https://www12.statcan.gc.ca/English/census91/data/profiles/Download.cfm?PID=221)
+
+[1991 Census Federal Electoral Districts (1987 Representation Order) Part B](https://www12.statcan.gc.ca/English/census91/data/profiles/Download.cfm?PID=222)
 
 
 
@@ -223,4 +239,10 @@ This will create the `parquet_data/` directory. This is the directory the server
 To run the backend server,
 ```
 uvicorn main:app --reload
+```
+
+# Running the frontend #
+```
+npm install
+npm run dev # for running locally
 ```
