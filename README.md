@@ -111,7 +111,11 @@ The official Statistics Canada website has boundary files for the 2001 census bu
 
 [1986 All geographies](https://drive.google.com/file/d/17WtlTpVldtydKmBdYhFskBCFzTU5O7lc/view?usp=sharing)
 
-[1981 All geographies](https://drive.google.com/file/d/13132K4Qw3WDbxA7NPCqJJPeuXwtmhzZg/view?usp=sharing)
+[1981 All geographies (except for census tracts)](https://drive.google.com/file/d/13132K4Qw3WDbxA7NPCqJJPeuXwtmhzZg/view?usp=sharing)
+
+The data for the 1981 census tracts are from the [Borealis Data](https://borealisdata.ca/dataverse/unicen_boundaries)
+
+[1981 Census tracts](https://borealisdata.ca/dataset.xhtml?persistentId=doi:10.5683/SP3/8OFB0M#)
 
 After extracting the `.zip` file, you will see a `MANIFEST.txt` file, and a directory called `Data`. Place both of them into the `backend/geojson/{census_year}` directory, where `{census_year}` matches the census year of the downloaded file.
 
@@ -213,6 +217,8 @@ For census data from 1981 - 1991, data is only available in the `.IVT` format. Y
 
 [1986 All data drom Google Drive](https://drive.google.com/file/d/1topoCBcNvNUlW9aSb46qA-38xdufZs9z/view?usp=sharing)
 
+[1981 All data from Google Drive](https://drive.google.com/file/d/1vbey-o3oA7Mdp_ibfplke1doGvLxGkBB/view?usp=sharing)
+
 Alternatively, you can download the original `.IVT` files.
 
 [1991 Canada, Provinces, Territories, Census divisions and Census subdivisions Part A](https://www12.statcan.gc.ca/English/census91/data/profiles/Download.cfm?PID=29)
@@ -223,9 +229,9 @@ Alternatively, you can download the original `.IVT` files.
 
 [1991 Census Tracts Part B](https://www12.statcan.gc.ca/English/census91/data/profiles/Download.cfm?PID=234)
 
-[1991 Census Federal Electoral Districts (1987 Representation Order) Part A](https://www12.statcan.gc.ca/English/census91/data/profiles/Download.cfm?PID=221)
+[1991 Federal Electoral Districts (1987 Representation Order) Part A](https://www12.statcan.gc.ca/English/census91/data/profiles/Download.cfm?PID=221)
 
-[1991 Census Federal Electoral Districts (1987 Representation Order) Part B](https://www12.statcan.gc.ca/English/census91/data/profiles/Download.cfm?PID=222)
+[1991 Federal Electoral Districts (1987 Representation Order) Part B](https://www12.statcan.gc.ca/English/census91/data/profiles/Download.cfm?PID=222)
 
 [1986 Canada, Provinces, Territories, Census divisions and Census subdivisions Part A](https://www12.statcan.gc.ca/English/census86/data/tables/Download.cfm?PID=113684)
 
@@ -235,7 +241,13 @@ Alternatively, you can download the original `.IVT` files.
 
 [1986 Census Tracts Part B](https://www12.statcan.gc.ca/English/census86/data/tables/Download.cfm?PID=113687)
 
+[1981 Canada, Provinces, Territories, Census divisions and Census subdivisions Part A](https://www12.statcan.gc.ca/English/census81/data/tables/Download.cfm?PID=113751)
 
+[1981 Canada, Provinces, Territories, Census divisions and Census subdivisions Part B](https://www12.statcan.gc.ca/English/census81/data/tables/Download.cfm?PID=113752)
+
+[1981 Census Tracts Part A](https://www12.statcan.gc.ca/English/census81/data/tables/Download.cfm?PID=113753)
+
+[1981 Census Tracts Part B](https://www12.statcan.gc.ca/English/census81/data/tables/Download.cfm?PID=113754)
 
 ## Create the parquet files that contain Census data ##
 Parquet files are a compressed data format better for high-performance analytics. For this project, it is necessary to convert the `.csv` files into Parquet files for faster retrieval.
