@@ -211,6 +211,8 @@ For census data from 1981 - 1991, data is only available in the `.IVT` format. Y
 
 [1991 All data from Google Drive](https://drive.google.com/file/d/1yuTFWOEnVmNfNjTb2FIP6No-3IIs2y6z/view?usp=sharing)
 
+[1986 All data drom Google Drive](https://drive.google.com/file/d/1topoCBcNvNUlW9aSb46qA-38xdufZs9z/view?usp=sharing)
+
 Alternatively, you can download the original `.IVT` files.
 
 [1991 Canada, Provinces, Territories, Census divisions and Census subdivisions Part A](https://www12.statcan.gc.ca/English/census91/data/profiles/Download.cfm?PID=29)
@@ -224,6 +226,14 @@ Alternatively, you can download the original `.IVT` files.
 [1991 Census Federal Electoral Districts (1987 Representation Order) Part A](https://www12.statcan.gc.ca/English/census91/data/profiles/Download.cfm?PID=221)
 
 [1991 Census Federal Electoral Districts (1987 Representation Order) Part B](https://www12.statcan.gc.ca/English/census91/data/profiles/Download.cfm?PID=222)
+
+[1986 Canada, Provinces, Territories, Census divisions and Census subdivisions Part A](https://www12.statcan.gc.ca/English/census86/data/tables/Download.cfm?PID=113684)
+
+[1986 Canada, Provinces, Territories, Census divisions and Census subdivisions Part B](https://www12.statcan.gc.ca/English/census86/data/tables/Download.cfm?PID=113685)
+
+[1986 Census Tracts Part A](https://www12.statcan.gc.ca/English/census86/data/tables/Download.cfm?PID=113686)
+
+[1986 Census Tracts Part B](https://www12.statcan.gc.ca/English/census86/data/tables/Download.cfm?PID=113687)
 
 
 
