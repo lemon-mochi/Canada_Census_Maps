@@ -117,7 +117,12 @@ The data for the 1981 census tracts are from the [Borealis Data](https://boreali
 
 [1981 Census tracts](https://borealisdata.ca/dataset.xhtml?persistentId=doi:10.5683/SP3/8OFB0M#)
 
-After extracting the `.zip` file, you will see a `MANIFEST.txt` file, and a directory called `Data`. Place both of them into the `backend/geojson/{census_year}` directory, where `{census_year}` matches the census year of the downloaded file.
+After extracting the `.zip` file, you will see a `MANIFEST.txt` file, and a directory called `Data`. Place both of them into the `backend/1981-2001_geojson/{census_year}` directory, where `{census_year}` matches the census year of the downloaded file. For the 1981 census tracts data, simply place the `.geojson` file with the other `.geojson` files for the 1981 census.
+
+Then, run the `merge_split_geojson.py` file to merge needed `.geojson` files together.
+```
+python3 merge_split_geojson.py
+```
 
 ### Converting .shp files to .geojson ###
 To create the `.geojson` files needed to run the application, run the `create_geojson_files.py` program. This will run through all the directories in the `boundaries/` directory and create `.geojson` files in the `backend/geojson` directory. This will take a few minutes to run.
