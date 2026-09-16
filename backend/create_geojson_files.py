@@ -1,3 +1,8 @@
+"""
+create_geojson_files.py
+This program converts the .shp files from Statistics Canada into .geojson files.
+"""
+
 import geopandas as gpd
 from pathlib import Path
 
