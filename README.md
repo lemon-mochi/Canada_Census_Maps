@@ -123,6 +123,7 @@ Then, run the `merge_split_geojson.py` file to merge needed `.geojson` files tog
 ```
 python3 merge_split_geojson.py
 ```
+Optional: you can now delete the directories for 1986 census tracts, 1991 census tracts, and 1991 enumeration areas. If you decide not to delete these files, the bash file will create extra unused vector tiles (more information about bash file in the following sections).
 
 ### Converting .shp files to .geojson ###
 To create the `.geojson` files needed to run the application, run the `create_geojson_files.py` program. This will run through all the directories in the `boundaries/` directory and create `.geojson` files in the `backend/geojson` directory. This will take a few minutes to run.
