@@ -1,26 +1,14 @@
-import pandas as pd
-import zipfile
+import duckdb
 
+con = duckdb.connect()
 
-zip_path = './census_data/98-316-XWE2011001-101_CSV.zip'
+input_file = "temp_parquet_data/2011_raw_nhs_da.parquet"
 
-with zipfile.ZipFile(zip_path) as z:
-    for file in z.namelist():
-        test_path = zip_path[14:-8]
-        print(test_path)
+res = con.execute(f"""
+    SELECT GEO_ID, TOTAL
+    FROM '{input_file}'
+""").fetchdf()
 
-        if (file != test_path + ".CSV"):
-            continue
+print(res)
 
-        print(f"Processing {file}")
-
-        with z.open(file) as f:
-            for chunk in pd.read_csv(
-                f,
-                encoding='latin1',
-                low_memory=False,
-                header=0,
-                na_values=['x', 'X', '..', 'F', '...', 'null', 'NULL'],
-                chunksize=100_00
-            ):
-                print(chunk.head)
+con.close()
