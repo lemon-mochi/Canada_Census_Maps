@@ -258,7 +258,10 @@ Alternatively, you can download the original `.IVT` files.
 ## Create the parquet files that contain Census data ##
 For both jupyter notebooks, use the `.venv` virtual enviroment you created earlier.
 Parquet files are a compressed data format better for high-performance analytics. For this project, it is necessary to convert the `.csv` files into Parquet files for faster retrieval.
-Run the `create_parquet_files.ipynb` notebook to create the needed Parquet files. Running this program will create the `temp_parquet_data/` directory within `backend/`. This wil take a few minutes.
+Run the `create_parquet_files.ipynb` notebook to create the needed Parquet files. Running this program will create the `temp_parquet_data/` directory within `backend/`. This wil take a few minutes. Also, you may need to install `7z` to run the notebook.
+```
+sudo apt install p7zip-full
+```
 
 Next you will want to simplify the `.parquet` file. To do this, run the `cleanup_parquet.ipynb` notebook.
 This will create the `parquet_data/` directory. This is the directory the server will use to retrieve data.
