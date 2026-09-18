@@ -1,6 +1,0 @@
-Data/National/Census Subdivisions/GeoJSON/gcsd000b02m_e_geojson.geojson (application/geo+json) 55949392 bytes.
-Data/National/Dissemination Areas/GeoJSON/gda_000b02m_e_geojson.geojson (application/geo+json) 139250228 bytes.
-Data/National/Federal Electoral Districts/GeoJSON/gfed000b02m_e_geojson.geojson (application/geo+json) 30449650 bytes.
-Data/National/Census Tracts/GeoJSON/gct_000b02m_e_geojson.geojson (application/geo+json) 16263541 bytes.
-Data/National/Provinces/GeoJSON/gpr_000b02m_e_geojson.geojson (application/geo+json) 23642474 bytes.
-Data/National/Census Divisions/GeoJSON/gcd_000b02m_e_geojson.geojson (application/geo+json) 30431605 bytes.
