@@ -1,5 +1,5 @@
 1. Fix bugs in convert_boundaries.sh
 2. 1991 Census tracts vector tiles extend into ocean. Look into this.
 3. Verify 2011 parquet data after both jupyter notebooks was preprocessed properly
-4. Preprocess data from 2006 to 1981.
-5. Create jupyter notebook for cleaning up parquet files.
+4. Cleanup 2006 census data (test raw output first), using XML files.
+5. Preprocess 1981 to 2001 census data in jupyter notebooks.
