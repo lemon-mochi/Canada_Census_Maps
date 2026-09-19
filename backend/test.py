@@ -1,9 +1,9 @@
 import os
 import tempfile
 import zipfile
+import shutil
 from pyspark.sql import SparkSession
 
-# Initialize Spark without external package configuration
 spark = (
     SparkSession.builder
     .appName("2006 Census")
@@ -12,7 +12,8 @@ spark = (
 
 spark.sparkContext.setLogLevel("ERROR")
 
-def process_2006_zip(zip_path):
+
+def process_2006_zip(zip_path, output_path):
     with tempfile.TemporaryDirectory() as temp_dir:
         with zipfile.ZipFile(zip_path) as z:
             xml_files = [
@@ -24,14 +25,37 @@ def process_2006_zip(zip_path):
             for name in xml_files:
                 z.extract(name, temp_dir)
 
-        # Spark natively handles XML format in newer versions
         df = (
             spark.read.format("xml")
             .option("rowTag", "generic:Series")
             .load(f"file://{os.path.abspath(temp_dir)}")
         )
 
-        df.printSchema()
-        df.show(5)
+        # Spark writes to a directory, so use a temporary directory first.
+        temp_output = output_path + "_tmp"
 
-process_2006_zip('./census_data/94-581-XCB2006007.ZIP')
+        df.coalesce(1).write \
+            .format("parquet") \
+            .mode("overwrite") \
+            .option("compression", "snappy") \
+            .save(temp_output)
+
+        # Find the single generated parquet file.
+        part_file = next(
+            os.path.join(temp_output, f)
+            for f in os.listdir(temp_output)
+            if f.startswith("part-") and f.endswith(".parquet")
+        )
+
+        # Move it to the desired filename.
+        os.makedirs(os.path.dirname(output_path) or ".", exist_ok=True)
+        shutil.move(part_file, output_path)
+
+        # Remove Spark's temporary output directory.
+        shutil.rmtree(temp_output)
+
+
+process_2006_zip(
+    "./census_data/94-581-XCB2006007.ZIP",
+    "./test/2006_census.parquet"
+)
