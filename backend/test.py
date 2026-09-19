@@ -1,25 +1,37 @@
-import duckdb
+import os
+import tempfile
+import zipfile
+from pyspark.sql import SparkSession
 
-con = duckdb.connect()
+# Initialize Spark without external package configuration
+spark = (
+    SparkSession.builder
+    .appName("2006 Census")
+    .getOrCreate()
+)
 
-char_file = "parquet_data/2011_characteristics.parquet"
+spark.sparkContext.setLogLevel("ERROR")
 
-res = con.execute(f"""
-    SELECT *
-    FROM '{char_file}'
-    WHERE CHARACTERISTIC_ID=105
-""").fetchdf()
+def process_2006_zip(zip_path):
+    with tempfile.TemporaryDirectory() as temp_dir:
+        with zipfile.ZipFile(zip_path) as z:
+            xml_files = [
+                name
+                for name in z.namelist()
+                if name.endswith(".xml") and not name.startswith("Structure")
+            ]
 
-print(res)
+            for name in xml_files:
+                z.extract(name, temp_dir)
 
-input_file = "temp_parquet_data/2011_raw_census_data.parquet"
+        # Spark natively handles XML format in newer versions
+        df = (
+            spark.read.format("xml")
+            .option("rowTag", "generic:Series")
+            .load(f"file://{os.path.abspath(temp_dir)}")
+        )
 
-res = con.execute(f"""
-    SELECT *
-    FROM '{input_file}'
-    WHERE GEO_CODE=10010732
-""").fetchdf()
+        df.printSchema()
+        df.show(5)
 
-print(res)
-
-con.close()
+process_2006_zip('./census_data/94-581-XCB2006007.ZIP')
