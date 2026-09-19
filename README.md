@@ -6,7 +6,9 @@ The thistle🪻, shamrock☘️, rose🌹 entwine,\
 There is no thistle emoji so I used the closest looking thing. If you are not satisfied, here is a unicorn: 🦄.
 
 # Running locally #
-This project requires a somewhat complicated setup in order to run locally. I have listed what must be done.
+You will need to gather vector tiles and parquet files for this program to work properly.\
+If you would like to create the files from scrath, you can follow the procedure I have listed out.
+However, this is somewhat complicated as there are multiple steps that must be followed.
 
 ## Setting up virtual Python environment ##
 Make sure you are in the `backend` directory first
