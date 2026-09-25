@@ -3,3 +3,4 @@
 3. Verify 2011 parquet data after both jupyter notebooks was preprocessed properly
 4. Cleanup 2006 census data (test raw output first), using XML files.
 5. Preprocess 1981 to 2001 census data in jupyter notebooks.
+6. Fix inconsistent DIM0 values.
