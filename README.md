@@ -207,6 +207,8 @@ For 2006 census data, there are multiple datasets that contain information based
 
 [2006 Federal electoral districts (2003 Representation Order)](https://www12.statcan.gc.ca/census-recensement/2006/dp-pd/prof/rel/OpenDataDownload.cfm?PID=94539)
 
+The three XML files for 2001 have different numbers of characteristics. To see this, you can download a smaller `.csv` files from the datasets used from Statistics Canada's website. The file `backend/test_2001_characteristics.py` to see which characteristics are missing from each XML file. 
+
 [2001 Canada, Provinces, Territories, Census Divisions, Census Subdivisions and Dissemination Areas](https://www12.statcan.gc.ca/English/census01/products/standard/profiles/OpenDataDownload.cfm?PID=72849)
 
 [2001 Census Tracts](https://www12.statcan.gc.ca/English/census01/products/standard/profiles/OpenDataDownload.cfm?PID=72852)
