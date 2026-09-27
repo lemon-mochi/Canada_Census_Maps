@@ -29,11 +29,14 @@ missing_from_largest = comparison[~comparison["largest"]]
 missing_from_middle = comparison[~comparison["middle"]]
 missing_from_smallest = comparison[~comparison["smallest"]]
 
-print("Missing from largest:")
-print(missing_from_largest["DIM0"])
+with open("output.txt", "w") as f:
+    pd.set_option('display.max_rows', None)
 
-print("Missing from middle:")
-print(missing_from_middle["DIM0"])
+    print("Missing from largest:", file=f)
+    print(missing_from_largest["DIM0"], file=f)
 
-print("Missing from smallest:")
-print(missing_from_smallest["DIM0"])
+    print("Missing from middle:", file=f)
+    print(missing_from_middle["DIM0"], file=f)
+
+    print("Missing from smallest:", file=f)
+    print(missing_from_smallest["DIM0"], file=f)
