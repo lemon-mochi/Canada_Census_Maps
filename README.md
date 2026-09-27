@@ -199,6 +199,8 @@ The 2011 NHS data for dissemination areas is not available on Satistics Canada's
 
 The 1996 - 2006. Data is in the `.XML` format.
 
+For 2006 census data, there are multiple datasets that contain information based on topic. The dataset related to incomes and earnings is the one I chose as it also contains information from different topics.
+
 [2006 Canada, Provinces, Territories, Census Divisions, Census Subdivisions and Dissemination Areas](https://www12.statcan.gc.ca/census-recensement/2006/dp-pd/prof/rel/OpenDataDownload.cfm?PID=94534)
 
 [2006 Census Tracts](https://www12.statcan.gc.ca/census-recensement/2006/dp-pd/prof/rel/OpenDataDownload.cfm?PID=94537)
