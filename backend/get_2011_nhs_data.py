@@ -1,3 +1,9 @@
+"""
+This file was my attempt at using an API to get 2011 NHS data. It did not work well due to rate limits.
+Read 2011_NHS_Data.md in the root directory for more information.
+THERE IS NO NEED TO RUN THIS FILE.
+"""
+
 import pycancensus as pc
 import pandas as pd
 from dotenv import load_dotenv
