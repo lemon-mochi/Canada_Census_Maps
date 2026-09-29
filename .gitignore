@@ -11,5 +11,5 @@ script2.js
 *.IVT
 *.ZIP
 csv_test/
-!backend/xml_mappings/*
+!backend/mappings/*
 !backend/2011_sample/Download*
