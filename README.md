@@ -171,6 +171,8 @@ You will also need to download the files containing census data. These files are
 
 [2016 Aggregate dissemination areas](https://www12.statcan.gc.ca/census-recensement/2016/dp-pd/prof/details/download-telecharger/comp/GetFile.cfm?Lang=E&FILETYPE=CSV&GEONO=050)
 
+For 2011 Data, there is no clean characteristic id field. To fix, I have downloaded small sample `.csv` files and had the jupyter notebook create ids for each characteristic. Since the `.csv` files are small enough, I have decided to add them to the reporsitory. They are available in `backend/2011_sample`.
+
 [2011 Canada, provinces and territories Census Profile](https://www12.statcan.gc.ca/census-recensement/2011/dp-pd/prof/details/download-telecharger/comprehensive/comp_download.cfm?CTLG=98-316-XWE2011001&FMT=CSV101&Lang=E&Tab=1&Geo1=PR&Code1=01&Geo2=PR&Code2=01&Data=Count&SearchText=&SearchType=Begins&SearchPR=01&B1=All&Custom=&TABID=1)
 
 [2011 Census divisions Census Profile](https://www12.statcan.gc.ca/census-recensement/2011/dp-pd/prof/details/download-telecharger/comprehensive/comp_download.cfm?CTLG=98-316-XWE2011001&FMT=CSV701&Lang=E&Tab=1&Geo1=PR&Code1=01&Geo2=PR&Code2=01&Data=Count&SearchText=&SearchType=Begins&SearchPR=01&B1=All&Custom=&TABID=1)
