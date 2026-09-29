@@ -225,7 +225,9 @@ For 2006 census data, there are multiple datasets that contain information based
 
 [1996 Enumeration Areas](https://www12.statcan.gc.ca/English/census96/data/profiles/OpenDataDownload.cfm?PID=35804)
 
-For census data from 1981 - 1991, data is only available in the `.IVT` format. You will have to download the [beyond 20/20 browser](http://www.beyond2020.com/media/downloads/SC/ProBrowser.exe) to convert it to the `.csv` format. However, I have already done that so you can simply download the entire thing as a big zip file from my Google Drive. For 1991 enumeration areas (parts A and B), the data was too large to convert to `.csv` at once. I was not able to filter by province. This means I would have to manually filter and select columns, then convert to `.csv`. There are thousands of columns making this infeasible. I have decided to not include 1991 census data at the enumeration area. I apologize if you were looking to 
+For census data from 1981 - 1991, data is only available in the `.IVT` format. You will have to download the [beyond 20/20 browser](http://www.beyond2020.com/media/downloads/SC/ProBrowser.exe) to convert it to the `.csv` format. However, I have already done that so you can simply download the entire thing as a big zip file from my Google Drive. For 1991 enumeration areas (parts A and B), the data was too large to convert to `.csv` at once. I was not able to filter by province. This means I would have to manually filter and select columns, then convert to `.csv`. There are thousands of columns making this infeasible. I have decided to not include 1991 census data at the enumeration area. I apologize if you wanted to see this data. Except for the 1986 census where everything is consistent, so there is need to create a mapping system.
+
+Like with the `.XML` files, These old `.IVT` files have inconsistent row values and no ID system. Like before, I opened excel and manually found a way to map these values to an ID.
 
 [1991 All data from Google Drive](https://drive.google.com/file/d/1yuTFWOEnVmNfNjTb2FIP6No-3IIs2y6z/view?usp=sharing)
 
