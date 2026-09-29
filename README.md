@@ -225,7 +225,7 @@ For 2006 census data, there are multiple datasets that contain information based
 
 [1996 Enumeration Areas](https://www12.statcan.gc.ca/English/census96/data/profiles/OpenDataDownload.cfm?PID=35804)
 
-For census data from 1981 - 1991, data is only available in the `.IVT` format. You will have to download the [beyond 20/20 browser](https://web.archive.org/web/20160804181508/http://www2.beyond2020.com/SC/ProBrowser.exe) to convert it to the `.csv` format. However, I have already done that so you can simply download the entire thing as a big zip file from my Google Drive.
+For census data from 1981 - 1991, data is only available in the `.IVT` format. You will have to download the [beyond 20/20 browser](http://www.beyond2020.com/media/downloads/SC/ProBrowser.exe) to convert it to the `.csv` format. However, I have already done that so you can simply download the entire thing as a big zip file from my Google Drive. For 1991 enumeration areas (parts A and B), the data was too large to convert to `.csv` at once. I was not able to filter by province. This means I would have to manually filter and select columns, then convert to `.csv`. There are thousands of columns making this infeasible. I have decided to not include 1991 census data at the enumeration area. I apologize if you were looking to 
 
 [1991 All data from Google Drive](https://drive.google.com/file/d/1yuTFWOEnVmNfNjTb2FIP6No-3IIs2y6z/view?usp=sharing)
 
