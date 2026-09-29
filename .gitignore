@@ -12,3 +12,4 @@ script2.js
 *.ZIP
 csv_test/
 !backend/xml_mappings/*
+!backend/2011_sample/Download*
