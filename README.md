@@ -201,15 +201,15 @@ The 2011 NHS data for dissemination areas is not available on Satistics Canada's
 
 The 1996 - 2006. Data is in the `.XML` format.
 
-For 2006 census data, there are multiple datasets that contain information based on topic. The dataset related to incomes and earnings is the one I chose as it also contains information from different topics. Also, I noticed that each `.XML` file maps their `DIM0` value in a different way. So, one file might have `DIM0` 1 map to 2006 population while another might map it to 2001 population. I tried using programming tricks but nothing seemed to work. I decided to just manually inspect the values and create a mapping of ids that map to only one characteristic, so everything can be consistent. I used excel for this. Sometimes, the non-technical solution is the best one. The mappings are in `backend/xml_mappings`.
+The XML files for 2006, 2001, and 1996 have different numbers of characteristics. To see this, you can download a smaller `.csv` files from the datasets used from Statistics Canada's website. The file `backend/test_2001_characteristics.py` to see which characteristics are missing from each XML file. I noticed that each `.XML` file maps their `DIM0` value in a different way. So, one file might have `DIM0` 1 map to 2006 population while another might map it to 2001 population. I tried using programming tricks but nothing seemed to work. I decided to just manually inspect the values and create a mapping of ids that map to only one characteristic, so everything can be consistent. I used excel for this. Sometimes, the non-technical solution is the best one. The mappings are in `backend/xml_mappings`.
+
+For 2006 census data, there are multiple datasets that contain information based on topic. The dataset related to incomes and earnings is the one I chose as it also contains information from different topics.
 
 [2006 Canada, Provinces, Territories, Census Divisions, Census Subdivisions and Dissemination Areas](https://www12.statcan.gc.ca/census-recensement/2006/dp-pd/prof/rel/OpenDataDownload.cfm?PID=94534)
 
 [2006 Census Tracts](https://www12.statcan.gc.ca/census-recensement/2006/dp-pd/prof/rel/OpenDataDownload.cfm?PID=94537)
 
 [2006 Federal electoral districts (2003 Representation Order)](https://www12.statcan.gc.ca/census-recensement/2006/dp-pd/prof/rel/OpenDataDownload.cfm?PID=94539)
-
-The three XML files for 2001 have different numbers of characteristics. To see this, you can download a smaller `.csv` files from the datasets used from Statistics Canada's website. The file `backend/test_2001_characteristics.py` to see which characteristics are missing from each XML file. 
 
 [2001 Canada, Provinces, Territories, Census Divisions, Census Subdivisions and Dissemination Areas](https://www12.statcan.gc.ca/English/census01/products/standard/profiles/OpenDataDownload.cfm?PID=72849)
 
