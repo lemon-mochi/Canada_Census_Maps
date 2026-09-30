@@ -83,19 +83,20 @@ Census files from [here](https://www12.statcan.gc.ca/census-recensement/2021/geo
 
 [2006 Dissemination areas](https://www12.statcan.gc.ca/census-recensement/2011/geo/bound-limit/files-fichiers/gda_000b06a_e.zip)
 
-After downloading the boundary files, you will have to extract them. Put the extracted directories in `backend/boundaries` directory.
+After downloading the boundary files, you will have to extract them. Put the extracted directories in `backend/geographies/boundaries` directory.
 File structure should look like
 ```
 census_maps/ # root directory
 ├── backend/
-├──── boundaries/ # directory
-├────── Ida_000b21a_e/ # directory for 2021 Dissemination areas
-├──────── Ida_000b21a_e.dbf
-├──────── lda_000b21a_e.prj
-├──────── lda_000b21a_e.shp
-├──────── lda_000b21a_e.shx
-├──────── lda_000b21a_e.xml
-├────── ... other directories containing boundary definitions
+├──── geographies/
+├────── boundaries/ # directory
+├──────── Ida_000b21a_e/ # directory for 2021 Dissemination areas
+├────────── Ida_000b21a_e.dbf
+├────────── lda_000b21a_e.prj
+├────────── lda_000b21a_e.shp
+├────────── lda_000b21a_e.shx
+├────────── lda_000b21a_e.xml
+├──────── ... other directories containing boundary definitions
 ├──── ... other files and directories in backend/
 ├── frontend/
 ├──── ... files in frontend/ directory
@@ -103,7 +104,7 @@ census_maps/ # root directory
 ├── README.md # this file
 ```
 
-The official Statistics Canada website has boundary files for the 2001 census but they are not available in the `.shp` format. I was able to find an alternative source that has `.geojson` files that represent the boundaries. [Abacus Data Network, Statistics Canada Open License](https://abacus.library.ubc.ca/dataverse/statcan-public). The next step shows how to convert the `.shp` files into `.geojson`. Since the files from the Abacus Data Network are already in the `.geojson` format, you may put them in the `backend/geojson/{census_year}` directory, after extracting the `.zip`. The way you download files using the website is too complicated. To simplify the process, I have put the `.zip` files into my Google Drive, where you may download it. The license allows me to do this.
+The official Statistics Canada website has boundary files for the 2001 census but they are not available in the `.shp` format. I was able to find an alternative source that has `.geojson` files that represent the boundaries. [Abacus Data Network, Statistics Canada Open License](https://abacus.library.ubc.ca/dataverse/statcan-public). The next step shows how to convert the `.shp` files into `.geojson`. Since the files from the Abacus Data Network are already in the `.geojson` format, you may put them in the `backend/geographies/geojson/{census_year}` directory, after extracting the `.zip`. The way you download files using the website is too complicated. To simplify the process, I have put the `.zip` files into my Google Drive, where you may download it. The license allows me to do this.
 
 [2001 All geographies](https://drive.google.com/file/d/1ykD9uJug7wOHgH9A7-T87gYNIIcGTK9Y/view?usp=sharing)
 
@@ -121,7 +122,7 @@ The data for the 1981 census tracts are from the [Borealis Data](https://boreali
 
 For simplicity, you shouldu place the 1981 census tracts `.geojson` into the directory called `Data GeoJSON` with the other 1981 census `geojson` files.
 
-After extracting the `.zip` file, you will see a `MANIFEST.txt` file, and a directory called `Data`. Place both of them into the `backend/1981-2001_geojson/{census_year}` directory, where `{census_year}` matches the census year of the downloaded file.
+After extracting the `.zip` file, you will see a `MANIFEST.txt` file, and a directory called `Data`. Place both of them into the `backend/geographies/1981-2001_geojson/{census_year}` directory, where `{census_year}` matches the census year of the downloaded file.
 
 Then, run the `merge_split_geojson.py` file to merge needed `.geojson` files together.
 ```
@@ -130,8 +131,9 @@ python3 merge_split_geojson.py
 Optional: you can now delete the directories for 1986 census tracts, 1991 census tracts, and 1991 enumeration areas. If you decide not to delete these files, the bash file will create extra unused vector tiles (more information about bash file in the following sections).
 
 ### Converting .shp files to .geojson ###
-To create the `.geojson` files needed to run the application, run the `create_geojson_files.py` program. This will run through all the directories in the `boundaries/` directory and create `.geojson` files in the `backend/geojson` directory. This will take a few minutes to run.
+To create the `.geojson` files needed to run the application, run the `create_geojson_files.py` program. This will run through all the directories in the `boundaries/` directory and create `.geojson` files in the `backend/geographies/geojson` directory. This will take a few minutes to run.
 ```
+cd geographies
 python3 create_geojson_files.py
 ```
 
@@ -149,7 +151,7 @@ Make sure the `convert_boundaries.sh` file is executable.
 chmod +x convert_boundaries.sh
 ```
 
-Then, run the `convert_boundaries.sh` file in the `backend/` directory to convert all the `.geojson` files into the vector tiles. This will take a few minutes.
+Then, run the `convert_boundaries.sh` file in the `backend/geographies` directory to convert all the `.geojson` files into the vector tiles. This will take a few minutes.
 ```
 ./convert_boundaries.sh
 ```
