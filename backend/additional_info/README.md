@@ -1,0 +1,1 @@
+This directory contains files that helped me develop the app. Nothing in here affects the final app. It is simply here as a way to show the app's progress.
