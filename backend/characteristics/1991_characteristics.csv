@@ -1,0 +1,700 @@
+﻿CHARACTERISTIC_ID,CHARACTERISTIC_NAME
+1,"Population, 1986 (1)"
+2,"Population, 1991 (2)"
+3,"Population percentage change, 1986-1991"
+4,"Land area in square kilometres, 1991"
+5,Total population
+6,"Male, total"
+7,    0 - 4 years
+8,    5 - 9 years
+9,   10 - 14 years
+10,   15 years
+11,   16 years
+12,   17 years
+13,   18 years and over
+14,      18 - 19 years
+15,   15 - 19 years
+16,   20 - 24 years
+17,   25 - 29 years
+18,   30 - 34 years
+19,   35 - 39 years
+20,   40 - 44 years
+21,   45 - 49 years
+22,   50 - 54 years
+23,   55 - 59 years
+24,   60 - 64 years
+25,   65 - 74 years
+26,  75 years and over
+27,      75 - 84 years
+28,      85 years and over
+29,"Female, total"
+30,    0 -  4 years
+31,    5 -  9 years
+32,   10 - 14 years
+33,   15 years
+34,   16 years
+35,   17 years
+36,   18 years and over
+37,      18 - 19 years
+38,  15 - 19 years
+39,  20 - 24 years
+40,  25 - 29 years
+41,  30 - 34 years
+42,  35 - 39 years
+43,  40 - 44 years
+44,  45 - 49 years
+45,  50 - 54 years
+46,  55 - 59 years
+47,  60 - 64 years
+48,  65 - 74 years
+49,  75 years and over
+50,   75 - 84 years
+51,   85 years and over
+52,Single (never married) persons 15 years of age and over
+53,Legally married (and not separated)
+54,Legally married and separated
+55,Widowed
+56,Divorced
+57,"Mother tongue, single responses"
+58,    English
+59,    French
+60,    Non-official languages
+61,        Italian
+62,        Chinese
+63,        German
+64,        Portuguese
+65,        Polish
+66,        Ukrainian
+67,        Spanish
+68,        Dutch
+69,        Greek
+70,        Punjabi
+71,        Arabic
+72,        Tagalog (Pilipino)
+73,        Hungarian
+74,        Cree
+75,        Vietnamese
+76,        Russian
+77,        Finnish
+78,        Inuktitut
+79,        Montagnais - Naskapi
+80,"        Athapaskan languages, n.i.e."
+81,        Bulgarian
+82,        Micmac
+83,        South Slave
+84,        Chipewyan
+85,        Dogrib
+86,        Kutchin-Gwich'in (Loucheux)
+87,        Other languages
+88,"Mother tongue, multiple responses"
+89,    English and French
+90,    English and non-official languages(s)
+91,    French and non-official language(s)
+92,"    English, French and non-official language(s)"
+93,    Non-official languages
+94,Total number of occupied private dwellings
+95,    Owned
+96,    Rented
+97,    Band housing (3)
+98,    Single-detached house
+99,    Semi-detached house
+100,    Row house
+101,"    Apartment, detached duplex"
+102,"    Apartment building, five or more storeys"
+103,"    Apartment building, less than five storeys"
+104,    Other single attached house
+105,    Movable dwelling (4)
+106,Total number of private households
+107,"    Size of household, 1 person"
+108,"    Size of household, 2 persons"
+109,"    Size of household, 3 persons"
+110,"    Size of household, 4 or 5 persons"
+111,"    Size of household, 6 or more persons"
+112,    Non-family household
+113,    1 census family household
+114,    2 or more census family households
+115,Number of persons in private households
+116,Average number of persons per household
+117,Total number of census families in private households
+118,"    Size of census family, 2 persons"
+119,"    Size of census family, 3 persons"
+120,"    Size of census family, 4 persons"
+121,"    Size of census family, 5 or more persons"
+122,Total husband-wife families (5)
+123,   Total families of now-married couples
+124,      Total without sons and daughters at home
+125,      Total with sons and daughters at home
+126,          1 son or daughter
+127,          2 sons and/or daughters
+128,          3 or more sons and/or daughters
+129,   Total families of common-law couples
+130,      Total without sons and daughters at home
+131,      Total with sons and daughters at home
+132,          1 son or daughter
+133,          2 sons and/or daughters
+134,          3 or more sons and/or daughters
+135,Total lone-parent families
+136,   Male parent
+137,       1 son or daughter
+138,       2 sons and/or daughters
+139,       3 or more sons and/or daughters
+140,   Female parent
+141,       1 son or daughter
+142,       2 sons and/or daughters
+143,       3 or more sons and/or daughters
+144,Total number of never-married sons/daughters at home
+145,   Under 6 years of age
+146,    6 - 14 years
+147,   15 - 17 years
+148,   18 - 24 years
+149,   25 years and over
+150,Average number sons/daughters at home per family (6)
+151,Total number of persons in private households
+152,   Number of non-family persons
+153,       Living with relatives
+154,       Living with non-relatives only
+155,       Living alone
+156,   Number of family persons
+157,Average number of persons per census family
+158,Total number of persons 65 years and over
+159,   Number of non-family persons 65 years and over
+160,       Living with relatives
+161,       Living with non-relatives only
+162,       Living alone
+163,   Number of family persons 65 years and over
+164,Total number of economic families in private households
+165,"   Size of economic family, 2 persons"
+166,"   Size of economic family, 3 persons"
+167,"   Size of economic family, 4 persons"
+168,"   Size of economic family, 5 or more persons"
+169,Total number persons in economic families
+170,Average number of persons per economic family
+171,Total number of unattached individuals
+172,102 Total population (non-institutional) (1)
+173,"201 Home language, single responses"
+174,"202   English, home language"
+175,"203   French, home language"
+176,"204   Non-official languages, home language"
+177,"205     Chinese, home language"
+178,"206     Italian, home language"
+179,"207     Portuguese, home language"
+180,"208     Spanish, home language"
+181,"209     German, home language"
+182,"210     Polish, home language"
+183,"211     Punjabi, home language"
+184,"212     Greek, home language"
+185,"213     Vietnamese, home language"
+186,"212     Arabic, home language"
+187,"215     Cree, home language"
+188,"216     Tagalog (Pilipino), home language"
+189,"217     Ukrainian, home language"
+190,"218     Persian (Farsi), home language"
+191,"219     Korean, home language"
+192,"220     Hungarian, home language"
+193,"221     Tamil, home language"
+194,"222     Gujarati, home language"
+195,"223     Croatian, home language"
+196,"224     Armenian, home language"
+197,"225     Inuktitut, home language"
+198,"226     Hindi, home language"
+199,"227     Urdu, home language"
+200,"228     Japanese, home language"
+201,"229     Russian, home language"
+202,"230     Creoles, home language"
+203,"231     Dutch, home language"
+204,"232     Khmer (Cambodian), home language"
+205,"233     Ojibway, home language"
+206,"234     Romanian, home language"
+207,"235     Other languages, home language"
+208,"236 Home language, multiple responses"
+209,"301 English only, knowledge of official language"
+210,"302 French only, knowledge of official language"
+211,303 Both English and French
+212,304 Neither English nor French
+213,"401 Italian, knowledge of non-official languages (2)"
+214,"402 German, knowledge of non-official languages (2)"
+215,"403 Chinese, knowledge of non-official languages (2)"
+216,"404 Spanish, knowledge of non-official languages (2)"
+217,"405 Portuguese, knowledge of non-official languages (2)"
+218,"406 Ukrainian, knowledge of non-official languages (2)"
+219,"407 Polish, knowledge of non-official languages (2)"
+220,"408 Dutch, knowledge of non-official languages (2)"
+221,"409 Punjabi, knowledge of non-official languages (2)"
+222,"410 Arabic, knowledge of non-official languages (2)"
+223,"411 Greek, knowledge of non-official languages (2)"
+224,"412 Tagalog (Pilipino), knowledge of non-official langs.(2)"
+225,"413 Vietnamese, knowledge of non-official languages (2)"
+226,"414 Hindi, knowledge of non-official languages (2)"
+227,"415 Hungarian, knowledge of non-official languages (2)"
+228,"416 Cree, knowledge of non-official languages (2)"
+229,"417 Russian, knowledge of non-official languages (2)"
+230,"418 Gujarati, knowledge of non-official languages (2)"
+231,"419 Yiddish, knowledge of non-official languages (2)"
+232,"420 Hebrew, knowledge of non-official languages (2)"
+233,"421 Urdu, knowledge of non-official languages (2)"
+234,"422 Creoles, knowledge of non-official languages (2)"
+235,"423 Persian (Farsi), knowledge of non-official langs. (2)"
+236,"424 Croatian, knowledge of non-official languages (2)"
+237,"425 Japanese, knowledge of non-official languages (2)"
+238,"426 Korean, knowledge of non-official languages (2)"
+239,"427 Tamil, knowledge of non-official languages (2)"
+240,"428 Finnish, knowledge of non-official languages (2)"
+241,"429 Armenian, knowledge of non-official languages (2)"
+242,"430 Romanian, knowledge of non-official languages (2)"
+243,"501 Religion, Catholic"
+244,502   Roman Catholic (3)
+245,503   Ukrainian Catholic
+246,"504 Religion, Protestant"
+247,505   United Church
+248,506   Anglican
+249,507   Baptist
+250,508   Presbyterian
+251,509   Lutheran
+252,510   Pentecostal
+253,511   Mennonite
+254,512   Jehovah's Witnesses
+255,513   Reformed Bodies
+256,514   Salvation Army
+257,515   Latter-day Saints (Mormons)
+258,516   Other Protestant
+259,517 Other Religions
+260,518   Eastern Orthodox
+261,519   Jewish
+262,520   Islam
+263,521   Buddhist
+264,522   Hindu
+265,523   Sikh
+266,524   Other (other religions) (4)
+267,525 No religious affiliation
+268,"601 Ethnic origin, single origins"
+269,"602   French origins, ethnic origin (5)"
+270,"603   British origins, ethnic origin"
+271,"604     English, single ethnic origin"
+272,"605     Scottish, single ethnic origin"
+273,"606     Irish, single ethnic origin"
+274,"607     Other British, single ethnic origin (6)"
+275,"608   German, single ethnic origin"
+276,"609   Canadian, single ethnic origin"
+277,"610   Italian, single ethnic origin"
+278,"611   Chinese, single ethnic origin"
+279,"612   Aboriginal origins, single ethnic origin (7)"
+280,"613   Ukrainian, single ethnic origin"
+281,"614   Dutch (Netherlands), single ethnic origin"
+282,"615   East Indian, n.i.e., single ethnic origin"
+283,"616   Polish, single ethnic origin"
+284,"617   Portuguese, single ethnic origin"
+285,"618   Jewish, single ethnic origin"
+286,"619   Black origins, single ethnic origin (8)"
+287,"620   Filipino, single ethnic origin"
+288,"621   Greek, single ethnic origin"
+289,"622   Hungarian (Magyar), single ethnic origin"
+290,"623   Vietnamese, single ethnic origin"
+291,"624   Spanish, single ethnic origin"
+292,"625   Lebanese, single ethnic origin"
+293,"626   Norwegian, single ethnic origin"
+294,"627   Japanese, single ethnic origin"
+295,"628   Yugoslav, n.i.e., single ethnic origin"
+296,"629   Korean, single ethnic origin"
+297,"630   Swedish, single ethnic origin"
+298,"631   Croatian, single ethnic origin"
+299,"632   Danish, single ethnic origin"
+300,"633   Finnish, single ethnic origin"
+301,"634   Other single origins, ethnic origin"
+302,"635 Ethnic origin, multiple origins (9)"
+303,701 Canadian citizenship (10)
+304,702 Citizenship other than Canadian
+305,703 Non-immigrant population (11)
+306,704   Born in province of residence
+307,705 Immigrant population
+308,"706   United States of America, place of birth"
+309,"707   Central and South America, place of birth"
+310,"708   Caribbean and Bermuda, place of birth"
+311,"709   United Kingdom, place of birth"
+312,"710   Other Europe, place of birth (12)"
+313,"711   Africa, place of birth"
+314,"712   India, place of birth"
+315,"713   Other Asia, place of birth (13)"
+316,"714   Oceania & Other, place of birth (14)"
+317,715 Non-permanent residents (15)
+318,801 Total immigrant population
+319,"802   Before 1961, period of immigration"
+320,"803   1961-1970, period of immigration"
+321,"804   1971-1980, period of immigration"
+322,"805   1981-1991, period of immigration (16)"
+323,"806     1981-1987, period of immigration"
+324,"807     1988-1991, period of immigration (16)"
+325,"901  0 - 4 years, age at immigration"
+326,"902  5 - 19 years, age at immigration"
+327,"903  20 years and over, age at immigration"
+328,1001 Total population 1 year and over (17)
+329,"1002   Non-movers, one year mobility status"
+330,"1003   Movers, one year mobility status"
+331,"1004     Intraprovincial movers, 1 year mobility status"
+332,"1005     Interprovincial migrants, 1 year mobility status"
+333,"1006     External migrants, 1 year mobility status"
+334,1007 Total population 5 years and over (17)
+335,"1008   Non-movers, five year mobility status"
+336,"1009   Movers, five year mobililty status"
+337,"1010     Non-migrants, 5 year mobility status"
+338,"1011     Migrants, 5 year mobility status"
+339,"1012       Internal migrants, 5 year mobility status"
+340,"1013         Intraprovincial migrants, 5 yr. mob. status"
+341,"1014         Interprovincial migrants, 5 yr. mob. status"
+342,"1015       External migrants, 5 year mobility status"
+343,"1101 Ever-married women 15+ years, by children ever born"
+344,1102   No child
+345,1103   1 child
+346,1104   2 children
+347,1105   3 children
+348,1106   4 or more children
+349,1107   Children ever-born per 1000
+350,1108 Ever-married women 15 - 44 years
+351,1109   Children ever-born per 1000
+352,1110 Single women 15 years and over
+353,1111   Children ever-born per 1000
+354,"1201 Total population 15 - 24 years, by school attendance"
+355,1202   Not attending school
+356,1203   Attending school full time
+357,1204   Attending school part time
+358,1301 Total population 15 years and over
+359,"1302   Highest level of schooling, less than grade 9 (18)"
+360,1303   Grades 9-13 - Without secondary certificate
+361,1304   Grades 9-13 - With secondary certificate
+362,1305   Trades certificate or diploma
+363,1306   Other non-university - Without certificate (19)
+364,1307   Other non-university - With certificate (19) (20)
+365,1308   University - Without degree
+366,1309     University - Without certificate
+367,1310     University - With certificate (20)
+368,1311   University - With degree
+369,1401 Males with postsecondary qualifications (21)
+370,"1402   Educational, recreational and counselling services"
+371,1403   Fine and applied arts
+372,1404   Humanities and related fields
+373,1405   Social sciences and related fields
+374,"1406   Commerce, management and business administration"
+375,1407   Agricultural and biological sciences/technologies
+376,1408   Engineering and applied sciences
+377,1409   Engineering and applied science techs. and trades
+378,"1410   Health professions, sciences and technologies"
+379,1411   Mathematics and physical sciences
+380,"1412   No specialization and all other, n.e.c."
+381,1501 Females with postsecondary qualifications (21)
+382,"1502   Educational, recreational and counselling services"
+383,1503   Fine and applied arts
+384,1504   Humanities and related fields
+385,1505   Social sciences and related fields
+386,"1506   Commerce, management and business administration"
+387,1507   Agricultural and biological sciences/technologies
+388,1508   Engineering and applied sciences
+389,1509   Engineering and applied science techs. and trades
+390,"1510   Health professions, sciences and technologies"
+391,1511   Mathematics and physical sciences
+392,"1512   No specialization and all other, n.e.c."
+393,1601 Both Sexes - 15 years and over
+394,"1602   In labour force, both sexes 15+"
+395,"1603     Employed, both sexes 15+"
+396,"1604     Unemployed, both sexes 15+"
+397,"1605   Not in the labour force, both sexes 15+"
+398,"1606   Unemployment rate, both sexes 15+"
+399,"1607   Participation rate, both sexes 15+"
+400,1608 Both Sexes - 15-24 years
+401,"1609   In labour force, both sexes 15-24 years"
+402,"1610     Employed, both sexes 15-24 years"
+403,"1611     Unemployed, both sexes 15-24 years"
+404,"1612   Not in the labour force, both sexes 15-24 years"
+405,"1613   Unemployment rate, both sexes 15-24 years"
+406,"1614   Participation rate, both sexes 15-24 years"
+407,1615 Both Sexes - 25 years and over
+408,"1616   In labour force, both sexes 25+"
+409,"1617     Employed, both sexes 25+"
+410,"1618     Unemployed, both sexes 25+"
+411,"1619   Not in the labour force, both sexes 25+"
+412,"1620   Unemployment rate, both sexes 25+"
+413,"1621   Participation rate, both sexes 25+"
+414,1701 Males - 15 years and over
+415,"1702   In labour force, males 15+"
+416,"1703     Employed, males 15+"
+417,"1704     Unemployed, males 15+"
+418,"1705   Not in the labour force, males 15+"
+419,"1706   Unemployment rate, males 15+"
+420,"1707   Participation rate, males 15+"
+421,1708 Males - 15-24 years
+422,"1709   In labour force, males 15-24 years"
+423,"1710     Employed, males 15-24 years"
+424,"1711     Unemployed, males 15-24 years"
+425,"1712   Not in the labour force, males 15-24 years"
+426,"1713   Unemployment rate, males 15-24 years"
+427,"1714   Participation rate, males 15-24 years"
+428,1715 Males - 25 years and over
+429,"1716   In labour force, males 25+"
+430,"1717     Employed, males 25+"
+431,"1718     Unemployed, males 25+"
+432,"1719   Not in the labour force, males 25+"
+433,"1720   Unemployment rate, males 25+"
+434,"1721   Participation rate, males 25+"
+435,1801 Females - 15 years and over
+436,"1802   In labour force, females 15+"
+437,"1803     Employed, females 15+"
+438,"1804     Unemployed, females 15+"
+439,"1805   Not in the labour force, females 15+"
+440,"1806   Unemployment rate, females 15+"
+441,"1807   Participation rate, females 15+"
+442,1808 Females - 15-24 years
+443,"1809   In labour force, females 15-24 years"
+444,"1810     Employed, females 15-24 years"
+445,"1811     Unemployed, females 15-24 years"
+446,"1812   Not in the labour force, females 15-24 years"
+447,"1813   Unemployment rate, females 15-24 years"
+448,"1814   Participation rate, females 15-24 years"
+449,1815 Females - 25 years and over
+450,"1816   In labour force, females 25+"
+451,"1817     Employed, females 25+"
+452,"1818     Unemployed, females 25+"
+453,"1819   Not in the labour force, females 25+"
+454,"1820   Unemployment rate, females 25+"
+455,"1821   Participation rate, females 25+"
+456,1822 Females 15+ with no children at home (22)
+457,"1823   In the labour force, no children (22)"
+458,"1824     Employed, no children (22)"
+459,"1825     Unemployed, no children (22)"
+460,"1826   Not in the labour force, no children (22)"
+461,"1827   Unemployment rate, no children (22)"
+462,"1828   Participation rate, no children (22)"
+463,1829 Females 15+ with children at home (22)
+464,"1830   In the labour force, with children (22)"
+465,"1831     Employed, with children (22)"
+466,"1832     Unemployed, with children (22)"
+467,"1833   Not in the labour force, with children (22)"
+468,"1834   Unemployment rate, with children (22)"
+469,"1835   Participation rate, with children (22)"
+470,1836     With children under 6 years only (22)
+471,"1837       In the labour force, children <6 yrs. (22)"
+472,"1838         Employed, children <6 yrs. (22)"
+473,"1839         Unemployed, children <6 yrs. (22)"
+474,"1840       Not in the labour force, children <6 yrs. (22)"
+475,"1841       Unemployment rate, children <6 yrs. (22)"
+476,"1842       Participation rate, children <6 yrs. (22)"
+477,1843     With children < 6 years and children >=6 yrs. (22)
+478,"1844       In the labour force, children < & >= 6 yrs. (22)"
+479,"1845         Employed, children < & >= 6 yrs. (22)"
+480,"1846         Unemployed, children < & >= 6 yrs. (22)"
+481,"1847       Not in the labour force, children < & >= 6 yrs. (22)"
+482,"1848       Unemployment rate, children < & >= 6 yrs. (22)"
+483,"1849       Participation rate, children < & >= 6 yrs. (22)"
+484,1850     With children 6 years and over only (22)
+485,"1851       In the labour force, children 6+ yrs.(22)"
+486,"1852         Employed, children 6+ yrs.(22)"
+487,"1853         Unemployed, children 6+ yrs.(22)"
+488,"1854       Not in the labour force, children 6+ yrs.(22)"
+489,"1855       Unemployment rate, children 6+ yrs.(22)"
+490,"1856       Participation rate, children 6+ yrs. (22)"
+491,1901 Total labour force 15 years and over
+492,1902   Not applicable (23)
+493,1903   All industries (24) (25)
+494,1904     Agricultural and related service industries
+495,1905     Fishing and trapping industries
+496,1906     Logging and forestry industries
+497,"1907     Mining (incl. milling), quarrying & oil well inds."
+498,1908     Manufacturing industries
+499,1909     Construction industries
+500,1910     Transportation and storage industries
+501,1911     Communication and other utility industries
+502,1912     Wholesale trade industries
+503,1913     Retail trade industries
+504,1914     Finance and insurance industries
+505,1915     Real estate operator and insurance agent inds.
+506,1916     Business service industries
+507,1917     Government service industries
+508,1918     Educational service industries
+509,1919     Health and social service industries
+510,"1920     Accommodation, food and beverage service inds."
+511,1921     Other service industries
+512,2001   Males - All occupations (Major groups) (24) (25)
+513,"2002     Managerial, administrative and related occupations"
+514,"2003     Occupations in nat. sciences, engineering and math."
+515,2004     Occupations in social sciences and related fields
+516,2005     Occupations in religion
+517,2006     Teaching and related occupations
+518,2007     Occupations in medicine and health
+519,"2008     Artistic, literary, recreational and related occs."
+520,2009     Clerical and related occupations
+521,2010     Sales occupations
+522,2011     Service occupations
+523,"2012     Farming, horticultural and animal husbandry occs."
+524,"2013     Fishing, trapping and related occupations"
+525,2014     Forestry and logging occupations
+526,2015     Mining & quarrying incl. oil & gas field occs.
+527,2016     Processing occupations
+528,2017     Machining and related occupations
+529,"2018     Product fabricating, assembling & repairing occs."
+530,2019     Construction trades occupations
+531,2020     Transport equipment operating occupations
+532,"2021     Material handling and related occupations, n.e.c."
+533,2022     Other crafts and equipment operating occupations
+534,2023     Occupations not elsewhere classified
+535,2101  Females - All occupations (Major groups) (24) (25)
+536,"2102     Managerial, administrative and related occupations"
+537,"2103     Occupations in nat. sciences, engineering and math."
+538,2104     Occupations in social sciences and related fields
+539,2105     Occupations in religion
+540,2106     Teaching and related occupations
+541,2107     Occupations in medicine and health
+542,"2108     Artistic, literary, recreational and related occs."
+543,2109     Clerical and related occupations
+544,2110     Sales occupations
+545,2111     Service occupations
+546,"2112     Farming, horticultural and animal husbandry occs."
+547,"2113     Fishing, trapping and related occupations"
+548,2114     Forestry and logging occupations
+549,2115     Mining & quarrying incl. oil & gas field occs.
+550,2116     Processing occupations
+551,2117     Machining and related occupations
+552,"2118     Product fabricating, assembling & repairing occs."
+553,2119     Construction trades occupations
+554,2120     Transport equipment operating occupations
+555,"2121     Material handling and related occupations, n.e.c."
+556,2122     Other crafts and equipment operating occupations
+557,2123     Occupations not elsewhere classified
+558,2201 Males - All classes of worker (25)
+559,"2202   Paid-workers, males"
+560,"2203     Employees, males"
+561,"2204     Self-employed (incorporated), males"
+562,"2205   Self-employed (unincorporated), males"
+563,"2206   Unpaid family workers, males"
+564,2301 Females - All classes of worker (25)
+565,"2302   Paid-workers, females"
+566,"2303     Employees, females"
+567,"2304     Self-employed (incorporated), females"
+568,"2305   Self-employed (unincorporated), females"
+569,"2306   Unpaid family workers, females"
+570,2401 Males in employed labour force
+571,"2402   Usual place of work, males"
+572,"2403     In census subdivision of residence, males"
+573,"2404     In different census subdivision, males"
+574,"2405       In same census division, males"
+575,"2406   At home, males"
+576,"2407   Outside Canada, males"
+577,"2408   No usual place of work, males"
+578,2501 Females in employed labour force
+579,"2502   Usual place of work, females"
+580,"2503     In census subdivision of residence, females"
+581,"2504     In different census subdivision, females"
+582,"2505       In same census division, females"
+583,"2506   At home, females"
+584,"2507   Outside Canada, females"
+585,"2508   No usual place of work, females"
+586,2601 Total number of occupied private dwellings
+587,2602 Average number of rooms per dwelling
+588,2603 Average number of bedrooms per dwelling
+589,2604 Average value of dwelling (26) $
+590,2605 Regular maintenance only
+591,2606 Minor repairs
+592,2607 Major repairs
+593,"2608 Before 1946, period of construction"
+594,"2609 1946 - 1960, period of construction"
+595,"2610 1961 - 1970, period of construction"
+596,"2611 1971 - 1980, period of construction"
+597,"2612 1981 - 1985, period of construction"
+598,"2613 1986 - 1991, period of construction (27)"
+599,2701 Total number of private households
+600,2702 Average number of persons per room
+601,2703 Tenant one-family households without additional persons
+602,2704 Average gross rent (28) $
+603,2705 Gross rent >= 30% of household income (29)
+604,2706 Owner one-family households without additional persons (30)
+605,2707 Average major payments for owners (26) $
+606,2708 Owner's major payments >= 30% of household income (30)
+607,2801 Total number of census fams. in private households (31)
+608,2802   Number of now-married & common-law couple fams. (32)
+609,2803     No member in the labour force
+610,2804     Some members in the labour force
+611,2805       One member only
+612,2806       Two or more members
+613,2807         Now-married or common-law couples in lab. force
+614,2808   Number of lone-parent families
+615,2809     No member in the labour force
+616,2810     Some members in the labour force
+617,2811       Parent in labour force
+618,"2901 Males - Worked full year, full time (33)"
+619,2902 Average employment income $
+620,2903 Standard error of average employment income $
+621,2904 Males - Worked part year or part time (34)
+622,2905 Average employment income $
+623,2906 Standard error of average employment income $
+624,"3001 Females - Worked full year, full time (33)"
+625,3002 Average employment income $
+626,3003 Standard error of average employment income $
+627,3004 Females - Worked part year or part time (34)
+628,3005 Average employment income $
+629,3006 Standard error of average employment income $
+630,"3101 Composition of total income, total (35) %"
+631,3102   Employment income %
+632,3103   Government transfer payments %
+633,3104   Other income %
+634,3201 Males 15 years and over with income
+635,"3202   Under $1,000, males 15+ (36)"
+636,"3203   $ 1,000 - $ 2,999, males 15+"
+637,"3204   $ 3,000 - $ 4,999, males 15+"
+638,"3205   $ 5,000 - $ 6,999, males 15+"
+639,"3206   $ 7,000 - $ 9,999, males 15+"
+640,"3207   $10,000 - $14,999, males 15+"
+641,"3208   $15,000 - $19,999, males 15+"
+642,"3209   $20,000 - $24,999, males 15+"
+643,"3210   $25,000 - $29,999, males 15+"
+644,"3211   $30,000 - $39,999, males 15+"
+645,"3212   $40,000 - $49,999, males 15+"
+646,"3213   $50,000 and over, males 15+"
+647,"3214   Average income, males 15+ (37) $"
+648,"3215   Median income, males 15+ (37) $"
+649,"3216   Standard error of average income, males 15+ $"
+650,3301 Females 15 years and over with income
+651,"3302   Under $1,000, females 15+ (36)"
+652,"3303   $ 1,000 - $ 2,999, females 15+"
+653,"3304   $ 3,000 - $ 4,999, females 15+"
+654,"3305   $ 5,000 - $ 6,999, females 15+"
+655,"3306   $ 7,000 - $ 9,999, females 15+"
+656,"3307   $10,000 - $14,999, females 15+"
+657,"3308   $15,000 - $19,999, females 15+"
+658,"3309   $20,000 - $24,999, females 15+"
+659,"3310   $25,000 - $29,999, females 15+"
+660,"3311   $30,000 - $39,999, females 15+"
+661,"3312   $40,000 - $49,999, females 15+"
+662,"3313   $50,000 and over, females 15+"
+663,"3314   Average income, females 15+ (37) $"
+664,"3315   Median income, females 15+ (37) $"
+665,"3316   Standard error of average income, females 15+ $"
+666,3401 Family income - All census families
+667,"3402   Under $10,000, family income"
+668,"3403   $10,000 - $19,999, family income"
+669,"3404   $20,000 - $29,999, family income"
+670,"3405   $30,000 - $39,999, family income"
+671,"3406   $40,000 - $49,999, family income"
+672,"3407   $50,000 - $59,999, family income"
+673,"3408   $60,000 - $69,999, family income"
+674,"3409   $70,000 and over, family income"
+675,"3410   Average income, family income $"
+676,"3411   Median income, family income $"
+677,"3412   Standard error of average income, family income $"
+678,3501 All economic families (38)
+679,3502   Low income economic families (38)
+680,3503   Incidence of low income (38) (39) %
+681,3601 All unattached individuals (38)
+682,3602   Low income unattached individuals (38)
+683,3603   Incidence of low income (38) (39) %
+684,3701 Total population in private households (38)
+685,3702   Persons in low income family units (38)
+686,3703   Incidence of low income (38) (39) %
+687,3801 Household income - All private households
+688,"3802   Under $10,000, household income"
+689,"3803   $10,000 - $14,999, household income"
+690,"3804   $15,000 - $19,999, household income"
+691,"3805   $20,000 - $29,999, household income"
+692,"3806   $30,000 - $39,999, household income"
+693,"3807   $40,000 - $49,999, household income"
+694,"3808   $50,000 - $59,999, household income"
+695,"3809   $60,000 - $69,999, household income"
+696,"3810   $70,000 and over, household income"
+697,"3811   Average income, household income $"
+698,"3812   Median income, household income $"
+699,"3813   Standard error of average income, household inc.$"

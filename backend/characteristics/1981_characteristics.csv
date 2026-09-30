@@ -1,0 +1,463 @@
+﻿CHARACTERISTIC_ID,CHARACTERISTIC_NAME
+1,"Population, 1976"
+2,"Population, 1981"
+3,"Land area in square kilometres, 1981"
+4,"Population density per square kilometre, 1981"
+5,Total population by sex and age
+6,  Total male population
+7,    0-4 years
+8,    5-9 years
+9,    10-14 years
+10,    15-19 years
+11,    20-24 years
+12,    25-34 years
+13,    35-44 years
+14,    45-54 years
+15,    55-64 years
+16,    65-69 years
+17,    70 years and over
+18,  Total female population
+19,    0-4 years
+20,    5-9 years
+21,    10-14 years
+22,    15-19 years
+23,    20-24 years
+24,    25-34 years
+25,    35-44 years
+26,    45-54 years
+27,    55-64 years
+28,    65-69 years
+29,    70 years and over
+30,Total population by marital status
+31,  Total single (never married)
+32,"    Single (never married), 15 years of age and over"
+33,  Married
+34,  Widowed
+35,  Divorced
+36,Total population by mother tongue
+37,  Mother tongue - English
+38,  Mother tongue - French
+39,  Mother tongue - Other
+40,Total occupied private dwellings by tenure and structural type
+41,  Owned
+42,  Rented
+43,  Single detached house
+44,"  Apartment, 5 or more storeys"
+45,  Single attached
+46,"  Apartment, less than 5 storeys"
+47,  Duplex
+48,Total private households by household size
+49,  1 person household
+50,  2 person household
+51,  3 person household
+52,  4-5 person household
+53,  6-9 person household
+54,  10 or more person household
+55,Total private households by number of families
+56,  Non-family household
+57,  1 family household
+58,  2 or more family household
+59,Total population in private households
+60,Average number of persons per private household
+61,Total families in private households by census family structure
+62,  Husband-wife families
+63,  Lone parent families
+64,Total families in private households by number of children at home
+65,  No children at home
+66,  One child at home
+67,  Two children at home
+68,  Three to four children at home
+69,  Five or more children at home
+70,Total children at home by age groups of children at home
+71,  Under 6 years
+72,  6-14 years
+73,  15-17 years
+74,  18-24 years
+75,  25 years and over
+76,Average number of persons per family
+77,Average number of children per family
+78,Family persons in private households
+79,Non-family persons in private households
+80,Total Population by Mother Tongue
+81,  Single responses
+82,    English
+83,    French
+84,    Non-official languages
+85,      Italian
+86,      German
+87,      Chinese
+88,      Ukrainian
+89,      Portuguese
+90,      Dutch
+91,      Polish
+92,      Greek
+93,      Spanish
+94,      Hungarian (Magyar)
+95,      Other languages
+96,Total Population by Home Language
+97,  Single responses
+98,    English
+99,    French
+100,    Non-official languages
+101,      Italian
+102,      Chinese
+103,      German
+104,      Portuguese
+105,      Greek
+106,      Other languages
+107,Total Population by Official Language
+108,  English only
+109,  French only
+110,  Both English and French
+111,  Neither English nor French
+112,Total Population by Ethnic Origin
+113,  Single responses
+114,    British
+115,    French
+116,    German
+117,    Italian
+118,    Ukrainian
+119,    Chinese
+120,    Dutch (Netherlands)
+121,    Jewish
+122,    Polish
+123,    Other single origins
+124,  Multiple responses
+125,Total Population by Religion
+126,  Catholic
+127,  Protestant
+128,    United Church
+129,    Anglican
+130,  Eastern Orthodox
+131,  Jewish
+132,  Eastern Non-christian
+133,  No religious preference
+134,  Other
+135,Total Population by Place of Birth
+136,  Born in Canada
+137,    Born in the province of residence
+138,  Born outside Canada
+139,  United States of America
+140,  Other Americas
+141,  United Kingdom
+142,  Other Europe
+143,  Africa
+144,  Asia
+145,  Oceania
+146,  Other
+147,Total Immigrant Population by Period of Immigration
+148,  Before 1946
+149,  1946 - 1960
+150,  1961 - 1970
+151,  1971 - 1981
+152,Total Immigrant Population by Age at Immigration
+153,  0 - 4 years
+154,  5 - 19 years
+155,  20 - 39 years
+156,  40 years and over
+157,"Population 5 Years and Over by Mobility Status, Place of Residence 5 Years Ago"
+158,  Non-movers
+159,  Movers
+160,    Non-migrants
+161,    Migrants
+162,      From same province
+163,      From different province
+164,      From outside Canada
+165,Population 15 Years and Over Who Are Attending School
+166,  Attending school full-time
+167,  Attending school part-time
+168,Population 15 Years and Over by Highest Level of Schooling
+169,  Less than grade 9
+170,  Grades 9-13 - Without secondary certificate
+171,  Grades 9-13 - With secondary certificate
+172,  Trades certificate or diploma
+173,  Other non-university education only
+174,    Other non-university education only - Without certificate
+175,    Other non-university education only - With certificate
+176,  University
+177,    University - Without degree
+178,    University - With degree
+179,Population 15 Years and Over by Sex and Labour Force Activity
+180,  Males 15 years and over
+181,    In the labour force - Males 15 years and over
+182,      Employed - Males 15 years and over
+183,      Unemployed - Males 15 years and over
+184,    Not in labour force - Males 15 years and over
+185,      Worked either in 1980 or 1981 - Males 15 years and over
+186,    Participation rate - Males 15 years and over
+187,      Participation rate - Males 15-24 years
+188,      Participation rate - Males 25 years and over
+189,      Participation rate - Married males (excludes separated)
+190,    Unemployment rate - Males 15 years and over
+191,      Unemployment rate - Males 15-24 years
+192,      Unemployment rate - Males 25 years and over
+193,  Females 15 years and over
+194,    In the labour force - Females 15 years and over
+195,      Employed - Females 15 years and over
+196,      Unemployed - Females 15 years and over
+197,    Not in labour force - Females 15 years and over
+198,      Worked either in 1980 or 1981 - Females 15 years and over
+199,    Participation rate - Females 15 years and over
+200,      Participation rate - Females 15-24 years
+201,      Participation rate - Females 25 years and over
+202,      Participation rate - Married females (excludes separated)
+203,    Unemployment rate - Females 15 years and over
+204,      Unemployment rate - Females 15-24 years
+205,      Unemployment rate - Females 25 years and over
+206,Total Labour Force 15 Years and Over by Industry Division (1970 Standard Industrial Classification)
+207,  Industry - Not applicable
+208,  All industries
+209,    Agriculture
+210,    Forestry
+211,    Fishing and trapping
+212,"    Mines (including milling), quarryies and oil wells"
+213,    Manufacturing industries
+214,    Construction industries
+215,"    Transportation, communication and other utilities"
+216,    Trade
+217,"    Finance, insurance and real estate"
+218,"    Community, business and personal service industries"
+219,    Public administration and defence
+220,Total Labour Force 15 Years and Over by Sex and Occupation Major Groups (1980 Standard Occupational Classification)
+221,  Males 15 years and over in labour force
+222,    Occupation - Not Applicable
+223,    All occupations
+224,"      Major Group 11 - Managerial, administration and related occupations"
+225,"      Major Group 21 - Occupations in natural sciences, engineering and mathematics"
+226,      Major Group 23 - Occupation in social sciences and related fields
+227,      Major Group 25 - Occupations in religion
+228,      Major Group 27 - Teaching and related occupations
+229,      Major Group 31 - Occupations in medicine and health
+230,"      Major Group 33 - Artistic, literary, recreational and related occupations"
+231,      Major Group 41 - Clerical and related occupations
+232,      Major Group 51 - Sales occupations
+233,      Major Group 61 - Service occupations
+234,"      Major Group 71 - Farming, horticultural and animal husbandry occupations"
+235,"      Major Group 73 - Fishing, trapping and related occupations"
+236,      Major Group 75 - Forestry and logging occupations
+237,      Major Group 77 - Mining and quarrying including oil and gas field occupations
+238,      Major Group 81/82 - Processing occupations
+239,      Major Group 83 - Machining and related occupations
+240,"      Major Group 85 - Product fabricating, assembling and repairing occupations"
+241,      Major Group 87 - Construction trades occupations
+242,      Major Group 91 - Transport equipment operating occupations
+243,      Major Group 93 - Material handling and related occupations n.e.c.
+244,      Major Group 95 - Other crafts and equipment operating occupations
+245,      Major Group 99 - Occupations not elsewhere classified
+246,  Females 15 years and over in labour force
+247,    Occupation - Not Applicable
+248,    All occupations
+249,"      Major Group 11 - Managerial, administration and related occupations"
+250,"      Major Group 21 - Occupations in natural sciences, engineering and mathematics"
+251,      Major Group 23 - Occupation in social sciences and related fields
+252,      Major Group 25 - Occupations in religion
+253,      Major Group 27 - Teaching and related occupations
+254,      Major Group 31 - Occupations in medicine and health
+255,"      Major Group 33 - Artistic, literary, recreational and related occupations"
+256,      Major Group 41 - Clerical and related occupations
+257,      Major Group 51 - Sales occupations
+258,      Major Group 61 - Service occupations
+259,"      Major Group 71 - Farming, horticultural and animal husbandry occupations"
+260,"      Major Group 73 - Fishing, trapping and related occupations"
+261,      Major Group 75 - Forestry and logging occupations
+262,      Major Group 77 - Mining and quarrying including oil and gas field occupations
+263,      Major Group 81/82 - Processing occupations
+264,      Major Group 83 - Machining and related occupations
+265,"      Major Group 85 - Product fabricating, assembling and repairing occupations"
+266,      Major Group 87 - Construction trades occupations
+267,      Major Group 91 - Transport equipment operating occupations
+268,      Major Group 93 - Material handling and related occupations n.e.c.
+269,      Major Group 95 - Other crafts and equipment operating occupations
+270,      Major Group 99 - Occupations not elsewhere classified
+271,Total Labour Force 15 Years and Over by Sex and Class of Worker
+272,  Males 15 years and over in labour force
+273,    Class of worker - Not applicable
+274,    All classes of worker
+275,      Paid-workers
+276,        Employees
+277,        Self-employed (incorporated)
+278,      Self-employed (unincorporated)
+279,      Unpaid family workers
+280,  Females 15 years and over in labour force
+281,    Class of worker - Not applicable
+282,    All classes of worker
+283,      Paid-workers
+284,        Employees
+285,        Self-employed (incorporated)
+286,      Self-employed (unincorporated)
+287,      Unpaid family workers
+288,Population 15 Years and Over by Sex and Total Income
+289,  Males 15 years and over
+290,    Males without income
+291,    Males with income
+292,"      Males under $ 1,000"
+293,"      Males $ 1,000 - $ 2,999"
+294,"      Males $ 3,000 - $ 4,999"
+295,"      Males $ 5,000 - $ 6,999"
+296,"      Males $ 7,000 - $ 9,999"
+297,"      Males $10,000 - $14,999"
+298,"      Males $15,000 - $19,999"
+299,"      Males $20,000 - $24,999"
+300,"      Males $25,000 - $29,999"
+301,"      Males $30,000 - $34,999"
+302,"      Males $35,000 and over"
+303,      Average income ($) - Males 15 years and over
+304,      Median income ($) - Males 15 years and over
+305,      Standard error of average income ($) - Males 15 years and over
+306,  Females 15 years and over
+307,    Females without income
+308,    Females with income
+309,"      Females under $ 1,000"
+310,"      Females $ 1,000 - $ 2,999"
+311,"      Females $ 3,000 - $ 4,999"
+312,"      Females $ 5,000 - $ 6,999"
+313,"      Females $ 7,000 - $ 9,999"
+314,"      Females $10,000 - $14,999"
+315,"      Females $15,000 - $19,999"
+316,"      Females $20,000 - $24,999"
+317,"      Females $25,000 - $29,999"
+318,"      Females $30,000 - $34,999"
+319,"      Females $35,000 and over"
+320,      Average income ($) - Females 15 years and over
+321,      Median income ($) - Females 15 years and over
+322,      Standard error of average income ($) - Females 15 years and over
+323,Population 15 Years and Over who Worked in 1980 by Sex and Employment Income
+324,  Males 15 years and over who worked in 1980
+325,    Males without employment income
+326,    Males with employment income
+327,"      Males under $ 1,000"
+328,"      Males $ 1,000 - $ 2,999"
+329,"      Males $ 3,000 - $ 4,999"
+330,"      Males $ 5,000 - $6,999"
+331,"      Males $ 7,000 - $ 9,999"
+332,"      Males $10,000 - $14,999"
+333,"      Males $15,000 - $19,999"
+334,"      Males $20,000 - $24,999"
+335,"      Males $25,000 and over"
+336,    Average employment income ($)
+337,    Median employment income ($)
+338,    Standard error of average employment income ($)
+339,  Females 15 years and over who worked in 1980
+340,    Females without employment income
+341,    Females with employment income
+342,"      Females under $ 1,000"
+343,"      Females $ 1,000 - $ 2,999"
+344,"      Females $ 3,000 - $ 4,999"
+345,"      Females $ 5,000 - $ 6,999"
+346,"      Females $ 7,000 - $ 9,999"
+347,"      Females $10,000 - $14,999"
+348,"      Females $15,000 - $19,999"
+349,"      Females $20,000 -  $24,999"
+350,"      Females $25,000 and over"
+351,    Average employment income ($)
+352,    Median employment income ($)
+353,    Standard error of average employment income ($)
+354,Total Number of Persons in Private Households
+355,  Total number of persons in census families
+356,  Total number of non-family persons
+357,Total Number of Children at Home by Age
+358,  Under 6 years of age
+359,  6 - 14 years
+360,  15 - 17 years
+361,  18 - 24 years
+362,  25 years and over
+363,  Average number of children per census family
+364,Total Number of Census Families in Private Households by Size of Family
+365,  2 persons
+366,  3 persons
+367,  4 persons
+368,  5 or more persons
+369,  Average number of persons per census family
+370,Total Husband-wife Families by Family Structure and Presence of Children
+371,  With no children at home
+372,  With children at home
+373,    1 child at home
+374,    2 children at home
+375,    3 or more children at home
+376,Total Lone-parent Families by Family Structure
+377,  1 child at home
+378,  2 children at home
+379,  3 or more children at home
+380,Total Census Families by Census Family Income
+381,"  Under $ 5,000"
+382,"  $ 5,000 - $ 9,999"
+383,"  $10,000 - $14,999"
+384,"  $15,000 - $19,999"
+385,"  $20,000 - $24,999"
+386,"  $25,000 - $29,999"
+387,"  $30,000 - $34,999"
+388,"  $35,000 - $39,999"
+389,"  $40,000 - $49,999"
+390,"  $50,000 and over"
+391,  Average income ($)
+392,  Median income ($)
+393,  Standard error of average income ($)
+394,Total Number of Economic Families by Incidence of Low Income
+395,  Low income economic families
+396,  Incidence of low income (%)
+397,Total Unattached Individuals by Incidence of Low Income
+398,  Low income unattached individuals
+399,  Incidence of low income (%)
+400,Total Income of Non-family Persons 15 Years and Over
+401,  Without income
+402,  With income
+403,"    Under $ 1,000"
+404,"    $ 1,000 - $ 2,999"
+405,"    $ 3,000 - $ 4,999"
+406,"    $ 5,000 - $ 6,999"
+407,"    $ 7,000 - $ 9,999"
+408,"    $10,000 - $14,999"
+409,"    $15,000 - $19,999"
+410,"    $20,000 - $24,999"
+411,"    $25,000 and over"
+412,    Average income ($)
+413,    Median income ($)
+414,    Standard error of average income ($)
+415,Total Number of Private Households by Household Size
+416,  1 person
+417,  2 persons
+418,  3 persons
+419,  4 - 5 persons
+420,  6 - 9 persons
+421,  10 or more persons
+422,  Average number of persons in private households
+423,Total Number of Private Households by Household Type
+424,  Non-family household
+425,  1 census family household
+426,  2 or more census family household
+427,Total Number of Private Households by Household Income
+428,"  Under $5,000"
+429,"  $ 5,000 - $ 9,999"
+430,"  $10,000 - $14,999"
+431,"  $15,000 - $19,999"
+432,"  $20,000 - $24,999"
+433,"  $25,000 - $29,999"
+434,"  $30,000 - $34,999"
+435,"  $35,000 - $39,999"
+436,"  $40,000 and over"
+437,  Average income ($)
+438,  Median income ($)
+439,  Standard error of average income ($)
+440,Total Number of Occupied Private Dwellings by Tenure
+441,  Owned
+442,  Rented
+443,Total Number of Occupied Private Dwellings
+444,  Average number of rooms per dwelling
+445,  Average number of persons per room
+446,Total Number of Occupied Private Dwellings by Period of Construction
+447,  Before 1946
+448,  1946 - 1960
+449,  1961 - 1970
+450,  1971 - 1981
+451,Total Number of Private Dwellings with One or More Bathrooms
+452,  Dwellings with one bathroom
+453,  Dwellings with more than one bathroom
+454,Dwellings with central heating
+455,Minor repairs needed
+456,Major repairs needed
+457,Tenant One-family Households in Occupied Non-farm Private Dwellings Without Additional Persons
+458,  Average gross rent (monthly) ($)
+459,  Gross rent >25% of household income
+460,Owner One-family Households in Occupied Non-farm Private Dwellings Without Additional Persons
+461,  Average major payments for owners (monthly) ($)
+462,  Owner's major payments >25% of household income

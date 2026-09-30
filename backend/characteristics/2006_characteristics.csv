@@ -1,0 +1,2186 @@
+﻿CHARACTERISTIC_ID,CHARACTERISTIC_NAME
+1,"Population, 2001 - 100% data"
+2,"Population, 2006 - 100% data"
+3,"Population percentage change, 2001 to 2006"
+4,"Land area in square kilometres, 2006"
+5,Total population by sex and age groups - 100% data
+6,"  Male, total"
+7,    0 to 4 years
+8,    5 to 9 years
+9,    10 to 14 years
+10,    15 to 19 years
+11,15
+12,16
+13,17
+14,18
+15,19
+16,    20 to 24 years
+17,    25 to 29 years
+18,    30 to 34 years
+19,    35 to 39 years
+20,    40 to 44 years
+21,    45 to 49 years
+22,    50 to 54 years
+23,    55 to 59 years
+24,    60 to 64 years
+25,    65 to 69 years
+26,    70 to 74 years
+27,    75 to 79 years
+28,    80 to 84 years
+29,    85 years and over
+30,"  Female, total"
+31,    0 to 4 years
+32,    5 to 9 years
+33,    10 to 14 years
+34,    15 to 19 years
+35,15
+36,16
+37,17
+38,18
+39,19
+40,    20 to 24 years
+41,    25 to 29 years
+42,    30 to 34 years
+43,    35 to 39 years
+44,    40 to 44 years
+45,    45 to 49 years
+46,    50 to 54 years
+47,    55 to 59 years
+48,    60 to 64 years
+49,    65 to 69 years
+50,    70 to 74 years
+51,    75 to 79 years
+52,    80 to 84 years
+53,    85 years and over
+54,Total population 15 years and over by legal marital status - 100% data
+55,  Never legally married (single)
+56,  Legally married (and not separated)
+57,"  Separated, but still legally married"
+58,  Divorced
+59,  Widowed
+60,Total population 15 years and over by common-law status - 100% data
+61,  Not in a common-law relationship
+62,  In a common-law relationship
+63,Total number of census families in private households - 20% sample data
+64,  Size of census family: 2 persons
+65,  Size of census family: 3 persons
+66,  Size of census family: 4 persons
+67,  Size of census family: 5 or more persons
+68,Total number of census families in private households - 20% sample data
+69,  Total couple families by family structure and number of children
+70,    Married couples
+71,      Without children at home
+72,      With children at home
+73,        1 child
+74,        2 children
+75,        3 or more children
+76,    Common-law couples
+77,      Without children at home
+78,      With children at home
+79,        1 child
+80,        2 children
+81,        3 or more children
+82,  Total lone-parent families by sex of parent and number of children
+83,    Female parent
+84,      1 child
+85,      2 children
+86,      3 or more children
+87,    Male parent
+88,      1 child
+89,      2 children
+90,      3 or more children
+91,Total number of children at home - 20% sample data
+92,  Under six years of age
+93,  6 to 14 years
+94,  15 to 17 years
+95,  18 to 24 years
+96,  25 years and over
+97,Average number of children at home per census family 
+98,Total number of persons in private households - 20% sample data
+99,  Number of persons not in census families
+100,    Living with relatives
+101,    Living with non-relatives only
+102,    Living alone
+103,  Number of census family persons
+104,Average number of persons per census family
+105,Total number of persons aged 65 years and over - 20% sample data
+106,  Number of persons not in census families aged 65 years and over
+107,    Living with relatives
+108,    Living with non-relatives only
+109,    Living alone
+110,  Number of census family persons aged 65 years and over
+111,Total number of occupied private dwellings - 20% sample data
+112,Average number of rooms per dwelling
+113,Average number of bedrooms per dwelling
+114,Total number of occupied private dwellings by housing tenure - 20% sample data
+115,  Owned
+116,  Rented
+117,  Band housing
+118,Total number of occupied private dwellings by condition of dwelling - 20% sample data
+119,  Regular maintenance only
+120,  Minor repairs
+121,  Major repairs
+122,Total number of occupied private dwellings by period of construction - 20% sample data
+123,"  Period of construction, before 1946"
+124,"  Period of construction, 1946 to 1960"
+125,"  Period of construction, 1961 to 1970"
+126,"  Period of construction, 1971 to 1980"
+127,"  Period of construction, 1981 to 1985"
+128,"  Period of construction, 1986 to 1990"
+129,"  Period of construction, 1991 to 1995"
+130,"  Period of construction, 1996 to 2000"
+131,"  Period of construction, 2001 to 2006"
+132,Total number of occupied private dwellings by structural type of dwelling - 100% data
+133,  Single-detached house
+134,  Semi-detached house
+135,  Row house
+136,"  Apartment, duplex"
+137,"  Apartment, building that has five or more storeys"
+138,"  Apartment, building that has fewer than five storeys"
+139,  Other single-attached house
+140,  Movable dwelling
+141,Total number of private households by household size - 100% data
+142,  1 person
+143,  2 persons
+144,  3 persons
+145,  4 to 5 persons
+146,  6 or more persons
+147,Number of persons in private households
+148,Average number of persons in private households
+149,Total number of private households by household type - 20% sample data
+150,  One-family households
+151,  Multiple-family households
+152,  Non-family households
+153,Total population by mother tongue - 20% sample data
+154,  Single responses
+155,    English
+156,    French
+157,    Non-official languages
+158,      Algonquin
+159,      Atikamekw
+160,      Blackfoot
+161,      Carrier
+162,      Chilcotin
+163,      Chipewyan
+164,      Cree
+165,      Siouan languages (Dakota/Sioux)
+166,      Dene
+167,      Dogrib
+168,      Gitksan
+169,      Inuinnaqtun
+170,"      Inuktitut, n.i.e."
+171,      Kutchin-Gwich'in (Loucheux)
+172,      Malecite
+173,      Mi'kmaq
+174,      Mohawk
+175,      Montagnais-Naskapi
+176,      Nisga'a
+177,      North Slave (Hare)
+178,      Ojibway
+179,      Oji-Cree
+180,      Shuswap
+181,      South Slave
+182,      Tlingit
+183,      Italian
+184,      Portuguese
+185,      Romanian
+186,      Spanish
+187,      Danish
+188,      Dutch
+189,      Flemish
+190,      Frisian
+191,      German
+192,      Norwegian
+193,      Swedish
+194,      Yiddish
+195,      Bosnian
+196,      Bulgarian
+197,      Croatian
+198,      Czech
+199,      Macedonian
+200,      Polish
+201,      Russian
+202,      Serbian
+203,      Serbo-Croatian
+204,      Slovak
+205,      Slovenian
+206,      Ukrainian
+207,      Latvian
+208,      Lithuanian
+209,      Estonian
+210,      Finnish
+211,      Hungarian
+212,      Greek
+213,      Armenian
+214,      Turkish
+215,      Amharic
+216,      Arabic
+217,      Hebrew
+218,      Maltese
+219,      Somali
+220,      Tigrigna
+221,      Bengali
+222,      Gujarati
+223,      Hindi
+224,      Kurdish
+225,      Panjabi (Punjabi)
+226,      Pashto
+227,      Persian (Farsi)
+228,      Sindhi
+229,      Sinhala (Sinhalese)
+230,      Urdu
+231,      Malayalam
+232,      Tamil
+233,      Telugu
+234,      Japanese
+235,      Korean
+236,      Cantonese
+237,"      Chinese, n.o.s."
+238,      Mandarin
+239,      Taiwanese
+240,      Lao
+241,      Khmer (Cambodian)
+242,      Vietnamese
+243,      Bisayan languages
+244,      Ilocano
+245,      Malay
+246,"      Tagalog (Pilipino, Filipino)"
+247,      Akan (Twi)
+248,      Swahili
+249,      Creoles
+250,      Other languages
+251,  Multiple responses
+252,    English and French
+253,    English and non-official language
+254,    French and non-official language
+255,"    English, French and non-official language"
+256,Total population by knowledge of official languages - 20% sample data
+257,  English only
+258,  French only
+259,  English and French
+260,  Neither English nor French
+261,Total population by first official language spoken - 20% sample data
+262,  English
+263,  French
+264,  English and French
+265,  Neither English nor French
+266,Official language minority - (number)
+267,Official language minority - (percentage)
+268,Total population by language spoken most often at home - 20% sample data
+269,  Single responses
+270,    English
+271,    French
+272,    Non-official languages
+273,      Algonquin
+274,      Atikamekw
+275,      Blackfoot
+276,      Carrier
+277,      Chilcotin
+278,      Chipewyan
+279,      Cree
+280,      Siouan languages (Dakota/Sioux)
+281,      Dene
+282,      Dogrib
+283,      Gitksan
+284,      Inuinnaqtun
+285,"      Inuktitut, n.i.e."
+286,      Kutchin-Gwich'in (Loucheux)
+287,      Malecite
+288,      Mi'kmaq
+289,      Mohawk
+290,      Montagnais-Naskapi
+291,      Nisga'a
+292,      North Slave (Hare)
+293,      Ojibway
+294,      Oji-Cree
+295,      Shuswap
+296,      South Slave
+297,      Tlingit
+298,      Italian
+299,      Portuguese
+300,      Romanian
+301,      Spanish
+302,      Danish
+303,      Dutch
+304,      Flemish
+305,      Frisian
+306,      German
+307,      Norwegian
+308,      Swedish
+309,      Yiddish
+310,      Bosnian
+311,      Bulgarian
+312,      Croatian
+313,      Czech
+314,      Macedonian
+315,      Polish
+316,      Russian
+317,      Serbian
+318,      Serbo-Croatian
+319,      Slovak
+320,      Slovenian
+321,      Ukrainian
+322,      Latvian
+323,      Lithuanian
+324,      Estonian
+325,      Finnish
+326,      Hungarian
+327,      Greek
+328,      Armenian
+329,      Turkish
+330,      Amharic
+331,      Arabic
+332,      Hebrew
+333,      Maltese
+334,      Somali
+335,      Tigrigna
+336,      Bengali
+337,      Gujarati
+338,      Hindi
+339,      Kurdish
+340,      Panjabi (Punjabi)
+341,      Pashto
+342,      Persian (Farsi)
+343,      Sindhi
+344,      Sinhala (Sinhalese)
+345,      Urdu
+346,      Malayalam
+347,      Tamil
+348,      Telugu
+349,      Japanese
+350,      Korean
+351,      Cantonese
+352,"      Chinese, n.o.s."
+353,      Mandarin
+354,      Taiwanese
+355,      Lao
+356,      Khmer (Cambodian)
+357,      Vietnamese
+358,      Bisayan languages
+359,      Ilocano
+360,      Malay
+361,"      Tagalog (Pilipino, Filipino)"
+362,      Akan (Twi)
+363,      Swahili
+364,      Creoles
+365,      Other languages
+366,  Multiple responses
+367,    English and French
+368,    English and non-official language
+369,    French and non-official language
+370,"    English, French and non-official language"
+371,Algonquin - Various non-official languages spoken - 20% sample data
+372,Atikamekw
+373,Blackfoot
+374,Carrier
+375,Chilcotin
+376,Chipewyan
+377,Cree
+378,Siouan languages (Dakota/Sioux)
+379,Dene
+380,Dogrib
+381,Gitksan
+382,Inuinnaqtun
+383,"Inuktitut, n.i.e."
+384,Kutchin-Gwich'in (Loucheux)
+385,Malecite
+386,Mi'kmaq
+387,Mohawk
+388,Montagnais-Naskapi
+389,Nisga'a
+390,North Slave (Hare)
+391,Ojibway
+392,Oji-Cree
+393,Shuswap
+394,South Slave
+395,Tlingit
+396,Italian
+397,Portuguese
+398,Romanian
+399,Spanish
+400,Danish
+401,Dutch
+402,Flemish
+403,Frisian
+404,German
+405,Norwegian
+406,Swedish
+407,Yiddish
+408,Bosnian
+409,Bulgarian
+410,Croatian
+411,Czech
+412,Macedonian
+413,Polish
+414,Russian
+415,Serbian
+416,Serbo-Croatian
+417,Slovak
+418,Slovenian
+419,Ukrainian
+420,Latvian
+421,Lithuanian
+422,Estonian
+423,Finnish
+424,Hungarian
+425,Greek
+426,Armenian
+427,Turkish
+428,Amharic
+429,Arabic
+430,Hebrew
+431,Maltese
+432,Somali
+433,Tigrigna
+434,Bengali
+435,Gujarati
+436,Hindi
+437,Kurdish
+438,Panjabi (Punjabi)
+439,Pashto
+440,Persian (Farsi)
+441,Sindhi
+442,Sinhala (Sinhalese)
+443,Urdu
+444,Malayalam
+445,Tamil
+446,Telugu
+447,Japanese
+448,Korean
+449,Cantonese
+450,"Chinese, n.o.s."
+451,Mandarin
+452,Taiwanese
+453,Lao
+454,Khmer (Cambodian)
+455,Vietnamese
+456,Bisayan languages
+457,Ilocano
+458,Malay
+459,"Tagalog (Pilipino, Filipino)"
+460,Akan (Twi)
+461,Swahili
+462,Creoles
+463,Other languages
+464,Total - Mobility status 1 year ago - 20% sample data
+465,  Non-movers
+466,  Movers
+467,    Non-migrants
+468,    Migrants
+469,      Internal migrants
+470,        Intraprovincial migrants
+471,        Interprovincial migrants
+472,      External migrants
+473,Total - Mobility status 5 years ago - 20% sample data
+474,  Non-movers
+475,  Movers
+476,    Non-migrants
+477,    Migrants
+478,      Internal migrants
+479,        Intraprovincial migrants
+480,        Interprovincial migrants
+481,      External migrants
+482,Total population by citizenship - 20% sample data
+483,  Canadian citizens
+484,    Canadian citizens under age 18
+485,    Canadian citizens age 18 and over
+486,  Not Canadian citizens
+487,Total population by immigrant status and place of birth - 20% sample data
+488,  Non-immigrants
+489,    Born in province of residence
+490,    Born outside province of residence
+491,  Immigrants
+492,    United States of America
+493,    Central America
+494,    Caribbean and Bermuda
+495,    South America
+496,    Europe
+497,      Western Europe
+498,      Eastern Europe
+499,      Southern Europe
+500,        Italy
+501,        Other Southern Europe
+502,      Northern Europe
+503,        United Kingdom
+504,        Other Northern Europe
+505,    Africa
+506,      Western Africa
+507,      Eastern Africa
+508,      Northern Africa
+509,      Central Africa
+510,      Southern Africa
+511,    Asia and the Middle East
+512,      West Central Asia and the Middle East
+513,      Eastern Asia
+514,"        China, People's Republic of"
+515,"        Hong Kong, Special Administrative Region"
+516,        Other Eastern Asia
+517,      Southeast Asia
+518,        Philippines
+519,        Other Southeast Asia
+520,      Southern Asia
+521,        India
+522,        Other Southern Asia
+523,    Oceania and other
+524,  Non-permanent residents
+525,Total recent immigrants by selected places of birth - 20% sample data
+526,  United States of America
+527,  Central America
+528,  Caribbean and Bermuda
+529,  South America
+530,  Europe
+531,    Western Europe
+532,    Eastern Europe
+533,    Southern Europe
+534,      Italy
+535,      Other Southern Europe
+536,    Northern Europe
+537,      United Kingdom
+538,      Other Northern Europe
+539,  Africa
+540,    Western Africa
+541,    Eastern Africa
+542,    Northern Africa
+543,    Central Africa
+544,    Southern Africa
+545,  Asia and the Middle East
+546,    West Central Asia and the Middle East
+547,    Eastern Asia
+548,"      China, People's Republic of"
+549,"      Hong Kong, Special Administrative Region"
+550,      Other Eastern Asia
+551,    Southeast Asia
+552,      Philippines
+553,      Other Southeast Asia
+554,    Southern Asia
+555,      India
+556,      Other Southern Asia
+557,  Oceania and other
+558,Total immigrant population by period of immigration - 20% sample data
+559,  Before 1961
+560,  1961 to 1970
+561,  1971 to 1980
+562,  1981 to 1990
+563,  1991 to 2000
+564,    1991 to 1995
+565,    1996 to 2000
+566,  2001 to 2006
+567,Total immigrant population by age at immigration - 20% sample data
+568,  Under 5 years
+569,  5 to 14 years
+570,  15 to 24 years
+571,  25 to 44 years
+572,  45 years and over
+573,Total population 15 years and older by generation status - 20% sample data
+574,  1st generation
+575,  2nd generation
+576,  3rd generation or more
+577,Total population by Aboriginal and non-Aboriginal identity population - 20% sample data
+578,  Total Aboriginal identity population
+579,    North American Indian single response
+580,    MÃ©tis single response
+581,    Inuit single response
+582,    Multiple Aboriginal identity responses
+583,    Aboriginal responses not included elsewhere
+584,  Non-Aboriginal identity population
+585,Total population by Registered Indian status - 20% sample data
+586,  Registered Indian
+587,  Not a Registered Indian
+588,Total population 15 years and over by labour force activity - 20% sample data
+589,  In the labour force
+590,    Employed
+591,    Unemployed
+592,  Not in the labour force
+593,Participation rate
+594,Employment rate
+595,Unemployment rate
+596,Population 15 to 24 years - Labour force activity
+597,  In the labour force
+598,    Employed
+599,    Unemployed
+600,  Not in the labour force
+601,Participation rate
+602,Employment rate
+603,Unemployment rate
+604,Population 25 years and over - Labour force activity
+605,  In the labour force
+606,    Employed
+607,    Unemployed
+608,  Not in the labour force
+609,Participation rate
+610,Employment rate
+611,Unemployment rate
+612,Males 15 years and over - Labour force activity
+613,  In the labour force
+614,    Employed
+615,    Unemployed
+616,  Not in the labour force
+617,Participation rate
+618,Employment rate
+619,Unemployment rate
+620,Males 15 to 24 years - Labour force activity
+621,  In the labour force
+622,    Employed
+623,    Unemployed
+624,  Not in the labour force
+625,Participation rate
+626,Employment rate
+627,Unemployment rate
+628,Males 25 years and over - Labour force activity
+629,  In the labour force
+630,    Employed
+631,    Unemployed
+632,  Not in the labour force
+633,Participation rate
+634,Employment rate
+635,Unemployment rate
+636,Females 15 years and over - Labour force activity
+637,  In the labour force
+638,    Employed
+639,    Unemployed
+640,  Not in the labour force
+641,Participation rate
+642,Employment rate
+643,Unemployment rate
+644,Females 15 to 24 years - Labour force activity
+645,  In the labour force
+646,    Employed
+647,    Unemployed
+648,  Not in the labour force
+649,Participation rate
+650,Employment rate
+651,Unemployment rate
+652,Females 25 years and over - Labour force activity
+653,  In the labour force
+654,    Employed
+655,    Unemployed
+656,  Not in the labour force
+657,Participation rate
+658,Employment rate
+659,Unemployment rate
+660,Total population 15 years and over by presence of children and labour force activity - 20% sample data
+661,  In the labour force
+662,    Employed
+663,    Unemployed
+664,  Not in the labour force
+665,Participation rate
+666,Employment rate
+667,Unemployment rate
+668,Population 15 years and over in private households with no children at home
+669,  In the labour force
+670,    Employed
+671,    Unemployed
+672,  Not in the labour force
+673,Participation rate
+674,Employment rate
+675,Unemployment rate
+676,Population 15 years and over in private households with children at home
+677,  In the labour force
+678,    Employed
+679,    Unemployed
+680,  Not in the labour force
+681,Participation rate
+682,Employment rate
+683,Unemployment rate
+684,Population 15 years and over in private households with children under 6 years only
+685,  In the labour force
+686,    Employed
+687,    Unemployed
+688,  Not in the labour force
+689,Participation rate
+690,Employment rate
+691,Unemployment rate
+692,Population 15 years and over in private households with children under 6 years as well as children 6 years and over
+693,  In the labour force
+694,    Employed
+695,    Unemployed
+696,  Not in the labour force
+697,Participation rate
+698,Employment rate
+699,Unemployment rate
+700,Population 15 years and over in private households with children 6 years and over only
+701,  In the labour force
+702,    Employed
+703,    Unemployed
+704,  Not in the labour force
+705,Participation rate
+706,Employment rate
+707,Unemployment rate
+708,Males 15 years and over in private households - Presence of children and labour force activity
+709,  In the labour force
+710,    Employed
+711,    Unemployed
+712,  Not in the labour force
+713,Participation rate
+714,Employment rate
+715,Unemployment rate
+716,Males 15 years and over in private households with no children at home
+717,  In the labour force
+718,    Employed
+719,    Unemployed
+720,  Not in the labour force
+721,Participation rate
+722,Employment rate
+723,Unemployment rate
+724,Males 15 years and over in private households with children at home
+725,  In the labour force
+726,    Employed
+727,    Unemployed
+728,  Not in the labour force
+729,Participation rate
+730,Employment rate
+731,Unemployment rate
+732,Males 15 years and over in private households with children under 6 years only
+733,  In the labour force
+734,    Employed
+735,    Unemployed
+736,  Not in the labour force
+737,Participation rate
+738,Employment rate
+739,Unemployment rate
+740,Males 15 years and over in private households with children under 6 years as well as children 6 years and over
+741,  In the labour force
+742,    Employed
+743,    Unemployed
+744,  Not in the labour force
+745,Participation rate
+746,Employment rate
+747,Unemployment rate
+748,Males 15 years and over in private households with children 6 years and over only
+749,  In the labour force
+750,    Employed
+751,    Unemployed
+752,  Not in the labour force
+753,Participation rate
+754,Employment rate
+755,Unemployment rate
+756,Females 15 years and over in private households - Presence of children and labour force activity
+757,  In the labour force
+758,    Employed
+759,    Unemployed
+760,  Not in the labour force
+761,Participation rate
+762,Employment rate
+763,Unemployment rate
+764,Females 15 years and over in private households with no children at home
+765,  In the labour force
+766,    Employed
+767,    Unemployed
+768,  Not in the labour force
+769,Participation rate
+770,Employment rate
+771,Unemployment rate
+772,Females 15 years and over in private households with children at home
+773,  In the labour force
+774,    Employed
+775,    Unemployed
+776,  Not in the labour force
+777,Participation rate
+778,Employment rate
+779,Unemployment rate
+780,Females 15 years and over in private households with children under 6 years only
+781,  In the labour force
+782,    Employed
+783,    Unemployed
+784,  Not in the labour force
+785,Participation rate
+786,Employment rate
+787,Unemployment rate
+788,Females 15 years and over in private households with children under 6 years as well as children 6 years and over
+789,  In the labour force
+790,    Employed
+791,    Unemployed
+792,  Not in the labour force
+793,Participation rate
+794,Employment rate
+795,Unemployment rate
+796,Females 15 years and over in private households with children 6 years and over only
+797,  In the labour force
+798,    Employed
+799,    Unemployed
+800,  Not in the labour force
+801,Participation rate
+802,Employment rate
+803,Unemployment rate
+804,Total labour force 15 years and over by class of worker - 20% sample data
+805,  Class of worker - Not applicable
+806,  All classes of worker
+807,    Paid workers
+808,      Employees
+809,      Self-employed (incorporated)
+810,        Without paid help
+811,        With paid help
+812,    Self-employed (unincorporated)
+813,      Without paid help
+814,      With paid help
+815,    Unpaid family workers
+816,Male labour force 15 years and over - class of worker
+817,  Class of worker - Not applicable
+818,  All classes of worker
+819,    Paid workers
+820,      Employees
+821,      Self-employed (incorporated)
+822,        Without paid help
+823,        With paid help
+824,    Self-employed (unincorporated)
+825,      Without paid help
+826,      With paid help
+827,    Unpaid family workers
+828,Female labour force 15 years and over - class of worker
+829,  Class of worker - Not applicable
+830,  All classes of worker
+831,    Paid workers
+832,      Employees
+833,      Self-employed (incorporated)
+834,        Without paid help
+835,        With paid help
+836,    Self-employed (unincorporated)
+837,      Without paid help
+838,      With paid help
+839,    Unpaid family workers
+840,Total labour force 15 years and over by occupation - National Occupational Classification for Statistics 2006 - 20% sample data
+841,  Occupation - Not applicable
+842,  All occupations
+843,    A Management occupations
+844,      A0 Senior management occupations
+845,      A1 Specialist managers
+846,"      A2 Managers in retail trade, food and accommodation services"
+847,"      A3 Other managers, n.e.c."
+848,"    B Business, finance and administration occupations"
+849,      B0 Professional occupations in business and finance
+850,      B1 Finance and insurance administration occupations
+851,      B2 Secretaries
+852,      B3 Administrative and regulatory occupations
+853,      B4 Clerical supervisors
+854,      B5 Clerical occupations
+855,    C Natural and applied sciences and related occupations
+856,      C0 Professional occupations in natural and applied sciences
+857,      C1 Technical occupations related to natural and applied sciences
+858,    D Health occupations
+859,      D0 Professional occupations in health
+860,      D1 Nurse supervisors and registered nurses
+861,      D2 Technical and related occupations in health
+862,      D3 Assisting occupations in support of health services
+863,"    E Occupations in social science, education, government service and religion"
+864,"      E0 Judges, lawyers, psychologists, social workers, ministers of religion, and policy and program officers"
+865,      E1 Teachers and professors
+866,"      E2 Paralegals, social services workers and occupations in education and religion, n.e.c."
+867,"    F Occupations in art, culture, recreation and sport"
+868,      F0 Professional occupations in art and culture
+869,"      F1 Technical occupations in art, culture, recreation and sport"
+870,    G Sales and service occupations
+871,      G0 Sales and service supervisors
+872,"      G1 Wholesale, technical, insurance, real estate sales specialists, and retail, wholesale and grain buyers"
+873,      G2 Retail salespersons and sales clerks
+874,      G3 Cashiers
+875,      G4 Chefs and cooks
+876,      G5 Occupations in food and beverage service
+877,      G6 Occupations in protective services
+878,"      G7 Occupations in travel and accommodation, including attendants in recreation and sport"
+879,      G8 Child care and home support workers
+880,"      G9 Sales and service occupations, n.e.c."
+881,"    H Trades, transport and equipment operators and related occupations"
+882,      H0 Contractors and supervisors in trades and transportation
+883,      H1 Construction trades
+884,"      H2 Stationary engineers, power station operators and electrical trades and telecommunications occupations"
+885,"      H3 Machinists, metal forming, shaping and erecting occupations"
+886,      H4 Mechanics
+887,"      H5 Other trades, n.e.c."
+888,"      H6 Heavy equipment and crane operators, including drillers"
+889,"      H7 Transportation equipment operators and related workers, excluding labourers"
+890,"      H8 Trades helpers, construction and transportation labourers and related occupations"
+891,    I Occupations unique to primary industry
+892,"      I0 Occupations unique to agriculture, excluding labourers"
+893,"      I1 Occupations unique to forestry operations, mining, oil and gas extraction and fishing, excluding labourers"
+894,      I2 Primary production labourers
+895,"    J Occupations unique to processing, manufacturing and utilities"
+896,      J0 Supervisors in manufacturing
+897,      J1 Machine operators in manufacturing
+898,      J2 Assemblers in manufacturing
+899,"      J3 Labourers in processing, manufacturing and utilities"
+900,Male labour force 15 years and over by occupation - National Occupational Classification for Statistics 2006
+901,  Occupation - Not applicable
+902,  All occupations
+903,    A Management occupations
+904,      A0 Senior management occupations
+905,      A1 Specialist managers
+906,"      A2 Managers in retail trade, food and accommodation services"
+907,"      A3 Other managers, n.e.c."
+908,"    B Business, finance and administration occupations"
+909,      B0 Professional occupations in business and finance
+910,      B1 Finance and insurance administration occupations
+911,      B2 Secretaries
+912,      B3 Administrative and regulatory occupations
+913,      B4 Clerical supervisors
+914,      B5 Clerical occupations
+915,    C Natural and applied sciences and related occupations
+916,      C0 Professional occupations in natural and applied sciences
+917,      C1 Technical occupations related to natural and applied sciences
+918,    D Health occupations
+919,      D0 Professional occupations in health
+920,      D1 Nurse supervisors and registered nurses
+921,      D2 Technical and related occupations in health
+922,      D3 Assisting occupations in support of health services
+923,"    E Occupations in social science, education, government service and religion"
+924,"      E0 Judges, lawyers, psychologists, social workers, ministers of religion, and policy and program officers"
+925,      E1 Teachers and professors
+926,"      E2 Paralegals, social services workers and occupations in education and religion, n.e.c."
+927,"    F Occupations in art, culture, recreation and sport"
+928,      F0 Professional occupations in art and culture
+929,"      F1 Technical occupations in art, culture, recreation and sport"
+930,    G Sales and service occupations
+931,      G0 Sales and service supervisors
+932,"      G1 Wholesale, technical, insurance, real estate sales specialists, and retail, wholesale and grain buyers"
+933,      G2 Retail salespersons and sales clerks
+934,      G3 Cashiers
+935,      G4 Chefs and cooks
+936,      G5 Occupations in food and beverage service
+937,      G6 Occupations in protective services
+938,"      G7 Occupations in travel and accommodation, including attendants in recreation and sport"
+939,      G8 Child care and home support workers
+940,"      G9 Sales and service occupations, n.e.c."
+941,"    H Trades, transport and equipment operators and related occupations"
+942,      H0 Contractors and supervisors in trades and transportation
+943,      H1 Construction trades
+944,"      H2 Stationary engineers, power station operators and electrical trades and telecommunications occupations"
+945,"      H3 Machinists, metal forming, shaping and erecting occupations"
+946,      H4 Mechanics
+947,"      H5 Other trades, n.e.c."
+948,"      H6 Heavy equipment and crane operators, including drillers"
+949,"      H7 Transportation equipment operators and related workers, excluding labourers"
+950,"      H8 Trades helpers, construction and transportation labourers and related occupations"
+951,    I Occupations unique to primary industry
+952,"      I0 Occupations unique to agriculture, excluding labourers"
+953,"      I1 Occupations unique to forestry operations, mining, oil and gas extraction and fishing, excluding labourers"
+954,      I2 Primary production labourers
+955,"    J Occupations unique to processing, manufacturing and utilities"
+956,      J0 Supervisors in manufacturing
+957,      J1 Machine operators in manufacturing
+958,      J2 Assemblers in manufacturing
+959,"      J3 Labourers in processing, manufacturing and utilities"
+960,Female labour force 15 years and over by occupation - National Occupational Classification for Statistics 2006
+961,  Occupation - Not applicable
+962,  All occupations
+963,    A Management occupations
+964,      A0 Senior management occupations
+965,      A1 Specialist managers
+966,"      A2 Managers in retail trade, food and accommodation services"
+967,"      A3 Other managers, n.e.c."
+968,"    B Business, finance and administration occupations"
+969,      B0 Professional occupations in business and finance
+970,      B1 Finance and insurance administration occupations
+971,      B2 Secretaries
+972,      B3 Administrative and regulatory occupations
+973,      B4 Clerical supervisors
+974,      B5 Clerical occupations
+975,    C Natural and applied sciences and related occupations
+976,      C0 Professional occupations in natural and applied sciences
+977,      C1 Technical occupations related to natural and applied sciences
+978,    D Health occupations
+979,      D0 Professional occupations in health
+980,      D1 Nurse supervisors and registered nurses
+981,      D2 Technical and related occupations in health
+982,      D3 Assisting occupations in support of health services
+983,"    E Occupations in social science, education, government service and religion"
+984,"      E0 Judges, lawyers, psychologists, social workers, ministers of religion, and policy and program officers"
+985,      E1 Teachers and professors
+986,"      E2 Paralegals, social services workers and occupations in education and religion, n.e.c."
+987,"    F Occupations in art, culture, recreation and sport"
+988,      F0 Professional occupations in art and culture
+989,"      F1 Technical occupations in art, culture, recreation and sport"
+990,    G Sales and service occupations
+991,      G0 Sales and service supervisors
+992,"      G1 Wholesale, technical, insurance, real estate sales specialists, and retail, wholesale and grain buyers"
+993,      G2 Retail salespersons and sales clerks
+994,      G3 Cashiers
+995,      G4 Chefs and cooks
+996,      G5 Occupations in food and beverage service
+997,      G6 Occupations in protective services
+998,"      G7 Occupations in travel and accommodation, including attendants in recreation and sport"
+999,      G8 Child care and home support workers
+1000,"      G9 Sales and service occupations, n.e.c."
+1001,"    H Trades, transport and equipment operators and related occupations"
+1002,      H0 Contractors and supervisors in trades and transportation
+1003,      H1 Construction trades
+1004,"      H2 Stationary engineers, power station operators and electrical trades and telecommunications occupations"
+1005,"      H3 Machinists, metal forming, shaping and erecting occupations"
+1006,      H4 Mechanics
+1007,"      H5 Other trades, n.e.c."
+1008,"      H6 Heavy equipment and crane operators, including drillers"
+1009,"      H7 Transportation equipment operators and related workers, excluding labourers"
+1010,"      H8 Trades helpers, construction and transportation labourers and related occupations"
+1011,    I Occupations unique to primary industry
+1012,"      I0 Occupations unique to agriculture, excluding labourers"
+1013,"      I1 Occupations unique to forestry operations, mining, oil and gas extraction and fishing, excluding labourers"
+1014,      I2 Primary production labourers
+1015,"    J Occupations unique to processing, manufacturing and utilities"
+1016,      J0 Supervisors in manufacturing
+1017,      J1 Machine operators in manufacturing
+1018,      J2 Assemblers in manufacturing
+1019,"      J3 Labourers in processing, manufacturing and utilities"
+1020,Total labour force 15 years and over by industry - North American Industry Classification System 2002  - 20% sample data
+1021,  Industry - Not applicable
+1022,  All industries
+1023,"    11 Agriculture, forestry, fishing and hunting"
+1024,    21 Mining and oil and gas extraction
+1025,    22 Utilities
+1026,    23 Construction
+1027,    31-33 Manufacturing
+1028,    41 Wholesale trade
+1029,    44-45 Retail trade
+1030,    48-49 Transportation and warehousing
+1031,    51 Information and cultural industries
+1032,    52 Finance and insurance
+1033,    53 Real estate and rental and leasing
+1034,"    54 Professional, scientific and technical services"
+1035,    55 Management of companies and enterprises
+1036,"    56 Administrative and support, waste management and remediation services"
+1037,    61 Educational services
+1038,    62 Health care and social assistance
+1039,"    71 Arts, entertainment and recreation"
+1040,    72 Accommodation and food services
+1041,    81 Other services (except public administration)
+1042,    91 Public administration
+1043,Male labour force 15 years and over - Industry - North American Industry Classification System 2002
+1044,  Industry - Not applicable
+1045,  All industries
+1046,"    11 Agriculture, forestry, fishing and hunting"
+1047,    21 Mining and oil and gas extraction
+1048,    22 Utilities
+1049,    23 Construction
+1050,    31-33 Manufacturing
+1051,    41 Wholesale trade
+1052,    44-45 Retail trade
+1053,    48-49 Transportation and warehousing
+1054,    51 Information and cultural industries
+1055,    52 Finance and insurance
+1056,    53 Real estate and rental and leasing
+1057,"    54 Professional, scientific and technical services"
+1058,    55 Management of companies and enterprises
+1059,"    56 Administrative and support, waste management and remediation services"
+1060,    61 Educational services
+1061,    62 Health care and social assistance
+1062,"    71 Arts, entertainment and recreation"
+1063,    72 Accommodation and food services
+1064,    81 Other services (except public administration)
+1065,    91 Public administration
+1066,Female labour force 15 years and over - Industry - North American Industry Classification System 2002
+1067,  Industry - Not applicable
+1068,  All industries
+1069,"    11 Agriculture, forestry, fishing and hunting"
+1070,    21 Mining and oil and gas extraction
+1071,    22 Utilities
+1072,    23 Construction
+1073,    31-33 Manufacturing
+1074,    41 Wholesale trade
+1075,    44-45 Retail trade
+1076,    48-49 Transportation and warehousing
+1077,    51 Information and cultural industries
+1078,    52 Finance and insurance
+1079,    53 Real estate and rental and leasing
+1080,"    54 Professional, scientific and technical services"
+1081,    55 Management of companies and enterprises
+1082,"    56 Administrative and support, waste management and remediation services"
+1083,    61 Educational services
+1084,    62 Health care and social assistance
+1085,"    71 Arts, entertainment and recreation"
+1086,    72 Accommodation and food services
+1087,    81 Other services (except public administration)
+1088,    91 Public administration
+1089,Total employed labour force 15 years and over by place of work status - 20% sample data
+1090,  Usual place of work
+1091,    In census subdivision of residence
+1092,    In different census subdivision
+1093,      In same census division
+1094,  At home
+1095,  Outside Canada
+1096,  No fixed workplace address
+1097,Males
+1098,  Usual place of work
+1099,    In census subdivision of residence
+1100,    In different census subdivision
+1101,      In same census division
+1102,  At home
+1103,  Outside Canada
+1104,  No fixed workplace address
+1105,Females
+1106,  Usual place of work
+1107,    In census subdivision of residence
+1108,    In different census subdivision
+1109,      In same census division
+1110,  At home
+1111,  Outside Canada
+1112,  No fixed workplace address
+1113,Total employed labour force 15 years and over with usual place of work or no fixed workplace address by mode of transportation - 20% sample data
+1114,"  Car, truck, van, as driver"
+1115,"  Car, truck, van, as passenger"
+1116,  Public transit
+1117,  Walked
+1118,  Bicycle
+1119,  Motorcycle
+1120,  Taxicab
+1121,  Other method
+1122,Males with usual place of work or no fixed workplace address
+1123,"  Car, truck, van, as driver"
+1124,"  Car, truck, van, as passenger"
+1125,  Public transit
+1126,  Walked
+1127,  Bicycle
+1128,  Motorcycle
+1129,  Taxicab
+1130,  Other method
+1131,Females with usual place of work or no fixed workplace address
+1132,"  Car, truck, van, as driver"
+1133,"  Car, truck, van, as passenger"
+1134,  Public transit
+1135,  Walked
+1136,  Bicycle
+1137,  Motorcycle
+1138,  Taxicab
+1139,  Other method
+1140,"Total population 15 years and over who worked since January 1, 2005 by language used most often at work - 20% sample data"
+1141,  Single responses
+1142,    English
+1143,    French
+1144,    Non-official languages
+1145,"      Chinese, n.o.s."
+1146,      Cantonese
+1147,      Panjabi (Punjabi)
+1148,      German
+1149,      Mandarin
+1150,      Portuguese
+1151,      Spanish
+1152,      Vietnamese
+1153,      Korean
+1154,      Italian
+1155,      Other languages
+1156,  Multiple responses
+1157,    English and French
+1158,    English and non-official language
+1159,    French and non-official language
+1160,"    English, French and non-official language"
+1161,Total population 15 years and over by hours spent doing unpaid housework - 20% sample data
+1162,  No hours of unpaid housework
+1163,  Less than 5 hours of unpaid housework
+1164,  5 to 14 hours of unpaid housework
+1165,  15 to 29 hours of unpaid housework
+1166,  30 to 59 hours of unpaid housework
+1167,  60 hours or more of unpaid housework
+1168,Males 15 years and over - Hours spent doing unpaid housework
+1169,  No hours of unpaid housework
+1170,  Less than 5 hours of unpaid housework
+1171,  5 to 14 hours of unpaid housework
+1172,  15 to 29 hours of unpaid housework
+1173,  30 to 59 hours of unpaid housework
+1174,  60 hours or more of unpaid housework
+1175,Females 15 years and over - Hours spent doing unpaid housework
+1176,  No hours of unpaid housework
+1177,  Less than 5 hours of unpaid housework
+1178,  5 to 14 hours of unpaid housework
+1179,  15 to 29 hours of unpaid housework
+1180,  30 to 59 hours of unpaid housework
+1181,  60 hours or more of unpaid housework
+1182,"Total population 15 years and over by hours spent looking after children, without pay - 20% sample data"
+1183,  No hours of unpaid child care
+1184,  Less than 5 hours of unpaid child care
+1185,  5 to 14 hours of unpaid child care
+1186,  15 to 29 hours of unpaid child care
+1187,  30 to 59 hours of unpaid child care
+1188,  60 hours or more of unpaid child care
+1189,"Males 15 years and over - Hours spent looking after children, without pay"
+1190,  No hours of unpaid child care
+1191,  Less than 5 hours of unpaid child care
+1192,  5 to 14 hours of unpaid child care
+1193,  15 to 29 hours of unpaid child care
+1194,  30 to 59 hours of unpaid child care
+1195,  60 hours or more of unpaid child care
+1196,"Females 15 years and over - Hours spent looking after children, without pay"
+1197,  No hours of unpaid child care
+1198,  Less than 5 hours of unpaid child care
+1199,  5 to 14 hours of unpaid child care
+1200,  15 to 29 hours of unpaid child care
+1201,  30 to 59 hours of unpaid child care
+1202,  60 hours or more of unpaid child care
+1203,Total population 15 years and over by hours spent providing unpaid care or assistance to seniors - 20% sample data
+1204,  No hours of unpaid care or assistance to seniors
+1205,  Less than 5 hours of unpaid care or assistance to seniors
+1206,  5 to 9 hours of unpaid care or assistance to seniors
+1207,  10 to 19 hours of unpaid care or assistance to seniors
+1208,  20 hours or more of unpaid care or assistance to seniors
+1209,Males 15 years and over - Hours spent providing unpaid care or assistance to seniors
+1210,  No hours of unpaid care or assistance to seniors
+1211,  Less than 5 hours of unpaid care or assistance to seniors
+1212,  5 to 9 hours of unpaid care or assistance to seniors
+1213,  10 to 19 hours of unpaid care or assistance to seniors
+1214,  20 hours or more of unpaid care or assistance to seniors
+1215,Females 15 years and over - Hours spent providing unpaid care or assistance to seniors
+1216,  No hours of unpaid care or assistance to seniors
+1217,  Less than 5 hours of unpaid care or assistance to seniors
+1218,  5 to 9 hours of unpaid care or assistance to seniors
+1219,  10 to 19 hours of unpaid care or assistance to seniors
+1220,  20 hours or more of unpaid care or assistance to seniors
+1221,"Total male population 25 to 64 years with postsecondary qualifications by major field of study - Classification of Instructional Programs, 2000 - 20% sample data"
+1222,  Education
+1223,"  Visual and performing arts, and communications technologies"
+1224,  Humanities
+1225,  Social and behavioural sciences and law
+1226,"  Business, management and public administration"
+1227,  Physical and life sciences and technologies
+1228,"  Mathematics, computer and information sciences"
+1229,"  Architecture, engineering, and related technologies"
+1230,"  Agriculture, natural resources and conservation"
+1231,"  Health, parks, recreation and fitness"
+1232,"  Personal, protective and transportation services"
+1233,  Other fields of study
+1234,"Total female population 25 to 64 years with postsecondary qualifications by major field of study - Classification of Instructional Programs, 2000 - 20% sample data"
+1235,  Education
+1236,"  Visual and performing arts, and communications technologies"
+1237,  Humanities
+1238,  Social and behavioural sciences and law
+1239,"  Business, management and public administration"
+1240,  Physical and life sciences and technologies
+1241,"  Mathematics, computer and information sciences"
+1242,"  Architecture, engineering, and related technologies"
+1243,"  Agriculture, natural resources and conservation"
+1244,"  Health, parks, recreation and fitness"
+1245,"  Personal, protective and transportation services"
+1246,  Other fields of study
+1247,"Total population 15 to 24 years by highest certificate, diploma or degree - 20% sample data"
+1248,"  No certificate, diploma or degree"
+1249,"  Certificate, diploma or degree"
+1250,    High school certificate or equivalent
+1251,    Apprenticeship or trades certificate or diploma
+1252,"    College, CEGEP or other non-university certificate or diploma"
+1253,"    University certificate, diploma or degree"
+1254,      University certificate or diploma below bachelor level
+1255,      University certificate or degree
+1256,        Bachelor's degree
+1257,        University certificate or diploma above bachelor level
+1258,"        Degree in medicine, dentistry, veterinary medicine or optometry"
+1259,        Master's degree
+1260,        Earned doctorate
+1261,"Total population 25 to 64 years by highest certificate, diploma or degree - 20% sample data"
+1262,"  No certificate, diploma or degree"
+1263,"  Certificate, diploma or degree"
+1264,    High school certificate or equivalent
+1265,    Apprenticeship or trades certificate or diploma
+1266,"    College, CEGEP or other non-university certificate or diploma"
+1267,"    University certificate, diploma or degree"
+1268,      University certificate or diploma below bachelor level
+1269,      University certificate or degree
+1270,        Bachelor's degree
+1271,        University certificate or diploma above bachelor level
+1272,"        Degree in medicine, dentistry, veterinary medicine or optometry"
+1273,        Master's degree
+1274,        Earned doctorate
+1275,"Total population 65 years and over by highest certificate, diploma or degree - 20% sample data"
+1276,"  No certificate, diploma or degree"
+1277,"  Certificate, diploma or degree"
+1278,    High school certificate or equivalent
+1279,    Apprenticeship or trades certificate or diploma
+1280,"    College, CEGEP or other non-university certificate or diploma"
+1281,"    University certificate, diploma or degree"
+1282,      University certificate or diploma below bachelor level
+1283,      University certificate or degree
+1284,        Bachelor's degree
+1285,        University certificate or diploma above bachelor level
+1286,"        Degree in medicine, dentistry, veterinary medicine or optometry"
+1287,        Master's degree
+1288,        Earned doctorate
+1289,Total population 25 to 64 years with postsecondary qualification by location of study - 20% sample data
+1290,  Inside Canada
+1291,    Newfoundland and Labrador
+1292,    Prince Edward Island
+1293,    Nova Scotia
+1294,    New Brunswick
+1295,    Quebec
+1296,    Ontario
+1297,    Manitoba
+1298,    Saskatchewan
+1299,    Alberta
+1300,    British Columbia
+1301,    Yukon Territory
+1302,    Northwest Territories
+1303,    Nunavut
+1304,  Outside Canada
+1305,Total population by Aboriginal and non-Aboriginal ancestry - 20% sample data
+1306,  Total Aboriginal ancestry population
+1307,    North American Indian single ancestry
+1308,    North American Indian and non-Aboriginal ancestries
+1309,    MÃ©tis single ancestry
+1310,    MÃ©tis and non-Aboriginal ancestries
+1311,    Inuit single ancestry
+1312,    Inuit and non-Aboriginal ancestries
+1313,    Other Aboriginal multiple ancestries
+1314,  Non-Aboriginal ancestry population
+1315,Total population by visible minority groups - 20% sample data
+1316,  Total visible minority population
+1317,    Chinese
+1318,    South Asian
+1319,    Black
+1320,    Filipino
+1321,    Latin American
+1322,    Southeast Asian
+1323,    Arab
+1324,    West Asian
+1325,    Korean
+1326,    Japanese
+1327,"    Visible minority, n.i.e."
+1328,    Multiple visible minority
+1329,  Not a visible minority
+1330,Total population by ethnic origin - 20% sample data
+1331,  British Isles origins
+1332,    Cornish
+1333,    English
+1334,    Irish
+1335,    Manx
+1336,    Scottish
+1337,    Welsh
+1338,"    British Isles, n.i.e."
+1339,  French origins
+1340,    Acadian
+1341,    French
+1342,  Aboriginal origins
+1343,    Inuit
+1344,    MÃ©tis
+1345,    North American Indian
+1346,  Other North American origins
+1347,    American
+1348,    Canadian
+1349,    Newfoundlander
+1350,    Nova Scotian
+1351,    Ontarian
+1352,    QuÃ©bÃ©cois
+1353,    Other provincial or regional groups
+1354,  Caribbean origins
+1355,    Antiguan
+1356,    Bahamian
+1357,    Barbadian
+1358,    Bermudan
+1359,    Carib
+1360,    Cuban
+1361,"    Dominican, n.o.s."
+1362,    Grenadian
+1363,    Guyanese
+1364,    Haitian
+1365,    Jamaican
+1366,    Kittitian/Nevisian
+1367,    Martinican
+1368,    Montserratan
+1369,    Puerto Rican
+1370,    St. Lucian
+1371,    Trinidadian/Tobagonian
+1372,    Vincentian/Grenadinian
+1373,    West Indian
+1374,"    Caribbean, n.i.e."
+1375,"  Latin, Central and South American origins"
+1376,    Aboriginal from Central/South America
+1377,    Argentinian
+1378,    Belizean
+1379,    Bolivian
+1380,    Brazilian
+1381,    Chilean
+1382,    Colombian
+1383,    Costa Rican
+1384,    Ecuadorian
+1385,    Guatemalan
+1386,    Hispanic
+1387,    Honduran
+1388,    Maya
+1389,    Mexican
+1390,    Nicaraguan
+1391,    Panamanian
+1392,    Paraguayan
+1393,    Peruvian
+1394,    Salvadorean
+1395,    Uruguayan
+1396,    Venezuelan
+1397,"    Latin, Central or South American, n.i.e."
+1398,  European origins
+1399,    Western European origins
+1400,      Austrian
+1401,      Belgian
+1402,      Dutch (Netherlands)
+1403,      Flemish
+1404,      Frisian
+1405,      German
+1406,      Luxembourger
+1407,      Swiss
+1408,    Northern European origins
+1409,      Finnish
+1410,      Scandinavian origins
+1411,        Danish
+1412,        Icelandic
+1413,        Norwegian
+1414,        Swedish
+1415,"        Scandinavian, n.i.e."
+1416,    Eastern European origins
+1417,      Baltic origins
+1418,        Estonian
+1419,        Latvian
+1420,        Lithuanian
+1421,      Byelorussian
+1422,      Czech and Slovak origins
+1423,        Czech
+1424,        Czechoslovakian
+1425,        Slovak
+1426,      Hungarian (Magyar)
+1427,      Polish
+1428,      Romanian
+1429,      Russian
+1430,      Ukrainian
+1431,    Southern European origins
+1432,      Albanian
+1433,      Bosnian
+1434,      Bulgarian
+1435,      Croatian
+1436,      Cypriot
+1437,      Greek
+1438,      Italian
+1439,      Kosovar
+1440,      Macedonian
+1441,      Maltese
+1442,      Montenegrin
+1443,      Portuguese
+1444,      Serbian
+1445,      Sicilian
+1446,      Slovenian
+1447,      Spanish
+1448,"      Yugoslav, n.i.e."
+1449,    Other European origins
+1450,      Basque
+1451,      Gypsy (Roma)
+1452,      Jewish
+1453,      Slav (European)
+1454,"      European, n.i.e."
+1455,  African origins
+1456,    Afrikaner
+1457,    Akan
+1458,    Amhara
+1459,    Angolan
+1460,    Ashanti
+1461,    Bantu
+1462,    Black
+1463,    Burundian
+1464,    Cameroonian
+1465,    Chadian
+1466,    Congolese (Zairian)
+1467,"    Congolese, n.o.s."
+1468,    Dinka
+1469,    East African
+1470,    Eritrean
+1471,    Ethiopian
+1472,    Gabonese
+1473,    Gambian
+1474,    Ghanaian
+1475,"    Guinean, n.o.s."
+1476,    Harari
+1477,    Ibo
+1478,    Ivorian
+1479,    Kenyan
+1480,    Malagasy
+1481,    Malian
+1482,    Mauritian
+1483,    Nigerian
+1484,    Oromo
+1485,    Peulh
+1486,    Rwandan
+1487,    Senegalese
+1488,    Seychellois
+1489,    Sierra Leonean
+1490,    Somali
+1491,    South African
+1492,    Sudanese
+1493,    Tanzanian
+1494,    Tigrian
+1495,    Togolese
+1496,    Ugandan
+1497,    Yoruba
+1498,    Zambian
+1499,    Zimbabwean
+1500,    Zulu
+1501,"    African, n.i.e."
+1502,  Arab origins
+1503,    Egyptian
+1504,    Iraqi
+1505,    Jordanian
+1506,    Kuwaiti
+1507,    Lebanese
+1508,    Libyan
+1509,    Maghrebi origins
+1510,      Algerian
+1511,      Berber
+1512,      Moroccan
+1513,      Tunisian
+1514,"      Maghrebi, n.i.e."
+1515,    Palestinian
+1516,    Saudi Arabian
+1517,    Syrian
+1518,    Yemeni
+1519,"    Arab, n.i.e."
+1520,  West Asian origins
+1521,    Afghan
+1522,    Armenian
+1523,    Assyrian
+1524,    Azerbaijani
+1525,    Georgian
+1526,    Iranian
+1527,    Israeli
+1528,    Kurd
+1529,    Pashtun
+1530,    Tatar
+1531,    Turk
+1532,"    West Asian, n.i.e."
+1533,  South Asian origins
+1534,    Bangladeshi
+1535,    Bengali
+1536,    East Indian
+1537,    Goan
+1538,    Gujarati
+1539,    Kashmiri
+1540,    Nepali
+1541,    Pakistani
+1542,    Punjabi
+1543,    Sinhalese
+1544,    Sri Lankan
+1545,    Tamil
+1546,"    South Asian, n.i.e."
+1547,  East and Southeast Asian origins
+1548,    Burmese
+1549,    Cambodian
+1550,    Chinese
+1551,    Filipino
+1552,    Hmong
+1553,    Indonesian
+1554,    Japanese
+1555,    Khmer
+1556,    Korean
+1557,    Laotian
+1558,    Malaysian
+1559,    Mongolian
+1560,    Singaporean
+1561,    Taiwanese
+1562,    Thai
+1563,    Tibetan
+1564,    Vietnamese
+1565,"    East or Southeast Asian, n.i.e."
+1566,"    Asian, n.o.s."
+1567,  Oceania origins
+1568,    Australian
+1569,    New Zealander
+1570,    Pacific Islands origins
+1571,      Fijian
+1572,      Hawaiian
+1573,      Maori
+1574,      Polynesian
+1575,      Samoan
+1576,"      Pacific Islander, n.i.e."
+1577,Total income in 2005 of population 15 years and over - 20% sample data
+1578,  Without income
+1579,  With income
+1580,"    Under $1,000"
+1581,"    $1,000 to $2,999"
+1582,"    $3,000 to $4,999"
+1583,"    $5,000 to $6,999"
+1584,"    $7,000 to $9,999"
+1585,"    $10,000 to $11,999"
+1586,"    $12,000 to $14,999"
+1587,"    $15,000 to $19,999"
+1588,"    $20,000 to $24,999"
+1589,"    $25,000 to $29,999"
+1590,"    $30,000 to $34,999"
+1591,"    $35,000 to $39,999"
+1592,"    $40,000 to $44,999"
+1593,"    $45,000 to $49,999"
+1594,"    $50,000 to $59,999"
+1595,"    $60,000 and over"
+1596,  Median income $
+1597,  Average income $
+1598,  Standard error of average income $
+1599,Total income in 2005 of males 15 years and over
+1600,  Without income
+1601,  With income
+1602,"    Under $1,000"
+1603,"    $1,000 to $2,999"
+1604,"    $3,000 to $4,999"
+1605,"    $5,000 to $6,999"
+1606,"    $7,000 to $9,999"
+1607,"    $10,000 to $11,999"
+1608,"    $12,000 to $14,999"
+1609,"    $15,000 to $19,999"
+1610,"    $20,000 to $24,999"
+1611,"    $25,000 to $29,999"
+1612,"    $30,000 to $34,999"
+1613,"    $35,000 to $39,999"
+1614,"    $40,000 to $44,999"
+1615,"    $45,000 to $49,999"
+1616,"    $50,000 to $59,999"
+1617,"    $60,000 and over"
+1618,  Median income $
+1619,  Average income $
+1620,  Standard error of average income $
+1621,Total income in 2005 of females 15 years and over
+1622,  Without income
+1623,  With income
+1624,"    Under $1,000"
+1625,"    $1,000 to $2,999"
+1626,"    $3,000 to $4,999"
+1627,"    $5,000 to $6,999"
+1628,"    $7,000 to $9,999"
+1629,"    $10,000 to $11,999"
+1630,"    $12,000 to $14,999"
+1631,"    $15,000 to $19,999"
+1632,"    $20,000 to $24,999"
+1633,"    $25,000 to $29,999"
+1634,"    $30,000 to $34,999"
+1635,"    $35,000 to $39,999"
+1636,"    $40,000 to $44,999"
+1637,"    $45,000 to $49,999"
+1638,"    $50,000 to $59,999"
+1639,"    $60,000 and over"
+1640,  Median income $
+1641,  Average income $
+1642,  Standard error of average income $
+1643,Total after-tax income in 2005 of population 15 years and over - 20% sample data
+1644,  Without after-tax income
+1645,  With after-tax income
+1646,"    Under $1,000"
+1647,"    $1,000 to $2,999"
+1648,"    $3,000 to $4,999"
+1649,"    $5,000 to $6,999"
+1650,"    $7,000 to $9,999"
+1651,"    $10,000 to $11,999"
+1652,"    $12,000 to $14,999"
+1653,"    $15,000 to $19,999"
+1654,"    $20,000 to $24,999"
+1655,"    $25,000 to $29,999"
+1656,"    $30,000 to $34,999"
+1657,"    $35,000 to $39,999"
+1658,"    $40,000 to $44,999"
+1659,"    $45,000 to $49,999"
+1660,"    $50,000 and over"
+1661,  Median after-tax income $
+1662,  Average after-tax income $
+1663,  Standard error of average after-tax income $
+1664,After-tax income in 2005 of males 15 years and over
+1665,  Without after-tax income
+1666,  With after-tax income
+1667,"    Under $1,000"
+1668,"    $1,000 to $2,999"
+1669,"    $3,000 to $4,999"
+1670,"    $5,000 to $6,999"
+1671,"    $7,000 to $9,999"
+1672,"    $10,000 to $11,999"
+1673,"    $12,000 to $14,999"
+1674,"    $15,000 to $19,999"
+1675,"    $20,000 to $24,999"
+1676,"    $25,000 to $29,999"
+1677,"    $30,000 to $34,999"
+1678,"    $35,000 to $39,999"
+1679,"    $40,000 to $44,999"
+1680,"    $45,000 to $49,999"
+1681,"    $50,000 and over"
+1682,  Median after-tax income $
+1683,  Average after-tax income $
+1684,  Standard error of average after-tax income $
+1685,After-tax income in 2005 of females 15 years and over
+1686,  Without after-tax income
+1687,  With after-tax income
+1688,"    Under $1,000"
+1689,"    $1,000 to $2,999"
+1690,"    $3,000 to $4,999"
+1691,"    $5,000 to $6,999"
+1692,"    $7,000 to $9,999"
+1693,"    $10,000 to $11,999"
+1694,"    $12,000 to $14,999"
+1695,"    $15,000 to $19,999"
+1696,"    $20,000 to $24,999"
+1697,"    $25,000 to $29,999"
+1698,"    $30,000 to $34,999"
+1699,"    $35,000 to $39,999"
+1700,"    $40,000 to $44,999"
+1701,"    $45,000 to $49,999"
+1702,"    $50,000 and over"
+1703,  Median after-tax income $
+1704,  Average after-tax income $
+1705,  Standard error of average after-tax income $
+1706,Total population 15 years and over with employment income - 20% sample data
+1707,      Median employment income in 2005 $
+1708,      Average employment income in 2005 $
+1709,      Standard error of average employment income $
+1710,"  Worked full year, full time"
+1711,      Median employment income in 2005 $
+1712,      Average employment income in 2005 $
+1713,      Standard error of average employment income $
+1714,  Worked part year or part time
+1715,      Median employment income in 2005 $
+1716,      Average employment income in 2005 $
+1717,      Standard error of average employment income $
+1718,  Males 15 years and over with employment income
+1719,      Median employment income in 2005 $
+1720,      Average employment income in 2005 $
+1721,      Standard error of average employment income $
+1722,"    Worked full year, full time"
+1723,      Median employment income in 2005 $
+1724,      Average employment income in 2005 $
+1725,      Standard error of average employment income $
+1726,    Worked part year or part time
+1727,      Median employment income in 2005 $
+1728,      Average employment income in 2005 $
+1729,      Standard error of average employment income $
+1730,  Females 15 years and over with employment income
+1731,      Median employment income in 2005 $
+1732,      Average employment income in 2005 $
+1733,      Standard error of average employment income $
+1734,"    Worked full year, full time"
+1735,      Median employment income in 2005 $
+1736,      Average employment income in 2005 $
+1737,      Standard error of average employment income $
+1738,    Worked part year or part time
+1739,      Median employment income in 2005 $
+1740,      Average employment income in 2005 $
+1741,      Standard error of average employment income $
+1742,Family income in 2005 of economic families - 20% sample data
+1743,"  Under $10,000"
+1744,"  $10,000 to $19,999"
+1745,"  $20,000 to $29,999"
+1746,"  $30,000 to $39,999"
+1747,"  $40,000 to $49,999"
+1748,"  $50,000 to $59,999"
+1749,"  $60,000 to $69,999"
+1750,"  $70,000 to $79,999"
+1751,"  $80,000 to $89,999"
+1752,"  $90,000 to $99,999"
+1753,"  $100,000 and over"
+1754,Median family income $
+1755,Average family income $
+1756,Standard error of average family income $
+1757,Family income in 2005 of couple economic families
+1758,"  Under $10,000"
+1759,"  $10,000 to $19,999"
+1760,"  $20,000 to $29,999"
+1761,"  $30,000 to $39,999"
+1762,"  $40,000 to $49,999"
+1763,"  $50,000 to $59,999"
+1764,"  $60,000 to $69,999"
+1765,"  $70,000 to $79,999"
+1766,"  $80,000 to $89,999"
+1767,"  $90,000 to $99,999"
+1768,"  $100,000 and over"
+1769,Median family income $
+1770,Average family income $
+1771,Standard error of average family income $
+1772,Composition of family income in 2005 for all economic families % - 20% sample data
+1773,  Employment income %
+1774,  Government transfer payments %
+1775,  Other %
+1776,Composition of family income in 2005 for all couple economic families %
+1777,  Employment income %
+1778,  Government transfer payments %
+1779,  Other %
+1780,Composition of family income in 2005 for all male lone-parent economic families %
+1781,  Employment income %
+1782,  Government transfer payments %
+1783,  Other %
+1784,Composition of family income in 2005 for all female lone-parent economic families %
+1785,  Employment income %
+1786,  Government transfer payments %
+1787,  Other %
+1788,After-tax income in 2005 of economic families - 20% sample data
+1789,"  Under $10,000"
+1790,"  $10,000 to $19,999"
+1791,"  $20,000 to $29,999"
+1792,"  $30,000 to $39,999"
+1793,"  $40,000 to $49,999"
+1794,"  $50,000 to $59,999"
+1795,"  $60,000 to $69,999"
+1796,"  $70,000 to $79,999"
+1797,"  $80,000 and over"
+1798,Median after-tax family income $
+1799,Average after-tax family income $
+1800,Standard error of average after-tax family income $
+1801,After-tax income in 2005 of couple economic families
+1802,"  Under $10,000"
+1803,"  $10,000 to $19,999"
+1804,"  $20,000 to $29,999"
+1805,"  $30,000 to $39,999"
+1806,"  $40,000 to $49,999"
+1807,"  $50,000 to $59,999"
+1808,"  $60,000 to $69,999"
+1809,"  $70,000 to $79,999"
+1810,"  $80,000 and over"
+1811,Median after-tax family income $
+1812,Average after-tax family income $
+1813,Standard error of average after-tax family income $
+1814,Family income in 2005 of all economic families - 20% sample data
+1815,  Median family income $
+1816,  Average family income $
+1817,  Standard error of average family income $
+1818,  Median after-tax family income $
+1819,  Average after-tax family income $
+1820,  Standard error of average after-tax family income $
+1821,Family income in 2005 of couple economic families
+1822,  Median family income $
+1823,  Average family income $
+1824,  Standard error of average family income $
+1825,  Median after-tax family income $
+1826,  Average after-tax family income $
+1827,  Standard error of average after-tax family income $
+1828,Family income in 2005 of male lone-parent economic families
+1829,  Median family income $
+1830,  Average family income $
+1831,  Standard error of average family income $
+1832,  Median after-tax family income $
+1833,  Average after-tax family income $
+1834,  Standard error of average after-tax family income $
+1835,Family income in 2005 of female lone-parent economic families
+1836,  Median family income $
+1837,  Average family income $
+1838,  Standard error of average family income $
+1839,  Median after-tax family income $
+1840,  Average after-tax family income $
+1841,  Standard error of average after-tax family income $
+1842,Total income in 2005 of persons 15 years and over not in economic families - 20% sample data
+1843,"  Under $1,000"
+1844,"  $1,000 to $2,999"
+1845,"  $3,000 to $4,999"
+1846,"  $5,000 to $6,999"
+1847,"  $7,000 to $9,999"
+1848,"  $10,000 to $11,999"
+1849,"  $12,000 to $14,999"
+1850,"  $15,000 to $19,999"
+1851,"  $20,000 to $24,999"
+1852,"  $25,000 to $29,999"
+1853,"  $30,000 to $34,999"
+1854,"  $35,000 to $39,999"
+1855,"  $40,000 to $44,999"
+1856,"  $45,000 to $49,999"
+1857,"  $50,000 to $59,999"
+1858,"  $60,000 and over"
+1859,Median income $
+1860,Average income $
+1861,Standard error of average income $
+1862,Total income in 2005 of males 15 years and over not in economic families
+1863,"  Under $1,000"
+1864,"  $1,000 to $2,999"
+1865,"  $3,000 to $4,999"
+1866,"  $5,000 to $6,999"
+1867,"  $7,000 to $9,999"
+1868,"  $10,000 to $11,999"
+1869,"  $12,000 to $14,999"
+1870,"  $15,000 to $19,999"
+1871,"  $20,000 to $24,999"
+1872,"  $25,000 to $29,999"
+1873,"  $30,000 to $34,999"
+1874,"  $35,000 to $39,999"
+1875,"  $40,000 to $44,999"
+1876,"  $45,000 to $49,999"
+1877,"  $50,000 to $59,999"
+1878,"  $60,000 and over"
+1879,Median income $
+1880,Average income $
+1881,Standard error of average income $
+1882,Total income in 2005 of females 15 years and over not in economic families
+1883,"  Under $1,000"
+1884,"  $1,000 to $2,999"
+1885,"  $3,000 to $4,999"
+1886,"  $5,000 to $6,999"
+1887,"  $7,000 to $9,999"
+1888,"  $10,000 to $11,999"
+1889,"  $12,000 to $14,999"
+1890,"  $15,000 to $19,999"
+1891,"  $20,000 to $24,999"
+1892,"  $25,000 to $29,999"
+1893,"  $30,000 to $34,999"
+1894,"  $35,000 to $39,999"
+1895,"  $40,000 to $44,999"
+1896,"  $45,000 to $49,999"
+1897,"  $50,000 to $59,999"
+1898,"  $60,000 and over"
+1899,Median income $
+1900,Average income $
+1901,Standard error of average income $
+1902,Composition of income in 2005 for persons 15 years and over not in economic families % - 20% sample data
+1903,  Employment income %
+1904,  Government transfer payments %
+1905,  Other %
+1906,Composition of income in 2005 for males 15 years and over not in economic families %
+1907,  Employment income %
+1908,  Government transfer payments %
+1909,  Other %
+1910,Composition of income in 2005 for females 15 years and over not in economic families %
+1911,  Employment income %
+1912,  Government transfer payments %
+1913,  Other %
+1914,After-tax income in 2005 of persons 15 years and over not in economic families - 20% sample data
+1915,"  Under $1,000"
+1916,"  $1,000 to $2,999"
+1917,"  $3,000 to $4,999"
+1918,"  $5,000 to $6,999"
+1919,"  $7,000 to $9,999"
+1920,"  $10,000 to $11,999"
+1921,"  $12,000 to $14,999"
+1922,"  $15,000 to $19,999"
+1923,"  $20,000 to $24,999"
+1924,"  $25,000 to $29,999"
+1925,"  $30,000 to $34,999"
+1926,"  $35,000 to $39,999"
+1927,"  $40,000 to $44,999"
+1928,"  $45,000 to $49,999"
+1929,"  $50,000 and over"
+1930,Median after-tax income $
+1931,Average after-tax income $
+1932,Standard error of average after-tax income $
+1933,After-tax income in 2005 of males 15 years and over not in economic families
+1934,"  Under $1,000"
+1935,"  $1,000 to $2,999"
+1936,"  $3,000 to $4,999"
+1937,"  $5,000 to $6,999"
+1938,"  $7,000 to $9,999"
+1939,"  $10,000 to $11,999"
+1940,"  $12,000 to $14,999"
+1941,"  $15,000 to $19,999"
+1942,"  $20,000 to $24,999"
+1943,"  $25,000 to $29,999"
+1944,"  $30,000 to $34,999"
+1945,"  $35,000 to $39,999"
+1946,"  $40,000 to $44,999"
+1947,"  $45,000 to $49,999"
+1948,"  $50,000 and over"
+1949,Median after-tax income $
+1950,Average after-tax income $
+1951,Standard error of average after-tax income $
+1952,After-tax income in 2005 of females 15 years and over not in economic families
+1953,"  Under $1,000"
+1954,"  $1,000 to $2,999"
+1955,"  $3,000 to $4,999"
+1956,"  $5,000 to $6,999"
+1957,"  $7,000 to $9,999"
+1958,"  $10,000 to $11,999"
+1959,"  $12,000 to $14,999"
+1960,"  $15,000 to $19,999"
+1961,"  $20,000 to $24,999"
+1962,"  $25,000 to $29,999"
+1963,"  $30,000 to $34,999"
+1964,"  $35,000 to $39,999"
+1965,"  $40,000 to $44,999"
+1966,"  $45,000 to $49,999"
+1967,"  $50,000 and over"
+1968,Median after-tax income $
+1969,Average after-tax income $
+1970,Standard error of average after-tax income $
+1971,Total economic families - 20% sample data
+1972,  Prevalence of low income before tax in 2005 %
+1973,  Prevalence of low income after tax in 2005 %
+1974,Couple economic families
+1975,  Prevalence of low income before tax in 2005 %
+1976,  Prevalence of low income after tax in 2005 %
+1977,Male lone-parent economic families
+1978,   Prevalence of low income before tax in 2005 %
+1979,   Prevalence of low income after tax in 2005 %
+1980,Female lone-parent economic families
+1981,  Prevalence of low income before tax in 2005 %
+1982,  Prevalence of low income after tax in 2005 %
+1983,Total persons 15 years and over not in economic families - 20% sample data
+1984,  Prevalence of low income before tax in 2005 %
+1985,  Prevalence of low income after tax in 2005 %
+1986,Males 15 years and over not in economic families
+1987,  Prevalence of low income before tax in 2005 %
+1988,  Prevalence of low income after tax in 2005 %
+1989,Females 15 years and over not in economic families
+1990,  Prevalence of low income before tax in 2005 %
+1991,  Prevalence of low income after tax in 2005 %
+1992,Total persons in private households - 20% sample data
+1993,  Prevalence of low income before tax in 2005 %
+1994,  Prevalence of low income after tax in 2005 %
+1995,Total persons less than 6 years of age
+1996,  Prevalence of low income before tax in 2005 %
+1997,  Prevalence of low income after tax in 2005 %
+1998,Total persons 65 years of age and over
+1999,  Prevalence of low income before tax in 2005 %
+2000,  Prevalence of low income after tax in 2005 %
+2001,Household income in 2005 of private households - 20% sample data
+2002,"  Under $10,000"
+2003,"  $10,000 to $19,999"
+2004,"  $20,000 to $29,999"
+2005,"  $30,000 to $39,999"
+2006,"  $40,000 to $49,999"
+2007,"  $50,000 to $59,999"
+2008,"  $60,000 to $69,999"
+2009,"  $70,000 to $79,999"
+2010,"  $80,000 to $89,999"
+2011,"  $90,000 to $99,999"
+2012,"  $100,000 and over"
+2013,Median household income $
+2014,Average household income $
+2015,Standard error of average household income $
+2016,Household income in 2005 of one-person private households
+2017,"  Under $10,000"
+2018,"  $10,000 to $19,999"
+2019,"  $20,000 to $29,999"
+2020,"  $30,000 to $39,999"
+2021,"  $40,000 to $49,999"
+2022,"  $50,000 to $59,999"
+2023,"  $60,000 to $69,999"
+2024,"  $70,000 to $79,999"
+2025,"  $80,000 to $89,999"
+2026,"  $90,000 to $99,999"
+2027,"  $100,000 and over"
+2028,Median household income $
+2029,Average household income $
+2030,Standard error of average household income $
+2031,After-tax income in 2005 of private households - 20% sample data
+2032,"  Under $10,000"
+2033,"  $10,000 to $19,999"
+2034,"  $20,000 to $29,999"
+2035,"  $30,000 to $39,999"
+2036,"  $40,000 to $49,999"
+2037,"  $50,000 to $59,999"
+2038,"  $60,000 to $69,999"
+2039,"  $70,000 to $79,999"
+2040,"  $80,000 to $89,999"
+2041,"  $90,000 to $99,999"
+2042,"  $100,000 and over"
+2043,Median after-tax household income $
+2044,Average after-tax household income $
+2045,Standard error of average after-tax household income $
+2046,After-tax income in 2005 of one-person private households
+2047,"  Under $10,000"
+2048,"  $10,000 to $19,999"
+2049,"  $20,000 to $29,999"
+2050,"  $30,000 to $39,999"
+2051,"  $40,000 to $49,999"
+2052,"  $50,000 to $59,999"
+2053,"  $60,000 to $69,999"
+2054,"  $70,000 to $79,999"
+2055,"  $80,000 to $89,999"
+2056,"  $90,000 to $99,999"
+2057,"  $100,000 and over"
+2058,Median after-tax household income $
+2059,Average after-tax household income $
+2060,Standard error of average after-tax household income $
+2061,"Total number of non-farm, non-reserve private dwellings occupied by usual residents - 20% sample data"
+2062,"  Tenant-occupied private non-farm, non-reserve dwellings"
+2063,    Average gross rent $
+2064,  Tenant-occupied households spending 30% or more of household income on gross rent
+2065,    Tenant-occupied households spending from 30% to 99% of household income on gross rent
+2066,"  Owner-occupied private non-farm, non-reserve dwellings"
+2067,    Average value of dwelling $
+2068,    Average owner major payments $
+2069,  Owner households spending 30% or more of household income on owner's major payments
+2070,    Owner households spending 30% to 99% of household income on owner's major payments
+2071,"  Tenant one-family households without additional persons in non-farm, non-reserve private dwellings occupied by usual residents"
+2072,    Average gross rent $
+2073,  Tenant one-family households without additional persons spending 30% or more of household income on shelter costs
+2074,"  Owner one-family households without additional persons in non-farm, non-reserve private dwellings occupied by usual residents"
+2075,    Average owner major payments $
+2076,  Owner one-family households without additional persons spending 30% or more of household income on shelter costs
+2077,Total population by immigrant status and place of birth - 20% sample data
+2078,  Non-immigrant population
+2079,    Born in province of residence
+2080,    Born outside province of residence
+2081,  Total immigrants by selected places of birth
+2082,    United Kingdom
+2083,"    China, People's Republic of"
+2084,    India
+2085,    Philippines
+2086,    Italy
+2087,    United States of America
+2088,"    Hong Kong, Special Administrative Region"
+2089,    Germany
+2090,    Poland
+2091,    Viet Nam
+2092,    Portugal
+2093,    Pakistan
+2094,    Jamaica
+2095,    Netherlands
+2096,    Sri Lanka
+2097,"    Korea, South"
+2098,    Iran
+2099,    Guyana
+2100,    Romania
+2101,    France
+2102,    Lebanon
+2103,    Greece
+2104,    Trinidad and Tobago
+2105,    Taiwan
+2106,    Russian Federation
+2107,    Haiti
+2108,    Ukraine
+2109,    Mexico
+2110,    Hungary
+2111,    El Salvador
+2112,    Egypt
+2113,    Croatia
+2114,    Colombia
+2115,    Morocco
+2116,"    South Africa, Republic of"
+2117,"    Yugoslavia, n.o.s."
+2118,    Afghanistan
+2119,    Iraq
+2120,    Bangladesh
+2121,    Algeria
+2122,    Bosnia and Herzegovina
+2123,    Chile
+2124,    Serbia and Montenegro
+2125,    Fiji
+2126,    Kenya
+2127,    Ireland (Eire)
+2128,    Peru
+2129,    Czech Republic
+2130,    Malaysia
+2131,    Japan
+2132,    Israel
+2133,    Austria
+2134,    Belgium
+2135,    Cambodia
+2136,    Switzerland
+2137,    Other country
+2138,  Non-permanent residents
+2139,Total recent immigrants by selected places of birth - 20% sample data
+2140,"  China, People's Republic of"
+2141,  India
+2142,  Philippines
+2143,  Pakistan
+2144,  United States of America
+2145,"  Korea, South"
+2146,  Romania
+2147,  Iran
+2148,  United Kingdom
+2149,  Colombia
+2150,  Sri Lanka
+2151,  Russian Federation
+2152,  France
+2153,  Mexico
+2154,  Afghanistan
+2155,  Algeria
+2156,  Ukraine
+2157,  Morocco
+2158,  Bangladesh
+2159,  Lebanon
+2160,  Taiwan
+2161,  Haiti
+2162,  Viet Nam
+2163,  Iraq
+2164,  Jamaica
+2165,  Bulgaria
+2166,  Germany
+2167,"  Hong Kong, Special Administrative Region"
+2168,  Nigeria
+2169,  Guyana
+2170,"  Congo, Democratic Republic of the"
+2171,  Egypt
+2172,  Ethiopia
+2173,"  South Africa, Republic of"
+2174,  Poland
+2175,  Sudan
+2176,  Argentina
+2177,  Japan
+2178,  Albania
+2179,  Peru
+2180,  Brazil
+2181,  Israel
+2182,  Serbia and Montenegro
+2183,  Syria
+2184,  Saudi Arabia
+2185,  All other places of birth

@@ -1,0 +1,1433 @@
+CHARACTERISTIC_ID,CHARACTERISTIC_NAME,DATASET
+1,Population in 2011,Census
+2,Population in 2006,Census
+3,2006 to 2011 population change (%),Census
+4,Total private dwellings,Census
+5,Private dwellings occupied by usual residents,Census
+6,Population density per square kilometre,Census
+7,Land area (square km),Census
+8,Total population by age groups,Census
+9,   0 to 4 years,Census
+10,   5 to 9 years,Census
+11,   10 to 14 years,Census
+12,   15 to 19 years,Census
+13,      15 years,Census
+14,      16 years,Census
+15,      17 years,Census
+16,      18 years,Census
+17,      19 years,Census
+18,   20 to 24 years,Census
+19,   25 to 29 years,Census
+20,   30 to 34 years,Census
+21,   35 to 39 years,Census
+22,   40 to 44 years,Census
+23,   45 to 49 years,Census
+24,   50 to 54 years,Census
+25,   55 to 59 years,Census
+26,   60 to 64 years,Census
+27,   65 to 69 years,Census
+28,   70 to 74 years,Census
+29,   75 to 79 years,Census
+30,   80 to 84 years,Census
+31,   85 years and over,Census
+32,Median age of the population,Census
+33,% of the population aged 15 and over,Census
+34,Total population 15 years and over by marital status,Census
+35,   Married or living with a common-law partner,Census
+36,      Married (and not separated),Census
+37,      Living common law,Census
+38,   Not married and not living with a common-law partner,Census
+39,      Single (never legally married),Census
+40,      Separated,Census
+41,      Divorced,Census
+42,      Widowed,Census
+43,Total number of census families in private households,Census
+44,   Size of census family: 2 persons,Census
+45,   Size of census family: 3 persons,Census
+46,   Size of census family: 4 persons,Census
+47,   Size of census family: 5 or more persons,Census
+48,Total number of census families in private households,Census
+49,   Total couple families by family structure and number of children,Census
+50,      Married couples,Census
+51,         Without children at home,Census
+52,         With children at home,Census
+53,            1 child,Census
+54,            2 children,Census
+55,            3 or more children,Census
+56,      Common-law couples,Census
+57,         Without children at home,Census
+58,         With children at home,Census
+59,            1 child,Census
+60,            2 children,Census
+61,            3 or more children,Census
+62,   Total lone-parent families by sex of parent and number of children,Census
+63,      Female parent,Census
+64,         1 child,Census
+65,         2 children,Census
+66,         3 or more children,Census
+67,      Male parent,Census
+68,         1 child,Census
+69,         2 children,Census
+70,         3 or more children,Census
+71,Total children in census families in private households,Census
+72,   Under six years of age,Census
+73,   6 to 14 years,Census
+74,   15 to 17 years,Census
+75,   18 to 24 years,Census
+76,   25 years and over,Census
+77,Average number of children at home per census family,Census
+78,Total number of persons in private households,Census
+79,   Number of persons not in census families,Census
+80,      Living with relatives,Census
+81,      Living with non-relatives only,Census
+82,      Living alone,Census
+83,   Number of census family persons,Census
+84,Average number of persons per census family,Census
+85,Total number of persons aged 65 years and over in private households,Census
+86,   Number of persons not in census families aged 65 years and over,Census
+87,      Living with relatives,Census
+88,      Living with non-relatives only,Census
+89,      Living alone,Census
+90,   Number of census family persons aged 65 years and over,Census
+91,Total number of private households by household type,Census
+92,   Census-family households,Census
+93,      One-family-only households,Census
+94,         Couple-family households,Census
+95,            Without children,Census
+96,            With children,Census
+97,         Lone-parent-family households,Census
+98,      Other family households,Census
+99,         One-family households with persons not in a census family,Census
+100,            Couple-family households,Census
+101,               Without children,Census
+102,               With children,Census
+103,            Lone-parent-family households,Census
+104,         Two-or-more-family households,Census
+105,   Non-census-family households,Census
+106,      One-person households,Census
+107,      Two-or-more-person households,Census
+108,Total number of occupied private dwellings by structural type of dwelling,Census
+109,   Single-detached house,Census
+110,   Apartment; building that has five or more storeys,Census
+111,   Movable dwelling,Census
+112,   Other dwelling,Census
+113,      Semi-detached house,Census
+114,      Row house,Census
+115,      Apartment; duplex,Census
+116,      Apartment; building that has fewer than five storeys,Census
+117,      Other single-attached house,Census
+118,Total number of private households by household size,Census
+119,   1 person,Census
+120,   2 persons,Census
+121,   3 persons,Census
+122,   4 persons,Census
+123,   5 persons,Census
+124,   6 or more persons,Census
+125,Number of persons in private households,Census
+126,Average number of persons in private households,Census
+127,Detailed mother tongue - Total population excluding institutional residents,Census
+128,  Single responses ,Census
+129,    English ,Census
+130,    French ,Census
+131,    Non-official languages ,Census
+132,      Selected Aboriginal languages,Census
+133,        Atikamekw   ,Census
+134,        Cree; n.o.s. ,Census
+135,        Dene ,Census
+136,        Innu/Montagnais ,Census
+137,        Inuktitut ,Census
+138,        Mi'kmaq ,Census
+139,        Ojibway ,Census
+140,        Oji-Cree ,Census
+141,        Stoney ,Census
+142,      Selected non-Aboriginal languages,Census
+143,        African languages; n.i.e. ,Census
+144,        Afrikaans ,Census
+145,        Akan (Twi) ,Census
+146,        Albanian ,Census
+147,        Amharic ,Census
+148,        Arabic ,Census
+149,        Armenian ,Census
+150,        Bantu languages; n.i.e. ,Census
+151,        Bengali ,Census
+152,        Berber languages (Kabyle) ,Census
+153,        Bisayan languages ,Census
+154,        Bosnian ,Census
+155,        Bulgarian ,Census
+156,        Burmese ,Census
+157,        Cantonese ,Census
+158,        Chinese; n.o.s. ,Census
+159,        Creoles ,Census
+160,        Croatian ,Census
+161,        Czech ,Census
+162,        Danish ,Census
+163,        Dutch ,Census
+164,        Estonian ,Census
+165,        Finnish ,Census
+166,        Flemish ,Census
+167,        Fukien ,Census
+168,        German ,Census
+169,        Greek ,Census
+170,        Gujarati ,Census
+171,        Hakka ,Census
+172,        Hebrew ,Census
+173,        Hindi ,Census
+174,        Hungarian ,Census
+175,        Ilocano ,Census
+176,        Indo-Iranian languages; n.i.e. ,Census
+177,        Italian ,Census
+178,        Japanese ,Census
+179,        Khmer (Cambodian) ,Census
+180,        Korean ,Census
+181,        Kurdish ,Census
+182,        Lao ,Census
+183,        Latvian ,Census
+184,        Lingala ,Census
+185,        Lithuanian ,Census
+186,        Macedonian ,Census
+187,        Malay ,Census
+188,        Malayalam ,Census
+189,        Maltese ,Census
+190,        Mandarin ,Census
+191,        Marathi ,Census
+192,        Nepali ,Census
+193,        Niger-Congo languages; n.i.e. ,Census
+194,        Norwegian ,Census
+195,        Oromo ,Census
+196,        Panjabi (Punjabi) ,Census
+197,        Pashto ,Census
+198,        Persian (Farsi) ,Census
+199,        Polish ,Census
+200,        Portuguese ,Census
+201,        Romanian ,Census
+202,        Rundi (Kirundi) ,Census
+203,        Russian ,Census
+204,        Rwanda (Kinyarwanda) ,Census
+205,        Semitic languages; n.i.e. ,Census
+206,        Serbian ,Census
+207,        Serbo-Croatian ,Census
+208,        Shanghainese ,Census
+209,        Sign languages; n.i.e. ,Census
+210,        Sindhi ,Census
+211,        Sinhala (Sinhalese) ,Census
+212,        Sino-Tibetan languages; n.i.e. ,Census
+213,        Slavic languages; n.i.e. ,Census
+214,        Slovak ,Census
+215,        Slovenian ,Census
+216,        Somali ,Census
+217,        Spanish ,Census
+218,        Swahili ,Census
+219,        Swedish ,Census
+220,        Tagalog (Pilipino; Filipino) ,Census
+221,        Taiwanese ,Census
+222,        Tamil ,Census
+223,        Telugu ,Census
+224,        Thai ,Census
+225,        Tibetan languages ,Census
+226,        Tigrigna ,Census
+227,        Turkish ,Census
+228,        Ukrainian ,Census
+229,        Urdu ,Census
+230,        Vietnamese ,Census
+231,        Yiddish ,Census
+232,      Other languages,Census
+233,  Multiple responses         ,Census
+234,    English and French ,Census
+235,    English and non-official language ,Census
+236,    French and non-official language ,Census
+237,    English; French and non-official language,Census
+238,Knowledge of official languages - Total population excluding institutional residents,Census
+239,  English only,Census
+240,  French only,Census
+241,  English and French,Census
+242,  Neither English nor French,Census
+243,First official language spoken - Total population excluding institutional residents,Census
+244,  English,Census
+245,  French,Census
+246,  English and French,Census
+247,  Neither English nor French,Census
+248,Official language minority (number),Census
+249,Official language minority (percentage),Census
+250,Detailed language spoken most often at home - Total population excluding institutional residents,Census
+251,  Single responses,Census
+252,    English,Census
+253,    French,Census
+254,    Non-official languages,Census
+255,      Selected Aboriginal languages,Census
+256,        Atikamekw  ,Census
+257,        Cree; n.o.s.,Census
+258,        Dene,Census
+259,        Innu/Montagnais,Census
+260,        Inuktitut,Census
+261,        Mi'kmaq,Census
+262,        Ojibway,Census
+263,        Oji-Cree,Census
+264,        Stoney,Census
+265,      Selected non-Aboriginal languages,Census
+266,        African languages; n.i.e.,Census
+267,        Afrikaans,Census
+268,        Akan (Twi),Census
+269,        Albanian,Census
+270,        Amharic,Census
+271,        Arabic,Census
+272,        Armenian,Census
+273,        Bantu languages; n.i.e.,Census
+274,        Bengali,Census
+275,        Berber languages (Kabyle),Census
+276,        Bisayan languages,Census
+277,        Bosnian,Census
+278,        Bulgarian,Census
+279,        Burmese,Census
+280,        Cantonese,Census
+281,        Chinese; n.o.s.,Census
+282,        Creoles,Census
+283,        Croatian,Census
+284,        Czech,Census
+285,        Danish,Census
+286,        Dutch,Census
+287,        Estonian,Census
+288,        Finnish,Census
+289,        Flemish,Census
+290,        Fukien,Census
+291,        German,Census
+292,        Greek,Census
+293,        Gujarati,Census
+294,        Hakka,Census
+295,        Hebrew,Census
+296,        Hindi,Census
+297,        Hungarian,Census
+298,        Ilocano,Census
+299,        Indo-Iranian languages; n.i.e.,Census
+300,        Italian,Census
+301,        Japanese,Census
+302,        Khmer (Cambodian),Census
+303,        Korean,Census
+304,        Kurdish,Census
+305,        Lao,Census
+306,        Latvian,Census
+307,        Lingala,Census
+308,        Lithuanian,Census
+309,        Macedonian,Census
+310,        Malay,Census
+311,        Malayalam,Census
+312,        Maltese,Census
+313,        Mandarin,Census
+314,        Marathi,Census
+315,        Nepali,Census
+316,        Niger-Congo languages; n.i.e.,Census
+317,        Norwegian,Census
+318,        Oromo,Census
+319,        Panjabi (Punjabi),Census
+320,        Pashto,Census
+321,        Persian (Farsi),Census
+322,        Polish,Census
+323,        Portuguese,Census
+324,        Romanian,Census
+325,        Rundi (Kirundi),Census
+326,        Russian,Census
+327,        Rwanda (Kinyarwanda),Census
+328,        Semitic languages; n.i.e.,Census
+329,        Serbian,Census
+330,        Serbo-Croatian,Census
+331,        Shanghainese,Census
+332,        Sign languages; n.i.e.,Census
+333,        Sindhi,Census
+334,        Sinhala (Sinhalese),Census
+335,        Sino-Tibetan languages; n.i.e.,Census
+336,        Slavic languages; n.i.e.,Census
+337,        Slovak,Census
+338,        Slovenian,Census
+339,        Somali,Census
+340,        Spanish,Census
+341,        Swahili,Census
+342,        Swedish,Census
+343,        Tagalog (Pilipino; Filipino),Census
+344,        Taiwanese,Census
+345,        Tamil,Census
+346,        Telugu,Census
+347,        Thai,Census
+348,        Tibetan languages,Census
+349,        Tigrigna,Census
+350,        Turkish,Census
+351,        Ukrainian,Census
+352,        Urdu,Census
+353,        Vietnamese,Census
+354,        Yiddish,Census
+355,      Other languages,Census
+356,  Multiple responses        ,Census
+357,    English and French,Census
+358,    English and non-official language,Census
+359,    French and non-official language,Census
+360,    English; French and non-official language,Census
+361,Detailed other language spoken regularly at home - Total population excluding institutional residents,Census
+362,  None,Census
+363,  Single responses ,Census
+364,    English ,Census
+365,    French ,Census
+366,    Non-official languages ,Census
+367,      Selected Aboriginal languages,Census
+368,        Atikamekw   ,Census
+369,        Cree; n.o.s. ,Census
+370,        Dene ,Census
+371,        Innu/Montagnais ,Census
+372,        Inuktitut ,Census
+373,        Mi'kmaq ,Census
+374,        Ojibway ,Census
+375,        Oji-Cree ,Census
+376,        Stoney ,Census
+377,      Selected non-Aboriginal languages,Census
+378,        African languages; n.i.e. ,Census
+379,        Afrikaans ,Census
+380,        Akan (Twi) ,Census
+381,        Albanian ,Census
+382,        Amharic ,Census
+383,        Arabic ,Census
+384,        Armenian ,Census
+385,        Bantu languages; n.i.e. ,Census
+386,        Bengali ,Census
+387,        Berber languages (Kabyle) ,Census
+388,        Bisayan languages ,Census
+389,        Bosnian ,Census
+390,        Bulgarian ,Census
+391,        Burmese ,Census
+392,        Cantonese ,Census
+393,        Chinese; n.o.s. ,Census
+394,        Creoles ,Census
+395,        Croatian ,Census
+396,        Czech ,Census
+397,        Danish ,Census
+398,        Dutch ,Census
+399,        Estonian ,Census
+400,        Finnish ,Census
+401,        Flemish ,Census
+402,        Fukien ,Census
+403,        German ,Census
+404,        Greek ,Census
+405,        Gujarati ,Census
+406,        Hakka ,Census
+407,        Hebrew ,Census
+408,        Hindi ,Census
+409,        Hungarian ,Census
+410,        Ilocano ,Census
+411,        Indo-Iranian languages; n.i.e. ,Census
+412,        Italian ,Census
+413,        Japanese ,Census
+414,        Khmer (Cambodian) ,Census
+415,        Korean ,Census
+416,        Kurdish ,Census
+417,        Lao ,Census
+418,        Latvian ,Census
+419,        Lingala ,Census
+420,        Lithuanian ,Census
+421,        Macedonian ,Census
+422,        Malay ,Census
+423,        Malayalam ,Census
+424,        Maltese ,Census
+425,        Mandarin ,Census
+426,        Marathi ,Census
+427,        Nepali ,Census
+428,        Niger-Congo languages; n.i.e. ,Census
+429,        Norwegian ,Census
+430,        Oromo ,Census
+431,        Panjabi (Punjabi) ,Census
+432,        Pashto ,Census
+433,        Persian (Farsi) ,Census
+434,        Polish ,Census
+435,        Portuguese ,Census
+436,        Romanian ,Census
+437,        Rundi (Kirundi) ,Census
+438,        Russian ,Census
+439,        Rwanda (Kinyarwanda) ,Census
+440,        Semitic languages; n.i.e. ,Census
+441,        Serbian ,Census
+442,        Serbo-Croatian ,Census
+443,        Shanghainese ,Census
+444,        Sign languages; n.i.e. ,Census
+445,        Sindhi ,Census
+446,        Sinhala (Sinhalese) ,Census
+447,        Sino-Tibetan languages; n.i.e. ,Census
+448,        Slavic languages; n.i.e. ,Census
+449,        Slovak ,Census
+450,        Slovenian ,Census
+451,        Somali ,Census
+452,        Spanish ,Census
+453,        Swahili ,Census
+454,        Swedish ,Census
+455,        Tagalog (Pilipino; Filipino) ,Census
+456,        Taiwanese ,Census
+457,        Tamil ,Census
+458,        Telugu ,Census
+459,        Thai ,Census
+460,        Tibetan languages ,Census
+461,        Tigrigna ,Census
+462,        Turkish ,Census
+463,        Ukrainian ,Census
+464,        Urdu ,Census
+465,        Vietnamese ,Census
+466,        Yiddish ,Census
+467,      Other languages,Census
+468,  Multiple responses         ,Census
+469,    English and French ,Census
+470,    English and non-official language ,Census
+471,    French and non-official language ,Census
+472,    English; French and non-official language ,Census
+473,Total population in private households by citizenship,NHS
+474,  Canadian citizens,NHS
+475,    Canadian citizens aged under 18,NHS
+476,    Canadian citizens aged 18 and over,NHS
+477,  Not Canadian citizens,NHS
+478,Total population in private households by immigrant status and period of immigration,NHS
+479,  Non-immigrants,NHS
+480,  Immigrants,NHS
+481,    Before 1971,NHS
+482,    1971 to 1980,NHS
+483,    1981 to 1990,NHS
+484,    1991 to 2000,NHS
+485,    2001 to 2011,NHS
+486,      2001 to 2005,NHS
+487,      2006 to 2011,NHS
+488,  Non-permanent residents,NHS
+489,Total immigrant population in private households by age at immigration,NHS
+490,  Under 5 years,NHS
+491,  5 to 14 years,NHS
+492,  15 to 24 years,NHS
+493,  25 to 44 years,NHS
+494,  45 years and over,NHS
+495,Total population in private households by immigrant status and selected places of birth,NHS
+496,  Non-immigrants,NHS
+497,    Born in province of residence,NHS
+498,    Born outside province of residence,NHS
+499,  Immigrants,NHS
+500,    Americas,NHS
+501,      United States,NHS
+502,      Jamaica,NHS
+503,      Guyana,NHS
+504,      Haiti,NHS
+505,      Mexico,NHS
+506,      Trinidad and Tobago,NHS
+507,      Colombia,NHS
+508,      El Salvador,NHS
+509,      Peru,NHS
+510,      Chile,NHS
+511,      Other places of birth in Americas,NHS
+512,    Europe,NHS
+513,      United Kingdom,NHS
+514,      Italy,NHS
+515,      Germany,NHS
+516,      Poland,NHS
+517,      Portugal,NHS
+518,      Netherlands,NHS
+519,      France,NHS
+520,      Romania,NHS
+521,      Russian Federation,NHS
+522,      Greece,NHS
+523,      Ukraine,NHS
+524,      Croatia,NHS
+525,      Hungary,NHS
+526,      Bosnia and Herzegovina,NHS
+527,      Serbia,NHS
+528,      Ireland; Republic of,NHS
+529,      Other places of birth in Europe,NHS
+530,    Africa,NHS
+531,      Morocco,NHS
+532,      Algeria,NHS
+533,      Egypt,NHS
+534,      South Africa; Republic of,NHS
+535,      Nigeria,NHS
+536,      Ethiopia,NHS
+537,      Kenya,NHS
+538,      Other places of birth in Africa,NHS
+539,    Asia,NHS
+540,      India,NHS
+541,      China,NHS
+542,      Philippines,NHS
+543,      Hong Kong Special Administrative Region,NHS
+544,      Viet Nam,NHS
+545,      Pakistan,NHS
+546,      Sri Lanka,NHS
+547,      Iran,NHS
+548,      Korea; South,NHS
+549,      Lebanon,NHS
+550,      Taiwan,NHS
+551,      Iraq,NHS
+552,      Bangladesh,NHS
+553,      Afghanistan,NHS
+554,      Japan,NHS
+555,      Turkey,NHS
+556,      Other places of birth in Asia,NHS
+557,    Oceania and other,NHS
+558,      Fiji,NHS
+559,      Other places of birth,NHS
+560,  Non-permanent residents,NHS
+561,Total recent immigrant population in private households by selected places of birth,NHS
+562,  Americas,NHS
+563,    United States,NHS
+564,    Mexico,NHS
+565,    Cuba,NHS
+566,    Haiti,NHS
+567,    Jamaica,NHS
+568,    Brazil,NHS
+569,    Colombia,NHS
+570,    Guyana,NHS
+571,    Peru,NHS
+572,    Venezuela,NHS
+573,    Other places of birth in Americas,NHS
+574,  Europe,NHS
+575,    France,NHS
+576,    Germany,NHS
+577,    Poland,NHS
+578,    Romania,NHS
+579,    Moldova,NHS
+580,    Russian Federation,NHS
+581,    Ukraine,NHS
+582,    United Kingdom,NHS
+583,    Other places of birth in Europe,NHS
+584,  Africa,NHS
+585,    Nigeria,NHS
+586,    Ethiopia,NHS
+587,    Mauritius,NHS
+588,    Somalia,NHS
+589,    Algeria,NHS
+590,    Egypt,NHS
+591,    Morocco,NHS
+592,    Tunisia,NHS
+593,    Cameroon,NHS
+594,    Congo; The Democratic Republic of the,NHS
+595,    South Africa; Republic of,NHS
+596,    Other places of birth in Africa,NHS
+597,  Asia,NHS
+598,    Philippines,NHS
+599,    China,NHS
+600,    India,NHS
+601,    Pakistan,NHS
+602,    Iran,NHS
+603,    South Korea,NHS
+604,    Sri Lanka,NHS
+605,    Iraq,NHS
+606,    Bangladesh,NHS
+607,    Lebanon,NHS
+608,    Viet Nam,NHS
+609,    Taiwan,NHS
+610,    Afghanistan,NHS
+611,    Japan,NHS
+612,    Turkey,NHS
+613,    Israel,NHS
+614,    Nepal,NHS
+615,    Hong Kong Special Administrative Region,NHS
+616,    United Arab Emirates,NHS
+617,    Saudi Arabia,NHS
+618,    Syria,NHS
+619,    Other places of birth in Asia,NHS
+620,  Oceania and other,NHS
+621,Total population in private households by generation status,NHS
+622,  First generation,NHS
+623,  Second generation,NHS
+624,  Third generation or more,NHS
+625,Total population in private households by visible minority,NHS
+626,  Total visible minority population,NHS
+627,    South Asian,NHS
+628,    Chinese,NHS
+629,    Black,NHS
+630,    Filipino,NHS
+631,    Latin American,NHS
+632,    Arab,NHS
+633,    Southeast Asian,NHS
+634,    West Asian,NHS
+635,    Korean,NHS
+636,    Japanese,NHS
+637,    Visible minority; n.i.e.,NHS
+638,    Multiple visible minorities,NHS
+639,  Not a visible minority,NHS
+640,Total population in private households by ethnic origins,NHS
+641,  North American Aboriginal origins,NHS
+642,    First Nations (North American Indian),NHS
+643,    Inuit,NHS
+644,    Métis,NHS
+645,  Other North American origins,NHS
+646,    Acadian,NHS
+647,    American,NHS
+648,    Canadian,NHS
+649,    New Brunswicker,NHS
+650,    Newfoundlander,NHS
+651,    Nova Scotian,NHS
+652,    Ontarian,NHS
+653,    Québécois,NHS
+654,    Other North American origins; n.i.e.,NHS
+655,  European origins,NHS
+656,    British Isles origins,NHS
+657,      Channel Islander,NHS
+658,      Cornish,NHS
+659,      English,NHS
+660,      Irish,NHS
+661,      Manx,NHS
+662,      Scottish,NHS
+663,      Welsh,NHS
+664,      British Isles origins; n.i.e.,NHS
+665,    French origins,NHS
+666,      Alsatian,NHS
+667,      Breton,NHS
+668,      French,NHS
+669,    Western European origins (except French origins),NHS
+670,      Austrian,NHS
+671,      Belgian,NHS
+672,      Dutch,NHS
+673,      Flemish,NHS
+674,      Frisian,NHS
+675,      German,NHS
+676,      Luxembourger,NHS
+677,      Swiss,NHS
+678,      Western European origins; n.i.e.,NHS
+679,    Northern European origins (except British Isles origins),NHS
+680,      Danish,NHS
+681,      Finnish,NHS
+682,      Icelandic,NHS
+683,      Norwegian,NHS
+684,      Swedish,NHS
+685,      Northern European origins; n.i.e.,NHS
+686,    Eastern European origins,NHS
+687,      Bulgarian,NHS
+688,      Byelorussian,NHS
+689,      Czech,NHS
+690,      Czechoslovakian; n.o.s.,NHS
+691,      Estonian,NHS
+692,      Hungarian,NHS
+693,      Latvian,NHS
+694,      Lithuanian,NHS
+695,      Moldovan,NHS
+696,      Polish,NHS
+697,      Romanian,NHS
+698,      Russian,NHS
+699,      Slovak,NHS
+700,      Ukrainian,NHS
+701,      Eastern European origins; n.i.e.,NHS
+702,    Southern European origins,NHS
+703,      Albanian,NHS
+704,      Bosnian,NHS
+705,      Croatian,NHS
+706,      Cypriot,NHS
+707,      Greek,NHS
+708,      Italian,NHS
+709,      Kosovar,NHS
+710,      Macedonian,NHS
+711,      Maltese,NHS
+712,      Montenegrin,NHS
+713,      Portuguese,NHS
+714,      Serbian,NHS
+715,      Sicilian,NHS
+716,      Slovenian,NHS
+717,      Spanish,NHS
+718,      Yugoslavian; n.o.s.,NHS
+719,      Southern European origins; n.i.e.,NHS
+720,    Other European origins,NHS
+721,      Basque,NHS
+722,      Jewish,NHS
+723,      Roma (Gypsy),NHS
+724,      Slavic; n.o.s.,NHS
+725,      Other European origins; n.i.e.,NHS
+726,  Caribbean origins,NHS
+727,    Antiguan,NHS
+728,    Bahamian,NHS
+729,    Barbadian,NHS
+730,    Bermudan,NHS
+731,    Carib,NHS
+732,    Cuban,NHS
+733,    Dominican,NHS
+734,    Grenadian,NHS
+735,    Haitian,NHS
+736,    Jamaican,NHS
+737,    Kittitian/Nevisian,NHS
+738,    Martinican,NHS
+739,    Montserratan,NHS
+740,    Puerto Rican,NHS
+741,    St. Lucian,NHS
+742,    Trinidadian/Tobagonian,NHS
+743,    Vincentian/Grenadinian,NHS
+744,    West Indian; n.o.s.,NHS
+745,    Caribbean origins; n.i.e.,NHS
+746,  Latin; Central and South American origins,NHS
+747,    Aboriginal from Central/South America (except Maya),NHS
+748,    Argentinian,NHS
+749,    Belizean,NHS
+750,    Bolivian,NHS
+751,    Brazilian,NHS
+752,    Chilean,NHS
+753,    Colombian,NHS
+754,    Costa Rican,NHS
+755,    Ecuadorian,NHS
+756,    Guatemalan,NHS
+757,    Guyanese,NHS
+758,    Hispanic,NHS
+759,    Honduran,NHS
+760,    Maya,NHS
+761,    Mexican,NHS
+762,    Nicaraguan,NHS
+763,    Panamanian,NHS
+764,    Paraguayan,NHS
+765,    Peruvian,NHS
+766,    Salvadorean,NHS
+767,    Uruguayan,NHS
+768,    Venezuelan,NHS
+769,    Latin; Central and South American origins; n.i.e.,NHS
+770,  African origins,NHS
+771,    Central and West African origins,NHS
+772,      Akan,NHS
+773,      Angolan,NHS
+774,      Ashanti,NHS
+775,      Beninese,NHS
+776,      Burkinabe,NHS
+777,      Cameroonian,NHS
+778,      Chadian,NHS
+779,      Congolese,NHS
+780,      Gabonese,NHS
+781,      Gambian,NHS
+782,      Ghanaian,NHS
+783,      Guinean,NHS
+784,      Ibo,NHS
+785,      Ivorian,NHS
+786,      Liberian,NHS
+787,      Malian,NHS
+788,      Nigerian,NHS
+789,      Peulh,NHS
+790,      Senegalese,NHS
+791,      Sierra Leonean,NHS
+792,      Togolese,NHS
+793,      Yoruba,NHS
+794,      Central and West African origins; n.i.e.,NHS
+795,    North African origins,NHS
+796,      Algerian,NHS
+797,      Berber,NHS
+798,      Coptic,NHS
+799,      Dinka,NHS
+800,      Egyptian,NHS
+801,      Libyan,NHS
+802,      Maure,NHS
+803,      Moroccan,NHS
+804,      Sudanese,NHS
+805,      Tunisian,NHS
+806,      North African origins; n.i.e.,NHS
+807,    Southern and East African origins,NHS
+808,      Afrikaner,NHS
+809,      Amhara,NHS
+810,      Bantu; n.o.s.,NHS
+811,      Burundian,NHS
+812,      Eritrean,NHS
+813,      Ethiopian,NHS
+814,      Harari,NHS
+815,      Kenyan,NHS
+816,      Malagasy,NHS
+817,      Mauritian,NHS
+818,      Oromo,NHS
+819,      Rwandan,NHS
+820,      Seychellois,NHS
+821,      Somali,NHS
+822,      South African,NHS
+823,      Tanzanian,NHS
+824,      Tigrian,NHS
+825,      Ugandan,NHS
+826,      Zambian,NHS
+827,      Zimbabwean,NHS
+828,      Zulu,NHS
+829,      Southern and East African origins; n.i.e.,NHS
+830,    Other African origins,NHS
+831,      Black; n.o.s.,NHS
+832,      Other African origins; n.i.e.,NHS
+833,  Asian origins,NHS
+834,    West Central Asian and Middle Eastern origins,NHS
+835,      Afghan,NHS
+836,      Arab; n.o.s.,NHS
+837,      Armenian,NHS
+838,      Assyrian,NHS
+839,      Azerbaijani,NHS
+840,      Georgian,NHS
+841,      Iranian,NHS
+842,      Iraqi,NHS
+843,      Israeli,NHS
+844,      Jordanian,NHS
+845,      Kazakh,NHS
+846,      Kurd,NHS
+847,      Kuwaiti,NHS
+848,      Lebanese,NHS
+849,      Palestinian,NHS
+850,      Pashtun,NHS
+851,      Saudi Arabian,NHS
+852,      Syrian,NHS
+853,      Tajik,NHS
+854,      Tatar,NHS
+855,      Turk,NHS
+856,      Uighur,NHS
+857,      Uzbek,NHS
+858,      Yemeni,NHS
+859,      West Central Asian and Middle Eastern origins; n.i.e.,NHS
+860,    South Asian origins,NHS
+861,      Bangladeshi,NHS
+862,      Bengali,NHS
+863,      East Indian,NHS
+864,      Goan,NHS
+865,      Gujarati,NHS
+866,      Kashmiri,NHS
+867,      Nepali,NHS
+868,      Pakistani,NHS
+869,      Punjabi,NHS
+870,      Sinhalese,NHS
+871,      Sri Lankan,NHS
+872,      Tamil,NHS
+873,      South Asian origins; n.i.e.,NHS
+874,    East and Southeast Asian origins,NHS
+875,      Burmese,NHS
+876,      Cambodian (Khmer),NHS
+877,      Chinese,NHS
+878,      Filipino,NHS
+879,      Hmong,NHS
+880,      Indonesian,NHS
+881,      Japanese,NHS
+882,      Korean,NHS
+883,      Laotian,NHS
+884,      Malaysian,NHS
+885,      Mongolian,NHS
+886,      Singaporean,NHS
+887,      Taiwanese,NHS
+888,      Thai,NHS
+889,      Tibetan,NHS
+890,      Vietnamese,NHS
+891,      East and Southeast Asian origins; n.i.e.,NHS
+892,    Other Asian origins,NHS
+893,      Other Asian origins; n.i.e.,NHS
+894,  Oceania origins,NHS
+895,    Australian,NHS
+896,    New Zealander,NHS
+897,    Pacific Islands origins,NHS
+898,      Fijian,NHS
+899,      Hawaiian,NHS
+900,      Maori,NHS
+901,      Polynesian; n.o.s.,NHS
+902,      Samoan,NHS
+903,      Pacific Islands origins; n.i.e.,NHS
+904,Total population in private households by religion,NHS
+905,  Buddhist,NHS
+906,  Christian,NHS
+907,    Anglican,NHS
+908,    Baptist,NHS
+909,    Catholic,NHS
+910,    Christian Orthodox,NHS
+911,    Lutheran,NHS
+912,    Pentecostal,NHS
+913,    Presbyterian,NHS
+914,    United Church,NHS
+915,    Other Christian,NHS
+916,  Hindu,NHS
+917,  Jewish,NHS
+918,  Muslim,NHS
+919,  Sikh,NHS
+920,  Traditional (Aboriginal) Spirituality,NHS
+921,  Other religions,NHS
+922,  No religious affiliation,NHS
+923,Total population in private households by Aboriginal identity,NHS
+924,  Aboriginal identity,NHS
+925,    First Nations (North American Indian) single identity,NHS
+926,    Métis single identity,NHS
+927,    Inuk (Inuit) single identity,NHS
+928,    Multiple Aboriginal identities,NHS
+929,    Aboriginal identities not included elsewhere,NHS
+930,  Non-Aboriginal identity,NHS
+931,Total population in private households by Registered or Treaty Indian status,NHS
+932,  Registered or Treaty Indian,NHS
+933,  Not a Registered or Treaty Indian,NHS
+934,Total population in private households by Aboriginal ancestry,NHS
+935,  Aboriginal ancestry,NHS
+936,    First Nations (North American Indian) Aboriginal ancestry,NHS
+937,    Métis ancestry,NHS
+938,    Inuit ancestry,NHS
+939,  Non-Aboriginal ancestry only,NHS
+940,Total population in private households by non-official languages spoken,NHS
+941,  Aboriginal languages,NHS
+942,    Algonquin,NHS
+943,    Atikamekw,NHS
+944,    Blackfoot,NHS
+945,    Cree languages,NHS
+946,    Mi'kmaq,NHS
+947,    Innu/Montagnais,NHS
+948,    Ojibway,NHS
+949,    Oji-Cree,NHS
+950,    Carrier,NHS
+951,    Dene,NHS
+952,    Tlicho (Dogrib),NHS
+953,    Slavey; n.o.s.,NHS
+954,    Stoney,NHS
+955,    Inuktitut,NHS
+956,    Other Aboriginal languages,NHS
+957,  Non-Aboriginal languages,NHS
+958,    Italian,NHS
+959,    Portuguese,NHS
+960,    Romanian,NHS
+961,    Spanish,NHS
+962,    Dutch,NHS
+963,    Flemish,NHS
+964,    German,NHS
+965,    Yiddish,NHS
+966,    Danish,NHS
+967,    Norwegian,NHS
+968,    Swedish,NHS
+969,    Afrikaans,NHS
+970,    Gaelic languages,NHS
+971,    Bosnian,NHS
+972,    Bulgarian,NHS
+973,    Croatian,NHS
+974,    Czech,NHS
+975,    Macedonian,NHS
+976,    Polish,NHS
+977,    Russian,NHS
+978,    Serbian,NHS
+979,    Serbo-Croatian,NHS
+980,    Slovak,NHS
+981,    Slovenian,NHS
+982,    Ukrainian,NHS
+983,    Latvian,NHS
+984,    Lithuanian,NHS
+985,    Greek,NHS
+986,    Armenian,NHS
+987,    Albanian,NHS
+988,    Estonian,NHS
+989,    Finnish,NHS
+990,    Hungarian,NHS
+991,    Turkish,NHS
+992,    Berber languages (Kabyle),NHS
+993,    Oromo,NHS
+994,    Somali,NHS
+995,    Amharic,NHS
+996,    Arabic,NHS
+997,    Hebrew,NHS
+998,    Maltese,NHS
+999,    Tigrigna,NHS
+1000,    Semitic languages; n.i.e.,NHS
+1001,    Bengali,NHS
+1002,    Gujarati,NHS
+1003,    Hindi,NHS
+1004,    Konkani,NHS
+1005,    Marathi,NHS
+1006,    Panjabi (Punjabi),NHS
+1007,    Sindhi,NHS
+1008,    Sinhala (Sinhalese),NHS
+1009,    Urdu,NHS
+1010,    Nepali,NHS
+1011,    Kurdish,NHS
+1012,    Pashto,NHS
+1013,    Persian (Farsi),NHS
+1014,    Indo-Iranian languages; n.i.e.,NHS
+1015,    Kannada,NHS
+1016,    Malayalam,NHS
+1017,    Tamil,NHS
+1018,    Telugu,NHS
+1019,    Japanese,NHS
+1020,    Korean,NHS
+1021,    Cantonese,NHS
+1022,    Fukien,NHS
+1023,    Hakka,NHS
+1024,    Mandarin,NHS
+1025,    Taiwanese,NHS
+1026,    Chinese; n.o.s.,NHS
+1027,    Lao,NHS
+1028,    Thai,NHS
+1029,    Khmer (Cambodian),NHS
+1030,    Vietnamese,NHS
+1031,    Bisayan languages,NHS
+1032,    Ilocano,NHS
+1033,    Malay,NHS
+1034,    Tagalog (Pilipino;Filipino),NHS
+1035,    Akan (Twi),NHS
+1036,    Lingala,NHS
+1037,    Rundi (Kirundi),NHS
+1038,    Rwanda (Kinyarwanda),NHS
+1039,    Swahili,NHS
+1040,    Bantu languages; n.i.e.,NHS
+1041,    Niger-Congo languages; n.i.e.,NHS
+1042,    African languages; n.i.e.,NHS
+1043,    Creoles,NHS
+1044,    Other non-Aboriginal languages,NHS
+1045,Total - Mobility status 1 year ago,NHS
+1046,  Non-movers,NHS
+1047,  Movers,NHS
+1048,    Non-migrants,NHS
+1049,    Migrants,NHS
+1050,      Internal migrants,NHS
+1051,        Intraprovincial migrants,NHS
+1052,        Interprovincial migrants,NHS
+1053,      External migrants,NHS
+1054,Total - Mobility status 5 years ago,NHS
+1055,  Non-movers,NHS
+1056,  Movers,NHS
+1057,    Non-migrants,NHS
+1058,    Migrants,NHS
+1059,      Internal migrants,NHS
+1060,        Intraprovincial migrants,NHS
+1061,        Interprovincial migrants,NHS
+1062,      External migrants,NHS
+1063,Total population aged 15 years and over by highest certificate; diploma or degree,NHS
+1064,  No certificate; diploma or degree,NHS
+1065,  High school diploma or equivalent,NHS
+1066,  Postsecondary certificate; diploma or degree,NHS
+1067,    Apprenticeship or trades certificate or diploma,NHS
+1068,    College; CEGEP or other non-university certificate or diploma,NHS
+1069,    University certificate or diploma below bachelor level,NHS
+1070,    University certificate; diploma or degree at bachelor level or above,NHS
+1071,      Bachelor's degree,NHS
+1072,      University certificate; diploma or degree above bachelor level,NHS
+1073,Total population aged 25 to 64 years by highest certificate; diploma or degree,NHS
+1074,  No certificate; diploma or degree,NHS
+1075,  High school diploma or equivalent,NHS
+1076,  Postsecondary certificate; diploma or degree,NHS
+1077,    Apprenticeship or trades certificate or diploma,NHS
+1078,    College; CEGEP or other non-university certificate or diploma,NHS
+1079,    University certificate or diploma below bachelor level,NHS
+1080,    University certificate; diploma or degree at bachelor level or above,NHS
+1081,      Bachelor's degree,NHS
+1082,      University certificate; diploma or degree above bachelor level,NHS
+1083,Total population aged 15 years and over by major field of study - Classification of Instructional Programs (CIP) 2011,NHS
+1084,  No postsecondary certificate; diploma or degree,NHS
+1085,  Education,NHS
+1086,  Visual and performing arts; and communications technologies,NHS
+1087,  Humanities,NHS
+1088,  Social and behavioural sciences and law,NHS
+1089,  Business; management and public administration,NHS
+1090,  Physical and life sciences and technologies,NHS
+1091,  Mathematics; computer and information sciences,NHS
+1092,  Architecture; engineering; and related technologies,NHS
+1093,  Agriculture; natural resources and conservation,NHS
+1094,  Health and related fields,NHS
+1095,  Personal; protective and transportation services,NHS
+1096,  Other fields of study,NHS
+1097,Total population aged 15 years and over by location of study compared with province or territory of residence,NHS
+1098,  No postsecondary certificate; diploma or degree,NHS
+1099,  With postsecondary certificate; diploma or degree,NHS
+1100,    Location of study inside Canada,NHS
+1101,      Same as province or territory of residence,NHS
+1102,      Another province or territory,NHS
+1103,    Location of study outside Canada,NHS
+1104,Total population aged 15 years and over by language used most often at work,NHS
+1105,  Single responses,NHS
+1106,    English,NHS
+1107,    French,NHS
+1108,    Non-official languages,NHS
+1109,      Chinese; n.o.s.,NHS
+1110,      Cantonese,NHS
+1111,      Panjabi (Punjabi),NHS
+1112,      Mandarin,NHS
+1113,      Spanish,NHS
+1114,      Korean,NHS
+1115,      German,NHS
+1116,      Cree languages,NHS
+1117,      Portuguese,NHS
+1118,      Inuktitut,NHS
+1119,      Other languages,NHS
+1120,  Multiple responses,NHS
+1121,    English and French,NHS
+1122,    English and non-official language,NHS
+1123,    French and non-official language,NHS
+1124,    English; French and non-official language,NHS
+1125,Total population aged 15 years and over by language used most often at work,NHS
+1126,  English,NHS
+1127,  French,NHS
+1128,  Non-official language,NHS
+1129,    Aboriginal,NHS
+1130,    Non-Aboriginal,NHS
+1131,  English and French,NHS
+1132,  English and non-official language,NHS
+1133,  French and non-official language,NHS
+1134,  English; French and non-official language,NHS
+1135,Total population aged 15 years and over by labour force status,NHS
+1136,  In the labour force,NHS
+1137,    Employed,NHS
+1138,    Unemployed,NHS
+1139,  Not in the labour force,NHS
+1140,Participation rate,NHS
+1141,Employment rate,NHS
+1142,Unemployment rate,NHS
+1143,Total labour force aged 15 years and over by class of worker,NHS
+1144,  Class of worker - not applicable,NHS
+1145,  All classes of worker,NHS
+1146,    Employee,NHS
+1147,    Self-employed,NHS
+1148,Total labour force population aged 15 years and over by occupation - National Occupational Classification (NOC) 2011,NHS
+1149,  Occupation - not applicable,NHS
+1150,  All occupations,NHS
+1151,    0 Management occupations,NHS
+1152,    1 Business; finance and administration occupations,NHS
+1153,    2 Natural and applied sciences and related occupations,NHS
+1154,    3 Health occupations,NHS
+1155,    4 Occupations in education; law and social; community and government services,NHS
+1156,    5 Occupations in art; culture; recreation and sport,NHS
+1157,    6 Sales and service occupations,NHS
+1158,    7 Trades; transport and equipment operators and related occupations,NHS
+1159,    8 Natural resources; agriculture and related production occupations,NHS
+1160,    9 Occupations in manufacturing and utilities,NHS
+1161,Total labour force population aged 15 years and over by industry - North American Industry Classification System (NAICS) 2007,NHS
+1162,  Industry - not applicable,NHS
+1163,  All industries,NHS
+1164,    11 Agriculture; forestry; fishing and hunting,NHS
+1165,    21 Mining; quarrying; and oil and gas extraction,NHS
+1166,    22 Utilities,NHS
+1167,    23 Construction,NHS
+1168,    31-33 Manufacturing,NHS
+1169,    41 Wholesale trade,NHS
+1170,    44-45 Retail trade,NHS
+1171,    48-49 Transportation and warehousing,NHS
+1172,    51 Information and cultural industries,NHS
+1173,    52 Finance and insurance,NHS
+1174,    53 Real estate and rental and leasing,NHS
+1175,    54 Professional; scientific and technical services,NHS
+1176,    55 Management of companies and enterprises,NHS
+1177,    56 Administrative and support; waste management and remediation services,NHS
+1178,    61 Educational services,NHS
+1179,    62 Health care and social assistance,NHS
+1180,    71 Arts; entertainment and recreation,NHS
+1181,    72 Accommodation and food services,NHS
+1182,    81 Other services (except public administration),NHS
+1183,    91 Public administration,NHS
+1184,Total labour force aged 15 years and over by work activity in 2010,NHS
+1185,  Did not work in 2010,NHS
+1186,  Worked in 2010,NHS
+1187,    1 to 13 weeks,NHS
+1188,    14 to 26 weeks,NHS
+1189,    27 to 39 weeks,NHS
+1190,    40 to 48 weeks,NHS
+1191,    49 to 52 weeks,NHS
+1192,Average weeks worked in 2010,NHS
+1193,Total labour force population aged 15 years and over by full-time or part-time weeks worked in 2010,NHS
+1194,  Did not work in 2010,NHS
+1195,  Worked in 2010,NHS
+1196,    Worked full-time in 2010,NHS
+1197,    Worked part-time in 2010,NHS
+1198,Total employed population aged 15 years and over by place of work status,NHS
+1199,  Worked at home,NHS
+1200,  Worked outside Canada,NHS
+1201,  No fixed workplace address,NHS
+1202,  Worked at usual place,NHS
+1203,Total employed population aged 15 years and over with a usual place of work or no fixed workplace address by mode of transportation,NHS
+1204,  Car; truck or van - as a driver,NHS
+1205,  Car; truck or van - as a passenger,NHS
+1206,  Public transit,NHS
+1207,  Walked,NHS
+1208,  Bicycle,NHS
+1209,  Other methods,NHS
+1210,Total employed population aged 15 years and over with a usual place of work or no fixed workplace address by median commuting duration,NHS
+1211,Median commuting duration,NHS
+1212,Total employed population aged 15 years and over by time leaving for work,NHS
+1213,  Between 5 and 6:59 a.m.,NHS
+1214,  Between 7 and 9:00 a.m.,NHS
+1215,  Anytime after 9:00 a.m.,NHS
+1216,Total number of occupied private dwellings by condition of dwelling,NHS
+1217,  Only regular maintenance or minor repairs needed,NHS
+1218,  Major repairs needed,NHS
+1219,Total number of occupied private dwellings by period of construction,NHS
+1220,  1960 or before,NHS
+1221,  1961 to 1980,NHS
+1222,  1981 to 1990,NHS
+1223,  1991 to 2000,NHS
+1224,  2001 to 2005,NHS
+1225,  2006 to 2011,NHS
+1226,Total number of occupied private dwellings by number of rooms,NHS
+1227,  1 to 4 rooms,NHS
+1228,  5 rooms,NHS
+1229,  6 rooms,NHS
+1230,  7 rooms,NHS
+1231,  8 or more rooms,NHS
+1232,Average number of rooms per dwelling,NHS
+1233,Total number of occupied private dwellings by number of bedrooms,NHS
+1234,  0 to 1 bedroom,NHS
+1235,  2 bedrooms,NHS
+1236,  3 bedrooms,NHS
+1237,  4 or more bedrooms,NHS
+1238,Total number of private households by tenure,NHS
+1239,  Owner,NHS
+1240,  Renter,NHS
+1241,  Band housing,NHS
+1242,Total number of private households by condominium status,NHS
+1243,  Part of a condominium development,NHS
+1244,  Not part of a condominium development,NHS
+1245,Total number of private households by number of household maintainers,NHS
+1246,  1 household maintainer,NHS
+1247,  2 household maintainers,NHS
+1248,  3 or more household maintainers,NHS
+1249,Total number of private households by age group of primary household maintainers,NHS
+1250,  Under 25 years,NHS
+1251,  25 to 34 years,NHS
+1252,  35 to 44 years,NHS
+1253,  45 to 54 years,NHS
+1254,  55 to 64 years,NHS
+1255,  65 to 74 years,NHS
+1256,  75 years and over,NHS
+1257,Total number of private households by number of persons per room,NHS
+1258,  One person or fewer per room,NHS
+1259,  More than one person per room,NHS
+1260,Total number of private households by housing suitability,NHS
+1261,  Suitable,NHS
+1262,  Not suitable,NHS
+1263,Total number of owner and tenant households with household total income greater than zero; in non-farm; non-reserve private dwellings by shelter-cost-to-income ratio,NHS
+1264,  Spending less than 30% of household total income on shelter costs,NHS
+1265,  Spending 30% or more of household total income on shelter costs,NHS
+1266,    Spending 30% to less than 100% of household total income on shelter costs,NHS
+1267,Number of owner households in non-farm; non-reserve private dwellings,NHS
+1268,  % of owner households with a mortgage,NHS
+1269,  % of owner households spending 30% or more of household total income on shelter costs,NHS
+1270,  Median monthly shelter costs for owned dwellings ($),NHS
+1271,  Average monthly shelter costs for owned dwellings ($),NHS
+1272,  Median value of dwellings ($),NHS
+1273,  Average value of dwellings ($),NHS
+1274,Number of tenant households in non-farm; non-reserve private dwellings,NHS
+1275,  % of tenant households in subsidized housing,NHS
+1276,  % of tenant households spending 30% or more of household total income on shelter costs,NHS
+1277,  Median monthly shelter costs for rented dwellings ($),NHS
+1278,  Average monthly shelter costs for rented dwellings ($),NHS
+1279,Total income in 2010 of population aged 15 years and over,NHS
+1280,  Without income,NHS
+1281,  With income,NHS
+1282,    Under $5;000,NHS
+1283,    $5;000 to $9;999,NHS
+1284,    $10;000 to $14;999,NHS
+1285,    $15;000 to $19;999,NHS
+1286,    $20;000 to $29;999,NHS
+1287,    $30;000 to $39;999,NHS
+1288,    $40;000 to $49;999,NHS
+1289,    $50;000 to $59;999,NHS
+1290,    $60;000 to $79;999,NHS
+1291,    $80;000 to $99;999,NHS
+1292,    $100;000 and over,NHS
+1293,      $100;000 to $124;999,NHS
+1294,      $125;000 and over,NHS
+1295,  Median income ($),NHS
+1296,  Average income ($),NHS
+1297,After-tax income in 2010 of population 15 years and over,NHS
+1298,  Without after-tax income,NHS
+1299,  With after-tax income,NHS
+1300,    Under $5;000,NHS
+1301,    $5;000 to $9;999,NHS
+1302,    $10;000 to $14;999,NHS
+1303,    $15;000 to $19;999,NHS
+1304,    $20;000 to $29;999,NHS
+1305,    $30;000 to $39;999,NHS
+1306,    $40;000 to $49;999,NHS
+1307,    $50;000 to $59;999,NHS
+1308,    $60;000 to $79;999,NHS
+1309,    $80;000 to $99;999,NHS
+1310,    $100;000 and over,NHS
+1311,  Median after-tax income ($),NHS
+1312,  Average after-tax income ($),NHS
+1313,Composition of total income in 2010 of population 15 years and over (%),NHS
+1314,  Market income (%),NHS
+1315,    Employment income (%),NHS
+1316,      Wages and salaries (%),NHS
+1317,      Self-employment income (%),NHS
+1318,    Investment income (%),NHS
+1319,    Retirement pensions; superannuation and annuities (%),NHS
+1320,    Other money income (%),NHS
+1321,  Government transfer payments (%),NHS
+1322,    Canada/Quebec Pension Plan benefits (%),NHS
+1323,    Old Age Security pensions and Guaranteed Income Supplement (%),NHS
+1324,    Employment Insurance benefits (%),NHS
+1325,    Child benefits (%),NHS
+1326,    Other income from government sources (%),NHS
+1327,  Income taxes paid as a % of total income,NHS
+1328,  After-tax income as a % of total income,NHS
+1329,Net capital gains or losses as a % of total income,NHS
+1330,Population aged 15 years and over who worked full year; full time and with employment income in 2010,NHS
+1331,  Median employment income in 2010 ($),NHS
+1332,  Average employment income in 2010 ($),NHS
+1333,Family income in 2010 of economic families,NHS
+1334,  Median family income ($),NHS
+1335,  Average family income ($),NHS
+1336,  Median after-tax family income ($),NHS
+1337,  Average after-tax family income ($),NHS
+1338,  Average family size,NHS
+1339,  Couple-only economic families,NHS
+1340,    Median family income ($),NHS
+1341,    Average family income ($),NHS
+1342,    Median after-tax family income ($),NHS
+1343,    Average after-tax family income ($),NHS
+1344,    Average family size,NHS
+1345,  Couple-with-children economic families,NHS
+1346,    Median family income ($),NHS
+1347,    Average family income ($),NHS
+1348,    Median after-tax family income ($),NHS
+1349,    Average after-tax family income ($),NHS
+1350,    Average family size,NHS
+1351,  Lone-parent economic families,NHS
+1352,    Median family income ($),NHS
+1353,    Average family income ($),NHS
+1354,    Median after-tax family income ($),NHS
+1355,    Average after-tax family income ($),NHS
+1356,    Average family size,NHS
+1357,Income in 2010 of population aged 15 years and over not in economic families,NHS
+1358,  Median total income ($),NHS
+1359,  Average total income ($),NHS
+1360,  Median after-tax income ($),NHS
+1361,  Average after-tax income ($),NHS
+1362,Total population by decile of adjusted after-tax family income,NHS
+1363,  In bottom half of the Canadian distribution,NHS
+1364,    In bottom decile,NHS
+1365,    In second decile,NHS
+1366,    In third decile,NHS
+1367,    In fourth decile,NHS
+1368,    In fifth decile,NHS
+1369,  In top half of the Canadian distribution,NHS
+1370,    In sixth decile,NHS
+1371,    In seventh decile,NHS
+1372,    In eighth decile,NHS
+1373,    In ninth decile,NHS
+1374,    In top decile,NHS
+1375,Household total income in 2010 of private households,NHS
+1376,  Under $5;000,NHS
+1377,  $5;000 to $9;999,NHS
+1378,  $10;000 to $14;999,NHS
+1379,  $15;000 to $19;999,NHS
+1380,  $20;000 to $29;999,NHS
+1381,  $30;000 to $39;999,NHS
+1382,  $40;000 to $49;999,NHS
+1383,  $50;000 to $59;999,NHS
+1384,  $60;000 to $79;999,NHS
+1385,  $80;000 to $99;999,NHS
+1386,  $100;000 to $124;999,NHS
+1387,  $125;000 to $149;999,NHS
+1388,  $150;000 and over,NHS
+1389,After-tax income of households in 2010 of private households,NHS
+1390,  Under $5;000,NHS
+1391,  $5;000 to $9;999,NHS
+1392,  $10;000 to $14;999,NHS
+1393,  $15;000 to $19;999,NHS
+1394,  $20;000 to $29;999,NHS
+1395,  $30;000 to $39;999,NHS
+1396,  $40;000 to $49;999,NHS
+1397,  $50;000 to $59;999,NHS
+1398,  $60;000 to $79;999,NHS
+1399,  $80;000 to $99;999,NHS
+1400,  $100;000 and over,NHS
+1401,    $100;000 to $124;999,NHS
+1402,    $125;000 and over,NHS
+1403,Household income in 2010 of private households,NHS
+1404,  Median household total income ($),NHS
+1405,  Average household total income ($),NHS
+1406,  Median after-tax household income ($),NHS
+1407,  Average after-tax household income ($),NHS
+1408,  One-person private households,NHS
+1409,    Median household total income ($),NHS
+1410,    Average household total income ($),NHS
+1411,    Median after-tax household income ($),NHS
+1412,    Average after-tax household income ($),NHS
+1413,  Two-or-more-persons private households,NHS
+1414,    Median household total income ($),NHS
+1415,    Average household total income ($),NHS
+1416,    Median after-tax household income ($),NHS
+1417,    Average after-tax household income ($),NHS
+1418,Population in private households for income status,NHS
+1419,  Less than 18 years,NHS
+1420,    Less than 6 years,NHS
+1421,  18 to 64 years,NHS
+1422,  65 years and over,NHS
+1423,In low income in 2010 based on after-tax low-income measure (LIM-AT),NHS
+1424,  Less than 18 years,NHS
+1425,    Less than 6 years,NHS
+1426,  18 to 64 years,NHS
+1427,  65 years and over,NHS
+1428,Prevalence of low income in 2010 based on after-tax low-income measure (%),NHS
+1429,  Less than 18 years (%),NHS
+1430,    Less than 6 years (%),NHS
+1431,  18 to 64 years (%),NHS
+1432,  65 years and over (%),NHS
