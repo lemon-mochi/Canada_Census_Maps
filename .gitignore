@@ -14,3 +14,4 @@ csv_test/
 !backend/mappings/csv_mappings/*
 !backend/mappings/xml_mappings/*
 !backend/2011_sample/Download*
+!backend/characteristics/*
