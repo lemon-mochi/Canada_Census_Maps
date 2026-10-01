@@ -5,6 +5,7 @@ temp.json
 script2.js
 *.csv
 *.txt
+!backend/census_data_descriptions.txt
 *.zip
 *.parquet
 *.TXT
