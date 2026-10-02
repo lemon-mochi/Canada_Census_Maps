@@ -284,3 +284,16 @@ def test_invalid_value():
     )
 
     assert response.status_code == 400
+
+def test_invalid_column_2021():
+    response = client.get(
+        "/api/specific_population",
+        params={
+            "census_year": 2021,
+            "geo_code": "01",
+            "char_id": 1,
+            "value": 2
+        }
+    )
+
+    assert response.status_code == 404
