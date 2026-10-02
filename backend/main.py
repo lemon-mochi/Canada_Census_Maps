@@ -41,7 +41,11 @@ app.mount(
 
 @app.get("/api/characteristics")
 def get_characteristics(census_year: int):
-    char_table = f"parquet_data/{census_year}_characteristics.parquet"
+    # handle case for 2011 NHS DAs (use 2010 for census year)
+    if census_year == 2010:
+        char_table = "parquet_data/2011_nhs_da_characteristics.parquet"
+    else:
+        char_table = f"parquet_data/{census_year}_characteristics.parquet"
 
     if not os.path.exists(char_table):
         raise HTTPException(
