@@ -79,11 +79,9 @@ def get_characteristics(census_year: int):
                 col.column_name
             FROM '{char_table}' AS c
             LEFT JOIN '{char_col_table}' AS cc
-                ON c.CENSUS_YEAR = cc.CENSUS_YEAR
-                AND c.CHARACTERISTIC_ID = cc.CHARACTERISTIC_ID
+                ON c.CHARACTERISTIC_ID = cc.CHARACTERISTIC_ID
             LEFT JOIN '{col_table}' AS col
                 ON cc.column_id = col.column_id
-            WHERE c.CENSUS_YEAR = {census_year}
             ORDER BY c.CHARACTERISTIC_ID, cc.column_id
         """).fetchdf()
 
