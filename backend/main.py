@@ -1,7 +1,5 @@
 from pathlib import Path
-# import requests
-# import io
-# import zipfile
+import os
 import colour_data
 
 import pandas as pd
@@ -42,50 +40,98 @@ app.mount(
 
 
 @app.get("/api/characteristics")
-def get_characteristics(year: int):
+def get_characteristics(census_year: int):
+    char_table = f"parquet_data/{census_year}_characteristics.parquet"
 
-    result = con.execute(f"""
-        SELECT
-            c.CHARACTERISTIC_ID,
-            c.CHARACTERISTIC_NAME,
-            cc.column_id,
-            col.column_name
-        FROM '{char_table}' AS c
+    if not os.path.exists(char_table):
+        raise HTTPException(
+            status_code=404,
+            detail=f"Invalid census year: {census_year}"
+        )
 
-        LEFT JOIN '{char_col_table}' AS cc
-            ON c.CENSUS_YEAR = cc.CENSUS_YEAR
-            AND c.CHARACTERISTIC_ID = cc.CHARACTERISTIC_ID
+    if census_year >= 2011:
+        char_col_table = (
+            f"parquet_data/{census_year}_characteristic_columns.parquet"
+        )
+        col_table = f"parquet_data/{census_year}_columns.parquet"
 
-        LEFT JOIN '{col_table}' AS col
-            ON cc.column_id = col.column_id
+        if not os.path.exists(char_col_table):
+            raise HTTPException(
+                status_code=404,
+                detail=f"Characteristic columns not found for census year: {census_year}"
+            )
 
-        WHERE c.CENSUS_YEAR = {year}
+        if not os.path.exists(col_table):
+            raise HTTPException(
+                status_code=404,
+                detail=f"Column information not found for census year: {census_year}"
+            )
 
-        ORDER BY c.CHARACTERISTIC_ID, cc.column_id
-    """).fetchdf()
+        result = con.execute(f"""
+            SELECT
+                c.CHARACTERISTIC_ID,
+                c.CHARACTERISTIC_NAME,
+                cc.column_id,
+                col.column_name
+            FROM '{char_table}' AS c
+            LEFT JOIN '{char_col_table}' AS cc
+                ON c.CENSUS_YEAR = cc.CENSUS_YEAR
+                AND c.CHARACTERISTIC_ID = cc.CHARACTERISTIC_ID
+            LEFT JOIN '{col_table}' AS col
+                ON cc.column_id = col.column_id
+            WHERE c.CENSUS_YEAR = {census_year}
+            ORDER BY c.CHARACTERISTIC_ID, cc.column_id
+        """).fetchdf()
 
-    characteristics = []
+        characteristics = []
 
-    for char_id, group in result.groupby(
-        "CHARACTERISTIC_ID",
-        sort=False
-    ):
-        first = group.iloc[0]
+        for char_id, group in result.groupby(
+            "CHARACTERISTIC_ID",
+            sort=False
+        ):
+            first = group.iloc[0]
 
-        columns = []
+            columns = []
 
-        for _, row in group.iterrows():
-            if row["column_id"] is not None:
-                columns.append({
-                    "column_id": int(row["column_id"]),
-                    "column_name": row["column_name"]
-                })
+            for _, row in group.iterrows():
+                if row["column_id"] is not None:
+                    columns.append({
+                        "column_id": int(row["column_id"]),
+                        "column_name": row["column_name"]
+                    })
 
-        characteristics.append({
-            "CHARACTERISTIC_ID": int(char_id),
-            "CHARACTERISTIC_NAME": first["CHARACTERISTIC_NAME"],
-            "columns": columns
-        })
+            characteristics.append({
+                "CHARACTERISTIC_ID": int(char_id),
+                "CHARACTERISTIC_NAME": first["CHARACTERISTIC_NAME"],
+                "columns": columns
+            })
+
+    else:
+        result = con.execute(f"""
+            SELECT
+                CHARACTERISTIC_ID,
+                CHARACTERISTIC_NAME
+            FROM '{char_table}'
+            ORDER BY CHARACTERISTIC_ID
+        """).fetchdf()
+
+        characteristics = []
+
+        for _, row in result.iterrows():
+            characteristics.append({
+                "CHARACTERISTIC_ID": int(row["CHARACTERISTIC_ID"]),
+                "CHARACTERISTIC_NAME": row["CHARACTERISTIC_NAME"],
+                "columns": [
+                    {
+                        "column_id": 1,
+                        "column_name": "COUNT_TOTAL"
+                    },
+                    {
+                        "column_id": 4,
+                        "column_name": "RATE_TOTAL"
+                    }
+                ]
+            })
 
     return characteristics
 
@@ -123,13 +169,13 @@ def get_population(geo_level: str, char_id: int):
     return result_w_colours.to_dict(orient='records')
 
 @app.get("/api/columns")
-def get_columns(year: int, char_id: int):
+def get_columns(census_year: int, char_id: int):
     result = con.execute(f"""
         SELECT char_col.column_id
         FROM '{char_col_table}' as char_col
         JOIN '{col_table}' as col on col.column_id = char_col.column_id
         WHERE
-            (char_col.CENSUS_YEAR = {year} AND char_col.CHARACTERISTIC_ID = {char_id})
+            (char_col.CENSUS_YEAR = {census_year} AND char_col.CHARACTERISTIC_ID = {char_id})
     """).fetchdf()
 
     return result.to_dict(orient='records')
