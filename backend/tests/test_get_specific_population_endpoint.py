@@ -283,7 +283,7 @@ def test_invalid_value():
         },
     )
 
-    assert response.status_code == 400
+    assert response.status_code == 422
 
 def test_invalid_column_2021():
     response = client.get(

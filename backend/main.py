@@ -1,396 +1,376 @@
-from pathlib import Path
+import logging
 import os
-import colour_data
+from dataclasses import dataclass
+from functools import lru_cache
+from pathlib import Path
+from typing import Literal, Optional
 
-import pandas as pd
-from fastapi import FastAPI, HTTPException
+import duckdb
+from fastapi import Depends, FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-import duckdb
+from pydantic import BaseModel
 
+import colour_data
+
+logger = logging.getLogger("census_api")
+logging.basicConfig(level=logging.INFO)
+
+# ---------------------------------------------------------------------------
+# Configuration
+# ---------------------------------------------------------------------------
+
+BASE_DIR = Path(__file__).resolve().parent
+PARQUET_DIR = BASE_DIR / "parquet_data"
+TILES_DIR = BASE_DIR / "tiles_output"
+
+# The frontend sends 2010 to mean "2011 NHS dissemination-area data".
+NHS_DA_YEAR = 2010
+
+# Extra production origins, comma-separated, e.g. "https://example.com".
+# Any localhost / 127.0.0.1 port is always allowed so dev servers
+# (Vite 5173, Next 3000, etc.) work without configuration.
+CORS_ORIGINS = [o.strip() for o in os.getenv("CORS_ORIGINS", "").split(",") if o.strip()]
+LOCALHOST_ORIGIN_REGEX = r"^https?://(localhost|127\.0\.0\.1)(:\d+)?$"
+
+MAIN_TABLE = PARQUET_DIR / "2021_census_data.parquet"
+GEO_TABLE = PARQUET_DIR / "2021_geographies.parquet"
+
+GeoLevel = Literal[
+    "Province",
+    "Census division",
+    "Census subdivision",
+    "Federal electoral district (2023 Representation Order)",
+    "Federal electoral district (2013 Representation Order)",
+    "Aggregate dissemination area",
+    "Dissemination area",
+]
+
+# Years before 2011 (and the 2011 NHS DA data) only have a total count and a
+# total rate, so there is no per-year columns table for them.
+LEGACY_COLUMNS = [
+    {"column_id": 1, "column_name": "COUNT_TOTAL"},
+    {"column_id": 4, "column_name": "RATE_TOTAL"},
+]
+
+# 2021 stores counts and rates directly.
+COLUMNS_2021 = {
+    1: "C1_COUNT_TOTAL",
+    2: "C2_COUNT_MEN+",
+    3: "C3_COUNT_WOMEN+",
+    4: "C10_RATE_TOTAL",
+    5: "C11_RATE_MEN+",
+    6: "C12_RATE_WOMEN+",
+}
+
+# 2011 / 2016 store counts only; rates are computed against this row.
+COUNT_COLUMNS_2011_2016 = {1: "COUNT_TOTAL", 2: "COUNT_MALE", 3: "COUNT_FEMALE"}
+RATE_NUMERATORS_2011_2016 = {4: "COUNT_TOTAL", 5: "COUNT_MALE", 6: "COUNT_FEMALE"}
+TOTAL_POPULATION_CHAR_ID_2011_2016 = 8
+
+# ---------------------------------------------------------------------------
+# App setup
+# ---------------------------------------------------------------------------
 
 app = FastAPI()
 con = duckdb.connect()
 
-main_table = 'parquet_data/2021_census_data.parquet'
-geo_table = 'parquet_data/2021_geographies.parquet'
-char_table = 'parquet_data/2021_characteristics.parquet'
-col_table = 'parquet_data/2021_columns.parquet'
-char_col_table = 'parquet_data/2021_characteristic_columns.parquet'
-
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_methods=["*"],
+    allow_origins=CORS_ORIGINS,
+    allow_origin_regex=LOCALHOST_ORIGIN_REGEX,
+    allow_methods=["GET"],
     allow_headers=["*"],
 )
 
-BASE_DIR = Path(__file__).resolve().parent
-
-print("BASE_DIR:", BASE_DIR)
-print("Tiles directory:", BASE_DIR / "tiles_output")
-print("Exists:", (BASE_DIR / "tiles_output").exists())
-print("Files:", list((BASE_DIR / "tiles_output").glob("*")))
-
-app.mount(
-    "/tiles_output",
-    StaticFiles(directory=BASE_DIR / "tiles_output"),
-    name="tiles_output",
-)
+if TILES_DIR.is_dir():
+    app.mount("/tiles_output", StaticFiles(directory=TILES_DIR), name="tiles_output")
+else:
+    logger.warning("Tiles directory not found, not mounting: %s", TILES_DIR)
 
 
-@app.get("/api/characteristics")
+def get_db():
+    """One DuckDB cursor per request; a single connection isn't thread-safe."""
+    cursor = con.cursor()
+    try:
+        yield cursor
+    finally:
+        cursor.close()
+
+
+# ---------------------------------------------------------------------------
+# Response models
+# ---------------------------------------------------------------------------
+
+
+class Column(BaseModel):
+    column_id: int
+    column_name: Optional[str] = None
+
+
+class Characteristic(BaseModel):
+    CHARACTERISTIC_ID: int
+    CHARACTERISTIC_NAME: str
+    level: int  # nesting depth in the characteristic hierarchy (0 = top)
+    columns: list[Column]
+
+
+class PopulationValue(BaseModel):
+    census_year: int
+    geo_code: str
+    characteristic_id: int
+    value: Optional[float]
+
+
+# ---------------------------------------------------------------------------
+# File helpers
+# ---------------------------------------------------------------------------
+
+
+@dataclass(frozen=True)
+class YearFiles:
+    data: Path
+    chars: Path
+    char_cols: Path
+    cols: Path
+
+
+def year_files(year: int) -> YearFiles:
+    """The only place that knows how a census year maps to parquet files."""
+    if year == NHS_DA_YEAR:
+        data = PARQUET_DIR / "2011_nhs_da_data.parquet"
+        chars = PARQUET_DIR / "2011_nhs_da_characteristics.parquet"
+    else:
+        data = PARQUET_DIR / f"{year}_census_data.parquet"
+        chars = PARQUET_DIR / f"{year}_characteristics.parquet"
+
+    return YearFiles(
+        data=data,
+        chars=chars,
+        char_cols=PARQUET_DIR / f"{year}_characteristic_columns.parquet",
+        cols=PARQUET_DIR / f"{year}_columns.parquet",
+    )
+
+
+def require(path: Path, detail: str) -> None:
+    if not path.exists():
+        raise HTTPException(status_code=404, detail=detail)
+
+
+def indent_level(name: str) -> int:
+    """Hierarchy depth, encoded in the source data as two leading spaces per level."""
+    return (len(name) - len(name.lstrip(" "))) // 2
+
+
+# ---------------------------------------------------------------------------
+# /api/characteristics
+# ---------------------------------------------------------------------------
+
+
+@lru_cache(maxsize=32)
+def load_characteristics(year: int) -> list[dict]:
+    """Parquet files are static, so the result is cached per year.
+
+    HTTPExceptions are not cached (lru_cache only stores returned values).
+    """
+    files = year_files(year)
+    require(files.chars, f"Invalid census year: {year}")
+
+    db = con.cursor()
+    try:
+        if year >= 2011:
+            require(
+                files.char_cols,
+                f"Characteristic columns not found for census year: {year}",
+            )
+            require(files.cols, f"Column information not found for census year: {year}")
+
+            rows = db.execute(
+                """
+                SELECT
+                    c.CHARACTERISTIC_ID,
+                    c.CHARACTERISTIC_NAME,
+                    list(
+                        {'column_id': col.column_id, 'column_name': col.column_name}
+                        ORDER BY cc.column_id
+                    ) FILTER (WHERE cc.column_id IS NOT NULL) AS columns
+                FROM read_parquet(?) AS c
+                LEFT JOIN read_parquet(?) AS cc
+                    ON c.CHARACTERISTIC_ID = cc.CHARACTERISTIC_ID
+                LEFT JOIN read_parquet(?) AS col
+                    ON cc.column_id = col.column_id
+                GROUP BY c.CHARACTERISTIC_ID, c.CHARACTERISTIC_NAME
+                ORDER BY c.CHARACTERISTIC_ID
+                """,
+                [str(files.chars), str(files.char_cols), str(files.cols)],
+            ).fetchall()
+        else:
+            rows = [
+                (char_id, name, LEGACY_COLUMNS)
+                for char_id, name in db.execute(
+                    """
+                    SELECT CHARACTERISTIC_ID, CHARACTERISTIC_NAME
+                    FROM read_parquet(?)
+                    ORDER BY CHARACTERISTIC_ID
+                    """,
+                    [str(files.chars)],
+                ).fetchall()
+            ]
+    finally:
+        db.close()
+
+    return [
+        {
+            "CHARACTERISTIC_ID": int(char_id),
+            "CHARACTERISTIC_NAME": name.strip(),
+            "level": indent_level(name),
+            "columns": columns or [],
+        }
+        for char_id, name, columns in rows
+    ]
+
+
+@app.get("/api/characteristics", response_model=list[Characteristic])
 def get_characteristics(census_year: int):
-    # handle case for 2011 NHS DAs (use 2010 for census year)
-    if census_year == 2010:
-        char_table = "parquet_data/2011_nhs_da_characteristics.parquet"
-    else:
-        char_table = f"parquet_data/{census_year}_characteristics.parquet"
+    return load_characteristics(census_year)
 
-    if not os.path.exists(char_table):
-        raise HTTPException(
-            status_code=404,
-            detail=f"Invalid census year: {census_year}"
-        )
 
-    if census_year >= 2011:
-        char_col_table = (
-            f"parquet_data/{census_year}_characteristic_columns.parquet"
-        )
-        col_table = f"parquet_data/{census_year}_columns.parquet"
-
-        if not os.path.exists(char_col_table):
-            raise HTTPException(
-                status_code=404,
-                detail=f"Characteristic columns not found for census year: {census_year}"
-            )
-
-        if not os.path.exists(col_table):
-            raise HTTPException(
-                status_code=404,
-                detail=f"Column information not found for census year: {census_year}"
-            )
-
-        result = con.execute(f"""
-            SELECT
-                c.CHARACTERISTIC_ID,
-                c.CHARACTERISTIC_NAME,
-                cc.column_id,
-                col.column_name
-            FROM '{char_table}' AS c
-            LEFT JOIN '{char_col_table}' AS cc
-                ON c.CHARACTERISTIC_ID = cc.CHARACTERISTIC_ID
-            LEFT JOIN '{col_table}' AS col
-                ON cc.column_id = col.column_id
-            ORDER BY c.CHARACTERISTIC_ID, cc.column_id
-        """).fetchdf()
-
-        characteristics = []
-
-        for char_id, group in result.groupby(
-            "CHARACTERISTIC_ID",
-            sort=False
-        ):
-            first = group.iloc[0]
-
-            columns = []
-
-            for _, row in group.iterrows():
-                if row["column_id"] is not None:
-                    columns.append({
-                        "column_id": int(row["column_id"]),
-                        "column_name": row["column_name"]
-                    })
-
-            characteristics.append({
-                "CHARACTERISTIC_ID": int(char_id),
-                "CHARACTERISTIC_NAME": first["CHARACTERISTIC_NAME"],
-                "columns": columns
-            })
-
-    else:
-        result = con.execute(f"""
-            SELECT
-                CHARACTERISTIC_ID,
-                CHARACTERISTIC_NAME
-            FROM '{char_table}'
-            ORDER BY CHARACTERISTIC_ID
-        """).fetchdf()
-
-        characteristics = []
-
-        for _, row in result.iterrows():
-            characteristics.append({
-                "CHARACTERISTIC_ID": int(row["CHARACTERISTIC_ID"]),
-                "CHARACTERISTIC_NAME": row["CHARACTERISTIC_NAME"],
-                "columns": [
-                    {
-                        "column_id": 1,
-                        "column_name": "COUNT_TOTAL"
-                    },
-                    {
-                        "column_id": 4,
-                        "column_name": "RATE_TOTAL"
-                    }
-                ]
-            })
-
-    return characteristics
+# ---------------------------------------------------------------------------
+# /api/population  (choropleth colours for a geographic level)
+# ---------------------------------------------------------------------------
 
 
 @app.get("/api/population")
-def get_population(geo_level: str, char_id: int):
+def get_population(geo_level: GeoLevel, char_id: int, db=Depends(get_db)):
+    levels = ("Province", "Territory") if geo_level == "Province" else (geo_level,)
+    placeholders = ",".join("?" * len(levels))
 
-    if (geo_level == 'Province'):
-        result = con.execute(f"""
-            SELECT m.DGUID, m.C1_COUNT_TOTAL
-            FROM '{main_table}' AS m
-            JOIN '{geo_table}' AS g ON m.DGUID = g.DGUID
-            WHERE 
-                (g.GEO_LEVEL = 'Province' OR g.GEO_LEVEL = 'Territory')
-                AND m.CHARACTERISTIC_ID = {char_id}
-        """).fetchdf()
+    result = db.execute(
+        f"""
+        SELECT m.DGUID, m.C1_COUNT_TOTAL
+        FROM read_parquet(?) AS m
+        JOIN read_parquet(?) AS g ON m.DGUID = g.DGUID
+        WHERE g.GEO_LEVEL IN ({placeholders})
+          AND m.CHARACTERISTIC_ID = ?
+        """,
+        [str(MAIN_TABLE), str(GEO_TABLE), *levels, char_id],
+    ).fetchdf()
 
-    else:
-        result = con.execute(f"""
-            SELECT m.DGUID, m.C1_COUNT_TOTAL
-            FROM '{main_table}' AS m
-            JOIN '{geo_table}' AS g ON m.DGUID = g.DGUID
-            WHERE 
-                (g.GEO_LEVEL = '{geo_level}')
-                AND m.CHARACTERISTIC_ID = {char_id}
-        """).fetchdf()
-
-    result_w_colours = colour_data.assign_colours(
+    coloured = colour_data.assign_colours(
         df=result,
         num_colours=3,
         equal_width=True,
-        col='C1_COUNT_TOTAL'
+        col="C1_COUNT_TOTAL",
     )
+    return coloured.to_dict(orient="records")
 
-    return result_w_colours.to_dict(orient='records')
+
+# ---------------------------------------------------------------------------
+# /api/columns
+# ---------------------------------------------------------------------------
+
 
 @app.get("/api/columns")
 def get_columns(census_year: int, char_id: int):
-    result = con.execute(f"""
-        SELECT char_col.column_id
-        FROM '{char_col_table}' as char_col
-        JOIN '{col_table}' as col on col.column_id = char_col.column_id
-        WHERE
-            (char_col.CENSUS_YEAR = {census_year} AND char_col.CHARACTERISTIC_ID = {char_id})
-    """).fetchdf()
+    """Column ids available for one characteristic in one census year."""
+    for characteristic in load_characteristics(census_year):
+        if characteristic["CHARACTERISTIC_ID"] == char_id:
+            return [{"column_id": c["column_id"]} for c in characteristic["columns"]]
 
-    return result.to_dict(orient='records')
+    raise HTTPException(status_code=404, detail="Characteristic not found")
 
-@app.get("/api/specific_population")
+
+# ---------------------------------------------------------------------------
+# /api/specific_population
+# ---------------------------------------------------------------------------
+
+
+def read_value(db, file: Path, geo_column: str, geo_code: str, char_id: int, column: str):
+    """Return (found, value). Column and geo_column come from the constants above,
+    never from user input, so interpolating them is safe."""
+    row = db.execute(
+        f"""
+        SELECT "{column}"
+        FROM read_parquet(?)
+        WHERE "{geo_column}" = ?
+          AND CHARACTERISTIC_ID = ?
+        """,
+        [str(file), geo_code, char_id],
+    ).fetchone()
+    return (row is not None), (row[0] if row else None)
+
+
+def read_required(db, *args) -> float:
+    found, value = read_value(db, *args)
+    if not found:
+        raise HTTPException(status_code=404, detail="Population data not found")
+    return value
+
+
+def safe_rate(numerator, denominator) -> Optional[float]:
+    if numerator is None or denominator in (None, 0):
+        return None
+    return numerator / denominator
+
+
+def legacy_value(db, year, file, geo_code, char_id, value):
+    """1981-2006 and 2011 NHS DA: total count (1) and total rate (4) only."""
+    if value not in (1, 4):
+        raise HTTPException(status_code=400, detail="Invalid value")
+
+    count = read_required(db, file, "GEO_CODE", geo_code, char_id, "COUNT_TOTAL")
+    if value == 1:
+        return count
+
+    total_char_id = 1 if year == NHS_DA_YEAR else 2
+    _, total = read_value(db, file, "GEO_CODE", geo_code, total_char_id, "COUNT_TOTAL")
+    return safe_rate(count, total)
+
+
+def two_sex_value(db, file, geo_code, char_id, value):
+    """2011 and 2016: total/male/female counts, rates derived from char 8."""
+    if value in COUNT_COLUMNS_2011_2016:
+        column = COUNT_COLUMNS_2011_2016[value]
+        return read_required(db, file, "GEO_CODE", geo_code, char_id, column)
+
+    column = RATE_NUMERATORS_2011_2016[value]
+    numerator = read_required(db, file, "GEO_CODE", geo_code, char_id, column)
+    _, denominator = read_value(
+        db, file, "GEO_CODE", geo_code, TOTAL_POPULATION_CHAR_ID_2011_2016, column
+    )
+    return safe_rate(numerator, denominator)
+
+
+def stored_value(db, file, geo_code, char_id, value):
+    """2021: counts and rates are already stored."""
+    if value not in COLUMNS_2021:
+        raise HTTPException(status_code=400, detail="Invalid value")
+    return read_required(db, file, "DGUID", geo_code, char_id, COLUMNS_2021[value])
+
+
+@app.get("/api/specific_population", response_model=PopulationValue)
 def get_specific_population(
     census_year: int,
     geo_code: str,
     char_id: int,
-    value: int
+    value: int = Query(..., ge=1, le=6),
+    db=Depends(get_db),
 ):
+    file = year_files(census_year).data
+    require(file, f"Invalid census year: {census_year}")
 
-    if census_year == 2010:
-        file = "parquet_data/2011_nhs_da_data.parquet"
-    else:
-        file = f"parquet_data/{census_year}_census_data.parquet"
-
-    if not os.path.exists(file):
-        raise HTTPException(
-            status_code=404,
-            detail=f"Invalid census year: {census_year}"
-        )
-
-    geo_column = "DGUID" if census_year == 2021 else "GEO_CODE"    
-
-    # use 2010 for 2011 NHS data for DAs
-    # 1981-2006 and 2011 NHS for DAs: only total count and total rate
-    if census_year <= 2010:
-        if value not in (1, 4):
-            raise HTTPException(status_code=400, detail="Invalid value")
-
-        count_query = """
-            SELECT COUNT_TOTAL
-            FROM read_parquet(?)
-            WHERE (GEO_CODE = ?
-              AND CHARACTERISTIC_ID = ?
-            )
-        """
-
-        result = con.execute(
-            count_query,
-            [file, geo_code, char_id]
-        ).fetchone()
-
-        if result is None:
-            raise HTTPException(
-                status_code=404,
-                detail="Population data not found"
-            )
-
-        count = result[0]
-
-        # value=1 -> count
-        if value == 1:
-            return {
-                "census_year": census_year,
-                "geo_code": geo_code,
-                "characteristic_id": char_id,
-                "value": count
-            }
-
-        # value=4 -> rate
-        char_id_for_total_pop = 1 if (census_year == 2010) else 2
-        total_result = con.execute(
-            """
-            SELECT COUNT_TOTAL
-            FROM read_parquet(?)
-            WHERE GEO_CODE = ?
-              AND CHARACTERISTIC_ID = ?
-            """,
-            [file, geo_code, char_id_for_total_pop]
-        ).fetchone()
-
-        if total_result is None or total_result[0] in (None, 0):
-            rate = None
-        else:
-            rate = count / total_result[0]
-
-        return {
-            "census_year": census_year,
-            "geo_code": geo_code,
-            "characteristic_id": char_id,
-            "value": rate
-        }
-
-    # 2011 and 2016: total/male/female counts and rates
+    if census_year <= NHS_DA_YEAR:
+        result = legacy_value(db, census_year, file, geo_code, char_id, value)
     elif census_year in (2011, 2016):
-        if value not in (1, 2, 3, 4, 5, 6):
-            raise HTTPException(status_code=400, detail="Invalid value")
-
-        columns = {
-            1: "COUNT_TOTAL",
-            2: "COUNT_MALE",
-            3: "COUNT_FEMALE"
-        }
-
-        # Counts
-        if value in (1, 2, 3):
-            column = columns[value]
-
-            result = con.execute(
-                f"""
-                SELECT "{column}"
-                FROM read_parquet(?)
-                WHERE "{geo_column}" = ?
-                  AND CHARACTERISTIC_ID = ?
-                """,
-                [file, geo_code, char_id]
-            ).fetchone()
-
-            print("result: ", result)
-
-            if result is None:
-                raise HTTPException(
-                    status_code=404,
-                    detail="Population data not found"
-                )
-
-            return {
-                "census_year": census_year,
-                "geo_code": geo_code,
-                "characteristic_id": char_id,
-                "value": result[0]
-            }
-
-        # Rates use CHARACTERISTIC_ID=8 as the total population row.
-        numerator_columns = {
-            4: "COUNT_TOTAL",
-            5: "COUNT_MALE",
-            6: "COUNT_FEMALE"
-        }
-
-        numerator_column = numerator_columns[value]
-
-        numerator = con.execute(
-            f"""
-            SELECT "{numerator_column}"
-            FROM read_parquet(?)
-            WHERE "{geo_column}" = ?
-              AND CHARACTERISTIC_ID = ?
-            """,
-            [file, geo_code, char_id]
-        ).fetchone()
-
-        if numerator is None:
-            raise HTTPException(
-                status_code=404,
-                detail="Population data not found"
-            )
-
-        denominator = con.execute(
-            f"""
-            SELECT "{numerator_column}"
-            FROM read_parquet(?)
-            WHERE "{geo_column}" = ?
-              AND CHARACTERISTIC_ID = 8
-            """,
-            [file, geo_code]
-        ).fetchone()
-
-        if denominator is None or denominator[0] in (None, 0):
-            rate = None
-        else:
-            rate = numerator[0] / denominator[0]
-
-        return {
-            "census_year": census_year,
-            "geo_code": geo_code,
-            "characteristic_id": char_id,
-            "value": rate
-        }
-
-    # 2021: counts and rates are already stored.
+        result = two_sex_value(db, file, geo_code, char_id, value)
     elif census_year == 2021:
-        columns = {
-            1: "C1_COUNT_TOTAL",
-            2: "C2_COUNT_MEN+",
-            3: "C3_COUNT_WOMEN+",
-            4: "C10_RATE_TOTAL",
-            5: "C11_RATE_MEN+",
-            6: "C12_RATE_WOMEN+"
-        }
-
-        if value not in columns:
-            raise HTTPException(status_code=400, detail="Invalid value")
-
-        column = columns[value]
-
-        result = con.execute(
-            f"""
-            SELECT "{column}"
-            FROM read_parquet(?)
-            WHERE DGUID = ?
-              AND CHARACTERISTIC_ID = ?
-            """,
-            [file, geo_code, char_id]
-        ).fetchone()
-
-        if result is None:
-            raise HTTPException(
-                status_code=404,
-                detail="Population data not found"
-            )
-
-        return {
-            "census_year": census_year,
-            "geo_code": geo_code,
-            "characteristic_id": char_id,
-            "value": result[0]
-        }
-
+        result = stored_value(db, file, geo_code, char_id, value)
     else:
-        raise HTTPException(
-            status_code=400,
-            detail="Unsupported census year"
-        )
+        raise HTTPException(status_code=400, detail="Unsupported census year")
+
+    return PopulationValue(
+        census_year=census_year,
+        geo_code=geo_code,
+        characteristic_id=char_id,
+        value=result,
+    )
