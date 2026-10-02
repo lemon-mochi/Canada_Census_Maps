@@ -187,12 +187,23 @@ def get_specific_population(
     char_id: int,
     value: int
 ):
-    file = f"parquet_data/{census_year}_census_data.parquet"
 
-    geo_column = "DGUID" if census_year == 2021 else "GEO_CODE"
+    if census_year == 2010:
+        file = "parquet_data/2011_nhs_da_data.parquet"
+    else:
+        file = f"parquet_data/{census_year}_census_data.parquet"
 
-    # 1981-2006: only total count and total rate
-    if census_year <= 2006:
+    if not os.path.exists(file):
+        raise HTTPException(
+            status_code=404,
+            detail=f"Invalid census year: {census_year}"
+        )
+
+    geo_column = "DGUID" if census_year == 2021 else "GEO_CODE"    
+
+    # use 2010 for 2011 NHS data for DAs
+    # 1981-2006 and 2011 NHS for DAs: only total count and total rate
+    if census_year <= 2010:
         if value not in (1, 4):
             raise HTTPException(status_code=400, detail="Invalid value")
 
@@ -227,14 +238,15 @@ def get_specific_population(
             }
 
         # value=4 -> rate
+        char_id_for_total_pop = 1 if (census_year == 2010) else 2
         total_result = con.execute(
             """
             SELECT COUNT_TOTAL
             FROM read_parquet(?)
             WHERE GEO_CODE = ?
-              AND CHARACTERISTIC_ID = 2
+              AND CHARACTERISTIC_ID = ?
             """,
-            [file, geo_code]
+            [file, geo_code, char_id_for_total_pop]
         ).fetchone()
 
         if total_result is None or total_result[0] in (None, 0):
