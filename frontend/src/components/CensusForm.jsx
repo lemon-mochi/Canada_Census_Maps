@@ -239,11 +239,15 @@ const CharacteristicNode = ({ node, onSelect }) => {
           <span>{node.CHARACTERISTIC_NAME}</span>
         </div>
 
-        <div className={styles.dataButtons}>
+        <div 
+          className={styles.dataButtons}
+          style={{ '--button-count': node.columns.length }}        
+        >
           {node.columns.map((column) => (
             <button
               type="button"
               className={styles.dataButton}
+              style={{ '--button-count': node.columns.length }}
               key={column.column_id}
               title={column.column_name}
               aria-label={`${node.CHARACTERISTIC_NAME}: ${column.column_name}`}

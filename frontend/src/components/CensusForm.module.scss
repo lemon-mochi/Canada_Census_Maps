@@ -207,18 +207,30 @@
   border-left: 1px solid var(--color-line);
 }
 
-.dataButtons {
-  grid-column: 2 / -1;
+.characteristicRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  min-width: 0;
+  gap: 8px;
+}
 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 6px;
-
+.characteristicName {
   min-width: 0;
 }
 
+.dataButtons {
+  display: grid;
+  grid-template-columns: repeat(var(--button-count), minmax(0, 1fr));
+  width: 100%;
+  min-width: 0;
+  gap: 4px;
+}
+
 .dataButton {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+
   padding: 5px 2px;
 
   font-family: var(--font-mono);
@@ -228,8 +240,10 @@
   background: var(--color-panel);
   border: 1px solid var(--color-line);
   border-radius: 4px;
-
   cursor: pointer;
+
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .dataButton:hover {
