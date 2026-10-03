@@ -11,7 +11,7 @@ If you would like to create the files from scrath, you can follow the procedure 
 However, this is somewhat complicated as there are multiple steps that must be followed. Additionally, the official Statisitcs Canada site is often not able to load properly, so you may run into troubles downloading the files.
 
 ## Setting up virtual Python environment ##
-I used `Python3.12` for this project. When I tried on `Python3.10`, I was not able to install all the libraries.
+I used `Python3.12` and `Python3.14` for this project. When I tried on `Python3.10`, I was not able to install all the libraries.
 Make sure you are in the `backend` directory first
 ```
 cd backend/
