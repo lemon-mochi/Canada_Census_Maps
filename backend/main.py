@@ -219,15 +219,28 @@ def load_characteristics(year: int) -> list[dict]:
     finally:
         db.close()
 
-    return [
-        {
-            "CHARACTERISTIC_ID": int(char_id),
-            "CHARACTERISTIC_NAME": name.strip(),
-            "level": indent_level(name),
-            "columns": columns or [],
-        }
-        for char_id, name, columns in rows
-    ]
+    result = []
+
+    for char_id, name, columns in rows:
+        columns = columns or []
+
+        if year in (2011, 2016):
+            columns = columns + [
+                {"column_id": 4, "column_name": "RATE_TOTAL"},
+                {"column_id": 5, "column_name": "RATE_MALE"},
+                {"column_id": 6, "column_name": "RATE_FEMALE"},
+            ]
+
+        result.append(
+            {
+                "CHARACTERISTIC_ID": int(char_id),
+                "CHARACTERISTIC_NAME": name.strip(),
+                "level": indent_level(name),
+                "columns": columns,
+            }
+        )
+
+    return result
 
 
 @app.get("/api/characteristics", response_model=list[Characteristic])
