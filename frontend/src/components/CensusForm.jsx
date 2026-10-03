@@ -77,6 +77,7 @@ const CensusForm = ({
   const [censusYear, setCensusYear] = useState('2021');
   const [geoLevel, setGeoLevel] = useState('auto');
   const [colourCount, setColourCount] = useState(5);
+  const [warning , setWarning] = useState("");
 
   const { chars, loading, error } = useCharacteristics(censusYear);
 
@@ -99,6 +100,19 @@ const CensusForm = ({
   return (
     <div className={styles.censusForm}>
       <div className={styles.formGroup}>
+        <h1>
+          Canada Census Maps 🇨🇦
+        </h1>
+        <div className='link_to_github'>
+          Check out the Github repository&nbsp;
+          <a
+            href="https://github.com/lemon-mochi/Canada_Census_Maps"
+            target="_blank"
+          >
+            here
+          </a>
+        </div>
+
         <label htmlFor="census_year">Choose census year:</label>
         <select
           id="census_year"
@@ -137,6 +151,16 @@ const CensusForm = ({
         >
           Source
         </a>
+      )}
+
+      <p>
+        NOTICE: For 1981, 1991, 1996, 2001, and 2006 census years, not all characteristics are available for all geographic levels.
+      </p>
+
+      {censusYear == 2011 && (
+        <p>
+          ADDITONAL NOTICE: 2011 National Household Survey (NHS) data is available for dissemination areas by selecting 2011 NHS DA for census year.
+        </p>
       )}
 
       <div className={styles.legendSection}>
