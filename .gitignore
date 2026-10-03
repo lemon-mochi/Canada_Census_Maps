@@ -16,3 +16,5 @@ csv_test/
 !backend/2011_sample/Download*
 !backend/characteristics/*
 .vscode/
+.venv/
+.env
