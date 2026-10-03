@@ -22,7 +22,11 @@ export default function Map() {
     >
       {/* TileLayer provides the map graphic. Using OpenStreetMap here */}
       <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        attribution='
+          &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors
+          |
+          <a href="https://www.statcan.gc.ca/en/start">Statistics Canada</a>
+        '
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
     </MapContainer>
