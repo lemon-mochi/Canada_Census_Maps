@@ -109,7 +109,7 @@ The official Statistics Canada website has boundary files for the 2001 census bu
 
 [2001 All geographies](https://drive.google.com/file/d/1ykD9uJug7wOHgH9A7-T87gYNIIcGTK9Y/view?usp=sharing)
 
-[1996 All geographies](https://drive.google.com/file/d/19NGWzwHYPQDOIQNT0HQrCsFoyPR-qnty/view?usp=sharing)
+[1996 All geographies](https://drive.google.com/file/d/1rkgbUUtE2RzPtq44aDHqPH3CKjpwFFJT/view?usp=sharing)
 
 [1991 All geographies](https://drive.google.com/file/d/1phRbwAtwk9sCv8NBoVSLML_3EdmfgOLI/view?usp=sharing)
 
