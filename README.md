@@ -288,6 +288,7 @@ The test cases are in `backend/tests/`. To run them, use
 ```
 python -m pytest
 ```
+in the `backend/` directory.
 
 # Running the backend #
 To run the backend server,
