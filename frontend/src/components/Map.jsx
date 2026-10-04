@@ -14,6 +14,29 @@ maplibregl.setWorkerUrl(maplibreWorker);
 const protocol = new Protocol();
 maplibregl.addProtocol('pmtiles', protocol.tile);
 
+function OpenFreeMapLayer() {
+  const map = useMap();
+  const layerRef = useRef(null);
+
+  useEffect(() => {
+    const layer = maplibreGL({
+      style: 'https://tiles.openfreemap.org/styles/positron',
+    });
+
+    layerRef.current = layer;
+    layer.addTo(map);
+
+    return () => {
+      if (layerRef.current && map.hasLayer(layerRef.current)) {
+        map.removeLayer(layerRef.current);
+        layerRef.current = null;
+      }
+    };
+  }, [map]);
+
+  return null;
+}
+
 function CensusTiles({ censusYear, geoLevel }) {
   const map = useMap();
   const maplibreLayerRef = useRef(null);
@@ -124,12 +147,12 @@ export default function Map({ censusYear, geoLevel }) {
       scrollWheelZoom={true}
       className={styles.mapBox}
     >
-      <TileLayer
-        attribution='&copy; OpenStreetMap | Statistics Canada'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
+      <OpenFreeMapLayer />
 
-      <CensusTiles censusYear={censusYear} geoLevel={geoLevel} />
+      <CensusTiles
+        censusYear={censusYear}
+        geoLevel={geoLevel}
+      />
     </MapContainer>
   );
 }
