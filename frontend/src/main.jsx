@@ -1,13 +1,9 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import Map from './components/Map.jsx'
-import CensusForm from './components/CensusForm.jsx'
-import "./styles/globals.scss"
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import App from './App.jsx';
 
 createRoot(document.getElementById('root')).render(
-  <div className="container">
-    <Map></Map>
-    <CensusForm></CensusForm>
-  </div>
-  
-)
+  <StrictMode>
+    <App />
+  </StrictMode>
+);

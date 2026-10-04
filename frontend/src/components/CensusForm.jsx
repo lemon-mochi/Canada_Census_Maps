@@ -71,13 +71,14 @@ const MIN_COLOURS = 3;
 const MAX_COLOURS = 10;
 
 const CensusForm = ({
+  censusYear,
+  setCensusYear,
+  geoLevel,
+  setGeoLevel,
   onSelect = () => {},
   onColourCountChange = () => {},
 }) => {
-  const [censusYear, setCensusYear] = useState('2021');
-  const [geoLevel, setGeoLevel] = useState('auto');
   const [colourCount, setColourCount] = useState(5);
-  const [warning , setWarning] = useState("");
 
   const { chars, loading, error } = useCharacteristics(censusYear);
 
