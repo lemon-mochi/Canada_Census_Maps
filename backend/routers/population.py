@@ -4,13 +4,14 @@ import colour_data
 
 from config import GEO_TABLE, MAIN_TABLE, NHS_DA_YEAR
 from database import get_db
-from models import GeoLevel, PopulationValue
+from models import GeoLevel, PopulationValue, PopulationBatchRequest
 from services.census import (
     legacy_value,
     read_required,
     stored_value,
     two_sex_value,
     year_files,
+    get_pop_and_colour
 )
 
 router = APIRouter()
@@ -115,4 +116,26 @@ def get_specific_population(
         geo_code=geo_code,
         characteristic_id=char_id,
         value=result,
+    )
+
+@router.post("/population_batch")
+def get_population_batch(
+    request: PopulationBatchRequest,
+    db=Depends(get_db),
+):
+    file = year_files(request.census_year).data
+
+    if not file.exists():
+        raise HTTPException(
+            status_code=404,
+            detail=f"Invalid census year: {request.census_year}",
+        )
+    
+    return get_pop_and_colour(
+        db,
+        request.census_year,
+        file,
+        request.geo_codes,
+        request.char_id,
+        request.value,
     )

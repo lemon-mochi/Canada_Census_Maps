@@ -46,4 +46,4 @@ def test_characteristics_invalid_year_2():
         }
     )
 
-    assert response.status_code == 404    
+    assert response.status_code == 404

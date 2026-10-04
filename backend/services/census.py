@@ -7,6 +7,8 @@ import duckdb
 from fastapi import HTTPException
 
 from config import NHS_DA_YEAR, PARQUET_DIR
+import colour_data
+import pandas as pd
 
 
 LEGACY_COLUMNS = [
@@ -277,3 +279,188 @@ def stored_value(db, file, geo_code, char_id, value):
         char_id,
         COLUMNS_2021[value],
     )
+
+def read_values(
+    db,
+    file: Path,
+    geo_column: str,
+    geo_codes: list[str],
+    char_id: int,
+    column: str,
+):
+    if not geo_codes:
+        return {}
+
+    rows = db.execute(
+        f"""
+        SELECT "{geo_column}", "{column}"
+        FROM read_parquet(?)
+        WHERE "{geo_column}" IN (
+            SELECT UNNEST(?)
+        )
+          AND CHARACTERISTIC_ID = ?
+        """,
+        [str(file), geo_codes, char_id],
+    ).fetchall()
+
+    return {
+        str(geo_code): value
+        for geo_code, value in rows
+    }
+
+def get_population_values(
+    db,
+    year: int,
+    file: Path,
+    geo_codes: list[str],
+    char_id: int,
+    value: int,
+):
+    if year <= NHS_DA_YEAR:
+        if value not in (1, 4):
+            raise HTTPException(
+                status_code=400,
+                detail="Invalid value",
+            )
+
+        counts = read_values(
+            db,
+            file,
+            "GEO_CODE",
+            geo_codes,
+            char_id,
+            "COUNT_TOTAL",
+        )
+
+        if value == 1:
+            return counts
+
+        total_char_id = 1 if year == NHS_DA_YEAR else 2
+
+        totals = read_values(
+            db,
+            file,
+            "GEO_CODE",
+            geo_codes,
+            total_char_id,
+            "COUNT_TOTAL",
+        )
+
+        return {
+            geo_code: safe_rate(count, totals.get(geo_code))
+            for geo_code, count in counts.items()
+        }
+
+    if year in (2011, 2016):
+        if value in COUNT_COLUMNS_2011_2016:
+            column = COUNT_COLUMNS_2011_2016[value]
+
+            return read_values(
+                db,
+                file,
+                "GEO_CODE",
+                geo_codes,
+                char_id,
+                column,
+            )
+
+        if value not in RATE_NUMERATORS_2011_2016:
+            raise HTTPException(
+                status_code=400,
+                detail="Invalid value",
+            )
+
+        column = RATE_NUMERATORS_2011_2016[value]
+
+        numerators = read_values(
+            db,
+            file,
+            "GEO_CODE",
+            geo_codes,
+            char_id,
+            column,
+        )
+
+        denominators = read_values(
+            db,
+            file,
+            "GEO_CODE",
+            geo_codes,
+            TOTAL_POPULATION_CHAR_ID_2011_2016,
+            column,
+        )
+
+        return {
+            geo_code: safe_rate(
+                numerator,
+                denominators.get(geo_code),
+            )
+            for geo_code, numerator in numerators.items()
+        }
+
+    if year == 2021:
+        if value not in COLUMNS_2021:
+            raise HTTPException(
+                status_code=400,
+                detail="Invalid value",
+            )
+
+        return read_values(
+            db,
+            file,
+            "DGUID",
+            geo_codes,
+            char_id,
+            COLUMNS_2021[value],
+        )
+
+    raise HTTPException(
+        status_code=400,
+        detail="Unsupported census year",
+    )
+
+def get_pop_and_colour(
+    db,
+    year: int,
+    file: Path,
+    geo_codes: list[str],
+    char_id: int,
+    value: int,
+):
+    values = get_population_values(
+        db,
+        year,
+        file,
+        geo_codes,
+        char_id,
+        value,
+    )
+
+    if not values:
+        return []
+
+    df = pd.DataFrame(
+        [
+            {
+                "geo_code": geo_code,
+                "value": population,
+            }
+            for geo_code, population in values.items()
+        ]
+    )
+
+    df = colour_data.assign_colours(
+        df=df,
+        num_colours=3,
+        equal_width=True,
+        col="value",
+    )
+
+    return [
+        {
+            "geo_code": row.geo_code,
+            "value": row.value,
+            "colour": [int(x) for x in row.Colour_bin],
+        }
+        for row in df.itertuples(index=False)
+    ]

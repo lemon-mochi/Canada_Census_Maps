@@ -23,7 +23,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=CORS_ORIGINS,
     allow_origin_regex=LOCALHOST_ORIGIN_REGEX,
-    allow_methods=["GET"],
+    allow_methods=["GET", "POST"],
     allow_headers=["*"],
 )
 
@@ -44,3 +44,4 @@ else:
 app.include_router(characteristics.router, prefix="/api")
 app.include_router(population.router, prefix="/api")
 app.include_router(vector_tiles.router, prefix="/api")
+app.include_router
