@@ -42,6 +42,12 @@ GeoLevel = Literal[
     "Census subdivision",
     "Federal electoral district (2023 Representation Order)",
     "Federal electoral district (2013 Representation Order)",
+    "Census tract",
+    "Federal electoral district (1987 Representation Order)",
+    "Federal electoral district (1996 Representation Order)",
+    "Federal electoral district (2003 Representation Order)",
+    "Federal electoral district (2013 Representation Order)",
+    "Federal electoral district (2023 Representation Order)",
     "Aggregate dissemination area",
     "Dissemination area",
 ]
@@ -412,8 +418,7 @@ def vector_tile_path(census_year: int, geo_level: str) -> Path:
         elif geo_level == "Census subdivision":
             return TILES_DIR / "csd86_geojson.pmtiles"
         elif geo_level == "Census tract":
-            return TILES_DIR / "1986_ct.pmtiles"
-
+            return TILES_DIR / "1986_ct.pmtiles" 
 
     elif census_year == 1991:
         if geo_level == "Province":
@@ -433,7 +438,7 @@ def vector_tile_path(census_year: int, geo_level: str) -> Path:
         elif geo_level == "Census division":
             return TILES_DIR / "GCD_000A_geojson.pmtiles"
         elif geo_level == "Census subdivision":
-            return TILES_DIR / "GCSD_000A_geojson.pmtiles"
+            return TILES_DIR / "GCSD000A_geojson.pmtiles"
         elif geo_level == "Census tract":
             return TILES_DIR / "GCT_000A_geojson.pmtiles"
         elif geo_level == "Federal electoral district (1996 Representation Order)":
@@ -464,11 +469,13 @@ def vector_tile_path(census_year: int, geo_level: str) -> Path:
             return TILES_DIR / "gcsd000b06a_e.pmtiles"
         elif geo_level == "Federal electoral district (2003 Representation Order)":
             return TILES_DIR / "gfed000b06a_e.pmtiles"
+        elif geo_level == "Census tract":
+            return TILES_DIR / "gct_000b06a_e.pmtiles"
         elif geo_level == "Dissemination area":
-            return TILES_DIR / "gda000b06a_e.pmtiles"
+            return TILES_DIR / "gda_000b06a_e.pmtiles"
 
     elif census_year == 2010:
-        return TILES_DIR / "lda_000b21a_e.pmtiles"
+        return TILES_DIR / "gda_000b11a_e.pmtiles"
 
     elif census_year == 2011:
         if geo_level == "Province":
@@ -480,7 +487,7 @@ def vector_tile_path(census_year: int, geo_level: str) -> Path:
         elif geo_level == "Federal electoral district (2003 Representation Order)":
             return TILES_DIR / "gfed000b11a_e.pmtiles"
         elif geo_level == "Census tract":
-            return TILES_DIR / "gct000b11a_e.pmtiles"
+            return TILES_DIR / "gct_000b11a_e.pmtiles"
         elif geo_level == "Dissemination area":
             return TILES_DIR / "gda_000b11a_e.pmtiles"
 
@@ -490,11 +497,11 @@ def vector_tile_path(census_year: int, geo_level: str) -> Path:
         elif geo_level == "Census division":
             return TILES_DIR / "lcd_000b16a_e.pmtiles"
         elif geo_level == "Census subdivision":
-            return TILES_DIR / "lcsd_000b16a_e.pmtiles"
+            return TILES_DIR / "lcsd000b16a_e.pmtiles"
         elif geo_level == "Federal electoral district (2013 Representation Order)":
-            return TILES_DIR / "lfed_000b16a_e.pmtiles"
+            return TILES_DIR / "lfed000b16a_e.pmtiles"
         elif geo_level == "Aggregate dissemination area":
-            return TILES_DIR / "lada_000b16a_e.pmtiles"
+            return TILES_DIR / "lada000b16a_e.pmtiles"
         elif geo_level == "Dissemination area":
             return TILES_DIR / "lda_000b16a_e.pmtiles"
 
@@ -506,11 +513,11 @@ def vector_tile_path(census_year: int, geo_level: str) -> Path:
         elif geo_level == "Census subdivision":
             return TILES_DIR / "lcsd000b21a_e.pmtiles"
         elif geo_level == "Federal electoral district (2013 Representation Order)":
-            return TILES_DIR / "lfed_000b21a_e.pmtiles"
+            return TILES_DIR / "lfed000b21a_e.pmtiles"
         elif geo_level == "Federal electoral district (2023 Representation Order)":
             return TILES_DIR / "FED_CA_2023_EN.pmtiles"
         elif geo_level == "Aggregate dissemination area":
-            return TILES_DIR / "lada_000b21a_e.pmtiles"
+            return TILES_DIR / "lada000b21a_e.pmtiles"
         elif geo_level == "Dissemination area":
             return TILES_DIR / "lda_000b21a_e.pmtiles"
 
