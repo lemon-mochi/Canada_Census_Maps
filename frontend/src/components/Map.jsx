@@ -63,7 +63,6 @@ function CensusTiles({ censusYear, geoLevel }) {
                 url: `pmtiles://${API_URL}${data.url}`,
                 promoteId: apiYear === 2021 ? 'DGUID' : 'GEO_CODE',
                 minzoom: 0,
-                maxzoom: 14,
               },
             },
             layers: [
@@ -74,7 +73,7 @@ function CensusTiles({ censusYear, geoLevel }) {
                 'source-layer': data.source_layer,
                 paint: {
                   'fill-color': '#3388ff',
-                  'fill-opacity': 0.5,
+                  'fill-opacity': 0.75,
                 },
               },
               {
