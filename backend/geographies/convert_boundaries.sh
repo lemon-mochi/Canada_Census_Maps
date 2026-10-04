@@ -49,7 +49,6 @@ process_directory() {
             -o "$output_file" \
             -zg \
             -Z4 \
-            -S 3 \
             --drop-densest-as-needed \
             --extend-zooms-if-still-dropping \
             --force \
