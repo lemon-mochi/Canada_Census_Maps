@@ -6,8 +6,20 @@ import './styles/globals.scss';
 function App() {
   const [censusYear, setCensusYear] = useState('2021');
   const [geoLevel, setGeoLevel] = useState('Province');
+
   const [charId, setCharId] = useState(1);
-  const [value, setValue] = useState(1); 
+  const [value, setValue] = useState(1);
+
+  const [colourCount, setColourCount] = useState(5);
+  const [equalWidth, setEqualWidth] = useState(true);
+
+  const handleSelect = ({
+    charId,
+    columnId,
+  }) => {
+    setCharId(charId);
+    setValue(columnId);
+  };
 
   return (
     <div className="container">
@@ -16,6 +28,8 @@ function App() {
         geoLevel={geoLevel}
         charId={charId}
         value={value}
+        colourCount={colourCount}
+        equalWidth={equalWidth}
       />
 
       <CensusForm
@@ -23,6 +37,9 @@ function App() {
         setCensusYear={setCensusYear}
         geoLevel={geoLevel}
         setGeoLevel={setGeoLevel}
+        onSelect={handleSelect}
+        onColourCountChange={setColourCount}
+        onEqualWidthChange={setEqualWidth}
       />
     </div>
   );

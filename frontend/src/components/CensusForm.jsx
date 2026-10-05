@@ -7,7 +7,8 @@ import {
   geoLevelsFor,
   COLUMN_LABELS,
   toApiYear,
-  buildTree
+  buildTree,
+  getColourPalette,
 } from '@/components/Constants.jsx';
 
 // Characteristics are static per year, so cache them for the session.
@@ -77,10 +78,13 @@ const CensusForm = ({
   setGeoLevel,
   onSelect = () => {},
   onColourCountChange = () => {},
+  onEqualWidthChange = () => {},
 }) => {
-  const [colourCount, setColourCount] = useState(5);
 
   const { chars, loading, error } = useCharacteristics(censusYear);
+
+  const [colourCount, setColourCount] = useState(5);
+  const [equalWidth, setEqualWidth] = useState(true);
 
   const tree = useMemo(() => buildTree(chars), [chars]);
   const geoLevels = geoLevelsFor(censusYear);
@@ -189,25 +193,48 @@ const CensusForm = ({
               +
             </button>
           </div>
-        </div>
+        </div>        
 
         <div className={styles.colourLegend}>
-          {Array.from({ length: colourCount }, (_, index) => {
-            const intensity =
-              95 - (index / Math.max(colourCount - 1, 1)) * 65;
-
-            return (
-              <span
-                key={index}
-                className={styles.legendColour}
-                style={{
-                  backgroundColor: `hsl(210, 80%, ${intensity}%)`,
-                }}
-              />
-            );
-          })}
+          {getColourPalette(colourCount).map((colour, index) => (
+            <span
+              key={index}
+              className={styles.legendColour}
+              style={{
+                backgroundColor: `rgb(${colour[0]}, ${colour[1]}, ${colour[2]})`,
+              }}
+            />
+          ))}
         </div>
       </div>
+
+      <div className={styles.colourMethodControl}>
+        <label>
+          <input
+            type="radio"
+            name="colourMethod"
+            checked={equalWidth}
+            onChange={() => {
+              setEqualWidth(true);
+              onEqualWidthChange(true);
+            }}
+          />
+          Equal width
+        </label>
+
+        <label>
+          <input
+            type="radio"
+            name="colourMethod"
+            checked={!equalWidth}
+            onChange={() => {
+              setEqualWidth(false);
+              onEqualWidthChange(false);
+            }}
+          />
+          Equal frequency
+        </label>
+      </div> 
 
 
       <h2 className={styles.heading}>Characteristics</h2>
@@ -229,6 +256,8 @@ const CensusForm = ({
             key={node.CHARACTERISTIC_ID}
             node={node}
             onSelect={onSelect}
+            colourCount={colourCount}
+            equalWidth={equalWidth}
           />
         ))}
       </div>

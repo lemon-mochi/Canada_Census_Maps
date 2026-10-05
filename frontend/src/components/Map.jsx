@@ -45,35 +45,13 @@ function OpenFreeMapLayer() {
   return null;
 }
 
-function getColour(value, min, max, numColours = 3) {
-  const lightest = [247, 251, 255];
-  const darkest = [8, 48, 107];
-
-  if (min === max) {
-    return darkest;
-  }
-
-  const width = (max - min) / numColours;
-
-  let bin = Math.floor((value - min) / width);
-
-  // pd.cut() has a maximum bin at the upper boundary.
-  bin = Math.min(bin, numColours - 1);
-
-  return lightest.map((start, i) => {
-    const end = darkest[i];
-
-    return Math.round(
-      start + ((end - start) * bin) / (numColours - 1),
-    );
-  });
-}
-
 function CensusTiles({
   censusYear,
   geoLevel,
   charId,
   value,
+  colourCount,
+  equalWidth,
 }) {
   const map = useMap();
 
@@ -131,6 +109,8 @@ function CensusTiles({
               geo_codes: missingGeoCodes,
               char_id: charId,
               value,
+              num_colours: colourCount,
+              equal_width: equalWidth
             }),
           },
         );
@@ -148,7 +128,7 @@ function CensusTiles({
         for (const item of data) {
           valueCache.current.set(
             String(item.geo_code),
-            item.value,
+            item,
           );
         }
       }
@@ -156,38 +136,26 @@ function CensusTiles({
       const visibleValues = geoCodes
         .map(geoCode => valueCache.current.get(geoCode))
         .filter(
-          currentValue =>
-            currentValue !== null &&
-            currentValue !== undefined &&
-            Number.isFinite(Number(currentValue)),
+          item =>
+            item &&
+            Number.isFinite(Number(item.value)),
         );
 
       if (visibleValues.length === 0) return;
 
-      const min = Math.min(...visibleValues);
-      const max = Math.max(...visibleValues);
 
       const expression = [
         'case',
       ];
 
       for (const geoCode of geoCodes) {
-        const currentValue =
-          valueCache.current.get(geoCode);
+        const item = valueCache.current.get(geoCode);
 
-        if (
-          currentValue === null ||
-          currentValue === undefined ||
-          !Number.isFinite(Number(currentValue))
-        ) {
+        if (!item || !Array.isArray(item.colour)) {
           continue;
         }
 
-        const colour = getColour(
-          Number(currentValue),
-          min,
-          max,
-        );
+        const colour = item.colour;
 
         expression.push(
           ['==', ['id'], geoCode],
@@ -255,7 +223,7 @@ function CensusTiles({
 
                 paint: {
                   'fill-color': '#3388ff',
-                  'fill-opacity': 0.75,
+                  'fill-opacity': 0.95,
                 },
               },
 
@@ -328,6 +296,8 @@ function CensusTiles({
     geoLevel,
     charId,
     value,
+    colourCount,
+    equalWidth,
   ]);
 
   return null;
@@ -338,6 +308,8 @@ export default function CensusMap({
   geoLevel,
   charId,
   value,
+  colourCount,
+  equalWidth,
 }) {
   const position = [56.1304, -98.5795];
 
@@ -355,6 +327,8 @@ export default function CensusMap({
         geoLevel={geoLevel}
         charId={charId}
         value={value}
+        colourCount={colourCount}
+        equalWidth={equalWidth}
       />
     </MapContainer>
   );
