@@ -21,7 +21,7 @@ def assign_colours(
     df: pd.DataFrame, num_colours: int, equal_width: bool, col: str
 ) -> pd.DataFrame:
     lightest = np.array([247, 251, 255], dtype=np.uint8)
-    darkest = np.array([8, 48, 107], dtype=np.uint8)
+    darkest = np.array([0, 7, 93], dtype=np.uint8)
 
     labels = generate_colour_labels(
         lightest,
