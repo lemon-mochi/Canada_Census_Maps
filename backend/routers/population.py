@@ -138,4 +138,6 @@ def get_population_batch(
         request.geo_codes,
         request.char_id,
         request.value,
+        request.num_colours,
+        request.equal_width
     )

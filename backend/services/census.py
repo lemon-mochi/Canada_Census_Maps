@@ -426,6 +426,8 @@ def get_pop_and_colour(
     geo_codes: list[str],
     char_id: int,
     value: int,
+    num_colours: int,
+    equal_width: bool,
 ):
     values = get_population_values(
         db,
@@ -451,8 +453,8 @@ def get_pop_and_colour(
 
     df = colour_data.assign_colours(
         df=df,
-        num_colours=3,
-        equal_width=True,
+        num_colours=num_colours,
+        equal_width=equal_width,
         col="value",
     )
 

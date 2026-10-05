@@ -48,3 +48,5 @@ class PopulationBatchRequest(BaseModel):
     geo_codes: list[str]
     char_id: int
     value: int
+    num_colours: int = 5
+    equal_width: bool = True
