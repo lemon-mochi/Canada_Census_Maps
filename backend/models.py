@@ -15,6 +15,7 @@ GeoLevel = Literal[
     "Federal electoral district (2003 Representation Order)",
     "Aggregate dissemination area",
     "Dissemination area",
+    "Enumeration area",
 ]
 
 

@@ -24,7 +24,7 @@ def vector_tile_path(census_year: int, geo_level: str) -> Path:
         elif geo_level == "Census subdivision":
             return TILES_DIR / "csd86_geojson.pmtiles"
         elif geo_level == "Census tract":
-            return TILES_DIR / "1986_ct.pmtiles" 
+            return TILES_DIR / "ct_1986.pmtiles" 
 
     elif census_year == 1991:
         if geo_level == "Province":
