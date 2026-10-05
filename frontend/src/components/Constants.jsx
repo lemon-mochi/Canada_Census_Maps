@@ -239,7 +239,7 @@ export const buildTree = (characteristics) => {
 };
 
 export const LIGHTEST_BLUE = [247, 251, 255];
-export const DARKEST_BLUE = [8, 48, 107];
+export const DARKEST_BLUE = [0, 7, 93];
 
 export function getColourPalette(numColours) {
   if (numColours <= 1) {
@@ -257,4 +257,128 @@ export function getColourPalette(numColours) {
       );
     });
   });
+}
+
+// this works for 2016, 2011, 2006, 2001
+const geoCodeIDs_01_16 = {
+  'Province': 'PRUID',
+  'Census division': 'CDUID',
+  'Census subdivision': 'CSDUID',
+  'Federal electoral district (2013 Representation Order)': 'FEDUID',
+  'Aggregate dissemination area': 'ADAUID',
+  'Dissemination area': 'DAUID',
+  'Federal electoral district (2003 Representation Order)': 'FEDUID',
+  'Census tract': 'CTUID',
+  'Federal electoral district (1996 Representation Order)': 'FEDUID',
+};
+
+// this works for 1996
+const geoCodeIDs96 = {
+  'Province': 'PRuid',
+  'Census division': 'CDuid',
+  'Census subdivision': 'CSDuid',
+  'Federal electoral district (1996 Representation Order)': 'FEDuid',
+  'Census tract': 'CTuid',
+  'Enumeration area': 'EAuid'
+};
+
+// for 1991 census tracts. The database (parquet) stores GEO_CODE as SCA970593983
+// that is the same as SCA + CA + PROV + CT_CODE in the vector tile
+// CA = 970, PROV = 59, CT_CODE = 3983 
+function cleanCT1991(CA, PROV, CT_CODE) {
+  return 'SCA' + CA + PROV + CT_CODE;
+};
+
+const geoCodeIDs91 = {
+  'Province': 'PR',
+  'Census division': 'CD',
+  'Census subdivision': 'CSD',
+  'Federal electoral district (1987 Representation Order)': 'FED'
+  // census tracts is a special case (look at the function above)
+};
+
+const geoCodeIDs86 = {
+  'Province': 'PR_ID',
+  'Census division': 'CD86',
+  'Census subdivision': 'CSD86_ID',
+  'Census tract': 'geosid'
+};
+
+const geoCodeIDs81 = {
+  'Province': 'PROV81',
+  'Census division': 'CD81',
+  'Census subdivision': 'CSD81',
+  'Census tract': 'geosid'
+};
+
+export function getTileID(censusYear, geoLevel) {
+  if (censusYear === 2021) {
+    if (geoLevel === 'Federal electoral district (2013 Representation Order)') {
+      return 'FED_NUM';
+    }
+
+    return 'DGUID';
+  }
+
+  if (censusYear >= 2001) {
+    return geoCodeIDs_01_16[geoLevel];
+  }
+
+  if (censusYear === 1996) {
+    return geoCodeIDs96[geoLevel];
+  }
+
+  if (censusYear === 1991) {
+    return geoCodeIDs91[geoLevel];
+  }
+
+  if (censusYear === 1986) {
+    return geoCodeIDs86[geoLevel] ?? null;
+  }
+
+  if (censusYear === 1981) {
+    return geoCodeIDs81[geoLevel] ?? null;
+  }
+
+  return null;
+}
+
+
+export function getGeoCode(censusYear, geoLevel, feature) {
+  const properties = feature.properties;
+  if (censusYear === 2021) {
+    if (geoLevel === 'Federal electoral district (2013 Representation Order)') {
+      return '2023A0004' + properties.FED_NUM;
+    }
+
+    return properties.DGUID;
+  }
+
+  if (censusYear >= 2001) {
+    return properties[geoCodeIDs_01_16[geoLevel]];
+  }
+
+  if (censusYear === 1996) {
+    return properties[geoCodeIDs96[geoLevel]];
+  }
+
+  if (censusYear === 1991) {
+    if (geoLevel === 'Census tract') {
+      return cleanCT1991(
+        properties.CA,
+        properties.PROV,
+        properties.CT_CODE
+      );
+    }
+
+    return properties[geoCodeIDs91[geoLevel]];
+  }
+
+  if (censusYear === 1986) {
+    return properties[geoCodeIDs86[geoLevel]];
+  }
+
+  if (censusYear === 1981) {
+    return properties[geoCodeIDs81[geoLevel]];
+  }
 }

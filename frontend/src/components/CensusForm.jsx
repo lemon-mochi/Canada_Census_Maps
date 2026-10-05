@@ -147,6 +147,8 @@ const CensusForm = ({
         </select>
       </div>
 
+      <br></br>
+
       {source && (
         <a
           className={styles.sourceLink}
@@ -154,7 +156,7 @@ const CensusForm = ({
           target="_blank"
           rel="noreferrer"
         >
-          Source
+          Source: Statistics Canada
         </a>
       )}
 

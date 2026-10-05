@@ -8,7 +8,12 @@ import { Protocol } from 'pmtiles';
 import { maplibreGL } from '@maplibre/maplibre-gl-leaflet';
 import maplibreWorker from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url';
 import styles from '@/components/Map.module.scss';
-import { API_URL, toApiYear } from '@/components/Constants.jsx';
+import { 
+  API_URL,
+  toApiYear,
+  getTileID,
+  getGeoCode
+} from '@/components/Constants.jsx';
 
 maplibregl.setWorkerUrl(maplibreWorker);
 const protocol = new Protocol();
@@ -82,7 +87,13 @@ function CensusTiles({
       const geoCodes = [
         ...new Set(
           features
-            .map(feature => feature.id)
+            .map(feature =>
+              getGeoCode(
+                apiYear,
+                geoLevel,
+                feature,
+              )
+            )
             .filter(
               id => id !== undefined && id !== null,
             )
@@ -206,11 +217,8 @@ function CensusTiles({
               census: {
                 type: 'vector',
                 url: `pmtiles://${API_URL}${data.url}`,
-                promoteId:
-                  apiYear === 2021
-                    ? 'DGUID'
-                    : 'GEO_CODE',
-                minzoom: 0,
+                promoteId: getTileID(apiYear, geoLevel),
+                minzoom: 2,
               },
             },
 
