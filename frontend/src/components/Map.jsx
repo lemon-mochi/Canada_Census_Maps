@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { MapContainer, TileLayer, useMap } from 'react-leaflet';
+import { MapContainer, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import 'maplibre-gl/dist/maplibre-gl.css';
 
@@ -12,8 +12,10 @@ import {
   API_URL,
   toApiYear,
   getTileID,
-  getGeoCode
+  getGeoCode,
+  getColValue
 } from '@/components/Constants.jsx';
+import L from 'leaflet';
 
 maplibregl.setWorkerUrl(maplibreWorker);
 const protocol = new Protocol();
@@ -27,7 +29,7 @@ function OpenFreeMapLayer() {
     if (!map.getPane('vectorPane')) {
       const pane = map.createPane('vectorPane');
       pane.style.zIndex = '450';
-      pane.style.pointerEvents = 'none';
+      pane.style.pointerEvents = 'auto';
     }
   }, [map]);
 
@@ -54,6 +56,7 @@ function CensusTiles({
   censusYear,
   geoLevel,
   charId,
+  charName,
   value,
   colourCount,
   equalWidth,
@@ -62,6 +65,7 @@ function CensusTiles({
 
   const maplibreLayerRef = useRef(null);
   const valueCache = useRef(new Map());
+  const popupRef = useRef(null);
 
   useEffect(() => {
     if (!censusYear || !geoLevel || geoLevel === 'auto') {
@@ -140,6 +144,8 @@ function CensusTiles({
 
         const colour = item.colour;
 
+        valueCache.current.set(String(item.geo_code), item.value);
+
         expression.push(
           ['==', ['id'], String(item.geo_code)],
           `rgb(${colour[0]}, ${colour[1]}, ${colour[2]})`,
@@ -157,6 +163,91 @@ function CensusTiles({
         'fill-color',
         expression,
       );
+    }
+
+    function handleFeatureClick(e) {
+      if (!mapLibreMap) return;
+
+      const point = mapLibreMap.project([
+        e.latlng.lng,
+        e.latlng.lat,
+      ]);
+
+      const features = mapLibreMap.queryRenderedFeatures(point, {
+        layers: ['census-fill'],
+      });
+
+      if (!features.length) return;
+
+      const feature = features[0];
+
+      const geoCode = getGeoCode(
+        apiYear,
+        geoLevel,
+        feature,
+      );
+
+      const actualValue = valueCache.current.get(
+        String(geoCode),
+      );
+
+      console.log('char name: ', charName);
+
+      const popupHtml = `
+        <div style="
+          max-height: 200px;
+          overflow-y: auto;
+          font-family: sans-serif;
+          font-size: 13px;
+        ">
+          <h4 style="
+            margin: 0 0 8px 0;
+            font-size: 14px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 4px;
+          ">
+            GeoCode: ${geoCode ?? 'N/A'}
+          </h4>
+
+          <div>
+            <strong>Census year:</strong> ${apiYear}
+          </div>
+
+          <div>
+            <strong>Characteristic:</strong> ${charName ?? 'N/A'}
+          </div>
+
+          <div>
+            <strong>Column:</strong> ${
+              getColValue(apiYear, value)
+              ?? 'nothing here'
+            }
+          </div>
+
+          <div>
+            <strong>Value:</strong> ${
+              actualValue ?? 'N/A'
+            }
+          </div>
+        </div>
+      `;
+
+      if (popupRef.current) {
+        popupRef.current.remove();
+      }
+
+      popupRef.current = L.popup()
+        .setLatLng(e.latlng)
+        .setContent(popupHtml)
+        .openOn(map);
+    }    
+
+    function handleMouseEnter() {
+      map.getContainer().style.cursor = 'pointer';
+    }
+
+    function handleMouseLeave() {
+      map.getContainer().style.cursor = '';
     }
 
     async function loadTiles() {
@@ -185,6 +276,7 @@ function CensusTiles({
 
         const layer = maplibreGL({
           pane: 'vectorPane',
+          interactive: true,
 
           style: {
             version: 8,
@@ -231,6 +323,13 @@ function CensusTiles({
 
         mapLibreMap = layer.getMaplibreMap();
 
+        const canvas = mapLibreMap.getCanvas();
+        if (canvas) {
+          canvas.style.pointerEvents = 'auto';
+        }
+
+        map.on('click', handleFeatureClick);
+
         mapLibreMap.once('idle', () => {
           if (isMounted) {
             updateVisibleValues();
@@ -256,11 +355,13 @@ function CensusTiles({
     return () => {
       isMounted = false;
 
+      if (popupRef.current) {
+        popupRef.current.remove();
+        popupRef.current = null;
+      }
+
       if (mapLibreMap) {
-        mapLibreMap.off(
-          'moveend',
-          updateVisibleValues,
-        );
+        mapLibreMap.off('moveend', updateVisibleValues);
       }
 
       if (
@@ -270,6 +371,7 @@ function CensusTiles({
         map.removeLayer(
           maplibreLayerRef.current,
         );
+        map.off('click', handleFeatureClick);
 
         maplibreLayerRef.current = null;
       }
@@ -279,6 +381,7 @@ function CensusTiles({
     censusYear,
     geoLevel,
     charId,
+    charName,
     value,
     colourCount,
     equalWidth,
@@ -291,6 +394,7 @@ export default function CensusMap({
   censusYear,
   geoLevel,
   charId,
+  charName,
   value,
   colourCount,
   equalWidth,
@@ -310,6 +414,7 @@ export default function CensusMap({
         censusYear={censusYear}
         geoLevel={geoLevel}
         charId={charId}
+        charName={charName}
         value={value}
         colourCount={colourCount}
         equalWidth={equalWidth}

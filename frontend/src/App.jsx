@@ -30,6 +30,7 @@ function App() {
         censusYear={censusYear}
         geoLevel={geoLevel}
         charId={charId}
+        charName={charName}
         value={value}
         colourCount={colourCount}
         equalWidth={equalWidth}
