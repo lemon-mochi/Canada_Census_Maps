@@ -289,7 +289,7 @@ sudo apt install p7zip-full
 Next you will want to simplify the `.parquet` file. To do this, run the `cleanup_parquet.ipynb` notebook.
 This will create the `parquet_data/` directory. This is the directory the server will use to retrieve data.
 
-# Runnint test cases #
+# Running test cases #
 The test cases are in `backend/tests/`. To run them, use
 ```
 python -m pytest
