@@ -1,6 +1,35 @@
-1. Fix bugs in convert_boundaries.sh
-2. 1991 Census tracts vector tiles extend into ocean. Look into this.
-3. Verify 2011 parquet data after both jupyter notebooks was preprocessed properly
-4. Cleanup 2006 census data (test raw output first), using XML files.
-5. Preprocess 1981 to 2001 census data in jupyter notebooks.
-6. Fix inconsistent DIM0 values.
+1. Geographies that do not work properly.
+2021:
+FED 2013
+FED 2023
+2011 NHS DA (2010):
+DA
+2006:
+DA
+CT
+CSD
+CD
+2001:
+PR 
+CD
+CSD
+FED 1996
+CT
+DA
+1996:
+FED 1996
+CT
+EA
+1991:
+PR
+CD
+CSD
+CT
+1986:
+PR
+CSD
+1981:
+PR
+CD
+CSD
+CT
