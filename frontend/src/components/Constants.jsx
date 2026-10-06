@@ -216,8 +216,8 @@ const VALUE_NEW = {
   6: 'C12_RATE_WOMEN+'
 }
 
-export function getColValue(censusYear, columnID) {
-  if (censusYear >= 2021) {
+export function getColValue(apiYear, columnID) {
+  if (apiYear >= 2021) {
     return VALUE_NEW[columnID];
   } else {
     return VALUE_LEGACY[columnID];

@@ -103,75 +103,51 @@ function CensusTiles({
 
       if (geoCodes.length === 0) return;
 
-      const missingGeoCodes = geoCodes.filter(
-        geoCode => !valueCache.current.has(geoCode),
+      const response = await fetch(
+        `${API_URL}/api/population_batch`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            census_year: apiYear,
+            geo_codes: geoCodes,
+            char_id: charId,
+            value,
+            num_colours: colourCount,
+            equal_width: equalWidth,
+          }),
+        },
       );
 
-      if (missingGeoCodes.length > 0) {
-        const response = await fetch(
-          `${API_URL}/api/population_batch`,
-          {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              census_year: apiYear,
-              geo_codes: missingGeoCodes,
-              char_id: charId,
-              value,
-              num_colours: colourCount,
-              equal_width: equalWidth
-            }),
-          },
+      if (!response.ok) {
+        console.error(
+          'Population request failed:',
+          response.status,
         );
-
-        if (!response.ok) {
-          console.error(
-            'Population request failed:',
-            response.status,
-          );
-          return;
-        }
-
-        const data = await response.json();
-
-        for (const item of data) {
-          valueCache.current.set(
-            String(item.geo_code),
-            item,
-          );
-        }
+        return;
       }
 
-      const visibleValues = geoCodes
-        .map(geoCode => valueCache.current.get(geoCode))
-        .filter(
-          item =>
-            item &&
-            Number.isFinite(Number(item.value)),
-        );
+      const data = await response.json();
 
-      if (visibleValues.length === 0) return;
+      const expression = ['case'];
 
-
-      const expression = [
-        'case',
-      ];
-
-      for (const geoCode of geoCodes) {
-        const item = valueCache.current.get(geoCode);
-
-        if (!item || !Array.isArray(item.colour)) {
+      for (const item of data) {
+        if (!Array.isArray(item.colour)) {
           continue;
         }
 
         const colour = item.colour;
 
         expression.push(
-          ['==', ['id'], geoCode],
+          ['==', ['id'], String(item.geo_code)],
           `rgb(${colour[0]}, ${colour[1]}, ${colour[2]})`,
         );
+      }
+
+      if (expression.length === 1) {
+        return;
       }
 
       expression.push('#cccccc');

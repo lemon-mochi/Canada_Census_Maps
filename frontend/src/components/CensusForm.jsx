@@ -163,12 +163,9 @@ const CensusForm = ({
         </a>
       )}
 
-      {censusYear <= 2006 && (
-        <p>
-          NOTICE: For 1981, 1986, 1991, 1996, 2001, and 2006 census years, not all characteristics are available for all geographic levels.
-        </p>
-      )}
-        
+      <p>
+        NOTICE: Not all characteristics are available for all geographic levels.
+      </p>        
 
       {censusYear == 2011 && (
         <p>
@@ -246,7 +243,8 @@ const CensusForm = ({
 
       <p>
         Currently displaying: <br></br>
-        Characteristic: {charName}; Value: {getColValue(toApiYear(censusYear), columnId)}
+        Characteristic: {charName} <br></br>
+        Value: {getColValue(toApiYear(censusYear), columnId)}
       </p>
 
 
