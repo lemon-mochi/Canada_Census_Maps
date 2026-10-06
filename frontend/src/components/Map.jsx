@@ -218,7 +218,7 @@ function CensusTiles({
                 type: 'vector',
                 url: `pmtiles://${API_URL}${data.url}`,
                 promoteId: getTileID(apiYear, geoLevel),
-                minzoom: 2,
+                minzoom: 0,
               },
             },
 

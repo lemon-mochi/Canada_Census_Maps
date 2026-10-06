@@ -9,6 +9,7 @@ import {
   toApiYear,
   buildTree,
   getColourPalette,
+  getColValue
 } from '@/components/Constants.jsx';
 
 // Characteristics are static per year, so cache them for the session.
@@ -76,6 +77,8 @@ const CensusForm = ({
   setCensusYear,
   geoLevel,
   setGeoLevel,
+  charName,
+  columnId,
   onSelect = () => {},
   onColourCountChange = () => {},
   onEqualWidthChange = () => {},
@@ -160,9 +163,12 @@ const CensusForm = ({
         </a>
       )}
 
-      <p>
-        NOTICE: For 1981, 1991, 1996, 2001, and 2006 census years, not all characteristics are available for all geographic levels.
-      </p>
+      {censusYear <= 2006 && (
+        <p>
+          NOTICE: For 1981, 1986, 1991, 1996, 2001, and 2006 census years, not all characteristics are available for all geographic levels.
+        </p>
+      )}
+        
 
       {censusYear == 2011 && (
         <p>
@@ -236,7 +242,12 @@ const CensusForm = ({
           />
           Equal frequency
         </label>
-      </div> 
+      </div>
+
+      <p>
+        Currently displaying: <br></br>
+        Characteristic: {charName}; Value: {getColValue(toApiYear(censusYear), columnId)}
+      </p>
 
 
       <h2 className={styles.heading}>Characteristics</h2>
@@ -310,6 +321,7 @@ const CharacteristicNode = ({ node, onSelect }) => {
               onClick={() =>
                 onSelect({
                   charId: node.CHARACTERISTIC_ID,
+                  charName: node.CHARACTERISTIC_NAME,
                   columnId: column.column_id,
                   columnName: column.column_name,
                 })

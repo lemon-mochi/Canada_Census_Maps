@@ -8,6 +8,7 @@ function App() {
   const [geoLevel, setGeoLevel] = useState('Province');
 
   const [charId, setCharId] = useState(1);
+  const [charName, setCharName] = useState("Population, 2021");
   const [value, setValue] = useState(1);
 
   const [colourCount, setColourCount] = useState(5);
@@ -16,9 +17,11 @@ function App() {
   const handleSelect = ({
     charId,
     columnId,
+    charName
   }) => {
     setCharId(charId);
     setValue(columnId);
+    setCharName(charName);
   };
 
   return (
@@ -40,6 +43,8 @@ function App() {
         onSelect={handleSelect}
         onColourCountChange={setColourCount}
         onEqualWidthChange={setEqualWidth}
+        charName={charName}
+        columnId={value}
       />
     </div>
   );
