@@ -5,6 +5,8 @@ The thistle🪻, shamrock☘️, rose🌹 entwine,\
 
 There is no thistle emoji so I used the closest looking thing. If you are not satisfied, here is a unicorn: 🦄.
 
+A note on the reference: The Maple Leaf Forever is a historic Canadian song, and I am using the reference here as an expression of personal Canadian pride and an appreciation of Canadian history, and not as a statement about who does or does not belong in Canada. Canada’s history includes many different peoples and perspectives, and this project is intended to celebrate the country and its people through census data.
+
 # Running locally #
 You will need to gather vector tiles and parquet files for this program to work properly.\
 If you would like to create the files from scrath, you can follow the procedure I have listed out.
