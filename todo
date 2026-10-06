@@ -1,35 +1,26 @@
 1. Geographies that do not work properly.
-2021:
-FED 2013
-FED 2023
-2011 NHS DA (2010):
-DA
-2006:
-DA
-CT
-CSD
-CD
-2001:
-PR 
-CD
-CSD
-FED 1996
-CT
-DA
-1996:
-FED 1996
-CT
-EA
-1991:
-PR
-CD
-CSD
-CT
-1986:
-PR
-CSD
-1981:
-PR
-CD
-CSD
-CT
+1991 census tracts
+Some vector tiles have information in second block:
+example:
+1991_ct Polygon
+missing ID
+CA	933
+CT_NAME	238.01
+CA_CTNAME	933238.01
+1991_ct Polygon
+missing ID
+CA	933
+CT_NAME	238.01
+CT_CODE	3924
+PROV	59
+program expects the first block to have all the needed information.
+
+2001-2006 dissemination areas
+GEO_CODE does not match DAUID.
+Example: GEO_CODE: 59150253648 and DAUID: 59153648
+The GEO_NAME associated with GEO_CODE: 59150253648 is the same as the DAUID.
+1996 enumeration areas do not have this problem.
+
+1981 provinces, census divisions, census subdivisions show values but are grey in colour.
+1986 provinces, census subdivisions show values but are grey in colour.
+1991 provinces, census divisions, census subdivisions show values but are grey in colour.
