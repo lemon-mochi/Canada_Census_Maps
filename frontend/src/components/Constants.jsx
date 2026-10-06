@@ -316,7 +316,7 @@ function cleanCT1991(CA, PROV, CT_CODE) {
 };
 
 const geoCodeIDs91 = {
-  'Province': 'PR',
+  'Province': 'PROV',
   'Census division': 'CD',
   'Census subdivision': 'CSD',
   'Federal electoral district (1987 Representation Order)': 'FED'

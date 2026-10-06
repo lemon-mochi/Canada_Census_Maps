@@ -191,8 +191,6 @@ function CensusTiles({
         String(geoCode),
       );
 
-      console.log('char name: ', charName);
-
       const popupHtml = `
         <div style="
           max-height: 200px;
@@ -240,14 +238,6 @@ function CensusTiles({
         .setLatLng(e.latlng)
         .setContent(popupHtml)
         .openOn(map);
-    }    
-
-    function handleMouseEnter() {
-      map.getContainer().style.cursor = 'pointer';
-    }
-
-    function handleMouseLeave() {
-      map.getContainer().style.cursor = '';
     }
 
     async function loadTiles() {

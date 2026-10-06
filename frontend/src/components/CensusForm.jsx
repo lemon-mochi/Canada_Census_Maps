@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import styles from '@/components/CensusForm.module.scss';
 import {
   API_URL,
@@ -91,7 +91,7 @@ const CensusForm = ({
 
   const tree = useMemo(() => buildTree(chars), [chars]);
   const geoLevels = geoLevelsFor(censusYear);
-  const source = SOURCES[censusYear];
+  const source = SOURCES[censusYear];  
 
   const changeColourCount = (amount) => {
     setColourCount((prev) => {
@@ -122,10 +122,10 @@ const CensusForm = ({
         </div>
 
         <label htmlFor="census_year">Choose census year:</label>
-        <select
-          id="census_year"
-          value={censusYear}
-          onChange={(e) => setCensusYear(e.target.value)}
+        <select 
+          id="census_year" 
+          value={censusYear} 
+          onChange={(e) => setCensusYear(e.target.value)} 
         >
           {CENSUS_YEARS.map((year) => (
             <option key={year} value={year}>
@@ -244,7 +244,12 @@ const CensusForm = ({
       <p>
         Currently displaying: <br></br>
         Characteristic: {charName} <br></br>
-        Value: {getColValue(toApiYear(censusYear), columnId)}
+        Value: {
+          columnId != null
+          ? getColValue(toApiYear(censusYear), columnId)
+          : 'None'
+          
+        }
       </p>
 
 

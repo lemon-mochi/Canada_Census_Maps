@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import CensusMap from './components/Map.jsx';
 import CensusForm from './components/CensusForm.jsx';
 import './styles/globals.scss';
+import { geoLevelsFor } from './components/Constants.jsx';
 
 function App() {
   const [censusYear, setCensusYear] = useState('2021');
@@ -24,6 +25,23 @@ function App() {
     setCharName(charName);
   };
 
+  const handleCensusYearChange = (year) => {
+    setCensusYear(year);
+
+    const levels = geoLevelsFor(year);
+    const firstLevel = levels.find(
+      (level) => level.value !== 'auto'
+    );
+
+    if (firstLevel) {
+      setGeoLevel(firstLevel.value);
+    }
+
+    setCharId(null);
+    setCharName(null);
+    setValue(null);
+  };  
+
   return (
     <div className="container">
       <CensusMap
@@ -38,7 +56,7 @@ function App() {
 
       <CensusForm
         censusYear={censusYear}
-        setCensusYear={setCensusYear}
+        setCensusYear={handleCensusYearChange}
         geoLevel={geoLevel}
         setGeoLevel={setGeoLevel}
         onSelect={handleSelect}
