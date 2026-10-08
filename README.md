@@ -119,7 +119,7 @@ The official Statistics Canada website has boundary files for the 2001 census bu
 
 [1986 Census tracts](https://abacus.library.ubc.ca/dataset.xhtml;jsessionid=93f40158273d2c98f1527bf772bb?persistentId=hdl%3A11272.1%2FAB2%2FGFNVAF&version=&q=&fileTypeGroupFacet=%22Unknown%22&fileAccess=&fileTag=%22Data%22&fileSortField=&fileSortOrder=)
 
-It is better to use the boundary files for 1986 census tracts from [UNI-CEN](https://abacus.library.ubc.ca/dataset.xhtml;jsessionid=93f40158273d2c98f1527bf772bb?persistentId=hdl%3A11272.1%2FAB2%2FGFNVAF&version=&q=&fileTypeGroupFacet=%22Unknown%22&fileAccess=&fileTag=%22Data%22&fileSortField=&fileSortOrder=). The Census Tracts in the Google Drive `.zip` are split by Census Metropolitan Areas/Census Agglomerations, and do not contain the fields needed to match with a `GEO_CODE` in the database. This made it a nightmare to work with on the frontend side. The Google Drive download may still contain the census tracts. You may disregard it. The 1986 census tracts boundary files are in `.shp` format, meaning you must put them in `backend/geographies/boundaries` with the files from 2006 to 2021. 
+It is better to use the boundary files for 1986 census tracts from [UNI-CEN](https://abacus.library.ubc.ca/dataset.xhtml;jsessionid=93f40158273d2c98f1527bf772bb?persistentId=hdl%3A11272.1%2FAB2%2FGFNVAF&version=&q=&fileTypeGroupFacet=%22Unknown%22&fileAccess=&fileTag=%22Data%22&fileSortField=&fileSortOrder=). The Census Tracts in the Google Drive `.zip` are split by Census Metropolitan Areas/Census Agglomerations, and do not contain the fields needed to match with a `GEO_CODE` in the database. This made it a nightmare to work with on the frontend side. The Google Drive download may still contain the census tracts. You may disregard it. The 1986 census tracts boundary files are in `.shp` format, meaning you must put them in `backend/geographies/boundaries` with the files from 2006 to 2021.
 
 [1981 All geographies (except for census tracts)](https://drive.google.com/file/d/13132K4Qw3WDbxA7NPCqJJPeuXwtmhzZg/view?usp=sharing)
 
@@ -131,7 +131,7 @@ For simplicity, you should place the 1981 census tracts `.geojson` into the dire
 
 After extracting the `.zip` file, you will see a `MANIFEST.txt` file, and a directory called `Data`. Place both of them into the `backend/geographies/1981-2001_geojson/{census_year}` directory, where `{census_year}` matches the census year of the downloaded file.
 
-Then, run the `merge_split_geojson.py` file to merge needed `.geojson` files together.
+1991 Census tracts came in two files. Both files are needed to work with the frontend. I have written a Python program to merge the two files and their vector tiles together. Run the `merge_split_geojson.py` file to merge needed `.geojson` files together.
 ```
 python3 merge_split_geojson.py
 ```
