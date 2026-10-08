@@ -139,291 +139,292 @@
 138,  Number of economic family persons
 139,Average number of persons per economic family
 140,Total population (including institutional residents)
-141,Total population (non-institutional)
-142,Home language - single responses
-143,  English
-144,  French
-145,  Non-official languages
-146,    Aboriginal languages
-147,    Italian
-148,    Portuguese
-149,    Spanish
-150,    German
-151,    Yiddish
-152,    Dutch
-153,    Ukrainian
-154,    Russian
-155,    Polish
-156,    Finnish
-157,    Hungarian
-158,    Greek
-159,    Arabic
-160,    Punjabi
-161,    Chinese
-162,    Vietnamese
-163,    Tagalog (Pilipino)
-164,    Other languages
-165,Home language - multiple responses
-166,Total population by official language
-167,  English only
-168,  French only
-169,  Both English and French
-170,  Neither English nor French
-171,Total population by ethnic origin
-172,  Ethnic origin - single origins
-173,    British
-174,    French
-175,    Aboriginal peoples
-176,    Black
-177,    Chinese
-178,    Dutch (Netherlands)
-179,    German
-180,    Italian
-181,    Jewish
-182,    Polish
-183,    Scandinavian
-184,    South Asian
-185,    Ukrainian
-186,    Other single origins
-187,  Ethnic origin - multiple origins
-188,    British only
-189,    British and French
-190,    British and other
-191,    Other multiple origins
-192,Total population by citizenship
-193,  Citizenship - Canadian
-194,  Citizenship other than Canadian
-195,Total population by place of birth
-196,  Non-immigrant population
-197,    Born in province of residence
-198,  Immigrant population
-199,    United States of America
-200,    Other Americas
-201,    United Kingdom
-202,    Other Europe
-203,    Africa
-204,    Asia
-205,    Other
-206,Total immigrant population by period of immigration
-207,  Immigrated before 1946
-208,  Immigrated 1946 - 1966
-209,  Immigrated 1967 - 1977
-210,  Immigrated 1978 - 1982
-211,  Immigrated 1983 - 1986
-212,Total immigrant population by age at immigration
-213,  Age at immigration 0 - 4 years
-214,  Age at immigration 5 - 19 years
-215,  Age at immigration 20 years and over
-216,Total population 5 years and over by mobility status
-217,  Non-movers
-218,  Movers
-219,    Non-migrants
-220,    Migrants
-221,      From same census division
-222,      From same CMA or CA
-223,      From same province
-224,      From different province
-225,      From outside Canada
-226,Total population 15 years and over by highest level of schooling
-227,  Less than grade 9
-228,  Grades 9 - 13 without secondary school certificate
-229,  Grades 9 - 13 with secondary school certificate
-230,  Trades certificate or diploma
-231,  Other non-university education without diploma
-232,  Other non-university education with diploma
-233,  University without degree
-234,  University with degree
-235,Males with postsecondary qualifications by major field of study
-236,"  Educational, recreational and counselling services"
-237,  Fine and applied arts
-238,  Humanities and related fields
-239,  Social sciences and related fields
-240,"  Commerce, management and business administration"
-241,  Agricultural and biological sciences/technologies
-242,  Engineering and applied sciences
-243,  Engineering and applied science technologies and trades
-244,"  Health professions, sciences and technologies"
-245,  Mathematics and physical sciences
-246,  All other
-247,Females with postsecondary qualifications by major field of study
-248,"  Educational, recreational and counselling services"
-249,  Fine and applied arts
-250,  Humanities and related fields
-251,  Social sciences and related fields
-252,"  Commerce, management and business administration"
-253,  Agricultural and biological sciences/technologies
-254,  Engineering and applied sciences
-255,  Engineering and applied science technologies and trades
-256,"  Health professions, sciences and technologies"
-257,  Mathematics and physical sciences
-258,  All other
-259,Males 15 years and over by labour force activity
-260,  In the labour force
-261,    Employed
-262,    Unemployed
-263,  Participation rate
-264,    Married (excludes separated)
-265,  Unemployment rate
-266,Females 15 years and over by labour force activity
-267,  In the labour force
-268,    Employed
-269,    Unemployed
-270,  Participation rate
-271,    Married (excludes separated)
-272,  Unemployment rate
-273,Both sexes - participation rate
-274,    15 - 24 years
-275,    25 years and over
-276,    Married (excludes separated)
-277,  Unemployment rate
-278,    15 - 24 years
-279,    25 years and over
-280,Total labour force 15 years and over by industry (1980 Standard Industrial Classification)
-281,  Inexperienced labour force
-282,  All industries
-283,    Primary industries
-284,    Manufacturing industries
-285,    Construction industries
-286,"    Transportation, storage, communication and other utility industries"
-287,    Trade industries
-288,"    Finance, insurance and real estate industries"
-289,    Government service industries
-290,    Other service industries
-291,Males - all occupations (1980 Standard Occupational Classification)
-292,"  Managerial, administrative and related occupations"
-293,  Teaching and related occupations
-294,  Occupations in medicine and health
-295,"  Technological, social, religious, artistic and related occupations"
-296,  Clerical and related occupations
-297,  Sales occupations
-298,  Service occupations
-299,  Primary occupations
-300,  Processing occupations
-301,"  Machining, product fabricating, assembling and repairing occupations"
-302,  Construction trades occupations
-303,  Transport equipment operating occupations
-304,  Other
-305,Females - all occupations (1980 Standard Occupational Classification)
-306,"  Managerial, administrative and related occupations"
-307,  Teaching and related occupations
-308,  Occupations in medicine and health
-309,"  Technological, social, religious, artistic and related occupations"
-310,  Clerical and related occupations
-311,  Sales occupations
-312,  Service occupations
-313,  Primary occupations
-314,  Processing occupations
-315,"  Machining, product fabricating, assembling and repairing occupations"
-316,  Construction trades occupations
-317,  Transport equipment operating occupations
-318,  Other
-319,Males - all classes of worker
-320,  Paid workers
-321,  Self-employed
-322,Females - all classes of worker
-323,  Paid workers
-324,  Self-employed
-325,Total number of occupied private dwellings
-326,  Average number of rooms per dwelling
-327,  Average value of dwelling ($)
-328,  Constructed before 1946
-329,  Constructed 1946 - 1960
-330,  Constructed 1961 - 1970
-331,  Constructed 1971 - 1980
-332,  Constructed 1981 - 1986
-333,  Dwellings with central heating
-334,  Principal heating fuel - Gas
-335,  Principal heating fuel - Electricity
-336,  Principal heating fuel - Oil
-337,  Principal heating fuel - Other
-338,Total number of private households
-339,  Average number of persons per room
-340,Tenant one-family households without additional persons
-341,  Average gross rent (monthly) ($)
-342,  Gross rent >= 30% of household income
-343,Owner one-family households without additional persons
-344,  Average major payments for owner (monthly) ($)
-345,  Owner's major payments >= 30% of household income
-346,Males 15 years and over with income
-347,"  Under $1,000"
-348,"  $ 1,000 - $ 2,999"
-349,"    3,000 -   4,999"
-350,"    5,000 -   6,999"
-351,"    7,000 -   9,999"
-352,"   10,000 -  14,999"
-353,"   15,000 -  19,999"
-354,"   20,000 -  24,999"
-355,"   25,000 -  29,999"
-356,"   30,000 -  34,999"
-357,"   35,000 and over"
-358,  Average income ($)
-359,  Median income ($)
-360,  Standard error of average income ($)
-361,Females 15 years and over with income
-362,"  Under $1,000"
-363,"  $ 1,000 - $ 2,999"
-364,"    3,000 -   4,999"
-365,"    5,000 -   6,999"
-366,"    7,000 -   9,999"
-367,"   10,000 -  14,999"
-368,"   15,000 -  19,999"
-369,"   20,000 -  24,999"
-370,"   25,000 -  29,999"
-371,"   30,000 -  34,999"
-372,"   35,000 and over"
-373,  Average income ($)
-374,  Median income ($)
-375,  Standard error of average income ($)
-376,Composition of total income (%) - Total
-377,  Employment income (%)
-378,  Government transfer payments (%)
-379,  Other income (%)
-380,"Males worked full year, full time"
-381,  Average employment income ($)
-382,  Standard error of average employment income ($)
-383,Males worked part year or part time
-384,  Average employment income ($)
-385,  Standard error of average employment income ($)
-386,"Females worked full year, full time"
-387,  Average employment income ($)
-388,  Standard error of average employment income ($)
-389,Females worked part year or part time
-390,  Average employment income ($)
-391,  Standard error of average employment income ($)
-392,Family income - all census families
-393,"  Under $5,000"
-394,"  $ 5,000 - $ 9,999"
-395,"   10,000 -  14,999"
-396,"   15,000 -  19,999"
-397,"   20,000 -  24,999"
-398,"   25,000 -  29,999"
-399,"   30,000 -  34,999"
-400,"   35,000 -  39,999"
-401,"   40,000 -  49,999"
-402,"   50,000 and over"
-403,  Average income ($)
-404,  Median income ($)
-405,  Standard error of average income ($)
-406,All economic families
-407,  Low income economic families
-408,  Incidence of low income (%)
-409,All unattached individuals
-410,  Low income unattached individuals
-411,  Incidence of low income (%)
-412,Total population in private households
-413,  Persons in low income family units
-414,  Incidence of low income (%)
-415,Household income - all private households
-416,"  Under $5,000"
-417,"  $ 5,000 - $ 9,999"
-418,"   10,000 -  14,999"
-419,"   15,000 -  19,999"
-420,"   20,000 -  24,999"
-421,"   25,000 -  29,999"
-422,"   30,000 -  34,999"
-423,"   35,000 -  39,999"
-424,"   40,000 -  49,999"
-425,"   50,000 and over"
-426,  Average income ($)
-427,  Median income ($)
-428,  Standard error of average income ($)
+141,Total population (including institutional residents)
+142,Total population (non-institutional)
+143,Home language - single responses
+144,  English
+145,  French
+146,  Non-official languages
+147,    Aboriginal languages
+148,    Italian
+149,    Portuguese
+150,    Spanish
+151,    German
+152,    Yiddish
+153,    Dutch
+154,    Ukrainian
+155,    Russian
+156,    Polish
+157,    Finnish
+158,    Hungarian
+159,    Greek
+160,    Arabic
+161,    Punjabi
+162,    Chinese
+163,    Vietnamese
+164,    Tagalog (Pilipino)
+165,    Other languages
+166,Home language - multiple responses
+167,Total population by official language
+168,  English only
+169,  French only
+170,  Both English and French
+171,  Neither English nor French
+172,Total population by ethnic origin
+173,  Ethnic origin - single origins
+174,    British
+175,    French
+176,    Aboriginal peoples
+177,    Black
+178,    Chinese
+179,    Dutch (Netherlands)
+180,    German
+181,    Italian
+182,    Jewish
+183,    Polish
+184,    Scandinavian
+185,    South Asian
+186,    Ukrainian
+187,    Other single origins
+188,  Ethnic origin - multiple origins
+189,    British only
+190,    British and French
+191,    British and other
+192,    Other multiple origins
+193,Total population by citizenship
+194,  Citizenship - Canadian
+195,  Citizenship other than Canadian
+196,Total population by place of birth
+197,  Non-immigrant population
+198,    Born in province of residence
+199,  Immigrant population
+200,    United States of America
+201,    Other Americas
+202,    United Kingdom
+203,    Other Europe
+204,    Africa
+205,    Asia
+206,    Other
+207,Total immigrant population by period of immigration
+208,  Immigrated before 1946
+209,  Immigrated 1946 - 1966
+210,  Immigrated 1967 - 1977
+211,  Immigrated 1978 - 1982
+212,  Immigrated 1983 - 1986
+213,Total immigrant population by age at immigration
+214,  Age at immigration 0 - 4 years
+215,  Age at immigration 5 - 19 years
+216,  Age at immigration 20 years and over
+217,Total population 5 years and over by mobility status
+218,  Non-movers
+219,  Movers
+220,    Non-migrants
+221,    Migrants
+222,      From same census division
+223,      From same CMA or CA
+224,      From same province
+225,      From different province
+226,      From outside Canada
+227,Total population 15 years and over by highest level of schooling
+228,  Less than grade 9
+229,  Grades 9 - 13 without secondary school certificate
+230,  Grades 9 - 13 with secondary school certificate
+231,  Trades certificate or diploma
+232,  Other non-university education without diploma
+233,  Other non-university education with diploma
+234,  University without degree
+235,  University with degree
+236,Males with postsecondary qualifications by major field of study
+237,"  Educational, recreational and counselling services"
+238,  Fine and applied arts
+239,  Humanities and related fields
+240,  Social sciences and related fields
+241,"  Commerce, management and business administration"
+242,  Agricultural and biological sciences/technologies
+243,  Engineering and applied sciences
+244,  Engineering and applied science technologies and trades
+245,"  Health professions, sciences and technologies"
+246,  Mathematics and physical sciences
+247,  All other
+248,Females with postsecondary qualifications by major field of study
+249,"  Educational, recreational and counselling services"
+250,  Fine and applied arts
+251,  Humanities and related fields
+252,  Social sciences and related fields
+253,"  Commerce, management and business administration"
+254,  Agricultural and biological sciences/technologies
+255,  Engineering and applied sciences
+256,  Engineering and applied science technologies and trades
+257,"  Health professions, sciences and technologies"
+258,  Mathematics and physical sciences
+259,  All other
+260,Males 15 years and over by labour force activity
+261,  In the labour force
+262,    Employed
+263,    Unemployed
+264,  Participation rate
+265,    Married (excludes separated)
+266,  Unemployment rate
+267,Females 15 years and over by labour force activity
+268,  In the labour force
+269,    Employed
+270,    Unemployed
+271,  Participation rate
+272,    Married (excludes separated)
+273,  Unemployment rate
+274,Both sexes - participation rate
+275,    15 - 24 years
+276,    25 years and over
+277,    Married (excludes separated)
+278,  Unemployment rate
+279,    15 - 24 years
+280,    25 years and over
+281,Total labour force 15 years and over by industry (1980 Standard Industrial Classification)
+282,  Inexperienced labour force
+283,  All industries
+284,    Primary industries
+285,    Manufacturing industries
+286,    Construction industries
+287,"    Transportation, storage, communication and other utility industries"
+288,    Trade industries
+289,"    Finance, insurance and real estate industries"
+290,    Government service industries
+291,    Other service industries
+292,Males - all occupations (1980 Standard Occupational Classification)
+293,"  Managerial, administrative and related occupations"
+294,  Teaching and related occupations
+295,  Occupations in medicine and health
+296,"  Technological, social, religious, artistic and related occupations"
+297,  Clerical and related occupations
+298,  Sales occupations
+299,  Service occupations
+300,  Primary occupations
+301,  Processing occupations
+302,"  Machining, product fabricating, assembling and repairing occupations"
+303,  Construction trades occupations
+304,  Transport equipment operating occupations
+305,  Other
+306,Females - all occupations (1980 Standard Occupational Classification)
+307,"  Managerial, administrative and related occupations"
+308,  Teaching and related occupations
+309,  Occupations in medicine and health
+310,"  Technological, social, religious, artistic and related occupations"
+311,  Clerical and related occupations
+312,  Sales occupations
+313,  Service occupations
+314,  Primary occupations
+315,  Processing occupations
+316,"  Machining, product fabricating, assembling and repairing occupations"
+317,  Construction trades occupations
+318,  Transport equipment operating occupations
+319,  Other
+320,Males - all classes of worker
+321,  Paid workers
+322,  Self-employed
+323,Females - all classes of worker
+324,  Paid workers
+325,  Self-employed
+326,Total number of occupied private dwellings
+327,  Average number of rooms per dwelling
+328,  Average value of dwelling ($)
+329,  Constructed before 1946
+330,  Constructed 1946 - 1960
+331,  Constructed 1961 - 1970
+332,  Constructed 1971 - 1980
+333,  Constructed 1981 - 1986
+334,  Dwellings with central heating
+335,  Principal heating fuel - Gas
+336,  Principal heating fuel - Electricity
+337,  Principal heating fuel - Oil
+338,  Principal heating fuel - Other
+339,Total number of private households
+340,  Average number of persons per room
+341,Tenant one-family households without additional persons
+342,  Average gross rent (monthly) ($)
+343,  Gross rent >= 30% of household income
+344,Owner one-family households without additional persons
+345,  Average major payments for owner (monthly) ($)
+346,  Owner's major payments >= 30% of household income
+347,Males 15 years and over with income
+348,"  Under $1,000"
+349,"  $ 1,000 - $ 2,999"
+350,"    3,000 -   4,999"
+351,"    5,000 -   6,999"
+352,"    7,000 -   9,999"
+353,"   10,000 -  14,999"
+354,"   15,000 -  19,999"
+355,"   20,000 -  24,999"
+356,"   25,000 -  29,999"
+357,"   30,000 -  34,999"
+358,"   35,000 and over"
+359,  Average income ($)
+360,  Median income ($)
+361,  Standard error of average income ($)
+362,Females 15 years and over with income
+363,"  Under $1,000"
+364,"  $ 1,000 - $ 2,999"
+365,"    3,000 -   4,999"
+366,"    5,000 -   6,999"
+367,"    7,000 -   9,999"
+368,"   10,000 -  14,999"
+369,"   15,000 -  19,999"
+370,"   20,000 -  24,999"
+371,"   25,000 -  29,999"
+372,"   30,000 -  34,999"
+373,"   35,000 and over"
+374,  Average income ($)
+375,  Median income ($)
+376,  Standard error of average income ($)
+377,Composition of total income (%) - Total
+378,  Employment income (%)
+379,  Government transfer payments (%)
+380,  Other income (%)
+381,"Males worked full year, full time"
+382,  Average employment income ($)
+383,  Standard error of average employment income ($)
+384,Males worked part year or part time
+385,  Average employment income ($)
+386,  Standard error of average employment income ($)
+387,"Females worked full year, full time"
+388,  Average employment income ($)
+389,  Standard error of average employment income ($)
+390,Females worked part year or part time
+391,  Average employment income ($)
+392,  Standard error of average employment income ($)
+393,Family income - all census families
+394,"  Under $5,000"
+395,"  $ 5,000 - $ 9,999"
+396,"   10,000 -  14,999"
+397,"   15,000 -  19,999"
+398,"   20,000 -  24,999"
+399,"   25,000 -  29,999"
+400,"   30,000 -  34,999"
+401,"   35,000 -  39,999"
+402,"   40,000 -  49,999"
+403,"   50,000 and over"
+404,  Average income ($)
+405,  Median income ($)
+406,  Standard error of average income ($)
+407,All economic families
+408,  Low income economic families
+409,  Incidence of low income (%)
+410,All unattached individuals
+411,  Low income unattached individuals
+412,  Incidence of low income (%)
+413,Total population in private households
+414,  Persons in low income family units
+415,  Incidence of low income (%)
+416,Household income - all private households
+417,"  Under $5,000"
+418,"  $ 5,000 - $ 9,999"
+419,"   10,000 -  14,999"
+420,"   15,000 -  19,999"
+421,"   20,000 -  24,999"
+422,"   25,000 -  29,999"
+423,"   30,000 -  34,999"
+424,"   35,000 -  39,999"
+425,"   40,000 -  49,999"
+426,"   50,000 and over"
+427,  Average income ($)
+428,  Median income ($)
+429,  Standard error of average income ($)
