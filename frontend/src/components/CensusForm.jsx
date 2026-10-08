@@ -10,7 +10,7 @@ import {
   buildTree,
   getColourPalette,
   getColValue
-} from '@/components/Constants.jsx';
+} from '@/constants/Constants.jsx';
 
 // Characteristics are static per year, so cache them for the session.
 const characteristicsCache = new Map();
@@ -198,7 +198,7 @@ const CensusForm = ({
               +
             </button>
           </div>
-        </div>        
+        </div>
 
         <div className={styles.colourLegend}>
           {getColourPalette(colourCount).map((colour, index) => (

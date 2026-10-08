@@ -11,10 +11,12 @@ import styles from '@/components/Map.module.scss';
 import { 
   API_URL,
   toApiYear,
-  getTileID,
-  getGeoCode,
   getColValue
-} from '@/components/Constants.jsx';
+} from '@/constants/Constants.jsx';
+import {
+  getTileID,
+  getGeoCode,  
+} from '@/constants/tile_mappings.jsx';
 import L from 'leaflet';
 
 maplibregl.setWorkerUrl(maplibreWorker);
@@ -72,10 +74,6 @@ function CensusTiles({
       return;
     }
 
-    if (charId == null || value == null) {
-      return;
-    }
-
     let isMounted = true;
     let mapLibreMap = null;
 
@@ -83,6 +81,10 @@ function CensusTiles({
 
     async function updateVisibleValues() {
       if (!mapLibreMap) return;
+
+      if (charId == null || value == null) {
+        return;
+      }
 
       const features = mapLibreMap.queryRenderedFeatures({
         layers: ['census-fill'],
@@ -104,6 +106,8 @@ function CensusTiles({
             .map(String),
         ),
       ];
+
+      console.log(geoCodes);
 
       if (geoCodes.length === 0) return;
 
