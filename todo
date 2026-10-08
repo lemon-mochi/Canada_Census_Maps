@@ -15,14 +15,10 @@ CT_CODE	3924
 PROV	59
 program expects the first block to have all the needed information.
 
-2001-2006 dissemination areas
-GEO_CODE does not match DAUID.
-Example: GEO_CODE: 59150253648 and DAUID: 59153648
-The GEO_NAME associated with GEO_CODE: 59150253648 is the same as the DAUID.
-1996 enumeration areas do not have this problem.
+2001-2006 dissemination areas and 1996 to 2006 census tracts show values but are grey in colour.
 
 1981 provinces, census divisions, census subdivisions show values but are grey in colour.
 1986 provinces, census subdivisions show values but are grey in colour.
 1991 provinces, census divisions, census subdivisions show values but are grey in colour.
 
-2021: FED 2013 and FED 2023 both do not work. FED 2013: The value is shown but the map is grey in colour. For FED 2023: Value is N/A.
+2021: FED 2023 does not work. For FED 2023: Value is N/A.
