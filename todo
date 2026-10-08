@@ -1,24 +1,2 @@
-1. Geographies that do not work properly.
-1991 census tracts
-Some vector tiles have information in second block:
-example:
-1991_ct Polygon
-missing ID
-CA	933
-CT_NAME	238.01
-CA_CTNAME	933238.01
-1991_ct Polygon
-missing ID
-CA	933
-CT_NAME	238.01
-CT_CODE	3924
-PROV	59
-program expects the first block to have all the needed information.
-
-2001-2006 dissemination areas and 1996 to 2006 census tracts show values but are grey in colour.
-
-1981 provinces, census divisions, census subdivisions show values but are grey in colour.
-1986 provinces, census subdivisions show values but are grey in colour.
-1991 provinces, census divisions, census subdivisions show values but are grey in colour.
-
-2021: FED 2023 does not work. For FED 2023: Value is N/A.
+1. For geographies with geo codes in database that do not match promoteID of vector tile, everything is shown in grey. Fix this.
+2. Characteristic columns always returns rates for male and female even when there are no counts for male and female.
