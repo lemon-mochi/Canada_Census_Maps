@@ -1,2 +1,1 @@
-1. For geographies with geo codes in database that do not match promoteID of vector tile, everything is shown in grey. Fix this.
-2. Characteristic columns always returns rates for male and female even when there are no counts for male and female.
+1. Characteristic columns always returns rates for male and female even when there are no counts for male and female.
