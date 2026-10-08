@@ -1,4 +1,4 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
 
 from models import Characteristic
 from services.census import load_characteristics
@@ -22,8 +22,6 @@ def get_columns(census_year: int, char_id: int):
                 {"column_id": column["column_id"]}
                 for column in characteristic["columns"]
             ]
-
-    from fastapi import HTTPException
 
     raise HTTPException(
         status_code=404,
