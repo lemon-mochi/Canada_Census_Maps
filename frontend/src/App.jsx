@@ -3,8 +3,12 @@ import CensusMap from './components/Map.jsx';
 import CensusForm from './components/CensusForm.jsx';
 import './styles/globals.scss';
 import { geoLevelsFor } from './constants/Constants.jsx';
+import { loadGeoMappings } from './constants/tile_mappings.jsx'
 
 function App() {
+  useEffect(() => {
+    loadGeoMappings();
+  })
   const [censusYear, setCensusYear] = useState('2021');
   const [geoLevel, setGeoLevel] = useState('Province');
 

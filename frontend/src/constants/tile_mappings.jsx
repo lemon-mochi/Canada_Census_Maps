@@ -14,12 +14,21 @@ async function get_geo_mappings(apiYear, geoLevel) {
     }
 };
 
-const ct_96_mappings = await get_geo_mappings(1996, "Census tract");
-const da_96_mappings = await get_geo_mappings(1996, "Dissemination area");
-const ct_01_mappings = await get_geo_mappings(2001, "Census tract");
-const da_01_mappings = await get_geo_mappings(2001, "Dissemination area");
-const ct_06_mappings = await get_geo_mappings(2006, "Census tract");
-const da_06_mappings = await get_geo_mappings(2006, "Dissemination area");
+let ct_96_mappings;
+let da_96_mappings;
+let ct_01_mappings;
+let da_01_mappings;
+let ct_06_mappings;
+let da_06_mappings;
+
+export async function loadGeoMappings() {
+    ct_96_mappings = await get_geo_mappings(1996, "Census tract");
+    da_96_mappings = await get_geo_mappings(1996, "Dissemination area");
+    ct_01_mappings = await get_geo_mappings(2001, "Census tract");
+    da_01_mappings = await get_geo_mappings(2001, "Dissemination area");
+    ct_06_mappings = await get_geo_mappings(2006, "Census tract");
+    da_06_mappings = await get_geo_mappings(2006, "Dissemination area");
+}
 
 // this works for 2016, 2011, and most of 2006 and 2001 (except for Census tracts and dissemination areas)
 const geoCodeIDs_01_16 = {
@@ -123,11 +132,11 @@ export function getGeoCode(censusYear, geoLevel, feature) {
 
     if (censusYear === 2006) {
         if (geoLevel === 'Census tract') {
-            return ct_06_mappings[properties[geoLevel]];
+            return ct_06_mappings[properties[geoCodeIDs_01_16[geoLevel]]];
         }
 
         if (geoLevel === 'Dissemination area') {
-            return da_06_mappings[properties[geoLevel]];
+            return da_06_mappings[properties[geoCodeIDs_01_16[geoLevel]]];
         }
 
         return properties[geoCodeIDs_01_16[geoLevel]];
@@ -135,11 +144,11 @@ export function getGeoCode(censusYear, geoLevel, feature) {
 
     if (censusYear === 2001) {
         if (geoLevel === 'Census tract') {
-            return ct_01_mappings[properties[geoLevel]];
+            return ct_01_mappings[properties[geoCodeIDs_01_16[geoLevel]]];
         }
 
         if (geoLevel === 'Dissemination area') {
-            return da_01_mappings[properties[geoLevel]];
+            return da_01_mappings[properties[geoCodeIDs_01_16[geoLevel]]];
         }
 
         return properties[geoCodeIDs_01_16[geoLevel]];
@@ -147,7 +156,8 @@ export function getGeoCode(censusYear, geoLevel, feature) {
 
     if (censusYear === 1996) {
         if (geoLevel === 'Census tract') {
-            return ct_96_mappings[properties[geoLevel]];
+            console.log("ct 96 mapping: ", ct_96_mappings[properties[geoCodeIDs96[geoLevel]]]);
+            return ct_96_mappings[properties[geoCodeIDs96[geoLevel]]];
         }
 
         if (geoLevel === 'Dissemination area') {
