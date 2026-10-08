@@ -15,7 +15,6 @@ async function get_geo_mappings(apiYear, geoLevel) {
 };
 
 let ct_96_mappings;
-let da_96_mappings;
 let ct_01_mappings;
 let da_01_mappings;
 let ct_06_mappings;
@@ -23,12 +22,14 @@ let da_06_mappings;
 
 export async function loadGeoMappings() {
     ct_96_mappings = await get_geo_mappings(1996, "Census tract");
-    da_96_mappings = await get_geo_mappings(1996, "Dissemination area");
     ct_01_mappings = await get_geo_mappings(2001, "Census tract");
     da_01_mappings = await get_geo_mappings(2001, "Dissemination area");
     ct_06_mappings = await get_geo_mappings(2006, "Census tract");
     da_06_mappings = await get_geo_mappings(2006, "Dissemination area");
 }
+
+// this will track how geo codes map to tile ids.
+const geoToTile = new Map();
 
 // this works for 2016, 2011, and most of 2006 and 2001 (except for Census tracts and dissemination areas)
 const geoCodeIDs_01_16 = {
@@ -64,7 +65,8 @@ const geoCodeIDs91 = {
   'Province': 'PROV',
   'Census division': 'CD',
   'Census subdivision': 'CSD',
-  'Federal electoral district (1987 Representation Order)': 'FED'
+  'Federal electoral district (1987 Representation Order)': 'FED',
+  'Census tract': 'CA_CTNAME'
   // census tracts is a special case (look at the function above)
 };
 
@@ -82,7 +84,118 @@ const geoCodeIDs81 = {
   'Census tract': 'geosid'
 };
 
-export function getTileID(censusYear, geoLevel) {
+export function getGeoCode(censusYear, geoLevel, feature) {
+    const properties = feature.properties;
+    var ret;
+    var tileID;
+
+    if (censusYear === 2021) {
+        if (geoLevel === 'Federal electoral district (2023 Representation Order)') {
+            ret = '2023A0004' + properties.FED_NUM;
+            geoToTile.set(ret, properties.FED_NUM);
+            return ret;
+        }
+        return properties.DGUID;
+    }
+
+    if (censusYear >= 2010) {
+        return properties[geoCodeIDs_01_16[geoLevel]];
+    }
+
+    if (censusYear === 2006) {
+        tileID = properties[geoCodeIDs_01_16[geoLevel]];
+        if (geoLevel === 'Census tract') {
+
+            ret = ct_06_mappings[tileID];
+            geoToTile.set(
+                ret,
+                tileID
+            );
+            return ret;
+        }
+
+        if (geoLevel === 'Dissemination area') {
+
+            ret = da_06_mappings[tileID];
+            geoToTile.set(
+                ret,
+                tileID
+            );
+            return ret;
+        }
+
+        return tileID;
+    }
+
+    if (censusYear === 2001) {
+        tileID = properties[geoCodeIDs_01_16[geoLevel]];
+        if (geoLevel === 'Census tract') {
+
+            ret = ct_01_mappings[tileID];
+            geoToTile.set(
+                ret,
+                tileID
+            );
+            return ret;
+        }
+
+        if (geoLevel === 'Dissemination area') {
+
+            ret = da_01_mappings[tileID];
+            geoToTile.set(
+                ret,
+                tileID
+            );            
+            return ret;
+        }
+
+        return tileID;
+    }
+
+    if (censusYear === 1996) {
+        tileID = properties[geoCodeIDs96[geoLevel]];
+        if (geoLevel === 'Census tract') {
+
+            ret = ct_96_mappings[tileID];
+            geoToTile.set(
+                ret,
+                tileID
+            );
+            return ret;
+        }
+
+        return tileID;
+    }
+
+    if (censusYear === 1991) {
+        if (geoLevel === 'Census tract') {
+
+            ret = cleanCT1991(
+                properties.CA,
+                properties.PROV,
+                properties.CT_CODE
+            );
+            geoToTile.set(
+                ret,
+                properties[geoCodeIDs91[geoLevel]]
+            );
+
+            return ret;
+        }
+
+        return properties[geoCodeIDs91[geoLevel]];
+    }
+
+    if (censusYear === 1986) {
+        return properties[geoCodeIDs86[geoLevel]];
+    }
+
+    if (censusYear === 1981) {
+        return properties[geoCodeIDs81[geoLevel]];
+    }
+}
+
+export function getPromoteID(censusYear, geoLevel) {
   if (censusYear === 2021) {
     if (geoLevel === 'Federal electoral district (2023 Representation Order)') {
       return 'FED_NUM';
@@ -114,75 +227,35 @@ export function getTileID(censusYear, geoLevel) {
   return null;
 }
 
-
-export function getGeoCode(censusYear, geoLevel, feature) {
-    const properties = feature.properties;
-
+export function getTileID(censusYear, geoLevel, geoCode) {
     if (censusYear === 2021) {
         if (geoLevel === 'Federal electoral district (2023 Representation Order)') {
-            return '2023A0004' + properties.FED_NUM;
+            return geoToTile.get(geoCode);
         }
-
-        return properties.DGUID;
+        console.log("geo code: ", geoCode);
+        return geoCode;
     }
 
     if (censusYear >= 2010) {
-        return properties[geoCodeIDs_01_16[geoLevel]];
+        return geoCode;
     }
 
-    if (censusYear === 2006) {
-        if (geoLevel === 'Census tract') {
-            return ct_06_mappings[properties[geoCodeIDs_01_16[geoLevel]]];
+    if (
+        censusYear === 2006 ||
+        censusYear === 2001 ||
+        censusYear === 1996 ||
+        censusYear === 1991
+    ) {
+        if (
+            geoLevel === 'Census tract' || geoLevel === 'Dissemination area'
+        ) {
+            return geoToTile.get(geoCode);
         }
 
-        if (geoLevel === 'Dissemination area') {
-            return da_06_mappings[properties[geoCodeIDs_01_16[geoLevel]]];
-        }
-
-        return properties[geoCodeIDs_01_16[geoLevel]];
+        return geoCode;
     }
 
-    if (censusYear === 2001) {
-        if (geoLevel === 'Census tract') {
-            return ct_01_mappings[properties[geoCodeIDs_01_16[geoLevel]]];
-        }
-
-        if (geoLevel === 'Dissemination area') {
-            return da_01_mappings[properties[geoCodeIDs_01_16[geoLevel]]];
-        }
-
-        return properties[geoCodeIDs_01_16[geoLevel]];
-    }
-
-    if (censusYear === 1996) {
-        if (geoLevel === 'Census tract') {
-            return ct_96_mappings[properties[geoCodeIDs96[geoLevel]]];
-        }
-
-        if (geoLevel === 'Dissemination area') {
-            return da_96_mappings[properties[geoLevel]];
-        }
-
-        return properties[geoCodeIDs96[geoLevel]];
-    }
-
-    if (censusYear === 1991) {
-        if (geoLevel === 'Census tract') {
-            return cleanCT1991(
-                properties.CA,
-                properties.PROV,
-                properties.CT_CODE
-            );
-        }
-
-        return properties[geoCodeIDs91[geoLevel]];
-    }
-
-    if (censusYear === 1986) {
-        return properties[geoCodeIDs86[geoLevel]];
-    }
-
-    if (censusYear === 1981) {
-        return properties[geoCodeIDs81[geoLevel]];
-    }
+    // if here, the census year is 1986 or 1981
+    return geoCode;
+    
 }

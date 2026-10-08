@@ -6,8 +6,9 @@ import {
   getColValue
 } from '@/constants/Constants.jsx';
 import {
-  getTileID,
-  getGeoCode,  
+  getPromoteID,
+  getGeoCode,
+  getTileID
 } from '@/constants/tile_mappings.jsx';
 import L from 'leaflet';
 import { maplibreGL } from '@maplibre/maplibre-gl-leaflet';
@@ -127,12 +128,18 @@ export default function CensusTiles({
           continue;
         }
 
+        const tileID = getTileID(apiYear, geoLevel, item.geo_code);
+
+        // if (tileID == null) {
+        //   continue;
+        // }
+
         const colour = item.colour;
 
-        valueCache.current.set(String(item.geo_code), item.value);
+        valueCache.current.set(String(tileID), item.value);
 
         expression.push(
-          ['==', ['id'], String(item.geo_code)],
+          ['==', ['id'], String(tileID)],
           `rgb(${colour[0]}, ${colour[1]}, ${colour[2]})`,
         );
       }
@@ -263,7 +270,7 @@ export default function CensusTiles({
               census: {
                 type: 'vector',
                 url: `pmtiles://${API_URL}${data.url}`,
-                promoteId: getTileID(apiYear, geoLevel),
+                promoteId: getPromoteID(apiYear, geoLevel),
                 minzoom: 0,
               },
             },
