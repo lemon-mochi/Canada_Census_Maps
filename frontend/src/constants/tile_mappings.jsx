@@ -232,7 +232,6 @@ export function getTileID(censusYear, geoLevel, geoCode) {
         if (geoLevel === 'Federal electoral district (2023 Representation Order)') {
             return geoToTile.get(geoCode);
         }
-        console.log("geo code: ", geoCode);
         return geoCode;
     }
 

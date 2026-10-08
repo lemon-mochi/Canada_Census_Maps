@@ -14,27 +14,6 @@ import L from 'leaflet';
 import { maplibreGL } from '@maplibre/maplibre-gl-leaflet';
 import 'maplibre-gl/dist/maplibre-gl.css';
 
-
-// for 1991 census tracts. There are two vector tiles for each census tract.
-// Only one of them is actually useful. This helper function removes the
-// pointless vector tile.
-function isValidFeature(censusYear, geoLevel, feature) {
-  if (
-    censusYear === 1991 &&
-    geoLevel === 'Census tract'
-  ) {
-    const properties = feature.properties;
-
-    return (
-      properties.CA != null &&
-      properties.PROV != null &&
-      properties.CT_CODE != null
-    );
-  }
-
-  return true;
-}
-
 export default function CensusTiles({
   censusYear,
   geoLevel,
@@ -69,10 +48,7 @@ export default function CensusTiles({
 
       let features = mapLibreMap.queryRenderedFeatures({
         layers: ['census-fill'],
-      })
-      .filter(feature =>
-        isValidFeature(apiYear, geoLevel, feature)
-      );
+      });
 
       const geoCodes = [
         ...new Set(
@@ -167,23 +143,20 @@ export default function CensusTiles({
 
       const features = mapLibreMap.queryRenderedFeatures(point, {
         layers: ['census-fill'],
-      })
-      .filter(feature =>
-        isValidFeature(apiYear, geoLevel, feature)
-      );
+      });
 
       if (!features.length) return;
 
-      const feature = features[0];
+      const properties = features[0].properties;
 
-      const geoCode = getGeoCode(
+
+      const promoteId = getPromoteID(
         apiYear,
-        geoLevel,
-        feature,
+        geoLevel
       );
 
       const actualValue = valueCache.current.get(
-        String(geoCode),
+        String(properties[promoteId]),
       );
 
       const popupHtml = `
@@ -199,7 +172,7 @@ export default function CensusTiles({
             border-bottom: 1px solid #ccc;
             padding-bottom: 4px;
           ">
-            GeoCode: ${geoCode ?? 'N/A'}
+            GeoCode: ${properties[promoteId] ?? 'N/A'}
           </h4>
 
           <div>
