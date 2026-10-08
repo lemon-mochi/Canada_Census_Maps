@@ -140,13 +140,13 @@ def geo_mappings(
 
     if geo_level == "Census tract":
         query = """
-            SELECT GEO_CODE, CTUID AS TILE_ID
+            SELECT CTUID AS CTuid, GEO_CODE
             FROM read_parquet(?)
             WHERE CTUID IS NOT NULL
         """
     else:
         query = """
-            SELECT GEO_CODE, GEO_NAME AS TILE_ID
+            SELECT GEO_NAME AS DAUID, GEO_CODE
             FROM read_parquet(?)
             WHERE LENGTH(GEO_CODE) = 11
         """
@@ -154,6 +154,6 @@ def geo_mappings(
     rows = db.execute(query, [str(path)]).fetchall()
 
     return {
-        str(geo_code): str(tile_id)
-        for geo_code, tile_id in rows
+        str(tile_id): str(geo_code)
+        for tile_id, geo_code in rows
     }
