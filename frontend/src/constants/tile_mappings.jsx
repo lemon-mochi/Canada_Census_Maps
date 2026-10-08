@@ -156,7 +156,6 @@ export function getGeoCode(censusYear, geoLevel, feature) {
 
     if (censusYear === 1996) {
         if (geoLevel === 'Census tract') {
-            console.log("ct 96 mapping: ", ct_96_mappings[properties[geoCodeIDs96[geoLevel]]]);
             return ct_96_mappings[properties[geoCodeIDs96[geoLevel]]];
         }
 

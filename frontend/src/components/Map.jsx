@@ -54,6 +54,27 @@ function OpenFreeMapLayer() {
   return null;
 }
 
+
+// for 1991 census tracts. There are two vector tiles for each census tract.
+// Only one of them is actually useful. This helper function removes the
+// pointless vector tile.
+function isValidFeature(censusYear, geoLevel, feature) {
+  if (
+    censusYear === 1991 &&
+    geoLevel === 'Census tract'
+  ) {
+    const properties = feature.properties;
+
+    return (
+      properties.CA != null &&
+      properties.PROV != null &&
+      properties.CT_CODE != null
+    );
+  }
+
+  return true;
+}
+
 function CensusTiles({
   censusYear,
   geoLevel,
@@ -86,9 +107,12 @@ function CensusTiles({
         return;
       }
 
-      const features = mapLibreMap.queryRenderedFeatures({
+      let features = mapLibreMap.queryRenderedFeatures({
         layers: ['census-fill'],
-      });
+      })
+      .filter(feature =>
+        isValidFeature(apiYear, geoLevel, feature)
+      );
 
       const geoCodes = [
         ...new Set(
@@ -106,8 +130,6 @@ function CensusTiles({
             .map(String),
         ),
       ];
-
-      console.log(geoCodes);
 
       if (geoCodes.length === 0) return;
 
@@ -179,7 +201,10 @@ function CensusTiles({
 
       const features = mapLibreMap.queryRenderedFeatures(point, {
         layers: ['census-fill'],
-      });
+      })
+      .filter(feature =>
+        isValidFeature(apiYear, geoLevel, feature)
+      );
 
       if (!features.length) return;
 
