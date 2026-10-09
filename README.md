@@ -10,7 +10,7 @@ A note on the reference: The Maple Leaf Forever is a historic Canadian song, and
 # Running locally #
 You will need to gather vector tiles and parquet files for this program to work properly.\
 If you would like to create the files from scrath, you can follow the procedure I have listed out.
-However, this is somewhat complicated as there are multiple steps that must be followed. Additionally, the official Statisitcs Canada site is often not able to load properly, so you may run into troubles downloading the files.
+However, this is somewhat complicated as there are multiple steps that must be followed. Make sure you read and understand my instructions before starting. Additionally, the official Statisitcs Canada site is often not able to load properly, so you may run into troubles downloading the files.
 
 ## Setting up virtual Python environment ##
 I used `Python3.12` and `Python3.14` for this project. When I tried on `Python3.10`, I was not able to install all the libraries.
@@ -163,7 +163,7 @@ Then, run the `convert_boundaries.sh` file in the `backend/geographies` director
 ./convert_boundaries.sh
 ```
 
-You can test out the created vector tiles by visiting [pmtiles.io](https://pmtiles.io/).
+You can test out the newly created vector tiles by visiting [pmtiles.io](https://pmtiles.io/).
 
 ## Setup census data ##
 
@@ -214,7 +214,7 @@ The 2011 NHS data for dissemination areas is not available on Satistics Canada's
 
 The 1996 - 2006. Data is in the `.XML` format.
 
-The XML files for 2006, 2001, and 1996 have different numbers of characteristics. To see this, you can download a smaller `.csv` files from the datasets used from Statistics Canada's website. The file `backend/additional_info/test_2001_characteristics.py` to see which characteristics are missing from each XML file. I noticed that each `.XML` file maps their `DIM0` value in a different way. So, one file might have `DIM0` 1 map to 2006 population while another might map it to 2001 population. I tried using programming tricks but nothing seemed to work. I decided to just manually inspect the values and create a mapping of ids that map to only one characteristic, so everything can be consistent. I used excel for this. Sometimes, the non-technical solution is the best one. The mappings are in `backend/mappings/xml_mappings`. The mappings are in `backend/mappings/csv_mappings`.
+The XML files for 2006, 2001, and 1996 have different numbers of characteristics. To see this, you can download a smaller `.csv` files from the datasets used from Statistics Canada's website. The file `backend/additional_info/test_2001_characteristics.py` to see which characteristics are missing from each XML file. I noticed that each `.XML` file maps their `DIM0` value in a different way. So, one file might have `DIM0` 1 map to 2006 population while another might map it to 2001 population. I tried using programming tricks but nothing seemed to work. I decided to just manually inspect the values and create a mapping of ids that map to only one characteristic, so everything can be consistent. I used excel for this. Sometimes, the non-technical solution is the best one. The mappings are in `backend/mappings/xml_mappings`.
 
 For 2006 census data, there are multiple datasets that contain information based on topic. The dataset related to incomes and earnings is the one I chose as it also contains information from different topics.
 
@@ -240,7 +240,7 @@ For 2006 census data, there are multiple datasets that contain information based
 
 For census data from 1981 - 1991, data is only available in the `.IVT` format. You will have to download the [beyond 20/20 browser](http://www.beyond2020.com/media/downloads/SC/ProBrowser.exe) to convert it to the `.csv` format. However, I have already done that so you can simply download the entire thing as a big zip file from my Google Drive. For 1991 enumeration areas (parts A and B), the data was too large to convert to `.csv` at once. I was not able to filter by province. This means I would have to manually filter and select columns, then convert to `.csv`. There are thousands of columns making this infeasible. I have decided to not include 1991 census data at the enumeration area. I apologize if you wanted to see this data.
 
-Like with the `.XML` files, These old `.IVT` files have inconsistent row values and no ID system. Like before, I opened excel and manually found a way to map these values to an ID.
+Like with the `.XML` files, These old `.IVT` files have inconsistent row values and no ID system. Like before, I opened excel and manually found a way to map these values to an ID. The mappings are in `backend/mappings/csv_mappings`.
 
 [1991 All data from Google Drive](https://drive.google.com/file/d/1yuTFWOEnVmNfNjTb2FIP6No-3IIs2y6z/view?usp=sharing)
 
@@ -286,7 +286,7 @@ Run the `create_parquet_files.ipynb` notebook to create the needed Parquet files
 sudo apt install p7zip-full
 ```
 
-Next you will want to simplify the `.parquet` file. To do this, run the `cleanup_parquet.ipynb` notebook.
+Next, you will want to simplify the `.parquet` file. To do this, run the `cleanup_parquet.ipynb` notebook.
 This will create the `parquet_data/` directory. This is the directory the server will use to retrieve data.
 
 # Running test cases #
