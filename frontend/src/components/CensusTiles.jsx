@@ -9,7 +9,7 @@ import {
   getPromoteID,
   getGeoCode,
   getTileID
-} from '@/constants/tile_mappings.jsx';
+} from '@/constants/TileMappings.jsx';
 import L from 'leaflet';
 import { maplibreGL } from '@maplibre/maplibre-gl-leaflet';
 import 'maplibre-gl/dist/maplibre-gl.css';
