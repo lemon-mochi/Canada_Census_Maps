@@ -307,3 +307,13 @@ uvicorn main:app --reload
 npm install
 npm run dev # for running locally
 ```
+
+# Skills Demonstrated #
+**Backend Development:** Python, FastAPI, REST API design, endpoint development, request handling, data retrieval, and backend testing with pytest.
+**Data Engineering & Processing:** Pandas, PySpark, Jupyter Notebooks, data cleaning, ETL pipelines, schema normalization, and conversion of raw census datasets into optimized Parquet files.
+**Databases & Querying:** SQL, DuckDB, relational data concepts, analytical queries, and efficient retrieval of census data.
+**Frontend Development:** React, JavaScript, interactive map interfaces, API integration, and dynamic visualization of geographic data.
+**Geospatial Technologies:** Leaflet, MapLibre GL JS, OpenFreeMap, Tippecanoe, and PMTiles for rendering and serving geographic boundaries at multiple levels of detail.
+**Data Formats & Interoperability:** CSV, XML, IVT, Parquet, GeoJSON, ESRI Shapefile (SHP), and PMTiles.
+**Testing & Development Tools:** pytest, Git, Linux, Bash scripting, and automated data-processing workflow
+**Non-technical:** Canadian history, Canadian geography, sociology
