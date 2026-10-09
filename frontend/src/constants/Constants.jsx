@@ -13,9 +13,28 @@ const NHS_DA_LABEL = '2011 NHS DA';
 const NHS_DA_API_YEAR = 2010;
 
 export const CENSUS_YEARS = [
-  '1871', '1881', '1891', '1901', '1911', '1921', '1931', '1941', '1951',
-  '1961', '1971', '1981', '1986', '1991', '1996', '2001', '2006', '2011',
-  NHS_DA_LABEL, '2016', '2021',
+  '1871 (Coming soon)',
+  '1881 (Coming soon)',
+  '1891 (Coming soon)',
+  '1901 (Coming soon)',
+  '1911 (Coming soon)',
+  '1921 (Coming soon)',
+  '1931 (Coming soon)',
+  '1941 (Coming soon)',
+  '1951 (Coming soon)',
+  '1961 (Coming soon)',
+  '1971 (Coming soon)',
+  '1976 (Coming soon)',
+  '1981',
+  '1986',
+  '1991',
+  '1996',
+  '2001',
+  '2006',
+  '2011',
+  NHS_DA_LABEL,
+  '2016',
+  '2021',
 ];
 
 export const SOURCES = {
@@ -32,8 +51,8 @@ export const SOURCES = {
 };
 
 const GEO_LEVELS_2021 = [
-  { value: 'auto', label: 'Automatically decide based on zoom level' },
-  { value: 'Canada', label: 'Canada' },
+  { value: 'auto', label: 'Automatically decide based on zoom level (Coming soon)' },
+  { value: 'Canada', label: 'Canada (Coming soon)' },
   { value: 'Province', label: 'Provinces/Territories' },
   { value: 'Census division', label: 'Census divisions' },
   { value: 'Census subdivision', label: 'Census subdivisions' },
@@ -50,8 +69,8 @@ const GEO_LEVELS_2021 = [
 ];
 
 const GEO_LEVELS_2016 = [
-  { value: 'auto', label: 'Automatically decide based on zoom level' },
-  { value: 'Canada', label: 'Canada' },
+  { value: 'auto', label: 'Automatically decide based on zoom level (Coming soon)' },
+  { value: 'Canada', label: 'Canada (Coming soon)' },
   { value: 'Province', label: 'Provinces/Territories' },
   { value: 'Census division', label: 'Census divisions' },
   { value: 'Census subdivision', label: 'Census subdivisions' },
@@ -64,8 +83,8 @@ const GEO_LEVELS_2016 = [
 ];
 
 const GEO_LEVELS_2011 = [
-  { value: 'auto', label: 'Automatically decide based on zoom level' },
-  { value: 'Canada', label: 'Canada' },
+  { value: 'auto', label: 'Automatically decide based on zoom level (Coming soon)' },
+  { value: 'Canada', label: 'Canada (Coming soon)' },
   { value: 'Province', label: 'Provinces/Territories' },
   { value: 'Census division', label: 'Census divisions' },
   { value: 'Census subdivision', label: 'Census subdivisions' },
@@ -83,8 +102,8 @@ const GEO_LEVELS_2010 = [
 ]
 
 const GEO_LEVELS_2006 = [
-  { value: 'auto', label: 'Automatically decide based on zoom level' },
-  { value: 'Canada', label: 'Canada' },
+  { value: 'auto', label: 'Automatically decide based on zoom level (Coming soon)' },
+  { value: 'Canada', label: 'Canada (Coming soon)' },
   { value: 'Province', label: 'Provinces/Territories' },
   { value: 'Census division', label: 'Census divisions' },
   { value: 'Census subdivision', label: 'Census subdivisions' },
@@ -97,8 +116,8 @@ const GEO_LEVELS_2006 = [
 ];
 
 const GEO_LEVELS_2001 = [
-  { value: 'auto', label: 'Automatically decide based on zoom level' },
-  { value: 'Canada', label: 'Canada' },
+  { value: 'auto', label: 'Automatically decide based on zoom level (Coming soon)' },
+  { value: 'Canada', label: 'Canada (Coming soon)' },
   { value: 'Province', label: 'Provinces/Territories' },
   { value: 'Census division', label: 'Census divisions' },
   { value: 'Census subdivision', label: 'Census subdivisions' },
@@ -111,8 +130,8 @@ const GEO_LEVELS_2001 = [
 ];
 
 const GEO_LEVELS_1996 = [
-  { value: 'auto', label: 'Automatically decide based on zoom level' },
-  { value: 'Canada', label: 'Canada' },
+  { value: 'auto', label: 'Automatically decide based on zoom level (Coming soon)' },
+  { value: 'Canada', label: 'Canada (Coming soon)' },
   { value: 'Province', label: 'Provinces/Territories' },
   { value: 'Census division', label: 'Census divisions' },
   { value: 'Census subdivision', label: 'Census subdivisions' },
@@ -125,8 +144,8 @@ const GEO_LEVELS_1996 = [
 ]
 
 const GEO_LEVELS_1991 = [
-  { value: 'auto', label: 'Automatically decide based on zoom level' },
-  { value: 'Canada', label: 'Canada' },
+  { value: 'auto', label: 'Automatically decide based on zoom level (Coming soon)' },
+  { value: 'Canada', label: 'Canada (Coming soon)' },
   { value: 'Province', label: 'Provinces/Territories' },
   { value: 'Census division', label: 'Census divisions' },
   { value: 'Census subdivision', label: 'Census subdivisions' },
@@ -138,8 +157,8 @@ const GEO_LEVELS_1991 = [
 ]
 
 const GEO_LEVELS_1986 = [
-  { value: 'auto', label: 'Automatically decide based on zoom level' },
-  { value: 'Canada', label: 'Canada' },
+  { value: 'auto', label: 'Automatically decide based on zoom level (Coming soon)' },
+  { value: 'Canada', label: 'Canada (Coming soon)' },
   { value: 'Province', label: 'Provinces/Territories' },
   { value: 'Census division', label: 'Census divisions' },
   { value: 'Census subdivision', label: 'Census subdivisions' },
@@ -147,8 +166,8 @@ const GEO_LEVELS_1986 = [
 ]
 
 const GEO_LEVELS_1981 = [
-  { value: 'auto', label: 'Automatically decide based on zoom level' },
-  { value: 'Canada', label: 'Canada' },
+  { value: 'auto', label: 'Automatically decide based on zoom level (Coming soon)' },
+  { value: 'Canada', label: 'Canada (Coming soon)' },
   { value: 'Province', label: 'Provinces/Territories' },
   { value: 'Census division', label: 'Census divisions' },
   { value: 'Census subdivision', label: 'Census subdivisions' },
@@ -156,8 +175,8 @@ const GEO_LEVELS_1981 = [
 ]
 
 const GEO_LEVELS_OLD = [
-  { value: 'auto', label: 'Automatically decide based on zoom level' },
-  { value: 'Canada', label: 'Canada' },
+  { value: 'auto', label: 'Automatically decide based on zoom level (Coming soon)' },
+  { value: 'Canada', label: 'Canada (Coming soon)' },
   { value: 'Province', label: 'Provinces/Territories' },
 ]
 
