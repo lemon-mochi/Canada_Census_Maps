@@ -9,6 +9,7 @@ import { maplibreGL } from '@maplibre/maplibre-gl-leaflet';
 import maplibreWorker from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url';
 import styles from '@/components/Map.module.scss';
 import CensusTiles from '@/components/CensusTiles.jsx';
+import Legend from '@/components/Legend.jsx';
 
 
 maplibregl.setWorkerUrl(maplibreWorker);
@@ -75,6 +76,8 @@ export default function CensusMap({
         colourCount={colourCount}
         equalWidth={equalWidth}
       />
+
+      <Legend></Legend>
     </MapContainer>
   );
 }

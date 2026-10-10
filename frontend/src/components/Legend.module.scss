@@ -1,0 +1,13 @@
+.legend {
+    position: absolute; bottom: 30px; right: 20px;
+    background: rgba(255, 255, 255, 0.95); padding: 15px; border-radius: 6px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    overflow: hidden;
+}
+
+.legendItem {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+    font-size: 13px;
+}
