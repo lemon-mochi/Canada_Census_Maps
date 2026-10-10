@@ -316,4 +316,4 @@ npm run dev # for running locally
 **Geospatial Technologies:** Leaflet, MapLibre GL JS, OpenFreeMap, Tippecanoe, and PMTiles for rendering and serving geographic boundaries at multiple levels of detail.\
 **Data Formats & Interoperability:** CSV, XML, IVT, Parquet, GeoJSON, ESRI Shapefile (SHP), and PMTiles.\
 **Testing & Development Tools:** pytest, Git, Linux, Bash scripting, and automated data-processing workflow\
-**Non-technical:** Canadian history, Canadian geography, sociology\
+**Non-technical:** Canadian history, Canadian geography, sociology
