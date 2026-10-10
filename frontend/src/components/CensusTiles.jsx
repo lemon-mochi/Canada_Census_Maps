@@ -106,17 +106,26 @@ export default function CensusTiles({
 
         const tileID = getTileID(apiYear, geoLevel, item.geo_code);
 
-        // if (tileID == null) {
-        //   continue;
-        // }
-
         const colour = item.colour;
 
         valueCache.current.set(String(tileID), item.value);
 
+
+        // 2023 federal electoral districts are in number format. This is likely because I did not download them from the Statistics Canada site.
+        // this was a nightmare to debug. 
+        const is2023FederalDistrict =
+            apiYear === 2021 &&
+            geoLevel ===
+              'Federal electoral district (2023 Representation Order)'        
+
+              
         expression.push(
-          ['==', ['id'], String(tileID)],
-          `rgb(${colour[0]}, ${colour[1]}, ${colour[2]})`,
+            [
+                '==',
+                ['id'],
+                is2023FederalDistrict ? Number(tileID) : String(tileID),
+            ],
+            `rgb(${colour[0]}, ${colour[1]}, ${colour[2]})`,
         );
       }
 

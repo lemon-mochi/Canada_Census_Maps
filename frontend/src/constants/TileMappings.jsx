@@ -92,7 +92,6 @@ export function getGeoCode(censusYear, geoLevel, feature) {
     if (censusYear === 2021) {
         if (geoLevel === 'Federal electoral district (2023 Representation Order)') {
             ret = '2023A0004' + properties.FED_NUM;
-            geoToTile.set(ret, properties.FED_NUM);
             return ret;
         }
         return properties.DGUID;
@@ -198,7 +197,7 @@ export function getGeoCode(censusYear, geoLevel, feature) {
 export function getPromoteID(censusYear, geoLevel) {
   if (censusYear === 2021) {
     if (geoLevel === 'Federal electoral district (2023 Representation Order)') {
-      return 'FED_NUM';
+        return 'FED_NUM';
     }
 
     return 'DGUID';
@@ -230,7 +229,9 @@ export function getPromoteID(censusYear, geoLevel) {
 export function getTileID(censusYear, geoLevel, geoCode) {
     if (censusYear === 2021) {
         if (geoLevel === 'Federal electoral district (2023 Representation Order)') {
-            return geoToTile.get(geoCode);
+            // example: geoCode is 2023A000459002
+            // only need 59002 for FED_NUM
+            return geoCode.substring(9, 14);
         }
         return geoCode;
     }
