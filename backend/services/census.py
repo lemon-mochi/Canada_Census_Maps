@@ -7,7 +7,7 @@ import duckdb
 from fastapi import HTTPException
 
 from config import NHS_DA_YEAR, PARQUET_DIR
-import colour_data
+import backend.services.colour_data as colour_data
 import pandas as pd
 
 
@@ -451,7 +451,7 @@ def get_pop_and_colour(
         ]
     )
 
-    df = colour_data.assign_colours(
+    df, boundaries = colour_data.assign_colours(
         df=df,
         num_colours=num_colours,
         equal_width=equal_width,
@@ -463,6 +463,9 @@ def get_pop_and_colour(
             "geo_code": row.geo_code,
             "value": row.value,
             "colour": [int(x) for x in row.Colour_bin],
+            "boundaries": [
+                float(x) for x in boundaries
+            ],
         }
         for row in df.itertuples(index=False)
     ]
