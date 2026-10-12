@@ -19,6 +19,8 @@ function App() {
   const [colourCount, setColourCount] = useState(5);
   const [equalWidth, setEqualWidth] = useState(true);
 
+  const [boundaries, setBoundaries] = useState([]);
+
   const handleSelect = ({
     charId,
     columnId,
@@ -57,6 +59,8 @@ function App() {
         colourCount={colourCount}
         equalWidth={equalWidth}
         handleFeatureClick={handleCensusYearChange}
+        boundaries={boundaries}
+        setBoundaries={setBoundaries}
       />
 
       <CensusForm

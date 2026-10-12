@@ -1,8 +1,16 @@
 .legend {
-    position: absolute; bottom: 30px; right: 20px;
-    background: rgba(255, 255, 255, 0.95); padding: 15px; border-radius: 6px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    position: absolute;
+    bottom: 30px;
+    right: 20px;
+    z-index: 1000;
+
+    background: rgba(255, 255, 255, 0.95);
+    padding: 15px;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
     overflow: hidden;
+    color: #222;
 }
 
 .legendItem {
@@ -10,4 +18,12 @@
     align-items: center;
     margin-bottom: 6px;
     font-size: 13px;
+}
+
+.legendColour {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    margin-right: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
 }

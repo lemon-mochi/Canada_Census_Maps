@@ -1,17 +1,48 @@
 import styles from '@/components/Legend.module.scss';
+import { getColourPalette } from '@/constants/Constants.jsx';
 
-export default function Legend() {
+export default function Legend({
+    title = 'Population',
+    boundaries = [],
+    colourCount
+}) {
+    if (boundaries.length < 2) return null;
+
+    const colours = getColourPalette(colourCount);
+
+    const formatValue = (value) =>
+        new Intl.NumberFormat('en-CA', {
+            notation: 'compact',
+            maximumFractionDigits: 2,
+        }).format(value);
+
     return (
+        <div className={styles.legend}>
+            <h4>{title}</h4>
 
-    <div className={styles.legend}>
-        <h4>2021 Population</h4>
-        <div className={styles.legendItem}> &lt; 100,000</div>
-        <div className={styles.legendItem}> 100,000 – 1,000,000</div>
-        <div className={styles.legendItem}> 1,000,000 – 4,000,000</div>
-        <div className={styles.legendItem}> 4,000,000 – 8,000,000</div>
-        <div className={styles.legendItem}> 8,000,000+</div>
-    </div>
+            {boundaries.slice(0, -1).map((lower, i) => {
+                const upper = boundaries[i + 1];
 
+                const label =
+                    i === 0
+                        ? `≤ ${formatValue(upper)}`
+                        : i === boundaries.length - 2
+                            ? `${formatValue(lower)}+`
+                            : `${formatValue(lower)} – ${formatValue(upper)}`;
 
+                const colour = colours[i];
+                const backgroundColor = `rgb(${colour.join(', ')})`;
+
+                return (
+                    <div key={i} className={styles.legendItem}>
+                        <span
+                            className={styles.legendColour}
+                            style={{ backgroundColor }}
+                        />
+                        <span>{label}</span>
+                    </div>
+                );
+            })}
+        </div>
     );
 }

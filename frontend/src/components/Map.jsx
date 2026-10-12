@@ -55,6 +55,8 @@ export default function CensusMap({
   value,
   colourCount,
   equalWidth,
+  boundaries,
+  setBoundaries
 }) {
   const position = [56.1304, -98.5795];
 
@@ -75,9 +77,14 @@ export default function CensusMap({
         value={value}
         colourCount={colourCount}
         equalWidth={equalWidth}
+        setBoundaries={setBoundaries}
       />
 
-      <Legend></Legend>
+      <Legend
+        title={charName}
+        boundaries={boundaries}
+        colourCount={colourCount}
+      />
     </MapContainer>
   );
 }
