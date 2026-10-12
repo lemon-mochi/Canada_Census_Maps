@@ -22,6 +22,7 @@ export default function CensusTiles({
   value,
   colourCount,
   equalWidth,
+  setBoundaries
 }) {
   const map = useMap();
 
@@ -95,7 +96,12 @@ export default function CensusTiles({
         return;
       }
 
-      const data = await response.json();
+      const resJson = await response.json();
+
+      const legendBoundaries = resJson['boundaries'];
+      setBoundaries(legendBoundaries);
+
+      const data = resJson['data'];
 
       const expression = ['case'];
 
