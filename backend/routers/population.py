@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException, Query
 
-import backend.services.colour_data as colour_data
+import services.colour_data as colour_data
 
 from config import GEO_TABLE, MAIN_TABLE, NHS_DA_YEAR
 from database import get_db

@@ -48,11 +48,13 @@ def test_2021_population():
 
     assert response.status_code == 200
 
-    data = response.json()
+    data = response.json()['data']
+    boundaries = response.json()['boundaries']
 
     assert len(data) > 0
     assert all("geo_code" in item for item in data)
     assert all("value" in item for item in data)
+    assert len(boundaries) > 0
 
 def test_2021_dguids_exist():
     db = duckdb.connect()

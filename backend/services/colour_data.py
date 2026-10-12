@@ -33,11 +33,11 @@ def assign_colours(
 
     if df.empty:
         df["Colour_bin"] = pd.Series(dtype=object)
-        return df
+        return df, []
 
     if df[col].nunique() <= 1:
         df["Colour_bin"] = [labels[-1]] * len(df)
-        return df
+        return df, []
 
     if equal_width:
         bins, boundaries = pd.cut(
