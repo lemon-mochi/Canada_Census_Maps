@@ -8,7 +8,7 @@ There is no thistle emoji so I used the closest looking thing. If you are not sa
 A note on the reference: The Maple Leaf Forever is a historic Canadian song, and I am using the reference here as an expression of personal Canadian pride and an appreciation of Canadian history, and not as a statement about who does or does not belong in Canada. Canada’s history includes many different peoples and perspectives, and this project is intended to celebrate the country and its people through census data.
 
 # Running Locally #
-Read (Setup.md)[Setup.md] for instructions on gathering the files needed to run the program.
+Read [Setup.md](Setup.md) for instructions on gathering the files needed to run the program.
 
 ## Setting up virtual Python environment ##
 I used `Python3.12` and `Python3.14` for this project. When I tried on `Python3.10`, I was not able to install all the libraries.
