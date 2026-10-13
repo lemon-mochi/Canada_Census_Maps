@@ -1,5 +1,4 @@
 1. Characteristic columns always returns rates for male and female even when there are no counts for male and female.
-2. Map reloads everytime characteristic changes. The map should only refresh vector tiles when census year and geographic level.
 3. Add data from 1871 - 1976 census.
 4. Find geojson file for Canada.
 5. Impelement automatic geographic level feature.
