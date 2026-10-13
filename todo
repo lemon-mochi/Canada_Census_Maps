@@ -2,3 +2,4 @@
 3. Add data from 1871 - 1976 census.
 4. Find geojson file for Canada.
 5. Impelement automatic geographic level feature.
+6. number of colours in legend does not match the number if the form. Look into this.
