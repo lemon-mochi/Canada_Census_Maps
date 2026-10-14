@@ -1,6 +1,5 @@
 *.geojson
 tippecanoe/
-tiles_output/
 temp.json
 script2.js
 *.csv
@@ -18,4 +17,3 @@ csv_test/
 .vscode/
 .venv/
 .env
-!backend/tiles_output/README.md
