@@ -226,5 +226,5 @@ geographies/boundaries/*
 !geographies/boundaries/README.md
 
 # directory where pmtiles are stored
-tiles_output/
+tiles_output/*
 !tiles_output/README.md
