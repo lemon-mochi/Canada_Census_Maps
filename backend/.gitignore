@@ -222,5 +222,5 @@ __marimo__/
 # directory where the boundary files are stored
 geographies/boundaries/*
 
-# have the __init__.py file be tracked
-!geographies/boundaries/__init__.py
+# have the README.md file be tracked
+!geographies/boundaries/README.md

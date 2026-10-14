@@ -18,3 +18,4 @@ csv_test/
 .vscode/
 .venv/
 .env
+!backend/tiles_output/README.md
