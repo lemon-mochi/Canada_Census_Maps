@@ -8,7 +8,8 @@ export default function Legend({
 }) {
     if (boundaries.length < 2) return null;
 
-    const colours = getColourPalette(colourCount);
+    const intervalCount = boundaries.length - 1;
+    const colours = getColourPalette(intervalCount);
 
     const formatValue = (value) =>
         new Intl.NumberFormat('en-CA', {
@@ -29,8 +30,11 @@ export default function Legend({
                         : i === boundaries.length - 2
                             ? `${formatValue(lower)}+`
                             : `${formatValue(lower)} – ${formatValue(upper)}`;
-
+                
                 const colour = colours[i];
+
+                if (!colour) return null;
+
                 const backgroundColor = `rgb(${colour.join(', ')})`;
 
                 return (
