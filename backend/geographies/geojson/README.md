@@ -1,0 +1,1 @@
+This is where `.geojson` files are placed. The python file, `create_geojson_files.py` place the output here.
