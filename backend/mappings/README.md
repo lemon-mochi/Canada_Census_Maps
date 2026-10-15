@@ -1,0 +1,1 @@
+This directory displays how to map the column number of each input file to the global id scheme for that census year.

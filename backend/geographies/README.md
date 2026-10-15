@@ -1,0 +1,1 @@
+This directory contains everything needed to create the vector tiles to be displayed on the map.

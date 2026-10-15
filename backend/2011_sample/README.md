@@ -1,0 +1,1 @@
+This directory contains the sample data for the 2011 census/NHS to create the characteristic ID mappings.

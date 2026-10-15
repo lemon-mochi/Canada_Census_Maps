@@ -1,0 +1,1 @@
+For census data before 2011, there is no consistent characteristic numbering scheme. I have gone and manually created a characteristic id scheme. This directory contains the characteristic id mappings that I have created.
