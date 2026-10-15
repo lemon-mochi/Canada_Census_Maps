@@ -143,11 +143,27 @@ def load_characteristics(year: int) -> list[dict]:
         columns = columns or []
 
         if year in (2011, 2016):
-            columns = columns + [
-                {"column_id": 4, "column_name": "RATE_TOTAL"},
-                {"column_id": 5, "column_name": "RATE_MALE"},
-                {"column_id": 6, "column_name": "RATE_FEMALE"},
-            ]
+            column_names = {
+                column["column_name"]
+                for column in columns
+            }
+
+            if "COUNT_MALE" in column_names:
+                columns.append({
+                    "column_id": 5,
+                    "column_name": "RATE_MALE",
+                })
+
+            if "COUNT_FEMALE" in column_names:
+                columns.append({
+                    "column_id": 6,
+                    "column_name": "RATE_FEMALE",
+                })
+
+            columns.append({
+                "column_id": 4,
+                "column_name": "RATE_TOTAL",
+            })
 
         result.append(
             {
