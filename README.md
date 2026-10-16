@@ -12,6 +12,13 @@ I attempted to use AWS to deploy this web application. However, using the free t
 
 # Running Locally #
 You can download the files that I created to run this app from my Google Drive.
+[Parquet Data](https://drive.google.com/file/d/1H9ys3eDHWOvqbxRUX2nup5FmI9e1LM-M/view?usp=sharing)
+Download this and place the extracted `.parquet` files in `backend/parquet_data`.
+
+[Vector Tiles](https://drive.google.com/file/d/1tfz5-W_uowGDeNICkv22-J4_mi-aiKBW/view?usp=sharing)
+Download this and place the extracted `.pmtiles` files in `backend/tiles_output`.
+
+Alternatively, you can download the files and follow the steps I took to get the parquet and vector tile files.
 
 Read [Setup.md](Setup.md) for instructions on gathering the files needed to run the program.
 
@@ -60,5 +67,5 @@ npm run dev # for running locally
 **Geospatial Technologies:** Leaflet, MapLibre GL JS, OpenFreeMap, Tippecanoe, and PMTiles for rendering and serving geographic boundaries at multiple levels of detail.\
 **Data Formats & Interoperability:** CSV, XML, IVT, Parquet, GeoJSON, ESRI Shapefile (SHP), and PMTiles.\
 **Testing & Development Tools:** pytest, Git, Linux, Bash scripting, and automated data-processing workflow\
-**Cloud Development:** AWS S3
+**Cloud Development:** AWS S3\
 **Non-technical:** Canadian history, Canadian geography, sociology
