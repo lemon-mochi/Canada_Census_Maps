@@ -1,13 +1,16 @@
-import duckdb
+import boto3
+import os
 
-con = duckdb.connect()
-input_file = 'parquet_data/2021_census_data.parquet'
+s3 = boto3.client('s3', region_name='us-east-1')
 
-print(con.execute(f"""
-    SELECT DGUID, CHARACTERISTIC_ID, C1_COUNT_TOTAL
-    FROM '{input_file}'
-    WHERE DGUID='2023A000459017'
-    ORDER BY CHARACTERISTIC_ID
-""").df())
+def get_tile_url(census_year: int, geo_level: str) -> str:
+    """Generate a temporary pre-signed URL for a PMTiles file."""
+    filename = _get_tile_filename(census_year, geo_level)
+    key = f"{S3_PREFIX_TILES}/{filename}" if S3_PREFIX_TILES else filename
 
-con.close()
+    url = s3.generate_presigned_url(
+        'get_object',
+        Params={'Bucket': BUCKET_NAME, 'Key': key},
+        ExpiresIn=3600  # URL valid for 1 hour
+    )
+    return url
