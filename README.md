@@ -11,12 +11,12 @@ A note on the reference: The Maple Leaf Forever is a historic Canadian song, and
 I attempted to use AWS to deploy this web application. However, using the free tier caused everything to be way too slow. The app was pretty much ususable. I decided that for now, this will be a local only web application. However, I got experience with AWS and cloud development so it was not completely pointless.
 
 # Running Locally #
-You can download the files that I created to run this app from my Google Drive.
-[Parquet Data](https://drive.google.com/file/d/1H9ys3eDHWOvqbxRUX2nup5FmI9e1LM-M/view?usp=sharing)
-Download this and place the extracted `.parquet` files in `backend/parquet_data`.
+You can download the files that I created to run this app from my Google Drive.\
+[Parquet Data](https://drive.google.com/file/d/1H9ys3eDHWOvqbxRUX2nup5FmI9e1LM-M/view?usp=sharing)\
+Download this and place the extracted `.parquet` files in `backend/parquet_data`.\
 
-[Vector Tiles](https://drive.google.com/file/d/1tfz5-W_uowGDeNICkv22-J4_mi-aiKBW/view?usp=sharing)
-Download this and place the extracted `.pmtiles` files in `backend/tiles_output`.
+[Vector Tiles](https://drive.google.com/file/d/1tfz5-W_uowGDeNICkv22-J4_mi-aiKBW/view?usp=sharing)\
+Download this and place the extracted `.pmtiles` files in `backend/tiles_output`.\
 
 Alternatively, you can download the files and follow the steps I took to get the parquet and vector tile files.
 
