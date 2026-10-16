@@ -7,7 +7,12 @@ There is no thistle emoji so I used the closest looking thing. If you are not sa
 
 A note on the reference: The Maple Leaf Forever is a historic Canadian song, and I am using the reference here as an expression of personal Canadian pride and an appreciation of Canadian history, and not as a statement about who does or does not belong in Canada. Canada’s history includes many different peoples and perspectives, and this project is intended to celebrate the country and its people through census data.
 
+# Deployment #
+I attempted to use AWS to deploy this web application. However, using the free tier caused everything to be way too slow. The app was pretty much ususable. I decided that for now, this will be a local only web application. However, I got experience with AWS and cloud development so it was not completely pointless.
+
 # Running Locally #
+You can download the files that I created to run this app from my Google Drive.
+
 Read [Setup.md](Setup.md) for instructions on gathering the files needed to run the program.
 
 ## Setting up virtual Python environment ##
@@ -55,4 +60,5 @@ npm run dev # for running locally
 **Geospatial Technologies:** Leaflet, MapLibre GL JS, OpenFreeMap, Tippecanoe, and PMTiles for rendering and serving geographic boundaries at multiple levels of detail.\
 **Data Formats & Interoperability:** CSV, XML, IVT, Parquet, GeoJSON, ESRI Shapefile (SHP), and PMTiles.\
 **Testing & Development Tools:** pytest, Git, Linux, Bash scripting, and automated data-processing workflow\
+**Cloud Development:** AWS S3
 **Non-technical:** Canadian history, Canadian geography, sociology
