@@ -252,6 +252,32 @@ const CensusForm = ({
         }
       </p>
 
+      <h3>
+        Button legend
+      </h3>
+
+      {(censusYear === "2021") && (
+        <p>
+          C1_T: C1_COUNT_TOTAL <br></br>
+          C2_M: C2_COUNT_MEN+ <br></br>
+          C3_F: C3_COUNT_WOMEN+ <br></br>
+          C4_R: C10_RATE_TOTAL <br></br>
+          C5_R: C11_RATE_MEN+ <br></br>
+          C6_R: C12_RATE_WOMEN+
+        </p>
+      )}
+
+      {(censusYear !== "2021") && (
+        <p>
+          C_T: COUNT_TOTAL <br></br>
+          C_M: COUNT_MALE <br></br>
+          C_F: COUNT_FEMALE <br></br>
+          R_T: RATE_TOTAL <br></br>
+          R_M: RATE_MALE <br></br>
+          R_F: RATE_FEMALE
+        </p>
+      )}
+
 
       <h2 className={styles.heading}>Characteristics</h2>
 
