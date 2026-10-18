@@ -18,8 +18,7 @@ Download this and place the extracted `.parquet` files in `backend/parquet_data`
 [Vector Tiles](https://drive.google.com/file/d/1tfz5-W_uowGDeNICkv22-J4_mi-aiKBW/view?usp=sharing)\
 Download this and place the extracted `.pmtiles` files in `backend/tiles_output`.
 
-Alternatively, you can download the files and follow the steps I took to get the parquet and vector tile files.
-
+Alternatively, you can download the files from the original source and follow the steps I took to get the parquet and vector tile files.\
 Read [Setup.md](Setup.md) for instructions on gathering the files needed to run the program.
 
 ## Setting up virtual Python environment ##
