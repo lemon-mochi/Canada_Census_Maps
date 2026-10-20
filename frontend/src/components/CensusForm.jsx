@@ -15,11 +15,11 @@ import {
 // Characteristics are static per year, so cache them for the session.
 const characteristicsCache = new Map();
 
-function useCharacteristics(censusYear) {
+function useCharacteristics(apiYear) {
   const [state, setState] = useState({ chars: [], loading: true, error: null });
 
   useEffect(() => {
-    const cached = characteristicsCache.get(censusYear);
+    const cached = characteristicsCache.get(apiYear);
     if (cached) {
       setState({ chars: cached, loading: false, error: null });
       return undefined;
@@ -29,33 +29,40 @@ function useCharacteristics(censusYear) {
     // Clear stale data from the previous year right away.
     setState({ chars: [], loading: true, error: null });
 
-    async function load() {
-      try {
-        const res = await fetch(
-          `${API_URL}/api/characteristics?census_year=${toApiYear(censusYear)}`,
-          { signal: controller.signal }
-        );
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    if (apiYear >= 1981) {
+      async function load() {
+        try {
+          const res = await fetch(
+            `${API_URL}/api/characteristics?census_year=${apiYear}`,
+            { signal: controller.signal }
+          );
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
-        const json = await res.json();
-        const chars = Array.isArray(json) ? json : json.data || [];
+          const json = await res.json();
+          const chars = Array.isArray(json) ? json : json.data || [];
 
-        characteristicsCache.set(censusYear, chars);
-        setState({ chars, loading: false, error: null });
-      } catch (err) {
-        if (err.name === 'AbortError') return;
-        console.error('Failed to load census characteristics:', err);
-        setState({
-          chars: [],
-          loading: false,
-          error: `Couldn't load characteristics for ${censusYear}. Try again.`,
-        });
+          characteristicsCache.set(apiYear, chars);
+          setState({ chars, loading: false, error: null });
+        } catch (err) {
+          if (err.name === 'AbortError') return;
+          console.error('Failed to load census characteristics:', err);
+          setState({
+            chars: [],
+            loading: false,
+            error: `Couldn't load characteristics for ${apiYear}. Try again.`,
+          });
+        }
       }
+
+      load();
+    } else {
+      const chars = [`Population, ${apiYear}`];
+      characteristicsCache.set(apiYear, chars);
+      setState({ chars, loading: false, error: null }); 
     }
 
-    load();
     return () => controller.abort();
-  }, [censusYear]);
+  }, [apiYear]);
 
   return state;
 }
@@ -84,7 +91,7 @@ const CensusForm = ({
   onEqualWidthChange = () => {},
 }) => {
 
-  const { chars, loading, error } = useCharacteristics(censusYear);
+  const { chars, loading, error } = useCharacteristics(toApiYear(censusYear));
 
   const [colourCount, setColourCount] = useState(5);
   const [equalWidth, setEqualWidth] = useState(true);
