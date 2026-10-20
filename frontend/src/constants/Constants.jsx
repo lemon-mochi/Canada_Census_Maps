@@ -48,6 +48,18 @@ export const SOURCES = {
   1991: 'https://www12.statcan.gc.ca/datasets/Index-eng.cfm?Temporal=1991',
   1986: 'https://www12.statcan.gc.ca/datasets/Index-eng.cfm?Temporal=1986',
   1981: 'https://www12.statcan.gc.ca/datasets/Index-eng.cfm?Temporal=1981',
+  1976: 'https://publications.gc.ca/site/eng/9.836486/publication.html',
+  1971: 'https://publications.gc.ca/site/eng/9.834259/publication.html',
+  1961: 'https://publications.gc.ca/site/eng/9.831044/publication.html',
+  1951: 'https://publications.gc.ca/site/eng/9.836019/publication.html',
+  1941: 'https://publications.gc.ca/site/eng/9.833108/publication.html',
+  1931: 'https://publications.gc.ca/site/eng/9.832354/publication.html',
+  1921: 'https://publications.gc.ca/site/eng/9.830574/publication.html',
+  1911: 'https://publications.gc.ca/site/eng/9.828391/publication.html',
+  1901: 'https://publications.gc.ca/site/eng/9.828258/publication.html',
+  1891: 'https://publications.gc.ca/site/eng/9.828079/publication.html',
+  1881: 'https://publications.gc.ca/site/eng/9.828009/publication.html',
+  1871: 'https://publications.gc.ca/site/eng/9.827965/publication.html'
 };
 
 const GEO_LEVELS_2021 = [
