@@ -10,6 +10,7 @@ import {
   getPromoteID,
   getGeoCode,
   getTileID,
+  NUMBER_VALUE_GEO_LEVELS
 } from '@/constants/TileMappings.jsx';
 import L from 'leaflet';
 import { maplibreGL } from '@maplibre/maplibre-gl-leaflet';
@@ -203,16 +204,14 @@ export default function CensusTiles({
               item.value,
             );
 
-            const is2023FederalDistrict =
-              apiYear === 2021 &&
-              geoLevel ===
-                'Federal electoral district (2023 Representation Order)';
+            const useNumberNotString =
+              NUMBER_VALUE_GEO_LEVELS.get(apiYear)?.has(geoLevel) ?? false;
 
             expression.push(
               [
                 '==',
                 ['id'],
-                is2023FederalDistrict
+                useNumberNotString
                   ? Number(tileID)
                   : String(tileID),
               ],
