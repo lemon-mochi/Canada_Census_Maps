@@ -12,6 +12,7 @@ import geopandas as gpd
 def normalize_ct_name(series):
     return series.astype(str).str.zfill(6)
 
+
 def merge_geojson_geopandas(input_folder, output_filename):
     files = [
         file
@@ -20,9 +21,7 @@ def merge_geojson_geopandas(input_folder, output_filename):
     ]
 
     if len(files) != 2:
-        raise ValueError(
-            f"Expected 2 GeoJSON files, found {len(files)}"
-        )
+        raise ValueError(f"Expected 2 GeoJSON files, found {len(files)}")
 
     gdfs = {}
 
@@ -32,55 +31,40 @@ def merge_geojson_geopandas(input_folder, output_filename):
 
         gdf = gpd.read_file(path)
 
-        if 'CA_CTNAME' in gdf.columns:
-            gdfs['ca_ctname'] = gdf
-        elif (
-            'CT_CODE' in gdf.columns
-            and 'PROV' in gdf.columns
-        ):
-            gdfs['ct_code'] = gdf
+        if "CA_CTNAME" in gdf.columns:
+            gdfs["ca_ctname"] = gdf
+        elif "CT_CODE" in gdf.columns and "PROV" in gdf.columns:
+            gdfs["ct_code"] = gdf
         else:
-            raise ValueError(
-                f"Could not identify file: {file}"
-            )
+            raise ValueError(f"Could not identify file: {file}")
 
-    ca_ctname = gdfs['ca_ctname']
-    ct_code = gdfs['ct_code']
+    ca_ctname = gdfs["ca_ctname"]
+    ct_code = gdfs["ct_code"]
 
-    ca_ctname['CT_NAME'] = normalize_ct_name(ca_ctname['CT_NAME'])
-    ct_code['CT_NAME'] = normalize_ct_name(ct_code['CT_NAME'])    
+    ca_ctname["CT_NAME"] = normalize_ct_name(ca_ctname["CT_NAME"])
+    ct_code["CT_NAME"] = normalize_ct_name(ct_code["CT_NAME"])
 
     # Make sure CA + CT_NAME really is unique.
-    if ca_ctname.duplicated(
-        ['CA', 'CT_NAME']
-    ).any():
-        raise ValueError(
-            "CA + CT_NAME is not unique in CA_CTNAME file"
-        )
+    if ca_ctname.duplicated(["CA", "CT_NAME"]).any():
+        raise ValueError("CA + CT_NAME is not unique in CA_CTNAME file")
 
-    if ct_code.duplicated(
-        ['CA', 'CT_NAME']
-    ).any():
-        raise ValueError(
-            "CA + CT_NAME is not unique in CT_CODE file"
-        )
+    if ct_code.duplicated(["CA", "CT_NAME"]).any():
+        raise ValueError("CA + CT_NAME is not unique in CT_CODE file")
 
     # Only bring the missing attributes across.
-    attributes = ct_code[
-        ['CA', 'CT_NAME', 'CT_CODE', 'PROV']
-    ]
+    attributes = ct_code[["CA", "CT_NAME", "CT_CODE", "PROV"]]
 
     merged_gdf = ca_ctname.merge(
         attributes,
-        on=['CA', 'CT_NAME'],
-        how='left',
-        validate='one_to_one',
+        on=["CA", "CT_NAME"],
+        how="left",
+        validate="one_to_one",
     )
 
     # Keep the geometry from the CA_CTNAME file.
     merged_gdf = gpd.GeoDataFrame(
         merged_gdf,
-        geometry='geometry',
+        geometry="geometry",
         crs=ca_ctname.crs,
     )
 

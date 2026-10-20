@@ -17,21 +17,22 @@ sample_dissemination_areas = [
     "48060211",  # Alberta - Calgary area (PR 48, CD 06)
     "48110502",  # Alberta - Edmonton area (PR 48, CD 11)
     "59153621",  # British Columbia - Greater Vancouver (PR 59, CD 15)
-    "60010015"   # Yukon (PR 60)
+    "60010015",  # Yukon (PR 60)
 ]
 
 sample_da_dguids = [
     "2021S051610010001",
     "2021S051610010002",
-    "2021S051610010003",  
+    "2021S051610010003",
     "2021S051610010004",
     "2021S051610010005",
     "2021S051610010006",
     "2021S051610010007",
     "2021S051610010008",
     "2021S051610010009",
-    "2021S051610010010"
+    "2021S051610010010",
 ]
+
 
 def test_2021_population():
     batch_req = PopulationBatchRequest(
@@ -48,13 +49,14 @@ def test_2021_population():
 
     assert response.status_code == 200
 
-    data = response.json()['data']
-    boundaries = response.json()['boundaries']
+    data = response.json()["data"]
+    boundaries = response.json()["boundaries"]
 
     assert len(data) > 0
     assert all("geo_code" in item for item in data)
     assert all("value" in item for item in data)
     assert len(boundaries) > 0
+
 
 def test_2021_dguids_exist():
     db = duckdb.connect()

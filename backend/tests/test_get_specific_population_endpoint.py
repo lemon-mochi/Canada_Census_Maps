@@ -285,56 +285,50 @@ def test_invalid_value():
 
     assert response.status_code == 422
 
+
 def test_invalid_column_2021():
     response = client.get(
         "/api/specific_population",
-        params={
-            "census_year": 2021,
-            "geo_code": "01",
-            "char_id": 1,
-            "value": 2
-        }
+        params={"census_year": 2021, "geo_code": "01", "char_id": 1, "value": 2},
     )
 
     assert response.status_code == 404
+
 
 def test_2011_nhs_da_count():
     response = client.get(
         "api/specific_population",
         params={
-            "census_year": 2010, # 2010 is for 2011 NHS DAs
+            "census_year": 2010,  # 2010 is for 2011 NHS DAs
             "geo_code": "10010732",
             "char_id": 5,
-            "value": 1
-        }
+            "value": 1,
+        },
     )
 
     assert response.status_code == 200
     assert response.json()["value"] is not None
+
 
 def test_2011_nhs_da_rate():
     response = client.get(
         "api/specific_population",
         params={
-            "census_year": 2010, # 2010 is for 2011 NHS DAs
+            "census_year": 2010,  # 2010 is for 2011 NHS DAs
             "geo_code": "10010732",
             "char_id": 5,
-            "value": 4
-        }
+            "value": 4,
+        },
     )
 
     assert response.status_code == 200
     assert response.json()["value"] is not None
 
+
 def test_invalid_year_fail():
     response = client.get(
         "/api/specific_population",
-        params={
-            "census_year": 1998,
-            "geo_code": "01",
-            "char_id": 1,
-            "value": 2
-        }
+        params={"census_year": 1998, "geo_code": "01", "char_id": 1, "value": 2},
     )
 
-    assert response.status_code == 404    
+    assert response.status_code == 404

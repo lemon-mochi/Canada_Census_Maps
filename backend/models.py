@@ -44,6 +44,7 @@ class Tiles(BaseModel):
     url: str
     source_layer: str
 
+
 class PopulationBatchRequest(BaseModel):
     census_year: int
     geo_codes: list[str]

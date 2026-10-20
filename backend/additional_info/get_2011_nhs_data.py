@@ -26,8 +26,19 @@ pc.set_api_key(api_key)
 DATASET = "CA11"
 
 PROVINCES = [
-    "10", "11", "12", "13", "24", "35",
-    "46", "47", "48", "59", "60", "61", "62"
+    "10",
+    "11",
+    "12",
+    "13",
+    "24",
+    "35",
+    "46",
+    "47",
+    "48",
+    "59",
+    "60",
+    "61",
+    "62",
 ]
 
 # Keep this small because the API is very restrictive.
@@ -110,10 +121,7 @@ def wait_for_rate_limit():
 
     if len(hourly_requests) >= HOURLY_LIMIT:
 
-        oldest = min(
-            datetime.fromisoformat(timestamp)
-            for timestamp in hourly_requests
-        )
+        oldest = min(datetime.fromisoformat(timestamp) for timestamp in hourly_requests)
 
         wait_until = oldest + timedelta(hours=1)
 
@@ -126,10 +134,7 @@ def wait_for_rate_limit():
             print("HOURLY LIMIT REACHED")
             print("=" * 60)
 
-            print(
-                f"Waiting {wait_seconds / 60:.1f} minutes "
-                f"before continuing..."
-            )
+            print(f"Waiting {wait_seconds / 60:.1f} minutes " f"before continuing...")
 
             time.sleep(wait_seconds)
 
@@ -142,10 +147,7 @@ def wait_for_rate_limit():
 
     if daily_requests >= DAILY_LIMIT:
 
-        oldest = min(
-            datetime.fromisoformat(timestamp)
-            for timestamp in request_times
-        )
+        oldest = min(datetime.fromisoformat(timestamp) for timestamp in request_times)
 
         wait_until = oldest + timedelta(hours=24)
 
@@ -156,15 +158,9 @@ def wait_for_rate_limit():
         print("DAILY LIMIT REACHED")
         print("=" * 60)
 
-        print(
-            f"9,000 requests have been made in the "
-            f"last 24 hours."
-        )
+        print(f"9,000 requests have been made in the " f"last 24 hours.")
 
-        print(
-            f"Waiting {wait_seconds / 3600:.1f} hours "
-            f"before continuing..."
-        )
+        print(f"Waiting {wait_seconds / 3600:.1f} hours " f"before continuing...")
 
         time.sleep(wait_seconds)
 
@@ -177,9 +173,7 @@ def record_request():
     """
     global request_times
 
-    request_times.append(
-        datetime.now().isoformat()
-    )
+    request_times.append(datetime.now().isoformat())
 
     save_request_log()
 
@@ -192,13 +186,7 @@ print("Getting list of Census vectors...")
 
 vectors = pc.list_census_vectors(DATASET)
 
-vectors = vectors[
-    vectors["details"].str.contains(
-        "CA 2011 NHS",
-        case=False,
-        na=False
-    )
-]
+vectors = vectors[vectors["details"].str.contains("CA 2011 NHS", case=False, na=False)]
 
 vectors = vectors["vector"].tolist()
 
@@ -209,20 +197,11 @@ print(f"Found {len(vectors)} NHS vectors.")
 # Split vectors into chunks
 # ---------------------------------------------------------
 
-chunks = [
-    vectors[i:i + CHUNK_SIZE]
-    for i in range(0, len(vectors), CHUNK_SIZE)
-]
+chunks = [vectors[i : i + CHUNK_SIZE] for i in range(0, len(vectors), CHUNK_SIZE)]
 
-print(
-    f"Using {len(chunks)} chunks "
-    f"of {CHUNK_SIZE} vectors."
-)
+print(f"Using {len(chunks)} chunks " f"of {CHUNK_SIZE} vectors.")
 
-print(
-    f"Maximum possible API requests: "
-    f"{len(PROVINCES) * len(chunks):,}"
-)
+print(f"Maximum possible API requests: " f"{len(PROVINCES) * len(chunks):,}")
 
 
 # ---------------------------------------------------------
@@ -241,10 +220,7 @@ for province in PROVINCES:
 
     for chunk_number, chunk in enumerate(chunks):
 
-        output_file = (
-            province_dir /
-            f"chunk_{chunk_number:04d}.csv"
-        )
+        output_file = province_dir / f"chunk_{chunk_number:04d}.csv"
 
         # -------------------------------------------------
         # Resume support
@@ -252,10 +228,7 @@ for province in PROVINCES:
 
         if output_file.exists():
 
-            print(
-                f"Skipping chunk "
-                f"{chunk_number + 1}/{len(chunks)}"
-            )
+            print(f"Skipping chunk " f"{chunk_number + 1}/{len(chunks)}")
 
             continue
 
@@ -272,9 +245,7 @@ for province in PROVINCES:
             f"({len(chunk)} vectors)"
         )
 
-        print(
-            f"Province: {province}"
-        )
+        print(f"Province: {province}")
 
         # Count this request
         record_request()
@@ -287,22 +258,15 @@ for province in PROVINCES:
                 vectors=chunk,
                 level="DA",
                 geo_format=None,
-                labels="short"
+                labels="short",
             )
 
-            print(
-                f"Downloaded {len(df):,} rows."
-            )
+            print(f"Downloaded {len(df):,} rows.")
 
             # Save immediately
-            df.to_csv(
-                output_file,
-                index=False
-            )
+            df.to_csv(output_file, index=False)
 
-            print(
-                f"Saved: {output_file}"
-            )
+            print(f"Saved: {output_file}")
 
         except Exception as e:
 
@@ -314,19 +278,14 @@ for province in PROVINCES:
             print(e)
 
             print()
-            print(
-                f"Failed at province {province}, "
-                f"chunk {chunk_number}."
-            )
+            print(f"Failed at province {province}, " f"chunk {chunk_number}.")
 
             print(
                 "The request has already been counted "
                 "because it was sent to the API."
             )
 
-            print(
-                "Run the script again to resume."
-            )
+            print("Run the script again to resume.")
 
             raise
 

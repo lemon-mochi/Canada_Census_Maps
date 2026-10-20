@@ -25,7 +25,7 @@ def vector_tile_path(census_year: int, geo_level: str) -> Path:
         elif geo_level == "Census subdivision":
             return TILES_DIR / "csd86_geojson.pmtiles"
         elif geo_level == "Census tract":
-            return TILES_DIR / "ct_1986.pmtiles" 
+            return TILES_DIR / "ct_1986.pmtiles"
 
     elif census_year == 1991:
         if geo_level == "Province":
@@ -133,10 +133,8 @@ def vector_tile_path(census_year: int, geo_level: str) -> Path:
         detail=f"No vector tiles available for {census_year} / {geo_level}",
     )
 
-def geo_mappings(
-    db,
-    path: str,
-    geo_level: str):
+
+def geo_mappings(db, path: str, geo_level: str):
 
     if geo_level == "Census tract":
         query = """
@@ -153,7 +151,4 @@ def geo_mappings(
 
     rows = db.execute(query, [str(path)]).fetchall()
 
-    return {
-        str(tile_id): str(geo_code)
-        for tile_id, geo_code in rows
-    }
+    return {str(tile_id): str(geo_code) for tile_id, geo_code in rows}

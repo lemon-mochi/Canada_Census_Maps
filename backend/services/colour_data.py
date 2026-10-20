@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 
+
 def generate_colour_labels(
     lightest: np.ndarray,
     darkest: np.ndarray,
@@ -9,13 +10,18 @@ def generate_colour_labels(
     """Generates RGB colour code labels linearly interpolated between
     lightest and darkest.
     """
-    colours = np.linspace(
-        lightest,
-        darkest,
-        num=num_colours,
-    ).round().astype(int)
+    colours = (
+        np.linspace(
+            lightest,
+            darkest,
+            num=num_colours,
+        )
+        .round()
+        .astype(int)
+    )
 
     return [tuple(colour) for colour in colours]
+
 
 def assign_colours(
     df: pd.DataFrame, num_colours: int, equal_width: bool, col: str
@@ -41,19 +47,11 @@ def assign_colours(
 
     if equal_width:
         bins, boundaries = pd.cut(
-            df[col],
-            bins=num_colours,
-            labels=False,
-            include_lowest=True,
-            retbins=True
+            df[col], bins=num_colours, labels=False, include_lowest=True, retbins=True
         )
     else:
         bins, boundaries = pd.qcut(
-            df[col],
-            q=num_colours,
-            labels=False,
-            duplicates="drop",
-            retbins=True
+            df[col], q=num_colours, labels=False, duplicates="drop", retbins=True
         )
 
     df["Colour_bin"] = [

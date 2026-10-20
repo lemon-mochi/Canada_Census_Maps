@@ -11,7 +11,7 @@ from services.census import (
     stored_value,
     two_sex_value,
     year_files,
-    get_pop_and_colour
+    get_pop_and_colour,
 )
 
 router = APIRouter()
@@ -23,11 +23,7 @@ def get_population(
     char_id: int,
     db=Depends(get_db),
 ):
-    levels = (
-        ("Province", "Territory")
-        if geo_level == "Province"
-        else (geo_level,)
-    )
+    levels = ("Province", "Territory") if geo_level == "Province" else (geo_level,)
 
     placeholders = ",".join("?" * len(levels))
 
@@ -118,6 +114,7 @@ def get_specific_population(
         value=result,
     )
 
+
 @router.post("/population_batch")
 def get_population_batch(
     request: PopulationBatchRequest,
@@ -130,7 +127,7 @@ def get_population_batch(
             status_code=404,
             detail=f"Invalid census year: {request.census_year}",
         )
-    
+
     return get_pop_and_colour(
         db,
         request.census_year,
@@ -139,5 +136,5 @@ def get_population_batch(
         request.char_id,
         request.value,
         request.num_colours,
-        request.equal_width
+        request.equal_width,
     )

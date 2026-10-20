@@ -32,8 +32,9 @@ def get_vector_tiles(
         source_layer=path.stem,
     )
 
+
 @router.get("/geo_mappings")
-def get_geo_mappings(census_year: int, geo_level: str, db=Depends(get_db)) :
+def get_geo_mappings(census_year: int, geo_level: str, db=Depends(get_db)):
     if census_year not in [1996, 2001, 2006]:
         raise HTTPException(status_code=400, detail="Unsupported census year")
 

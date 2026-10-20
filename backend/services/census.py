@@ -143,27 +143,30 @@ def load_characteristics(year: int) -> list[dict]:
         columns = columns or []
 
         if year in (2011, 2016):
-            column_names = {
-                column["column_name"]
-                for column in columns
-            }
+            column_names = {column["column_name"] for column in columns}
 
             if "COUNT_MALE" in column_names:
-                columns.append({
-                    "column_id": 5,
-                    "column_name": "RATE_MALE",
-                })
+                columns.append(
+                    {
+                        "column_id": 5,
+                        "column_name": "RATE_MALE",
+                    }
+                )
 
             if "COUNT_FEMALE" in column_names:
-                columns.append({
-                    "column_id": 6,
-                    "column_name": "RATE_FEMALE",
-                })
+                columns.append(
+                    {
+                        "column_id": 6,
+                        "column_name": "RATE_FEMALE",
+                    }
+                )
 
-            columns.append({
-                "column_id": 4,
-                "column_name": "RATE_TOTAL",
-            })
+            columns.append(
+                {
+                    "column_id": 4,
+                    "column_name": "RATE_TOTAL",
+                }
+            )
 
         result.append(
             {
@@ -296,6 +299,7 @@ def stored_value(db, file, geo_code, char_id, value):
         COLUMNS_2021[value],
     )
 
+
 def read_values(
     db,
     file: Path,
@@ -319,10 +323,8 @@ def read_values(
         [str(file), geo_codes, char_id],
     ).fetchall()
 
-    return {
-        str(geo_code): value
-        for geo_code, value in rows
-    }
+    return {str(geo_code): value for geo_code, value in rows}
+
 
 def get_population_values(
     db,
@@ -435,6 +437,7 @@ def get_population_values(
         detail="Unsupported census year",
     )
 
+
 def get_pop_and_colour(
     db,
     year: int,
@@ -479,11 +482,9 @@ def get_pop_and_colour(
             {
                 "geo_code": row.geo_code,
                 "value": row.value,
-                "colour": [int(x) for x in row.Colour_bin]
+                "colour": [int(x) for x in row.Colour_bin],
             }
             for row in df.itertuples(index=False)
         ],
-        "boundaries": [
-            float(x) for x in boundaries
-        ],
+        "boundaries": [float(x) for x in boundaries],
     }
