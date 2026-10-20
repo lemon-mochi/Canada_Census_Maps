@@ -56,7 +56,16 @@ function useCharacteristics(apiYear) {
 
       load();
     } else {
-      const chars = [`Population, ${apiYear}`];
+      console.log('here');
+      const chars = [{
+        CHARACTERISTIC_ID: 1,
+        CHARACTERISTIC_NAME: `Population, ${apiYear}`,
+        level: 0,
+        columns: [{
+          "column_id": 1,
+          "column_name": "COUNT_TOTAL"
+        }]
+      }];
       characteristicsCache.set(apiYear, chars);
       setState({ chars, loading: false, error: null }); 
     }
@@ -344,7 +353,7 @@ const CharacteristicNode = ({ node, onSelect }) => {
 
         <div 
           className={styles.dataButtons}
-          style={{ '--button-count': node.columns.length }}        
+          style={{ '--button-count': node.columns.length }}
         >
           {node.columns.map((column) => (
             <button
