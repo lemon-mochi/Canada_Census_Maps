@@ -12,7 +12,7 @@ def vector_tile_path(census_year: int, geo_level: str) -> Path:
     # Prince Edward Island joined in 1873.
     # Ontario expanded northward in 1874.
     # TODO: Find boundary files for old Ontario borders.
-    # The United Kingdom transferred the British Arctic Territories to Canada.
+    # The United Kingdom transferred the British Arctic Territories to Canada in 1880.
     # Manitoba expanded in 1881.
     # Alberta and Saskatchewan were created in 1905.
 
