@@ -11,6 +11,7 @@ import {
   getColourPalette,
   getColValue
 } from '@/constants/Constants.jsx';
+import { getFavicon } from '../constants/Favicons';
 
 // Characteristics are static per year, so cache them for the session.
 const characteristicsCache = new Map();
@@ -119,7 +120,15 @@ const CensusForm = ({
       onColourCountChange(next);
       return next;
     });
-  };  
+  };
+
+  useEffect(() => {
+    const favicon = document.querySelector("link[rel='icon']");
+
+    if (favicon) {
+      favicon.href = getFavicon(toApiYear(censusYear));
+    }
+  }, [censusYear]);
 
   return (
     <div className={styles.censusForm}>
