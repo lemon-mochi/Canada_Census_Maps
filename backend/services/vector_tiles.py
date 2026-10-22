@@ -7,6 +7,25 @@ from config import TILES_DIR
 
 
 def vector_tile_path(census_year: int, geo_level: str) -> Path:
+    # TODO: Historical Canadian borders should be used.
+    # British Columbia joined confederation in 1871.
+    # Prince Edward Island joined in 1873.
+    # Ontario expanded northward in 1874.
+    # TODO: Find boundary files for old Ontario borders.
+    # The United Kingdom transferred the British Arctic Territories to Canada.
+    # Manitoba expanded in 1881.
+    # Alberta and Saskatchewan were created in 1905.
+
+    # In 1912, Manitoba, Ontario, and Quebec expanded northward into land from the
+    # Northwest Territories.
+    # TODO: Find boundary files that represent these old borders.
+
+    # Newfoundland joined Canada in 1949. So, for census years 1951 - 1971,
+    # use the same provincial map as 1981 census
+    if census_year <= 1951 and census_year >= 1971:
+        if geo_level == "Province":
+            return TILES_DIR / "prov1981_poly_geojson.pmtiles"
+        
     if census_year == 1981:
         if geo_level == "Province":
             return TILES_DIR / "prov1981_poly_geojson.pmtiles"
