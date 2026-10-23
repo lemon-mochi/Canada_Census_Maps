@@ -1,5 +1,5 @@
 import styles from '@/components/Legend.module.scss';
-import { getColourPalette } from '@/constants/Constants.jsx';
+import { getColourPalette } from '@/constants/DataHelpers.jsx';
 
 export default function Legend({
     title = 'Population',

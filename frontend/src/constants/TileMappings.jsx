@@ -1,4 +1,4 @@
-import { API_URL } from "@/constants/Constants.jsx";
+import { API_URL } from "@/constants/ApiURL.jsx";
 
 async function get_geo_mappings(apiYear, geoLevel) {
     try {

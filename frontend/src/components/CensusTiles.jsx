@@ -1,11 +1,9 @@
 
 import { useEffect, useRef } from 'react';
 import { useMap } from 'react-leaflet';
-import {
-  API_URL,
-  toApiYear,
-  getColValue,
-} from '@/constants/Constants.jsx';
+import { API_URL } from '@/constants/ApiURL.jsx';
+import { toApiYear } from '@/constants/CensusYears.jsx';
+import { getColValue } from '@/constants/Columns.jsx';
 import {
   getPromoteID,
   getGeoCode,

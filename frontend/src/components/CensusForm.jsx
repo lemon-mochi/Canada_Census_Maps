@@ -1,16 +1,20 @@
 import { useState, useEffect, useMemo } from 'react';
 import styles from '@/components/CensusForm.module.scss';
+import { API_URL } from '@/constants/ApiURL.jsx';
 import {
-  API_URL,
   CENSUS_YEARS,
   SOURCES,
   geoLevelsFor,
+  toApiYear
+} from '@/constants/CensusYears.jsx';
+import {
   COLUMN_LABELS,
-  toApiYear,
-  buildTree,
-  getColourPalette,
   getColValue
-} from '@/constants/Constants.jsx';
+} from '@/constants/Columns.jsx';
+import {
+  buildTree,
+  getColourPalette  
+} from '@/constants/DataHelpers.jsx';
 import { getFavicon } from '../constants/Favicons';
 
 // Characteristics are static per year, so cache them for the session.
