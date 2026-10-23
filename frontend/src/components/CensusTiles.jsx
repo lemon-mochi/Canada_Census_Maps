@@ -6,10 +6,12 @@ import { toApiYear } from '@/constants/CensusYears.jsx';
 import { getColValue } from '@/constants/Columns.jsx';
 import {
   getPromoteID,
-  getGeoCode,
   getTileID,
   NUMBER_VALUE_GEO_LEVELS
 } from '@/constants/TileMappings.jsx';
+import {
+  getGeoCode
+} from '@/constants/GeoMappings.jsx';
 import L from 'leaflet';
 import { maplibreGL } from '@maplibre/maplibre-gl-leaflet';
 import 'maplibre-gl/dist/maplibre-gl.css';

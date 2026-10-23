@@ -3,7 +3,7 @@ import CensusMap from './components/Map.jsx';
 import CensusForm from './components/CensusForm.jsx';
 import './styles/globals.scss';
 import { geoLevelsFor } from './constants/CensusYears.jsx';
-import { loadGeoMappings } from './constants/TileMappings.jsx'
+import { loadGeoMappings } from './constants/GeoMappings.jsx'
 
 function App() {
   useEffect(() => {
