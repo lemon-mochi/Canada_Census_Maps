@@ -135,6 +135,13 @@ cd geographies
 python3 create_geojson_files.py
 ```
 
+### Creating .geojson files for Canada ###
+To create the `.geojson` files for Canada as a whole, you will have to run the Python script that merges the provinces into one. This is what the `create_geojson_for_Canada.py` file in `backend/geographies` does. This file takes a while to run completely.
+```
+python3 create_geojson_for_Canada.py
+```
+This will place the `.geojson` files in the directory with the other `.geojson` files.
+
 ### Implement Vector Tiles ###
 
 The boundaries for the census subdivions, census tracts, and dissemination areas are very small. The program cannot handle all of them. To deal with this, you will have to use vector tiles. This uses `tippecanoe`, which will need to be installed.
