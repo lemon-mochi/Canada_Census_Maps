@@ -27,7 +27,7 @@ def vector_tile_path(census_year: int, geo_level: str) -> Path:
             return TILES_DIR / "canada_1981.pmtiles"
         if geo_level == "Province":
             return TILES_DIR / "prov1981_poly_geojson.pmtiles"
-        
+
     if census_year == 1981:
         if geo_level == "Canada":
             return TILES_DIR / "canada_1981.pmtiles"
@@ -68,7 +68,7 @@ def vector_tile_path(census_year: int, geo_level: str) -> Path:
 
     elif census_year == 1996:
         if geo_level == "Canada":
-            return TILES_DIR / "canada_1996.pmtiles"        
+            return TILES_DIR / "canada_1996.pmtiles"
         if geo_level == "Province":
             return TILES_DIR / "GPRE000A_geojson.pmtiles"
         elif geo_level == "Census division":
@@ -84,7 +84,7 @@ def vector_tile_path(census_year: int, geo_level: str) -> Path:
 
     elif census_year == 2001:
         if geo_level == "Canada":
-            return TILES_DIR / "canada_2001.pmtiles"        
+            return TILES_DIR / "canada_2001.pmtiles"
         if geo_level == "Province":
             return TILES_DIR / "gpr_000b02m_e_geojson.pmtiles"
         elif geo_level == "Census division":
@@ -100,7 +100,7 @@ def vector_tile_path(census_year: int, geo_level: str) -> Path:
 
     elif census_year == 2006:
         if geo_level == "Canada":
-            return TILES_DIR / "canada_2006.pmtiles"        
+            return TILES_DIR / "canada_2006.pmtiles"
         if geo_level == "Province":
             return TILES_DIR / "gpr_000b06a_e.pmtiles"
         elif geo_level == "Census division":
@@ -119,7 +119,7 @@ def vector_tile_path(census_year: int, geo_level: str) -> Path:
 
     elif census_year == 2011:
         if geo_level == "Canada":
-            return TILES_DIR / "canada_2011.pmtiles"        
+            return TILES_DIR / "canada_2011.pmtiles"
         if geo_level == "Province":
             return TILES_DIR / "gpr_000b11a_e.pmtiles"
         elif geo_level == "Census division":
@@ -135,7 +135,7 @@ def vector_tile_path(census_year: int, geo_level: str) -> Path:
 
     elif census_year == 2016:
         if geo_level == "Canada":
-            return TILES_DIR / "canada_2016.pmtiles"        
+            return TILES_DIR / "canada_2016.pmtiles"
         if geo_level == "Province":
             return TILES_DIR / "lpr_000b16a_e.pmtiles"
         elif geo_level == "Census division":
@@ -151,7 +151,7 @@ def vector_tile_path(census_year: int, geo_level: str) -> Path:
 
     elif census_year == 2021:
         if geo_level == "Canada":
-            return TILES_DIR / "canada_2021.pmtiles"        
+            return TILES_DIR / "canada_2021.pmtiles"
         if geo_level == "Province":
             return TILES_DIR / "lpr_000b21a_e.pmtiles"
         elif geo_level == "Census division":

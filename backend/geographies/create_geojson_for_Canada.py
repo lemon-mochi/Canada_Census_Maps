@@ -1,4 +1,3 @@
-
 from pathlib import Path
 import geopandas as gpd
 import os
@@ -40,7 +39,9 @@ def process_single_year(year, filename):
 
     # Union the provincial polygons into one Canada geometry.
     geometries = provinces.geometry.map(
-        lambda geom: make_valid(geom) if geom is not None and not geom.is_valid else geom
+        lambda geom: (
+            make_valid(geom) if geom is not None and not geom.is_valid else geom
+        )
     )
 
     canada_geometry = geometries.union_all()
