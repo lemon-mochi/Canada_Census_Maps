@@ -4,6 +4,7 @@ from pydantic import BaseModel
 
 
 GeoLevel = Literal[
+    "Canada",
     "Province",
     "Census division",
     "Census subdivision",
