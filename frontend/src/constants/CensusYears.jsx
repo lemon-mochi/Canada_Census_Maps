@@ -54,7 +54,7 @@ export const SOURCES = {
 
 const GEO_LEVELS_2021 = [
   { value: 'auto', label: 'Automatically decide based on zoom level (Coming soon)' },
-  { value: 'Canada', label: 'Canada (Coming soon)' },
+  { value: 'Canada', label: 'Canada' },
   { value: 'Province', label: 'Provinces/Territories' },
   { value: 'Census division', label: 'Census divisions' },
   { value: 'Census subdivision', label: 'Census subdivisions' },
@@ -72,7 +72,7 @@ const GEO_LEVELS_2021 = [
 
 const GEO_LEVELS_2016 = [
   { value: 'auto', label: 'Automatically decide based on zoom level (Coming soon)' },
-  { value: 'Canada', label: 'Canada (Coming soon)' },
+  { value: 'Canada', label: 'Canada' },
   { value: 'Province', label: 'Provinces/Territories' },
   { value: 'Census division', label: 'Census divisions' },
   { value: 'Census subdivision', label: 'Census subdivisions' },
@@ -86,7 +86,7 @@ const GEO_LEVELS_2016 = [
 
 const GEO_LEVELS_2011 = [
   { value: 'auto', label: 'Automatically decide based on zoom level (Coming soon)' },
-  { value: 'Canada', label: 'Canada (Coming soon)' },
+  { value: 'Canada', label: 'Canada' },
   { value: 'Province', label: 'Provinces/Territories' },
   { value: 'Census division', label: 'Census divisions' },
   { value: 'Census subdivision', label: 'Census subdivisions' },
@@ -105,7 +105,7 @@ const GEO_LEVELS_2010 = [
 
 const GEO_LEVELS_2006 = [
   { value: 'auto', label: 'Automatically decide based on zoom level (Coming soon)' },
-  { value: 'Canada', label: 'Canada (Coming soon)' },
+  { value: 'Canada', label: 'Canada' },
   { value: 'Province', label: 'Provinces/Territories' },
   { value: 'Census division', label: 'Census divisions' },
   { value: 'Census subdivision', label: 'Census subdivisions' },
@@ -119,7 +119,7 @@ const GEO_LEVELS_2006 = [
 
 const GEO_LEVELS_2001 = [
   { value: 'auto', label: 'Automatically decide based on zoom level (Coming soon)' },
-  { value: 'Canada', label: 'Canada (Coming soon)' },
+  { value: 'Canada', label: 'Canada' },
   { value: 'Province', label: 'Provinces/Territories' },
   { value: 'Census division', label: 'Census divisions' },
   { value: 'Census subdivision', label: 'Census subdivisions' },
@@ -133,7 +133,7 @@ const GEO_LEVELS_2001 = [
 
 const GEO_LEVELS_1996 = [
   { value: 'auto', label: 'Automatically decide based on zoom level (Coming soon)' },
-  { value: 'Canada', label: 'Canada (Coming soon)' },
+  { value: 'Canada', label: 'Canada' },
   { value: 'Province', label: 'Provinces/Territories' },
   { value: 'Census division', label: 'Census divisions' },
   { value: 'Census subdivision', label: 'Census subdivisions' },
@@ -147,7 +147,7 @@ const GEO_LEVELS_1996 = [
 
 const GEO_LEVELS_1991 = [
   { value: 'auto', label: 'Automatically decide based on zoom level (Coming soon)' },
-  { value: 'Canada', label: 'Canada (Coming soon)' },
+  { value: 'Canada', label: 'Canada' },
   { value: 'Province', label: 'Provinces/Territories' },
   { value: 'Census division', label: 'Census divisions' },
   { value: 'Census subdivision', label: 'Census subdivisions' },
@@ -160,7 +160,7 @@ const GEO_LEVELS_1991 = [
 
 const GEO_LEVELS_1986 = [
   { value: 'auto', label: 'Automatically decide based on zoom level (Coming soon)' },
-  { value: 'Canada', label: 'Canada (Coming soon)' },
+  { value: 'Canada', label: 'Canada' },
   { value: 'Province', label: 'Provinces/Territories' },
   { value: 'Census division', label: 'Census divisions' },
   { value: 'Census subdivision', label: 'Census subdivisions' },
@@ -169,7 +169,7 @@ const GEO_LEVELS_1986 = [
 
 const GEO_LEVELS_1981 = [
   { value: 'auto', label: 'Automatically decide based on zoom level (Coming soon)' },
-  { value: 'Canada', label: 'Canada (Coming soon)' },
+  { value: 'Canada', label: 'Canada' },
   { value: 'Province', label: 'Provinces/Territories' },
   { value: 'Census division', label: 'Census divisions' },
   { value: 'Census subdivision', label: 'Census subdivisions' },
@@ -178,7 +178,7 @@ const GEO_LEVELS_1981 = [
 
 const GEO_LEVELS_OLD = [
   { value: 'auto', label: 'Automatically decide based on zoom level (Coming soon)' },
-  { value: 'Canada', label: 'Canada (Coming soon)' },
+  { value: 'Canada', label: 'Canada' },
   { value: 'Province', label: 'Provinces/Territories' },
 ]
 
