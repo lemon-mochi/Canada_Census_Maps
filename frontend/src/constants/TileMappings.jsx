@@ -123,6 +123,30 @@ export const NUMBER_VALUE_GEO_LEVELS = new Map([
       'Census subdivision',
     ]),
   ],
+  [
+    1976,
+    new Set([
+        'Province',
+    ]),
+  ],
+  [
+    1971,
+    new Set([
+        'Province',
+    ])
+  ],
+  [
+    1961,
+    new Set([
+        'Province',
+    ])
+  ],
+  [
+    1951,
+    new Set([
+        'Province',
+    ])
+  ],  
 ]);
 
 export function getGeoCode(censusYear, geoLevel, feature) {
@@ -230,7 +254,7 @@ export function getGeoCode(censusYear, geoLevel, feature) {
         return properties[geoCodeIDs86[geoLevel]];
     }
 
-    if (censusYear === 1981) {
+    if (censusYear >= 1951 && censusYear <= 1981) {
         return properties[geoCodeIDs81[geoLevel]];
     }
 }
@@ -260,7 +284,8 @@ export function getPromoteID(censusYear, geoLevel) {
     return geoCodeIDs86[geoLevel];
   }
 
-  if (censusYear === 1981) {
+  // 1951, 1961, 1971, 1976 use 1981's vector tiles.
+  if (censusYear >= 1951 && censusYear <= 1981) {
     return geoCodeIDs81[geoLevel];
   }
 
