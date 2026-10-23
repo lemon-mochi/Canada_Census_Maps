@@ -1,3 +1,2 @@
-1. Add data from 1871 - 1976 census.
-2. Find geojson file for Canada.
-3. Impelement automatic geographic level feature.
+1. Impelement automatic geographic level feature.
+2. Find the boundary files for old Canadian provincial and dominion-wide borders.
