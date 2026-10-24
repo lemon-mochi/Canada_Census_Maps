@@ -14,7 +14,7 @@ import {
   getColourPalette  
 } from '@/constants/DataHelpers.jsx';
 import { getFavicon } from '@/constants/Favicons';
-import { CharacteristicNode } from '@/components/CharacteristicNode.jsx';
+import CharacteristicNode from '@/components/CharacteristicNode.jsx';
 import { useCharacteristics } from '@/components/useCharacteristics.js';
 import {
   MAX_COLOURS,

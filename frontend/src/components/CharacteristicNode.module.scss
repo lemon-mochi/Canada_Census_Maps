@@ -1,6 +1,6 @@
 .rowGrid {
   display: grid;
-  grid-template-columns: minmax(170px, 1fr) 132px 132px;
+  grid-template-columns: minmax(170px, 1fr) 264px;
   align-items: center;
 }
 
@@ -8,8 +8,8 @@
   @extend .rowGrid;
 
   padding: 5px 10px;
-
   border-bottom: 1px solid var(--color-line);
+  box-sizing: border-box;
 }
 
 .characteristicRow:last-child {
@@ -55,6 +55,8 @@
 }
 
 .dataButtons {
+  grid-column: 2 / 4;
+
   display: grid;
   grid-template-columns: repeat(var(--button-count), minmax(0, 1fr));
   width: 100%;

@@ -5,12 +5,12 @@ import {
 } from '@/constants/Columns.jsx';
 
 
-export const CharacteristicNode = ({ node, onSelect }) => {
+const CharacteristicNode = ({ node, onSelect }) => {
   const [expanded, setExpanded] = useState(false);
   const hasChildren = node.children.length > 0;
 
   return (
-    <div>
+    <div style={{ width: '100%', minWidth: 0 }}>
       <div
         className={styles.characteristicRow}
         style={{ paddingLeft: `${node.level * 20}px` }}
@@ -71,3 +71,5 @@ export const CharacteristicNode = ({ node, onSelect }) => {
     </div>
   );
 };
+
+export default CharacteristicNode;
