@@ -5,12 +5,11 @@ import services.colour_data as colour_data
 from config import GEO_TABLE, MAIN_TABLE, NHS_DA_YEAR
 from database import get_db
 from models import GeoLevel, PopulationValue, PopulationBatchRequest
-from services.census import (
+from services.census_constants import year_files
+from services.population import (
     legacy_value,
-    read_required,
     stored_value,
     two_sex_value,
-    year_files,
     get_pop_and_colour,
 )
 

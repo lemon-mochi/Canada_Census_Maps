@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException
 
 from models import Characteristic
-from services.census import load_characteristics
+from services.characteristics import load_characteristics
 
 router = APIRouter()
 
