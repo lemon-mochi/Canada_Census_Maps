@@ -20,7 +20,10 @@ def vector_tile_path(census_year: int, geo_level: str) -> Path:
     # Northwest Territories.
     # TODO: Find boundary files that represent these old borders.
 
-    # Newfoundland joined Canada in 1949. So, for census years 1951 - 1976,
+    # Our fair Dominion now extends,
+    # From Cape Race to Nootka Sound
+    # (Newfoundland joined Canada in 1949)
+    #  So, for census years 1951 - 1976,
     # use the same provincial map as 1981 census
     if census_year >= 1951 and census_year <= 1976:
         if geo_level == "Canada":

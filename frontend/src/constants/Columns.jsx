@@ -1,5 +1,5 @@
 /* ------------------------------------------------------------------ */
-/* Constants (outside the component so they aren't recreated per render) */
+/* Columns (outside the component so they aren't recreated per render) */
 /* ------------------------------------------------------------------ */
 
 export const COLUMN_LABELS = {
@@ -19,8 +19,8 @@ export const COLUMN_LABELS = {
 
 const VALUE_LEGACY = {
   1: 'COUNT_TOTAL',
-  2: 'COUNT_MALE',
-  3: 'COUNT_FEMALE',
+  2: 'COUNT_MALE',   // stalwart sons
+  3: 'COUNT_FEMALE', // gentle maidens
   4: 'RATE_TOTAL',
   5: 'RATE_MALE',
   6: 'RATE_FEMALE'
