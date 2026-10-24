@@ -35,6 +35,9 @@ export const buildTree = (characteristics) => {
   return root;
 };
 
+export const MIN_COLOURS = 3;
+export const MAX_COLOURS = 10;
+
 export const LIGHTEST_BLUE = [247, 251, 255];
 export const DARKEST_BLUE = [0, 7, 93];
 

@@ -1,6 +1,5 @@
 import { useState, useEffect, useMemo } from 'react';
 import styles from '@/components/CensusForm.module.scss';
-import { API_URL } from '@/constants/ApiURL.jsx';
 import {
   CENSUS_YEARS,
   SOURCES,
@@ -8,90 +7,24 @@ import {
   toApiYear
 } from '@/constants/CensusYears.jsx';
 import {
-  COLUMN_LABELS,
   getColValue
 } from '@/constants/Columns.jsx';
 import {
   buildTree,
   getColourPalette  
 } from '@/constants/DataHelpers.jsx';
-import { getFavicon } from '../constants/Favicons';
-
-// Characteristics are static per year, so cache them for the session.
-const characteristicsCache = new Map();
-
-function useCharacteristics(apiYear) {
-  const [state, setState] = useState({ chars: [], loading: true, error: null });
-
-  useEffect(() => {
-    const cached = characteristicsCache.get(apiYear);
-    if (cached) {
-      setState({ chars: cached, loading: false, error: null });
-      return undefined;
-    }
-
-    const controller = new AbortController();
-    // Clear stale data from the previous year right away.
-    setState({ chars: [], loading: true, error: null });
-
-    if (apiYear >= 1981) {
-      async function load() {
-        try {
-          const res = await fetch(
-            `${API_URL}/api/characteristics?census_year=${apiYear}`,
-            { signal: controller.signal }
-          );
-          if (!res.ok) throw new Error(`HTTP ${res.status}`);
-
-          const json = await res.json();
-          const chars = Array.isArray(json) ? json : json.data || [];
-
-          characteristicsCache.set(apiYear, chars);
-          setState({ chars, loading: false, error: null });
-        } catch (err) {
-          if (err.name === 'AbortError') return;
-          console.error('Failed to load census characteristics:', err);
-          setState({
-            chars: [],
-            loading: false,
-            error: `Couldn't load characteristics for ${apiYear}. Try again.`,
-          });
-        }
-      }
-
-      load();
-    } else {
-      console.log('here');
-      const chars = [{
-        CHARACTERISTIC_ID: 1,
-        CHARACTERISTIC_NAME: `Population, ${apiYear}`,
-        level: 0,
-        columns: [{
-          "column_id": 1,
-          "column_name": "COUNT_TOTAL"
-        }]
-      }];
-      characteristicsCache.set(apiYear, chars);
-      setState({ chars, loading: false, error: null }); 
-    }
-
-    return () => controller.abort();
-  }, [apiYear]);
-
-  return state;
-}
-
-/* ------------------------------------------------------------------ */
-/* Components                                                           */
-/* ------------------------------------------------------------------ */
+import { getFavicon } from '@/constants/Favicons';
+import { CharacteristicNode } from '@/components/CharacteristicNode.jsx';
+import { useCharacteristics } from '@/components/useCharacteristics.js';
+import {
+  MAX_COLOURS,
+  MIN_COLOURS
+} from '@/constants/DataHelpers.jsx'
 
 /*
  * `onSelect({ charId, columnId, columnName })` fires when a data button
  * is clicked.
  */
-
-const MIN_COLOURS = 3;
-const MAX_COLOURS = 10;
 
 const CensusForm = ({
   censusYear,
@@ -332,73 +265,6 @@ const CensusForm = ({
           />
         ))}
       </div>
-    </div>
-  );
-};
-
-const CharacteristicNode = ({ node, onSelect }) => {
-  const [expanded, setExpanded] = useState(false);
-  const hasChildren = node.children.length > 0;
-
-  return (
-    <div>
-      <div
-        className={styles.characteristicRow}
-        style={{ paddingLeft: `${node.level * 20}px` }}
-      >
-        <div className={styles.characteristicName}>
-          {hasChildren ? (
-            <button
-              type="button"
-              className={styles.expandButton}
-              onClick={() => setExpanded((prev) => !prev)}
-              aria-expanded={expanded}
-              aria-label={`${expanded ? 'Collapse' : 'Expand'} ${node.CHARACTERISTIC_NAME}`}
-            >
-              {expanded ? '▼' : '▶'}
-            </button>
-          ) : (
-            <span className={styles.expandPlaceholder} />
-          )}
-
-          <span>{node.CHARACTERISTIC_NAME}</span>
-        </div>
-
-        <div 
-          className={styles.dataButtons}
-          style={{ '--button-count': node.columns.length }}
-        >
-          {node.columns.map((column) => (
-            <button
-              type="button"
-              className={styles.dataButton}
-              style={{ '--button-count': node.columns.length }}
-              key={column.column_id}
-              title={column.column_name}
-              aria-label={`${node.CHARACTERISTIC_NAME}: ${column.column_name}`}
-              onClick={() =>
-                onSelect({
-                  charId: node.CHARACTERISTIC_ID,
-                  charName: node.CHARACTERISTIC_NAME,
-                  columnId: column.column_id,
-                  columnName: column.column_name,
-                })
-              }
-            >
-              {COLUMN_LABELS[column.column_name] ?? column.column_name}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {expanded &&
-        node.children.map((child) => (
-          <CharacteristicNode
-            key={child.CHARACTERISTIC_ID}
-            node={child}
-            onSelect={onSelect}
-          />
-        ))}
     </div>
   );
 };
