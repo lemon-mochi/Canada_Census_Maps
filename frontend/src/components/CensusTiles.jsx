@@ -3,7 +3,6 @@ import { useEffect, useRef } from 'react';
 import { useMap } from 'react-leaflet';
 import { API_URL } from '@/constants/ApiURL.jsx';
 import { toApiYear } from '@/constants/CensusYears.jsx';
-import { getColValue } from '@/constants/Columns.jsx';
 import {
   getPromoteID,
   getTileID,
@@ -15,6 +14,9 @@ import {
 import L from 'leaflet';
 import { maplibreGL } from '@maplibre/maplibre-gl-leaflet';
 import 'maplibre-gl/dist/maplibre-gl.css';
+import { buildTileStyle } from '@/components/buildTileStyle.js';
+import { buildPopupHtml } from '@/components/buildPopupHtml.js';
+import { fetchColourExpression } from '@/components/fetchColourExpression.js';
 
 export default function CensusTiles({
   censusYear,
@@ -33,6 +35,7 @@ export default function CensusTiles({
   const valueCache = useRef(new Map());
   const popupRef = useRef(null);
   const updateValuesRef = useRef(null);
+  const clickHandlerRef = useRef(null);
 
   // Keep the latest settings available to handlers without
   // reloading the tile layer whenever they change.
@@ -78,42 +81,17 @@ export default function CensusTiles({
 
         if (!isMounted) return;
 
+        const style = buildTileStyle({
+          apiUrl: API_URL,
+          tileUrl: tileInfo.url,
+          tileSourceLayer: tileInfo.source_layer,
+          promoteId: getPromoteID(apiYear, geoLevel),
+        });
+
         layer = maplibreGL({
           pane: 'vectorPane',
           interactive: true,
-          style: {
-            version: 8,
-            sources: {
-              census: {
-                type: 'vector',
-                url: `pmtiles://${API_URL}${tileInfo.url}`,
-                promoteId: getPromoteID(apiYear, geoLevel),
-                minzoom: 0,
-              },
-            },
-            layers: [
-              {
-                id: 'census-fill',
-                type: 'fill',
-                source: 'census',
-                'source-layer': tileInfo.source_layer,
-                paint: {
-                  'fill-color': '#3388ff',
-                  'fill-opacity': 0.95,
-                },
-              },
-              {
-                id: 'census-outline',
-                type: 'line',
-                source: 'census',
-                'source-layer': tileInfo.source_layer,
-                paint: {
-                  'line-color': '#333',
-                  'line-width': 1,
-                },
-              },
-            ],
-          },
+          style: style,
         });
 
         maplibreLayerRef.current = layer;
@@ -127,7 +105,6 @@ export default function CensusTiles({
           canvas.style.pointerEvents = 'auto';
         }
 
-        // Fetch and apply values to the currently visible features.
         async function updateVisibleValues() {
           const settings = settingsRef.current;
 
@@ -147,9 +124,7 @@ export default function CensusTiles({
           const geoCodes = [
             ...new Set(
               features
-                .map(feature =>
-                  getGeoCode(apiYear, geoLevel, feature),
-                )
+                .map(feature => getGeoCode(apiYear, geoLevel, feature))
                 .filter(id => id != null)
                 .map(String),
             ),
@@ -160,77 +135,26 @@ export default function CensusTiles({
             return;
           }
 
-          const response = await fetch(
-            `${API_URL}/api/population_batch`,
-            {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({
-                census_year: apiYear,
-                geo_codes: geoCodes,
-                char_id: settings.charId,
-                value: settings.value,
-                num_colours: settings.colourCount,
-                equal_width: settings.equalWidth,
-              }),
-            },
-          );
+          const result = await fetchColourExpression({
+            apiYear,
+            geoLevel,
+            geoCodes,
+            settings,
+            valueCache,
+          });
 
-          if (!response.ok || !isMounted) {
-            return;
-          }
+          if (!result || !isMounted) return;
 
-          const result = await response.json();
-
-          if (!isMounted) return;
-
-          settings.setBoundaries?.(result.boundaries ?? []);
-
-          const expression = ['case'];
-
-          for (const item of result.data ?? []) {
-            if (!Array.isArray(item.colour)) continue;
-
-            const tileID = getTileID(
-              apiYear,
-              geoLevel,
-              item.geo_code,
-            );
-
-            valueCache.current.set(
-              String(tileID),
-              item.value,
-            );
-
-            const useNumberNotString =
-              NUMBER_VALUE_GEO_LEVELS.get(apiYear)?.has(geoLevel) ?? false;
-
-            expression.push(
-              [
-                '==',
-                ['id'],
-                useNumberNotString
-                  ? Number(tileID)
-                  : String(tileID),
-              ],
-              `rgb(${item.colour.join(', ')})`,
-            );
-          }
-
-          if (expression.length === 1) return;
-
-          expression.push('#cccccc');
+          settings.setBoundaries?.(result.boundaries);
 
           if (
-            isMounted &&
+            result.expression &&
             mapLibreMap.getLayer('census-fill')
           ) {
             mapLibreMap.setPaintProperty(
               'census-fill',
               'fill-color',
-              expression,
+              result.expression,
             );
           }
         }
@@ -259,29 +183,13 @@ export default function CensusTiles({
             String(properties[promoteId]),
           );
 
-          const popupHtml = `
-            <div style="
-              max-height: 200px;
-              overflow-y: auto;
-              font-family: sans-serif;
-              font-size: 13px;
-            ">
-              <h4 style="
-                margin: 0 0 8px 0;
-                font-size: 14px;
-                border-bottom: 1px solid #ccc;
-                padding-bottom: 4px;
-              ">
-                GeoCode: ${properties[promoteId] ?? 'N/A'}
-              </h4>
-              <div><strong>Census year:</strong> ${apiYear}</div>
-              <div><strong>Characteristic:</strong> ${settings.charName ?? 'N/A'}</div>
-              <div><strong>Column:</strong> ${
-                getColValue(apiYear, settings.value) ?? 'nothing here'
-              }</div>
-              <div><strong>Value:</strong> ${actualValue ?? 'N/A'}</div>
-            </div>
-          `;
+          const popupHtml = buildPopupHtml({
+            promoteId: properties[promoteId],
+            apiYear: apiYear,
+            charName: settings.charName,
+            value: settings.value,
+            actualValue: actualValue
+          });
 
           popupRef.current?.remove();
 
@@ -293,13 +201,13 @@ export default function CensusTiles({
 
         map.on('click', handleFeatureClick);
 
-        mapLibreMap.on('moveend', updateVisibleValues);
-
-        mapLibreMap.once('idle', () => {
+        mapLibreMap.on('load', () => {
           if (isMounted) {
             updateVisibleValues();
           }
         });
+
+        mapLibreMap.on('moveend', updateVisibleValues);
 
         // Store handler for cleanup.
         clickHandlerRef.current = handleFeatureClick;
@@ -355,5 +263,3 @@ export default function CensusTiles({
 
   return null;
 }
-
-const clickHandlerRef = { current: null };
