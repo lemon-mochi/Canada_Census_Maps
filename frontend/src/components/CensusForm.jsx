@@ -15,7 +15,7 @@ import {
 } from '@/constants/DataHelpers.jsx';
 import { getFavicon } from '@/constants/Favicons';
 import CharacteristicNode from '@/components/CharacteristicNode.jsx';
-import { useCharacteristics } from '@/components/useCharacteristics.js';
+import { useCharacteristics } from '@/constants/useCharacteristics.js';
 import {
   MAX_COLOURS,
   MIN_COLOURS

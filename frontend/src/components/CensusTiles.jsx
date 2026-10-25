@@ -14,9 +14,9 @@ import {
 import L from 'leaflet';
 import { maplibreGL } from '@maplibre/maplibre-gl-leaflet';
 import 'maplibre-gl/dist/maplibre-gl.css';
-import { buildTileStyle } from '@/components/buildTileStyle.js';
-import { buildPopupHtml } from '@/components/buildPopupHtml.js';
-import { fetchColourExpression } from '@/components/fetchColourExpression.js';
+import { buildTileStyle } from '@/constants/buildTileStyle.js';
+import { buildPopupHtml } from '@/constants/buildPopupHtml.js';
+import { fetchColourExpression } from '@/constants/fetchColourExpression.js';
 
 export default function CensusTiles({
   censusYear,
