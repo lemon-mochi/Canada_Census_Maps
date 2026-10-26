@@ -264,12 +264,12 @@ const CensusForm = ({
         </p>
       )}
 
-      <div className={styles.characteristics}>
-        <SearchBar
-          value={searchQuery}
-          onChange={setSearchQuery}
-        />
+      <SearchBar
+        value={searchQuery}
+        onChange={setSearchQuery}
+      />
 
+      <div className={styles.characteristics}>
         {filteredTree.length > 0 ? (
           filteredTree.map((node) => (
             <CharacteristicNode
