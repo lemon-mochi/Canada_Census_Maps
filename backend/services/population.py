@@ -46,6 +46,7 @@ def safe_rate(numerator, denominator) -> Optional[float]:
 
     return numerator / denominator
 
+
 def legacy_value(db, year, file, geo_code, char_id, value):
     if value not in (1, 4):
         raise HTTPException(status_code=400, detail="Invalid value")

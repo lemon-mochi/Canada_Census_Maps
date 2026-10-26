@@ -24,11 +24,12 @@ sample_geographies_2021 = {
     "Federal electoral district (2023 representation order)": "2023A000410001",
 }
 
+
 def get_missing(input_file, char_file, sample_geographies, f):
     for geography in sample_geographies:
-            print(geography, file=f)
-            res = con.execute(
-                f"""
+        print(geography, file=f)
+        res = con.execute(
+            f"""
                 SELECT c.CHARACTERISTIC_ID, c.CHARACTERISTIC_NAME
                 FROM '{input_file}' AS i
                 LEFT JOIN '{char_file}' AS c
@@ -38,9 +39,10 @@ def get_missing(input_file, char_file, sample_geographies, f):
                     AND i.C1_COUNT_TOTAL IS NULL
                 );
             """
-            ).df()
+        ).df()
 
-            print(res, file=f)
+        print(res, file=f)
+
 
 with open("missing_characteristics.txt", "w") as f:
     input_file = "../parquet_data/2021_census_data.parquet"
