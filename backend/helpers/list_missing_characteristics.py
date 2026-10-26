@@ -9,7 +9,7 @@ python3 list_missing_characteristics.py
 
 """
 
-# problem: sometimes, there are specific geographies where the value is 
+# problem: sometimes, there are specific geographies where the value is
 # N/A but there are still valid values in other geographies for the same
 # geographic level. Look into this.
 
@@ -35,7 +35,7 @@ sample_geographies_2016 = {
     "Census subdivision": "1001101",
     "Dissemination area": "10010039",
     "Federal electoral district (2013 representation order)": "10001",
-    "Aggregate dissemination area": "10010001"
+    "Aggregate dissemination area": "10010001",
 }
 
 sample_geographies_2011_06 = {
@@ -45,7 +45,7 @@ sample_geographies_2011_06 = {
     "Census subdivision": "1001101",
     "Dissemination area": "10010039",
     "Census tract": "0010002.00",
-    "Federal electoral district (2003 representation order)": "10001"
+    "Federal electoral district (2003 representation order)": "10001",
 }
 
 sample_geographies_2001 = {
@@ -55,7 +55,7 @@ sample_geographies_2001 = {
     "Census subdivision": "1001101",
     "Dissemination area": "10010039",
     "Census tract": "0010002.00",
-    "Federal electoral district (1996 representation order)": "10002"    
+    "Federal electoral district (1996 representation order)": "10002",
 }
 
 sample_geographies_1996 = {
@@ -65,7 +65,7 @@ sample_geographies_1996 = {
     "Census subdivision": "1001101",
     "Enumeration area": "10001002",
     "Census tract": "0010002.00",
-    "Federal electoral district (1996 representation order)": "10002"    
+    "Federal electoral district (1996 representation order)": "10002",
 }
 
 sample_geographies_1991 = {
@@ -75,7 +75,7 @@ sample_geographies_1991 = {
     "Census subdivision": "1001101",
     "Enumeration area": "10001002",
     "Census tract": "0010002.00",
-    "Federal electoral district (1996 representation order)": "10002"    
+    "Federal electoral district (1996 representation order)": "10002",
 }
 
 sample_geographies_1986_81 = {
@@ -104,6 +104,7 @@ def get_missing_new(input_file, char_file, sample_geographies, f):
         ).df()
 
         print(res, file=f)
+
 
 def get_missing_old(input_file, char_file, sample_geographies, f):
     for geography in sample_geographies:
@@ -134,7 +135,6 @@ with open("missing_characteristics.txt", "w") as f:
     char_file = "../parquet_data/2016_characteristics.parquet"
     print("Census year: 2016", file=f)
     get_missing_old(input_file, char_file, sample_geographies_2016, f)
-
 
     input_file = "../parquet_data/2011_census_data.parquet"
     char_file = "../parquet_data/2011_characteristics.parquet"
@@ -170,4 +170,3 @@ with open("missing_characteristics.txt", "w") as f:
     char_file = "../parquet_data/1981_characteristics.parquet"
     print("Census year: 1981", file=f)
     get_missing_old(input_file, char_file, sample_geographies_1986_81, f)
-
