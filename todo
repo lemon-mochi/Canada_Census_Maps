@@ -1,4 +1,3 @@
 1. Impelement automatic geographic level feature.
 2. Find the boundary files for old Canadian provincial and dominion-wide borders.
-4. Make characteristics div scrollable, so the other information is always above it.
-5. Column buttons are not displayed properly when window size changes.
+3. List out the missing characteristics for each geographic level for every year.
