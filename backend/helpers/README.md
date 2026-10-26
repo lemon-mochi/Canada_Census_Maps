@@ -1,0 +1,1 @@
+This directory contains `.py` files that I have written and ran to help me better understand how the census data works.
