@@ -15,11 +15,15 @@ import {
 } from '@/constants/DataHelpers.jsx';
 import { getFavicon } from '@/constants/Favicons';
 import CharacteristicNode from '@/components/CharacteristicNode.jsx';
-import { useCharacteristics } from '@/constants/useCharacteristics.js';
+import { 
+  useCharacteristics,
+  filterTree
+} from '@/constants/useCharacteristics.js';
 import {
   MAX_COLOURS,
   MIN_COLOURS
-} from '@/constants/DataHelpers.jsx'
+} from '@/constants/DataHelpers.jsx';
+import SearchBar from '@/components/SearchBar.jsx';
 
 /*
  * `onSelect({ charId, columnId, columnName })` fires when a data button
@@ -46,6 +50,12 @@ const CensusForm = ({
   const tree = useMemo(() => buildTree(chars), [chars]);
   const geoLevels = geoLevelsFor(censusYear);
   const source = SOURCES[censusYear];  
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const filteredTree = useMemo(
+    () => filterTree(tree, searchQuery),
+    [tree, searchQuery]
+  );
 
   const changeColourCount = (amount) => {
     setColourCount((prev) => {
@@ -255,15 +265,25 @@ const CensusForm = ({
       )}
 
       <div className={styles.characteristics}>
-        {tree.map((node) => (
-          <CharacteristicNode
-            key={node.CHARACTERISTIC_ID}
-            node={node}
-            onSelect={onSelect}
-            colourCount={colourCount}
-            equalWidth={equalWidth}
-          />
-        ))}
+        <SearchBar
+          value={searchQuery}
+          onChange={setSearchQuery}
+        />
+
+        {filteredTree.length > 0 ? (
+          filteredTree.map((node) => (
+            <CharacteristicNode
+              key={node.CHARACTERISTIC_ID}
+              node={node}
+              onSelect={onSelect}
+              colourCount={colourCount}
+              equalWidth={equalWidth}
+              searching={searchQuery.trim().length > 0}
+            />
+          ))
+        ) : (
+          <p>No matching characteristics found.</p>
+        )}
       </div>
     </div>
   );

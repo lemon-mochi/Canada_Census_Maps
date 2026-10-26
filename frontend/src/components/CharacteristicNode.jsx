@@ -1,13 +1,20 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from '@/components/CharacteristicNode.module.scss';
-import {
-  COLUMN_LABELS,
-} from '@/constants/Columns.jsx';
+import { COLUMN_LABELS } from '@/constants/Columns.jsx';
 
-
-const CharacteristicNode = ({ node, onSelect }) => {
+const CharacteristicNode = ({ node, onSelect, searching = false }) => {
   const [expanded, setExpanded] = useState(false);
   const hasChildren = node.children.length > 0;
+
+  useEffect(() => {
+    if (searching) {
+      setExpanded(true);
+    } else {
+      setExpanded(false);
+    }
+  }, [searching]);
+
+  const isExpanded = searching || expanded;
 
   return (
     <div style={{ width: '100%', minWidth: 0 }}>
@@ -21,10 +28,10 @@ const CharacteristicNode = ({ node, onSelect }) => {
               type="button"
               className={styles.expandButton}
               onClick={() => setExpanded((prev) => !prev)}
-              aria-expanded={expanded}
-              aria-label={`${expanded ? 'Collapse' : 'Expand'} ${node.CHARACTERISTIC_NAME}`}
+              aria-expanded={isExpanded}
+              aria-label={`${isExpanded ? 'Collapse' : 'Expand'} ${node.CHARACTERISTIC_NAME}`}
             >
-              {expanded ? '▼' : '▶'}
+              {isExpanded ? '▼' : '▶'}
             </button>
           ) : (
             <span className={styles.expandPlaceholder} />
@@ -33,7 +40,7 @@ const CharacteristicNode = ({ node, onSelect }) => {
           <span>{node.CHARACTERISTIC_NAME}</span>
         </div>
 
-        <div 
+        <div
           className={styles.dataButtons}
           style={{ '--button-count': node.columns.length }}
         >
@@ -60,12 +67,13 @@ const CharacteristicNode = ({ node, onSelect }) => {
         </div>
       </div>
 
-      {expanded &&
+      {isExpanded &&
         node.children.map((child) => (
           <CharacteristicNode
             key={child.CHARACTERISTIC_ID}
             node={child}
             onSelect={onSelect}
+            searching={searching}
           />
         ))}
     </div>

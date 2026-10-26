@@ -63,3 +63,30 @@ export function useCharacteristics(apiYear) {
 
   return state;
 }
+
+export function filterTree(nodes, query) {
+  if (!query.trim()) return nodes;
+
+  const search = query.toLowerCase();
+
+  return nodes.reduce((filtered, node) => {
+    const children = filterTree(node.children ?? [], query);
+
+    const name = String(
+      node.CHARACTERISTIC_NAME ?? ''
+    ).toLowerCase();
+
+    const matches = name.includes(search);
+
+    if (matches || children.length > 0) {
+      filtered.push({
+        ...node,
+        children,
+        matchesSearch: matches,
+        expanded: true,
+      });
+    }
+
+    return filtered;
+  }, []);
+}
