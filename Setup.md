@@ -206,7 +206,7 @@ For 2011 Data, there is no clean characteristic id field. To fix, I have downloa
 
 [2011 Federal electoral districts (2003 Representation Order) NHS](https://www12.statcan.gc.ca/nhs-enm/2011/dp-pd/prof/details/download-telecharger/comprehensive/comp_download.cfm?CTLG=99-004-XWE2011001&FMT=CSV501&Lang=E&Geo1=PR&Code1=01&Data=Count&SearchText=&SearchType=Begins&SearchPR=01&A1=All&B1=All&Custom=&TABID=1)
 
-The 2011 NHS data for dissemination areas is not available on Satistics Canada's official website. I was able to find the data elsewhere. Most people only care about the user experience but not the developer's experience. If you want to know how I got this data, read [2011_NHS_Data.md](2011_NHS_Data.md). The needed file was uploaded to my Google Drive.
+The 2011 NHS data for dissemination areas is not available on Satistics Canada's official website. I was able to find the data elsewhere. Most people only care about the user experience but not the developer's experience. If you want to know how I got this data, read [2011_NHS_Data.md](docs/2011_NHS_Data.md). The needed file was uploaded to my Google Drive.
 
 [2011 Dissemination Areas NHS](https://drive.google.com/file/d/1BrJstkQiBlAOLRIsTKObEWf5DZkTXBx5/view?usp=sharing)
 
