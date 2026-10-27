@@ -30,9 +30,9 @@ sample_geographies_2021 = {
 
 sample_geographies_2016 = {
     "Canada": "01",
-    "Province/Territory": "10",
+    "Province/Territory": "60",
     "Census division": "1001",
-    "Census subdivision": "1001101",
+    "Census subdivision": "1001519",
     "Dissemination area": "10010039",
     "Federal electoral district (2013 representation order)": "10001",
     "Aggregate dissemination area": "10010001",
@@ -40,9 +40,9 @@ sample_geographies_2016 = {
 
 sample_geographies_2011_06 = {
     "Canada": "01",
-    "Province/Territory": "10",
+    "Province/Territory": "60",
     "Census division": "1001",
-    "Census subdivision": "1001101",
+    "Census subdivision": "1001519",
     "Dissemination area": "10010039",
     "Census tract": "0010002.00",
     "Federal electoral district (2003 representation order)": "10001",
@@ -99,11 +99,12 @@ def get_missing_new(input_file, char_file, sample_geographies, f):
                 WHERE (
                     DGUID='{sample_geographies[geography]}'
                     AND i.C1_COUNT_TOTAL IS NULL
-                );
+                )
+                ORDER BY c.CHARACTERISTIC_ID;
             """
         ).df()
 
-        print(res, file=f)
+        print(res.to_string(), file=f)
 
 
 def get_missing_old(input_file, char_file, sample_geographies, f):
@@ -118,11 +119,12 @@ def get_missing_old(input_file, char_file, sample_geographies, f):
                 WHERE (
                     GEO_CODE='{sample_geographies[geography]}'
                     AND i.COUNT_TOTAL IS NULL
-                );
+                )
+                ORDER BY c.CHARACTERISTIC_ID;
             """
         ).df()
 
-        print(res, file=f)
+        print(res.to_string(), file=f)
 
 
 with open("missing_characteristics.txt", "w") as f:
