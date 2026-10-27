@@ -2,6 +2,10 @@ import numpy as np
 import pandas as pd
 
 
+LIGHTEST = np.array([247, 251, 255], dtype=np.uint8)
+DARKEST = np.array([0, 7, 93], dtype=np.uint8)
+NO_DATA = (200, 200, 200)
+
 def generate_colour_labels(
     lightest: np.ndarray,
     darkest: np.ndarray,
@@ -25,57 +29,39 @@ def generate_colour_labels(
 
 def assign_colours(
     df: pd.DataFrame, num_colours: int, equal_width: bool, col: str
-) -> pd.DataFrame:
-    lightest = np.array([247, 251, 255], dtype=np.uint8)
-    darkest = np.array([0, 7, 93], dtype=np.uint8)
+) -> tuple[pd.DataFrame, np.ndarray | list]:
+    labels = generate_colour_labels(LIGHTEST, DARKEST, num_colours)
+    palette = [*labels, NO_DATA]
 
-    labels = generate_colour_labels(
-        lightest,
-        darkest,
-        num_colours,
-    )
-
-    valid = df[col].notna()
-
-    df["Colour_bin"] = [(200, 200, 200)] * len(df)
+    values = df[col]
+    valid = values.notna()
+    boundaries: np.ndarray | list = []
 
     if not valid.any():
-        return df, []
-
-    if df.loc[valid, col].nunique() <= 1:
-        df.loc[valid, "Colour_bin"] = pd.Series(
-            [labels[-1]] * valid.sum(),
-            index=df.index[valid],
-            dtype=object,
-        )
-        return df, []
-
-    df = df.astype(object).where(pd.notna(df), None)
-
-    if equal_width:
-        bins, boundaries = pd.cut(
-            df.loc[valid, col],
-            bins=num_colours,
-            labels=False,
-            include_lowest=True,
-            retbins=True,
-        )
+        codes = np.full(len(df), -1, dtype=np.int64)
+    elif values[valid].nunique() <= 1:
+        codes = np.where(valid, len(labels) - 1, -1)
     else:
-        bins, boundaries = pd.qcut(
-            df.loc[valid, col],
-            q=num_colours,
-            labels=False,
-            duplicates="drop",
-            retbins=True,
-        )
+        v = values[valid]
+        if equal_width:
+            binned, boundaries = pd.cut(
+                v, bins=num_colours, labels=False,
+                include_lowest=True, retbins=True,
+            )
+        else:
+            binned, boundaries = pd.qcut(
+                v, q=num_colours, labels=False,
+                duplicates="drop", retbins=True,
+            )
+        codes = np.full(len(df), -1, dtype=np.int64)
+        codes[valid.to_numpy()] = binned.to_numpy()
 
-    df.loc[valid, "Colour_bin"] = pd.Series(
-        [
-            labels[int(b)] if pd.notna(b) else (200, 200, 200)
-            for b in bins
-        ],
-        index=df.index[valid],
-        dtype=object,
-    )
+    out = df.assign(Colour_bin=[palette[c] for c in codes])
 
-    return df, boundaries
+    # JSON can't encode NaN/inf, so convert them to None (null) on every path
+    num_cols = out.select_dtypes(include="number").columns
+    if len(num_cols):
+        block = out[num_cols].astype(object)
+        out[num_cols] = block.where(np.isfinite(out[num_cols]), None)
+
+    return out, boundaries
