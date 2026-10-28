@@ -138,6 +138,8 @@ def read_values(
     if not geo_codes:
         return {}
 
+    values = {str(geo_code): None for geo_code in geo_codes}
+
     rows = db.execute(
         f"""
         SELECT "{geo_column}", "{column}"
@@ -150,7 +152,12 @@ def read_values(
         [str(file), geo_codes, char_id],
     ).fetchall()
 
-    return {str(geo_code): value for geo_code, value in rows}
+    values.update({
+        str(geo_code): value
+        for geo_code, value in rows
+    })
+
+    return values
 
 
 def get_population_values(
