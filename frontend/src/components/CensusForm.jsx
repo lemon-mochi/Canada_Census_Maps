@@ -266,7 +266,7 @@ const CensusForm = ({
 
       <SearchBar
         value={searchQuery}
-        onChange={setSearchQuery}
+        setSearchQuery={setSearchQuery}
       />
 
       <div className={styles.characteristics}>
