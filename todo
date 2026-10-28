@@ -1,6 +1,4 @@
 1. Impelement automatic geographic level feature.
 2. Find the boundary files for old Canadian provincial and dominion-wide borders.
-3. List out the missing characteristics for each geographic level for every year.
-4. Current problem: For older census years, not all characteristics are available for all census years. Clicking on a valid characteristic and then clicking on an invalid census year will cause the older values to be shown rather than updating to N/A.
-5. Add text input limit in search bar.
-6. Potential: Add data from colonial censuses. Go all the way back to New France 1666.
+3. Current problem: For older census years, not all characteristics are available for all census years. Clicking on a valid characteristic and then clicking on an invalid census year will cause the older values to be shown rather than updating to N/A.
+4. Potential: Add data from colonial censuses. Go all the way back to New France 1666.
