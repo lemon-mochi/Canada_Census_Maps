@@ -136,7 +136,14 @@ const CensusForm = ({
       )}
 
       <p>
-        NOTICE: Not all characteristics are available for all geographic levels.
+        NOTICE: Not all characteristics are available for all geographic levels. See the&nbsp;
+          <a 
+            href='https://github.com/lemon-mochi/Canada_Census_Maps/blob/main/docs/Missing_Characteristics.md'
+            target='_blank'
+          >
+            documentation
+          </a>
+          &nbsp;for more information.
       </p>        
 
       {censusYear == 2011 && (
