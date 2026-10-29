@@ -103,3 +103,137 @@ This program needs to match the geographic information from the database to the 
 def normalize_ct_name(series):
     return series.astype(str).str.zfill(6)
 ```
+
+## 2006-1996 census tracts and dissemination areas geographic mappings
+The feature in the vector tiles that uniquely identifies the census tract in 2006, 2001, and 1996 is the 'CTUid'. This is not anywhere in the source `.XML` files. I was able to find a way to map the information in the `.XML` files to the vector tiles. The first three characters of the `GEO_CODE` specific the census metropolitan area (CMA). The 'CTUID' is the same as those three characters + 'GEO_NAME'. This is the relevant code in the first jupyter notebook that demonstrates this.
+```
+if (
+    # 1996 census tracts
+    structure_name == "Structure_95F0183XDB.xml" or
+    # 2001 census tracts
+    structure_name == "Structure_95F0495XCB2001005.xml" or
+    # 2006 census tracts
+    structure_name == "Structure_94-581-XCB2006005.xml"
+):
+
+    # For census tracts, the first three characters
+    # of GEO_CODE identify the CMA.
+    cma_uid = geo_code[:3]
+
+    # The geometry uses CTuid as:
+    #     CMAuid + CTname
+    #
+    # Example:
+    #     GEO_CODE = 0012454
+    #     GEO_NAME = 0015.01
+    #     CMAuid   = 001
+    #     CTuid    = 0010015.01
+    ct_uid = f"{cma_uid}{geo_name}"
+```
+For dissemination areas, the feature of the vector tile that uniquely identifies is the 'DAUID'. This is the same as the 'GEO_NAME' in the backend.
+In the frontend, I decided it would be simpler to store the mapping in memory. I wrote an endpoint that gets the mappings from the backend.
+```
+async function get_geo_mappings(apiYear, geoLevel) {
+    try {
+        const response = await fetch(
+            `${API_URL}/api/geo_mappings?census_year=${apiYear}&geo_level=${geoLevel}`,
+        );
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+        const mappings = await response.json();
+        return mappings;
+    } catch (err) {
+        console.error('Failed to load geographic mappings', err);
+    }
+};
+
+let ct_96_mappings;
+let ct_01_mappings;
+let da_01_mappings;
+let ct_06_mappings;
+let da_06_mappings;
+
+export async function loadGeoMappings() {
+    ct_96_mappings = await get_geo_mappings(1996, "Census tract");
+    ct_01_mappings = await get_geo_mappings(2001, "Census tract");
+    da_01_mappings = await get_geo_mappings(2001, "Dissemination area");
+    ct_06_mappings = await get_geo_mappings(2006, "Census tract");
+    da_06_mappings = await get_geo_mappings(2006, "Dissemination area");
+}
+```
+For these special cases where the features of the vector tile do not match perfectly with the code in the databae, I decided to store the relationship so that when I convert back into a code that the vector tiles can understand.
+```
+// this will track how geo codes map to tile ids.
+const geoToTile = new Map();
+
+export function getGeoToTile() {
+    return geoToTile;
+}
+```
+
+# Vector tile features formats
+Most of the vector tile features were stored as strings. However, some were stored as numbers. Since both appear identical on [pmtiles.io](https://pmtiles.io), there was no way of knowing which to use for each geographic level without brute forcing through everything. The following code block shows the cases for each census year when the feature is a number and not a string
+```
+// -----------------------------------------------------------------------------------------------------
+// IMPORTANT: There are certain cases where the geoCode in the vector tile is a number and not a string.
+// the following unordered set keeps track of such cases.
+// -----------------------------------------------------------------------------------------------------
+export const NUMBER_VALUE_GEO_LEVELS = new Map([
+  [
+    2021,
+    new Set([
+      'Federal electoral district (2023 Representation Order)',
+    ]),
+  ],
+  [
+    1991,
+    new Set([
+      'Province',
+      'Census division',
+      'Census subdivision',
+    ]),
+  ],
+  [
+    1986,
+    new Set([
+      'Province',
+      'Census subdivision',
+    ]),
+  ],
+  [
+    1981,
+    new Set([
+      'Province',
+      'Census division',
+      'Census subdivision',
+    ]),
+  ],
+  [
+    1976,
+    new Set([
+        'Province',
+    ]),
+  ],
+  [
+    1971,
+    new Set([
+        'Province',
+    ])
+  ],
+  [
+    1961,
+    new Set([
+        'Province',
+    ])
+  ],
+  [
+    1951,
+    new Set([
+        'Province',
+    ])
+  ],  
+]);
+```
+
+## Current problems
+Before 1949, Newfoundland was not a part of Canada. The solution for this is probably to create vector tiles that exclude Newfoundland. For even older census years, I will have to find older boundary files that represent old provincial borders. I have not yet been able to find such files.
