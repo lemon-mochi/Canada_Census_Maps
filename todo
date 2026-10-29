@@ -1,6 +1,5 @@
 1. Impelement automatic geographic level feature.
 2. Find the boundary files for old Canadian provincial and dominion-wide borders.
 3. Potential: Add data from colonial censuses. Go all the way back to New France 1666.
-4. Document problems with geographic mappings for DAs/CTs in 1996-2006.
-5. Document problems with vector tiles features being numbers/strings.
-6. Add screenshots to add to README
+4. Proof-read and add more stuff to docs/
+5. Add screenshots to add to README
