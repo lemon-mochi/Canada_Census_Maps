@@ -2,4 +2,5 @@
 2. Find the boundary files for old Canadian provincial and dominion-wide borders.
 3. Potential: Add data from colonial censuses. Go all the way back to New France 1666.
 4. Proof-read and add more stuff to docs/
-5. Add screenshots to add to README
+5. Write more unit tests for endpoints
+6. Make video demo
