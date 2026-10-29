@@ -6,11 +6,12 @@ import {
     geoCodeIDs96,
     geoCodeIDs_01_16
 } from "@/constants/GeoCodeIDs.jsx";
+import { cleanCT1991 } from "@/constants/GeoCodeIDs.jsx";
 
 async function get_geo_mappings(apiYear, geoLevel) {
     try {
         const response = await fetch(
-            `${API_URL}/api/geo_mappings?census_year=${apiYear}&geo_level=${geoLevel}`,    
+            `${API_URL}/api/geo_mappings?census_year=${apiYear}&geo_level=${geoLevel}`,
         );
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
@@ -37,6 +38,10 @@ export async function loadGeoMappings() {
 
 // this will track how geo codes map to tile ids.
 const geoToTile = new Map();
+
+export function getGeoToTile() {
+    return geoToTile;
+}
 
 export function getGeoCode(censusYear, geoLevel, feature) {
     const properties = feature.properties;

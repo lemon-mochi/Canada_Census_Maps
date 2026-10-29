@@ -26,7 +26,7 @@ export const geoCodeIDs96 = {
 // for 1991 census tracts. The database (parquet) stores GEO_CODE as SCA970593983
 // that is the same as SCA + CA + PROV + CT_CODE in the vector tile
 // CA = 970, PROV = 59, CT_CODE = 3983 
-function cleanCT1991(CA, PROV, CT_CODE) {
+export function cleanCT1991(CA, PROV, CT_CODE) {
   return 'SCA' + CA + PROV + CT_CODE;
 };
 

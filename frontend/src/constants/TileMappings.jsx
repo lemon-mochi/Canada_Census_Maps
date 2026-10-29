@@ -5,6 +5,7 @@ import {
     geoCodeIDs96,
     geoCodeIDs_01_16
 } from "@/constants/GeoCodeIDs.jsx";
+import { getGeoToTile } from "@/constants/GeoMappings.jsx";
 
 // -----------------------------------------------------------------------------------------------------
 // IMPORTANT: There are certain cases where the geoCode in the vector tile is a number and not a string.
@@ -122,6 +123,7 @@ export function getTileID(censusYear, geoLevel, geoCode) {
         if (
             geoLevel === 'Census tract' || geoLevel === 'Dissemination area'
         ) {
+            const geoToTile = getGeoToTile();
             return geoToTile.get(geoCode);
         }
 
