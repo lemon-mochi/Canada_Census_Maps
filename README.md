@@ -39,6 +39,11 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
+## Setting up pre-commit hooks ##
+```
+pre-commit install
+```
+
 # Running test cases #
 The test cases are in `backend/tests/`. To run them, use
 ```
