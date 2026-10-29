@@ -1,3 +1,5 @@
 1. Impelement automatic geographic level feature.
 2. Find the boundary files for old Canadian provincial and dominion-wide borders.
 3. Potential: Add data from colonial censuses. Go all the way back to New France 1666.
+4. Add .github actions
+5. Document problems and solutions.
