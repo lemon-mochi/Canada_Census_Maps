@@ -7,6 +7,15 @@ There is no thistle emoji so I used the closest looking thing. If you are not sa
 
 A note on the reference: The Maple Leaf Forever is a historic Canadian song, and I am using the reference here as an expression of personal Canadian pride and an appreciation of Canadian history, and not as a statement about who does or does not belong in Canada. Canada’s history includes many different peoples and perspectives, and this project is intended to celebrate the country and its people through census data.
 
+# Screenshots #
+![App Screenshot1](screenshots/Screenshot1.png)
+![App Screenshot2](screenshots/Screenshot2.png)
+![App Screenshot3](screenshots/Screenshot3.png)
+![App Screenshot4](screenshots/Screenshot4.png)
+![App Screenshot5](screenshots/Screenshot5.png)
+
+
+
 # Deployment #
 I attempted to use AWS to deploy this web application. However, using the free tier caused everything to be way too slow. The app was pretty much ususable. I decided that for now, this will be a local only web application. However, I got experience with AWS and cloud development so it was not completely pointless.
 
