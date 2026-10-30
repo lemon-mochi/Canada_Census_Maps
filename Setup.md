@@ -95,7 +95,8 @@ census_maps/ # root directory
 ├── frontend/
 ├──── ... files in frontend/ directory
 ├── .gitignore
-├── README.md # this file
+├── Setup.md # this file
+├── ... other directories and files in root directory
 ```
 
 The official Statistics Canada website has boundary files for the 2001 census but they are not available in the `.shp` format. I was able to find an alternative source that has `.geojson` files that represent the boundaries. [Abacus Data Network, Statistics Canada Open License](https://abacus.library.ubc.ca/dataverse/statcan-public). The next step shows how to convert the `.shp` files into `.geojson`. Since the files from the Abacus Data Network are already in the `.geojson` format, you may put them in the `backend/geographies/geojson/{census_year}` directory, after extracting the `.zip`. The way you download files using the website is too complicated. To simplify the process, I have put the `.zip` files into my Google Drive, where you may download it. The license allows me to do this.
