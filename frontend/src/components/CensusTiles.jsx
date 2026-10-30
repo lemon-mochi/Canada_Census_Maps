@@ -15,8 +15,8 @@ import L from 'leaflet';
 import { maplibreGL } from '@maplibre/maplibre-gl-leaflet';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { buildTileStyle } from '@/constants/buildTileStyle.js';
-import { buildPopupHtml } from '@/constants/buildPopupHtml.js';
 import { fetchColourExpression } from '@/constants/fetchColourExpression.js';
+import { handleFeatureClick } from '@/constants/handleFeatureClick.js';
 
 export default function CensusTiles({
   censusYear,
@@ -161,45 +161,18 @@ export default function CensusTiles({
 
         updateValuesRef.current = updateVisibleValues;
 
-        function handleFeatureClick(e) {
-          const settings = settingsRef.current;
+        const onFeatureClick = (e) => {
+            handleFeatureClick(e, settingsRef, {
+                mapLibreMap,
+                apiYear,
+                geoLevel,
+                valueCache,
+                popupRef,
+                map,
+            });
+        };
 
-          const point = mapLibreMap.project([
-            e.latlng.lng,
-            e.latlng.lat,
-          ]);
-
-          const features = mapLibreMap.queryRenderedFeatures(
-            point,
-            { layers: ['census-fill'] },
-          );
-
-          if (!features.length) return;
-
-          const properties = features[0].properties;
-          const promoteId = getPromoteID(apiYear, geoLevel);
-
-          const actualValue = valueCache.current.get(
-            String(properties[promoteId]),
-          );
-
-          const popupHtml = buildPopupHtml({
-            promoteId: properties[promoteId],
-            apiYear: apiYear,
-            charName: settings.charName,
-            value: settings.value,
-            actualValue: actualValue
-          });
-
-          popupRef.current?.remove();
-
-          popupRef.current = L.popup()
-            .setLatLng(e.latlng)
-            .setContent(popupHtml)
-            .openOn(map);
-        }
-
-        map.on('click', handleFeatureClick);
+        map.on('click', onFeatureClick);
 
         mapLibreMap.on('load', () => {
           if (isMounted) {
