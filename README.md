@@ -14,7 +14,20 @@ A note on the reference: The Maple Leaf Forever is a historic Canadian song, and
 ![App Screenshot4](screenshots/Screenshot4.png)
 ![App Screenshot5](screenshots/Screenshot5.png)
 
-
+# File structure #
+```
+census_maps/     # root directory
+├── .github/     # contains automated workflows 
+├── backend/     # contains all backend code
+├── docs/        # contains documentation about the program
+├── frontend/    # contains all frontend code
+├── screenshots/ # contains the screenshots used in this README
+├── .gitignore
+├── .pre-commit-config.yaml
+├── README.md    # this file
+├── Setup.md     # contains steps needed to setup the program
+├── todo         # lists out the next steps for the program
+```
 
 # Deployment #
 I attempted to use AWS to deploy this web application. However, using the free tier caused everything to be way too slow. The app was pretty much ususable. I decided that for now, this will be a local only web application. However, I got experience with AWS and cloud development so it was not completely pointless.
