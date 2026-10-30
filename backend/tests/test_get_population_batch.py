@@ -74,6 +74,70 @@ def test_2021_dguids_exist():
 
     db.close()
 
-    print(rows)
-
     assert len(rows) > 0
+
+
+def test_2011_population():
+    batch_req = PopulationBatchRequest(
+        census_year=2011,
+        geo_codes=sample_dissemination_areas,
+        char_id=1,
+        value=1,
+    )
+    response = client.post(
+        "/api/population_batch",
+        json=batch_req.model_dump(),
+    )
+
+    assert response.status_code == 200
+
+    data = response.json()["data"]
+    boundaries = response.json()["boundaries"]
+
+    assert len(data) > 0
+    assert all("geo_code" in item for item in data)
+    assert all("value" in item for item in data)
+    assert len(boundaries) > 0
+
+
+sample_81_ct = [
+    "9330243.00",
+    "9330235.02",
+    "9330235.01",
+    "9330236.00",
+    "9330242.00",
+    "9330239.00",
+    "9330230.02",
+    "9330225.00",
+]
+
+
+def test_1981_population_no_char_for_geo():
+    """
+    For 1981 census tracts, characteristic id 3 is not valid.
+    Should return a a list of NaN
+    """
+    batch_req = PopulationBatchRequest(
+        census_year=1981,
+        geo_codes=sample_81_ct,
+        char_id=3,
+        value=1,
+    )
+
+    response = client.post(
+        "/api/population_batch",
+        json=batch_req.model_dump(),
+    )
+
+    assert response.status_code == 200
+
+    data = response.json()["data"]
+    boundaries = response.json()["boundaries"]
+
+    assert len(data) > 0
+    assert data[0]["value"] == None
+    assert data[0]["colour"] == [200, 200, 200]
+    assert all("geo_code" in item for item in data)
+    assert all("value" in item for item in data)
+    assert all("value" in item for item in data)
+    assert len(boundaries) == 0
