@@ -1,18 +1,12 @@
 import { useState, useEffect, useMemo } from 'react';
 import styles from '@/components/CensusForm.module.scss';
 import {
-  CENSUS_YEARS,
   SOURCES,
   geoLevelsFor,
   toApiYear
 } from '@/constants/CensusYears.jsx';
-import {
-  getColValue
-} from '@/constants/Columns.jsx';
-import {
-  buildTree,
-  getColourPalette  
-} from '@/constants/DataHelpers.jsx';
+import { getColValue } from '@/constants/Columns.jsx';
+import { buildTree } from '@/constants/DataHelpers.jsx';
 import { getFavicon } from '@/constants/Favicons';
 import CharacteristicNode from '@/components/CharacteristicNode.jsx';
 import { 
@@ -24,6 +18,8 @@ import {
   MIN_COLOURS
 } from '@/constants/DataHelpers.jsx';
 import SearchBar from '@/components/SearchBar.jsx';
+import YearGeoForm from '@/components/YearGeoForm.jsx';
+import ColourControl from '@/components/ColourControl.jsx';
 
 /*
  * `onSelect({ charId, columnId, columnName })` fires when a data button
@@ -79,48 +75,13 @@ const CensusForm = ({
 
   return (
     <div className={styles.censusForm}>
-      <div className={styles.formGroup}>
-        <h1>
-          Canada Census Maps 🇨🇦
-        </h1>
-        <div className='link_to_github'>
-          Check out the Github repository&nbsp;
-          <a
-            href="https://github.com/lemon-mochi/Canada_Census_Maps"
-            target="_blank"
-          >
-            here
-          </a>
-        </div>
-
-        <label htmlFor="census_year">Choose census year:</label>
-        <select 
-          id="census_year" 
-          value={censusYear} 
-          onChange={(e) => setCensusYear(e.target.value)} 
-        >
-          {CENSUS_YEARS.map((year) => (
-            <option key={year} value={year}>
-              {year}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      <div className={styles.formGroup}>
-        <label htmlFor="geo_level">Choose geographic level:</label>
-        <select
-          id="geo_level"
-          value={geoLevel}
-          onChange={(e) => setGeoLevel(e.target.value)}
-        >
-          {geoLevels.map((option) => (
-            <option key={option.value} value={option.value}>
-              {option.label}
-            </option>
-          ))}
-        </select>
-      </div>
+      <YearGeoForm
+        censusYear={censusYear}
+        setCensusYear={setCensusYear}
+        geoLevel={geoLevel}
+        setGeoLevel={setGeoLevel}
+        geoLevels={geoLevels}
+      />
 
       <br></br>
 
@@ -152,73 +113,13 @@ const CensusForm = ({
         </p>
       )}
 
-      <div className={styles.legendSection}>
-        <div className={styles.legendHeader}>
-          <span>Map colours:</span>
-
-          <div className={styles.colourCountControl}>
-            <button
-              type="button"
-              onClick={() => changeColourCount(-1)}
-              disabled={colourCount === MIN_COLOURS}
-              aria-label="Decrease number of colours"
-            >
-              −
-            </button>
-
-            <span>{colourCount}</span>
-
-            <button
-              type="button"
-              onClick={() => changeColourCount(1)}
-              disabled={colourCount === MAX_COLOURS}
-              aria-label="Increase number of colours"
-            >
-              +
-            </button>
-          </div>
-        </div>
-
-        <div className={styles.colourLegend}>
-          {getColourPalette(colourCount).map((colour, index) => (
-            <span
-              key={index}
-              className={styles.legendColour}
-              style={{
-                backgroundColor: `rgb(${colour[0]}, ${colour[1]}, ${colour[2]})`,
-              }}
-            />
-          ))}
-        </div>
-      </div>
-
-      <div className={styles.colourMethodControl}>
-        <label>
-          <input
-            type="radio"
-            name="colourMethod"
-            checked={equalWidth}
-            onChange={() => {
-              setEqualWidth(true);
-              onEqualWidthChange(true);
-            }}
-          />
-          Equal width
-        </label>
-
-        <label>
-          <input
-            type="radio"
-            name="colourMethod"
-            checked={!equalWidth}
-            onChange={() => {
-              setEqualWidth(false);
-              onEqualWidthChange(false);
-            }}
-          />
-          Equal frequency
-        </label>
-      </div>
+      <ColourControl
+        colourCount={colourCount}
+        changeColourCount={changeColourCount}
+        equalWidth={equalWidth}
+        setEqualWidth={setEqualWidth}
+        onEqualWidthChange={onEqualWidthChange}
+      />
 
       <p>
         Currently displaying: <br></br>

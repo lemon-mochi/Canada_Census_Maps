@@ -3,15 +3,8 @@ import { useEffect, useRef } from 'react';
 import { useMap } from 'react-leaflet';
 import { API_URL } from '@/constants/ApiURL.jsx';
 import { toApiYear } from '@/constants/CensusYears.jsx';
-import {
-  getPromoteID,
-  getTileID,
-  NUMBER_VALUE_GEO_LEVELS
-} from '@/constants/TileMappings.jsx';
-import {
-  getGeoCode
-} from '@/constants/GeoMappings.jsx';
-import L from 'leaflet';
+import { getPromoteID } from '@/constants/TileMappings.jsx';
+import { getGeoCode } from '@/constants/GeoMappings.jsx';
 import { maplibreGL } from '@maplibre/maplibre-gl-leaflet';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { buildTileStyle } from '@/constants/buildTileStyle.js';
