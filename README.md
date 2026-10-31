@@ -16,7 +16,7 @@ A note on the reference: The Maple Leaf Forever is a historic Canadian song, and
 
 # File structure #
 ```
-census_maps/     # root directory
+Canada_Census_Maps/     # root directory
 ├── .github/     # contains automated workflows 
 ├── backend/     # contains all backend code
 ├── docs/        # contains documentation about the program
@@ -33,6 +33,15 @@ census_maps/     # root directory
 I attempted to use AWS to deploy this web application. However, using the free tier caused everything to be way too slow. The app was pretty much ususable. I decided that for now, this will be a local only web application. However, I got experience with AWS and cloud development so it was not completely pointless.
 
 # Running Locally #
+Clone the Github repository
+```
+git clone https://github.com/lemon-mochi/Canada_Census_Maps.git
+```
+Enter the repository
+```
+cd Canada_Census_Maps
+```
+
 You can download the files that I created to run this app from my Google Drive.\
 [Parquet Data 1981 - 2021](https://drive.google.com/file/d/1H9ys3eDHWOvqbxRUX2nup5FmI9e1LM-M/view?usp=sharing)\
 Download this and place the extracted `.parquet` files in `backend/parquet_data`.
