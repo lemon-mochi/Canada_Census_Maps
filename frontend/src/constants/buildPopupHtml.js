@@ -1,6 +1,13 @@
 import { getColValue } from '@/constants/Columns.jsx';
 
-export function buildPopupHtml({ promoteId, apiYear, charName, value, actualValue }) {
+
+function getCensusProfile(apiYear, geoCode) {
+    if (apiYear === 2021) {
+        return `https://www12.statcan.gc.ca/census-recensement/2021/dp-pd/prof/details/page.cfm?Lang=E&DGUIDlist=${geoCode}&GENDERlist=1,2,3&STATISTIClist=1,4&HEADERlist=0`;
+    }
+}
+
+export function buildPopupHtml({ geoCode, apiYear, charName, value, actualValue }) {
     const popupHtml = `
         <div style="
             max-height: 200px;
@@ -14,7 +21,7 @@ export function buildPopupHtml({ promoteId, apiYear, charName, value, actualValu
             border-bottom: 1px solid #ccc;
             padding-bottom: 4px;
             ">
-            GeoCode: ${promoteId ?? 'N/A'}
+            GeoCode: ${geoCode ?? 'N/A'}
             </h4>
             <div><strong>Census year:</strong> ${apiYear}</div>
             <div><strong>Characteristic:</strong> ${charName ?? 'N/A'}</div>
@@ -22,6 +29,11 @@ export function buildPopupHtml({ promoteId, apiYear, charName, value, actualValu
             getColValue(apiYear, value) ?? 'nothing here'
             }</div>
             <div><strong>Value:</strong> ${actualValue ?? 'N/A'}</div>
+            <a 
+                href=${getCensusProfile(apiYear, geoCode)}
+                target="_blank">
+                    Source
+            </a>
         </div>
     `;
 

@@ -1,6 +1,7 @@
 import L from 'leaflet';
 import { getPromoteID } from '@/constants/TileMappings.jsx';
 import { buildPopupHtml } from '@/constants/buildPopupHtml.js';
+import { getGeoCode } from '@/constants/GeoMappings.jsx';
 
 export function handleFeatureClick(e, settingsRef, dependencies) {
     const {
@@ -28,13 +29,14 @@ export function handleFeatureClick(e, settingsRef, dependencies) {
 
     const properties = features[0].properties;
     const promoteId = getPromoteID(apiYear, geoLevel);
+    const geoCode = getGeoCode(apiYear, geoLevel, features[0]);
 
     const actualValue = valueCache.current.get(
         String(properties[promoteId]),
     );
 
     const popupHtml = buildPopupHtml({
-        promoteId: properties[promoteId],
+        geoCode: geoCode,
         apiYear,
         charName: settings.charName,
         value: settings.value,
