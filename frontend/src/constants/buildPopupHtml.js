@@ -63,6 +63,42 @@ function getCensusProfile(apiYear, geoCode, geoLevel, charId) {
     } else if (apiYear === 2010) {
         // special case for 2011 NHS DAs
         return "https://borealisdata.ca/file.xhtml?fileId=7750&version=6.3";
+    } else if (apiYear === 2006) {
+        if (geoLevel === "Canada" || geoLevel === "Province") {
+            return `https://www12.statcan.gc.ca/census-recensement/2006/dp-pd/prof/92-591/details/page.cfm?Lang=E&Geo1=PR&Code1=${geoCode}&Geo2=PR&Code2=01&Data=Count&SearchText=Canada&SearchType=Begins&SearchPR=01&B1=All&Custom=`;
+        } else if (geoLevel === "Census division") {
+            return `https://www12.statcan.gc.ca/census-recensement/2006/dp-pd/prof/92-591/details/page.cfm?Lang=E&Geo1=CD&Code1=${geoCode}&Geo2=PR&Code2=01&Data=Count&SearchText=Canada&SearchType=Begins&SearchPR=01&B1=All&Custom=`;
+        } else if (geoLevel === "Census subdivision") {
+            return `https://www12.statcan.gc.ca/census-recensement/2006/dp-pd/prof/92-591/details/page.cfm?Lang=E&Geo1=CSD&Code1=${geoCode}&Geo2=PR&Code2=01&Data=Count&SearchText=Canada&SearchType=Begins&SearchPR=01&B1=All&Custom=`;
+        } else if (geoLevel === "Federal electoral district (2003 Representation Order)") {
+            // does not work
+            return `https://www12.statcan.gc.ca/census-recensement/2006/dp-pd/prof/92-591/details/page.cfm?Lang=E&Geo1=FED&Code1=${geoCode}&Geo2=PR&Code2=01&Data=Count&SearchText=Canada&SearchType=Begins&SearchPR=01&B1=All&Custom=`;
+        } else if (geoLevel === "Census tract") {
+            // does not work
+            return `https://www12.statcan.gc.ca/census-recensement/2006/dp-pd/prof/92-591/details/page.cfm?Lang=E&Geo1=CT&Code1=${geoCode}&Geo2=PR&Code2=01&Data=Count&SearchText=Canada&SearchType=Begins&SearchPR=01&B1=All&Custom=`;
+        } else {
+            // dissemination area
+            // does not work
+            return `https://www12.statcan.gc.ca/census-recensement/2006/dp-pd/prof/92-591/details/page.cfm?Lang=E&Geo1=DA&Code1=${geoCode}&Geo2=PR&Code2=01&Data=Count&SearchText=Canada&SearchType=Begins&SearchPR=01&B1=All&Custom=`;
+        }
+    } else if (apiYear === 2001) {
+        if (geoLevel === "Canada" || geoLevel === "Province") {
+            return `https://www12.statcan.gc.ca/english/profil01/CP01/Details/Page.cfm?Lang=E&Geo1=PR&Code1=${geoCode}&Geo2=PR&Code2=01&Data=Count&SearchText=Canada&SearchType=Begins&SearchPR=01&B1=All&Custom=`;
+        } else if (geoLevel === "Census division") {
+            return `https://www12.statcan.gc.ca/english/profil01/CP01/Details/Page.cfm?Lang=E&Geo1=CD&Code1=${geoCode}&Geo2=PR&Code2=01&Data=Count&SearchText=Canada&SearchType=Begins&SearchPR=01&B1=All&Custom=`;
+        } else if (geoLevel === "Census subdivision") {
+            return `https://www12.statcan.gc.ca/english/profil01/CP01/Details/Page.cfm?Lang=E&Geo1=CSD&Code1=${geoCode}&Geo2=PR&Code2=01&Data=Count&SearchText=Canada&SearchType=Begins&SearchPR=01&B1=All&Custom=`;
+        } else if (geoLevel === "Federal electoral district (1996 Representation Order)") {
+            // does not work
+            return `https://www12.statcan.gc.ca/english/profil01/CP01/Details/Page.cfm?Lang=E&Geo1=FED&Code1=${geoCode}&Geo2=PR&Code2=01&Data=Count&SearchText=Canada&SearchType=Begins&SearchPR=01&B1=All&Custom=`;
+        } else if (geoLevel === "Census tract") {
+            // does not work
+            return `https://www12.statcan.gc.ca/english/profil01/CP01/Details/Page.cfm?Lang=E&Geo1=CT&Code1=${geoCode}&Geo2=PR&Code2=01&Data=Count&SearchText=Canada&SearchType=Begins&SearchPR=01&B1=All&Custom=`;
+        } else {
+            // dissemination area
+            // does not work
+            return `https://www12.statcan.gc.ca/english/profil01/CP01/Details/Page.cfm?Lang=E&Geo1=DA&Code1=${geoCode}&Geo2=PR&Code2=01&Data=Count&SearchText=Canada&SearchType=Begins&SearchPR=01&B1=All&Custom=`;
+        }
     }
 }
 
