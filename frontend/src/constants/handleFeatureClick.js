@@ -41,6 +41,8 @@ export function handleFeatureClick(e, settingsRef, dependencies) {
         charName: settings.charName,
         value: settings.value,
         actualValue,
+        geoLevel: geoLevel,
+        charId: settings.charId
     });
 
     popupRef.current?.remove();
