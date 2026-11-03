@@ -1,0 +1,6 @@
+# Links to source census profile 
+Relevant source file: `frontend/src/constants/buildPopupHtml.js`
+For census tracts, the URL to the census profile for census tracts uses a completely different id system compared to the one used in the vector tile or dataset. From what I have seen, this id system is unique to the census profile, and there is no easy way to map the geocode to this id system. If you would like to view the census profile, you may visit the source link given in the census from on the right, and searching for that census tract.
+The 2006 and 2001 census profiles do not contain the data for any geographic level smaller than a census subdivision. They are only available through datasets which use a different URL naming system. So there is no easy way to link a source to them.
+For 1996, 1991, 1986, and 1981 censuses, the problem of everything being through a dataset exists for all geographic levels.
+You will have to search the dataset to find the data for the geography that you would like to see.
