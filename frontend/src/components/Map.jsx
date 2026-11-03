@@ -2,7 +2,6 @@ import { useEffect, useRef } from 'react';
 import { MapContainer, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import 'maplibre-gl/dist/maplibre-gl.css';
-
 import * as maplibregl from 'maplibre-gl';
 import { Protocol } from 'pmtiles';
 import { maplibreGL } from '@maplibre/maplibre-gl-leaflet';
@@ -10,6 +9,7 @@ import maplibreWorker from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url';
 import styles from '@/components/Map.module.scss';
 import CensusTiles from '@/components/CensusTiles.jsx';
 import Legend from '@/components/Legend.jsx';
+import LocationSearch from '@/components/LocationSearch.jsx';
 
 
 maplibregl.setWorkerUrl(maplibreWorker);
@@ -68,6 +68,8 @@ export default function CensusMap({
       className={styles.mapBox}
     >
       <OpenFreeMapLayer />
+
+      <LocationSearch />
 
       <CensusTiles
         censusYear={censusYear}
