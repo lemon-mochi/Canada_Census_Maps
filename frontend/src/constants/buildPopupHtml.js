@@ -93,8 +93,8 @@ function getCensusProfile(apiYear, geoCode, geoLevel, charId) {
             // dissemination area
             return null;
         }
-    } else if (apiYear === 1996) {
-        
+    } else {
+        return null;
     }
 }
 
