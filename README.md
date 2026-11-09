@@ -34,11 +34,11 @@ I attempted to use AWS to deploy this web application. However, using the free t
 
 # Running Locally #
 Clone the Github repository
-```
+```bash
 git clone https://github.com/lemon-mochi/Canada_Census_Maps.git
 ```
 Enter the repository
-```
+```bash
 cd Canada_Census_Maps
 ```
 
@@ -71,25 +71,25 @@ pip install -r requirements.txt
 ```
 
 ## Setting up pre-commit hooks ##
-```
+```bash
 pre-commit install
 ```
 
 # Running test cases #
 The test cases are in `backend/tests/`. To run them, use
-```
+```bash
 python -m pytest
 ```
 in the `backend/` directory.
 
 # Running the backend #
 To run the backend server,
-```
+```bash
 uvicorn main:app --reload
 ```
 
 # Running the frontend #
-```
+```bash
 npm install
 npm run dev # for running locally
 ```
