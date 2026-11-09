@@ -9,7 +9,7 @@ For 2011 and every earlier census, there is no id for the characteristics given.
 
 ## 2011 .csv columns
 The input files for 2011 census data was inconsistent. Some files had an extra line at the top while others started with the column headers. Although each file had a different number of columns, I was able to invesestigate and find the pattern needed to extract the columns needed for the `.parquet` file. The following code block shows these problems and the solution.
-```
+```python
 # sometimes, there is an extra row at the top
 df = pd.read_csv(f, nrows=1, header=None, encoding='latin1')
 top_left_value = df.iat[0, 0]
@@ -99,14 +99,14 @@ This program needs to match the geographic information from the database to the 
 
 ## 1991 census tracts
 1991 census tracts was a special case. I had to reconstruct the code using the 'CA', 'PROV', and 'CT_CODE' features. This was a problem. The source `.geojson` for 1991 census tracts came in two separate files. The `l91ctpct_geojson` file contained the 'CA', 'PROV' and 'CT_CODE'. However, the `l91ct_geojson` file contained the 'CA_CTNAME' feature which is needed to uniquely identify each census tract. This means I would have to use both files. So, I wrote a python script, `backend/geographies/merge_split_geojson.py` to merge the two `geojson` files for 1991 census tracts. Then, another problem arose. For core cities of metropolitan areas (like Toronto, Vancouver, Montreal, etc.), the 'CT_NAME' always begins with a '0'. In the `l91ct_geojson` file, there was always a leading 0. In the `l91ctpct_geojson` file, there was never a leading zero. For example, in Vancouver, the 'CT_NAME' could be '052.00' and '52.00'. So, in order to merge them properly I had to add a function to pad leading zeros.
-```
+```python
 def normalize_ct_name(series):
     return series.astype(str).str.zfill(6)
 ```
 
 ## 2006-1996 census tracts and dissemination areas geographic mappings
 The feature in the vector tiles that uniquely identifies the census tract in 2006, 2001, and 1996 is the 'CTUid'. This is not anywhere in the source `.XML` files. I was able to find a way to map the information in the `.XML` files to the vector tiles. The first three characters of the `GEO_CODE` specific the census metropolitan area (CMA). The 'CTUID' is the same as those three characters + 'GEO_NAME'. This is the relevant code in the first jupyter notebook that demonstrates this.
-```
+```python
 if (
     # 1996 census tracts
     structure_name == "Structure_95F0183XDB.xml" or
@@ -132,7 +132,7 @@ if (
 ```
 For dissemination areas, the feature of the vector tile that uniquely identifies is the 'DAUID'. This is the same as the 'GEO_NAME' in the backend.
 In the frontend, I decided it would be simpler to store the mapping in memory. I wrote an endpoint that gets the mappings from the backend.
-```
+```javascript
 async function get_geo_mappings(apiYear, geoLevel) {
     try {
         const response = await fetch(
@@ -162,7 +162,7 @@ export async function loadGeoMappings() {
 }
 ```
 For these special cases where the features of the vector tile do not match perfectly with the code in the databae, I decided to store the relationship so that when I convert back into a code that the vector tiles can understand.
-```
+```javascript
 // this will track how geo codes map to tile ids.
 const geoToTile = new Map();
 
@@ -173,7 +173,7 @@ export function getGeoToTile() {
 
 # Vector tile features formats
 Most of the vector tile features were stored as strings. However, some were stored as numbers. Since both appear identical on [pmtiles.io](https://pmtiles.io), there was no way of knowing which to use for each geographic level without brute forcing through everything. The following code block shows the cases for each census year when the feature is a number and not a string
-```
+```javascript
 // -----------------------------------------------------------------------------------------------------
 // IMPORTANT: There are certain cases where the geoCode in the vector tile is a number and not a string.
 // the following unordered set keeps track of such cases.
