@@ -55,11 +55,11 @@ Read [Setup.md](Setup.md) for instructions on gathering the files needed to run 
 ## Setting up virtual Python environment ##
 I used `Python3.12` and `Python3.14` for this project. When I tried on `Python3.10`, I was not able to install all the libraries.
 Make sure you are in the `backend` directory first
-```
+```bash
 cd backend/
 ```
 Enter the following in the terminal:
-```
+```bash
 # 1. Create the virtual environment (named 'venv')
 python3 -m venv venv
 
