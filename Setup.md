@@ -6,11 +6,11 @@ However, this is somewhat complicated as there are multiple steps that must be f
 ## Setting up virtual Python environment ##
 I used `Python3.12` and `Python3.14` for this project. When I tried on `Python3.10`, I was not able to install all the libraries.
 Make sure you are in the `backend` directory first
-```
+```bash
 cd backend/
 ```
 Enter the following in the terminal:
-```
+```bash
 # 1. Create the virtual environment (named 'venv')
 python3 -m venv venv
 
@@ -124,21 +124,21 @@ For simplicity, you should place the 1981 census tracts `.geojson` into the dire
 After extracting the `.zip` file, you will see a `MANIFEST.txt` file, and a directory called `Data`. Place both of them into the `backend/geographies/1981-2001_geojson/{census_year}` directory, where `{census_year}` matches the census year of the downloaded file.
 
 1991 Census tracts came in two files. Both files are needed to work with the frontend. I have written a Python program to merge the two files and their vector tiles together. Run the `merge_split_geojson.py` file to merge needed `.geojson` files together.
-```
+```bash
 python3 merge_split_geojson.py
 ```
 Optional: you can now delete the directories for 1991 census tracts. If you decide not to delete these files, the bash file will create extra unused vector tiles (more information about bash file in the following sections).
 
 ### Converting .shp files to .geojson ###
 To create the `.geojson` files needed to run the application, run the `create_geojson_files.py` program. This will run through all the directories in the `boundaries/` directory and create `.geojson` files in the `backend/geographies/geojson` directory. This will take a few minutes to run.
-```
+```bash
 cd geographies
 python3 create_geojson_files.py
 ```
 
 ### Creating .geojson files for Canada ###
 To create the `.geojson` files for Canada as a whole, you will have to run the Python script that merges the provinces into one. This is what the `create_geojson_for_Canada.py` file in `backend/geographies` does. This file takes a while to run completely.
-```
+```bash
 python3 create_geojson_for_Canada.py
 ```
 This will place the `.geojson` files in the directory with the other `.geojson` files.
@@ -146,19 +146,19 @@ This will place the `.geojson` files in the directory with the other `.geojson` 
 ### Implement Vector Tiles ###
 
 The boundaries for the census subdivions, census tracts, and dissemination areas are very small. The program cannot handle all of them. To deal with this, you will have to use vector tiles. This uses `tippecanoe`, which will need to be installed.
-```
+```bash
 git clone https://github.com/felt/tippecanoe.git
 cd tippecanoe
 make -j
 sudo make install
 ```
 Make sure the `convert_boundaries.sh` file is executable.
-```
+```bash
 chmod +x convert_boundaries.sh
 ```
 
 Then, run the `convert_boundaries.sh` file in the `backend/geographies` directory to convert all the `.geojson` files into the vector tiles. This will take a few minutes.
-```
+```bash
 ./convert_boundaries.sh
 ```
 
@@ -281,7 +281,7 @@ Alternatively, you can download the original `.IVT` files.
 For both jupyter notebooks, use the `.venv` virtual enviroment you created earlier.
 Parquet files are a compressed data format better for high-performance analytics. For this project, it is necessary to convert the `.csv` files into Parquet files for faster retrieval.
 Run the `create_parquet_files.ipynb` notebook to create the needed Parquet files. Running this program will create the `temp_parquet_data/` directory within `backend/`. This wil take a few minutes. Also, you may need to install `7z` to run the notebook.
-```
+```bash
 sudo apt install p7zip-full
 ```
 
@@ -290,19 +290,19 @@ This will create the `parquet_data/` directory. This is the directory the server
 
 # Running test cases #
 The test cases are in `backend/tests/`. To run them, use
-```
+```bash
 python -m pytest
 ```
 in the `backend/` directory.
 
 # Running the backend #
 To run the backend server,
-```
+```bash
 uvicorn main:app --reload
 ```
 
 # Running the frontend #
-```
+```bash
 npm install
 npm run dev # for running locally
 ```
