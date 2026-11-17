@@ -1,4 +1,4 @@
-import { getColValue } from '@/constants/Columns.js';
+import { getColValue } from '@/utils/getColValue.js';
 
 
 function getCensusProfile(apiYear, geoCode, geoLevel, charId) {

@@ -1,5 +1,5 @@
 import styles from '@/components/SearchBar.module.scss';
-import { updateSearchQuery } from '@/constants/updateSearchQuery.js';
+import { updateSearchQuery } from '@/utils/updateSearchQuery.js';
 
 const SearchBar = ({ value, setSearchQuery }) => {
   return (

@@ -1,7 +1,5 @@
-import {
-  getTileID,
-  NUMBER_VALUE_GEO_LEVELS
-} from '@/constants/TileMappings.js';
+import { NUMBER_VALUE_GEO_LEVELS } from '@/constants/TileMappings.js';
+import { getTileID } from '@/utils/TileMappings.js';
 import { API_URL } from '@/constants/ApiURL.js';
 
 // Fetch and apply values to the currently visible features.

@@ -1,5 +1,5 @@
 import styles from '@/components/ColourControl.module.scss';
-import { getColourPalette } from '@/constants/DataHelpers.js';
+import { getColourPalette } from '@/utils/getColourPalette.js';
 import {
   MAX_COLOURS,
   MIN_COLOURS

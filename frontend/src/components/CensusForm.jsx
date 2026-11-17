@@ -5,14 +5,14 @@ import {
   geoLevelsFor,
   toApiYear
 } from '@/constants/CensusYears.js';
-import { getColValue } from '@/constants/Columns.js';
+import { getColValue } from '@/utils/getColValue.js';
 import { buildTree } from '@/constants/DataHelpers.js';
-import { getFavicon } from '@/constants/Favicons';
+import { getFavicon } from '@/utils/Favicons.js';
 import CharacteristicNode from '@/components/CharacteristicNode.jsx';
 import { 
   useCharacteristics,
   filterTree
-} from '@/constants/useCharacteristics.js';
+} from '@/utils/useCharacteristics.js';
 import {
   MAX_COLOURS,
   MIN_COLOURS

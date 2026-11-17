@@ -17,7 +17,7 @@ export const COLUMN_LABELS = {
   RATE_FEMALE: 'R_F',
 };
 
-const VALUE_LEGACY = {
+export const VALUE_LEGACY = {
   1: 'COUNT_TOTAL',
   2: 'COUNT_MALE',   // stalwart sons
   3: 'COUNT_FEMALE', // gentle maidens
@@ -26,19 +26,11 @@ const VALUE_LEGACY = {
   6: 'RATE_FEMALE'
 };
 
-const VALUE_NEW = {
+export const VALUE_NEW = {
   1: 'C1_COUNT_TOTAL',
   2: 'C2_COUNT_MEN+',
   3: 'C3_COUNT_WOMEN+',
   4: 'C10_RATE_TOTAL',
   5: 'C11_RATE_MEN+',
   6: 'C12_RATE_WOMEN+'
-}
-
-export function getColValue(apiYear, columnID) {
-  if (apiYear >= 2021) {
-    return VALUE_NEW[columnID];
-  } else {
-    return VALUE_LEGACY[columnID];
-  }
 }

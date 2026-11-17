@@ -3,13 +3,13 @@ import { useEffect, useRef } from 'react';
 import { useMap } from 'react-leaflet';
 import { API_URL } from '@/constants/ApiURL.js';
 import { toApiYear } from '@/constants/CensusYears.js';
-import { getPromoteID } from '@/constants/TileMappings.js';
-import { getGeoCode } from '@/constants/GeoMappings.js';
+import { getPromoteID } from '@/utils/TileMappings.js';
+import { getGeoCode } from '@/utils/GeoMappings.js';
 import { maplibreGL } from '@maplibre/maplibre-gl-leaflet';
 import 'maplibre-gl/dist/maplibre-gl.css';
-import { buildTileStyle } from '@/constants/buildTileStyle.js';
-import { fetchColourExpression } from '@/constants/fetchColourExpression.js';
-import { handleFeatureClick } from '@/constants/handleFeatureClick.js';
+import { buildTileStyle } from '@/utils/buildTileStyle.js';
+import { fetchColourExpression } from '@/utils/fetchColourExpression.js';
+import { handleFeatureClick } from '@/utils/handleFeatureClick.js';
 
 export default function CensusTiles({
   censusYear,
