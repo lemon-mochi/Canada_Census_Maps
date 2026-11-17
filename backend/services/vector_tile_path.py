@@ -1,7 +1,6 @@
 from pathlib import Path
 
 from fastapi import HTTPException
-import duckdb
 
 from config import TILES_DIR
 
@@ -174,23 +173,3 @@ def vector_tile_path(census_year: int, geo_level: str) -> Path:
         status_code=404,
         detail=f"No vector tiles available for {census_year} / {geo_level}",
     )
-
-
-def geo_mappings(db, path: str, geo_level: str):
-
-    if geo_level == "Census tract":
-        query = """
-            SELECT CTUID AS TILE_CODE, GEO_CODE
-            FROM read_parquet(?)
-            WHERE CTUID IS NOT NULL
-        """
-    else:
-        query = """
-            SELECT GEO_NAME AS TILE_CODE, GEO_CODE
-            FROM read_parquet(?)
-            WHERE LENGTH(GEO_CODE) = 11
-        """
-
-    rows = db.execute(query, [str(path)]).fetchall()
-
-    return {str(tile_id): str(geo_code) for tile_id, geo_code in rows}

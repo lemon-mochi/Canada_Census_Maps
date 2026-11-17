@@ -1,7 +1,8 @@
 from fastapi import APIRouter, HTTPException, Depends
 
 from models import GeoLevel, Tiles
-from services.vector_tiles import vector_tile_path, geo_mappings
+from services.vector_tile_path import vector_tile_path
+from services.geo_mappings import geo_mappings
 from pathlib import Path
 from database import get_db
 

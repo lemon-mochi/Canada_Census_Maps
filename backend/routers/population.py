@@ -6,12 +6,8 @@ from config import GEO_TABLE, MAIN_TABLE, NHS_DA_YEAR
 from database import get_db
 from models import GeoLevel, PopulationValue, PopulationBatchRequest
 from services.census_constants import year_files
-from services.population import (
-    legacy_value,
-    stored_value,
-    two_sex_value,
-    get_pop_and_colour,
-)
+from services.population_helpers import legacy_value, two_sex_value, stored_value
+from services.population import get_pop_and_colour
 
 router = APIRouter()
 
