@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { API_URL } from '@/constants/ApiURL.jsx';
+import { API_URL } from '@/constants/ApiURL.js';
 
 // Characteristics are static per year, so cache them for the session.
 const characteristicsCache = new Map();

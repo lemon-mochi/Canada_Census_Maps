@@ -1,12 +1,12 @@
-import { API_URL } from "@/constants/ApiURL.jsx";
+import { API_URL } from "@/constants/ApiURL.js";
 import { 
     geoCodeIDs81,
     geoCodeIDs86,
     geoCodeIDs91,
     geoCodeIDs96,
     geoCodeIDs_01_16
-} from "@/constants/GeoCodeIDs.jsx";
-import { cleanCT1991 } from "@/constants/GeoCodeIDs.jsx";
+} from "@/constants/GeoCodeIDs.js";
+import { cleanCT1991 } from "@/constants/GeoCodeIDs.js";
 
 async function get_geo_mappings(apiYear, geoLevel) {
     try {

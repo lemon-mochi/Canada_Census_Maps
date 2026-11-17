@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import CensusMap from './components/Map.jsx';
 import CensusForm from './components/CensusForm.jsx';
 import './styles/globals.scss';
-import { geoLevelsFor } from './constants/CensusYears.jsx';
-import { loadGeoMappings } from './constants/GeoMappings.jsx'
+import { geoLevelsFor } from './constants/CensusYears.js';
+import { loadGeoMappings } from './constants/GeoMappings.js'
 
 function App() {
   useEffect(() => {

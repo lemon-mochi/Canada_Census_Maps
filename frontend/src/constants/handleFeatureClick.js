@@ -1,7 +1,7 @@
 import L from 'leaflet';
-import { getPromoteID } from '@/constants/TileMappings.jsx';
+import { getPromoteID } from '@/constants/TileMappings.js';
 import { buildPopupHtml } from '@/constants/buildPopupHtml.js';
-import { getGeoCode } from '@/constants/GeoMappings.jsx';
+import { getGeoCode } from '@/constants/GeoMappings.js';
 
 export function handleFeatureClick(e, settingsRef, dependencies) {
     const {

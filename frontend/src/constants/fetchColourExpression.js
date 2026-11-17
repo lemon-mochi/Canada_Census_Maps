@@ -1,8 +1,8 @@
 import {
   getTileID,
   NUMBER_VALUE_GEO_LEVELS
-} from '@/constants/TileMappings.jsx';
-import { API_URL } from '@/constants/ApiURL.jsx';
+} from '@/constants/TileMappings.js';
+import { API_URL } from '@/constants/ApiURL.js';
 
 // Fetch and apply values to the currently visible features.
 export async function fetchColourExpression({

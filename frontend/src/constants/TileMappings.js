@@ -4,8 +4,8 @@ import {
     geoCodeIDs91,
     geoCodeIDs96,
     geoCodeIDs_01_16
-} from "@/constants/GeoCodeIDs.jsx";
-import { getGeoToTile } from "@/constants/GeoMappings.jsx";
+} from "@/constants/GeoCodeIDs.js";
+import { getGeoToTile } from "@/constants/GeoMappings.js";
 
 // -----------------------------------------------------------------------------------------------------
 // IMPORTANT: There are certain cases where the geoCode in the vector tile is a number and not a string.
