@@ -7,9 +7,9 @@ import { Protocol } from 'pmtiles';
 import { maplibreGL } from '@maplibre/maplibre-gl-leaflet';
 import maplibreWorker from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url';
 import styles from '@/components/Map.module.scss';
-import CensusTiles from '@/components/CensusTiles.jsx';
-import Legend from '@/components/Legend.jsx';
-import LocationSearch from '@/components/LocationSearch.jsx';
+import CensusTiles from '@/components/CensusTiles.js';
+import Legend from '@/components/Legend.js';
+import LocationSearch from '@/components/LocationSearch.js';
 
 
 maplibregl.setWorkerUrl(maplibreWorker);

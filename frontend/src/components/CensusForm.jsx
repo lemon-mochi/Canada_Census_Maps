@@ -5,10 +5,10 @@ import {
   geoLevelsFor,
   toApiYear
 } from '@/constants/CensusYears.jsx';
-import { getColValue } from '@/constants/Columns.jsx';
-import { buildTree } from '@/constants/DataHelpers.jsx';
+import { getColValue } from '@/constants/Columns.js';
+import { buildTree } from '@/constants/DataHelpers.js';
 import { getFavicon } from '@/constants/Favicons';
-import CharacteristicNode from '@/components/CharacteristicNode.jsx';
+import CharacteristicNode from '@/components/CharacteristicNode.js';
 import { 
   useCharacteristics,
   filterTree
@@ -17,9 +17,9 @@ import {
   MAX_COLOURS,
   MIN_COLOURS
 } from '@/constants/DataHelpers.jsx';
-import SearchBar from '@/components/SearchBar.jsx';
-import YearGeoForm from '@/components/YearGeoForm.jsx';
-import ColourControl from '@/components/ColourControl.jsx';
+import SearchBar from '@/components/SearchBar.js';
+import YearGeoForm from '@/components/YearGeoForm.js';
+import ColourControl from '@/components/ColourControl.js';
 
 /*
  * `onSelect({ charId, columnId, columnName })` fires when a data button

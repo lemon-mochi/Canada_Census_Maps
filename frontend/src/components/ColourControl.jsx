@@ -1,9 +1,9 @@
 import styles from '@/components/ColourControl.module.scss';
-import { getColourPalette } from '@/constants/DataHelpers.jsx';
+import { getColourPalette } from '@/constants/DataHelpers.js';
 import {
   MAX_COLOURS,
   MIN_COLOURS
-} from '@/constants/DataHelpers.jsx';
+} from '@/constants/DataHelpers.js';
 
 const ColourControl = ({
     colourCount,

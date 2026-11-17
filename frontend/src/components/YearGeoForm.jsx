@@ -1,7 +1,7 @@
 import styles from '@/components/YearGeoForm.module.scss';
 import {
   CENSUS_YEARS
-} from '@/constants/CensusYears.jsx';
+} from '@/constants/CensusYears.js';
 
 const YearGeoForm = ({
     censusYear,

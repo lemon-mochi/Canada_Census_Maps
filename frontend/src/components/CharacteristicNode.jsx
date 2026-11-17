@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import styles from '@/components/CharacteristicNode.module.scss';
-import { COLUMN_LABELS } from '@/constants/Columns.jsx';
+import { COLUMN_LABELS } from '@/constants/Columns.js';
 
 const CharacteristicNode = ({ node, onSelect, searching = false }) => {
   const [expanded, setExpanded] = useState(false);

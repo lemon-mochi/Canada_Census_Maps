@@ -1,10 +1,10 @@
 
 import { useEffect, useRef } from 'react';
 import { useMap } from 'react-leaflet';
-import { API_URL } from '@/constants/ApiURL.jsx';
-import { toApiYear } from '@/constants/CensusYears.jsx';
-import { getPromoteID } from '@/constants/TileMappings.jsx';
-import { getGeoCode } from '@/constants/GeoMappings.jsx';
+import { API_URL } from '@/constants/ApiURL.js';
+import { toApiYear } from '@/constants/CensusYears.js';
+import { getPromoteID } from '@/constants/TileMappings.js';
+import { getGeoCode } from '@/constants/GeoMappings.js';
 import { maplibreGL } from '@maplibre/maplibre-gl-leaflet';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { buildTileStyle } from '@/constants/buildTileStyle.js';
