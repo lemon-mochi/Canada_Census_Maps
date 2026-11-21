@@ -8,7 +8,7 @@ function getCensusProfile(apiYear, geoCode, geoLevel, charId) {
         // for 2016 the geographic level matters
         if (geoLevel === "Canada" || geoLevel === "Province") {
             // 2 is for Canada and Provinces/Territories
-            // Statcan treats Canada as a province for some reason. That is why there 
+            // Statcan treats Canada as a province for some reason. That is why there is a PR there.
             return `https://www12.statcan.gc.ca/census-recensement/2016/dp-pd/prof/details/page.cfm?Lang=E&Geo1=PR&Code1=${geoCode}&B1=All&TABID=3&type=0`;  
         } else if (geoLevel === "Census division") {
             // census divisions
